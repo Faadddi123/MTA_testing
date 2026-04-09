@@ -200,7 +200,13 @@ addCommandHandler("exitpreview", function(player)
         outputChatBox("[Preview] You are not in preview mode.", player, 255, 150, 50, true)
         return
     end
-    triggerEvent("hm:exitPreview", player)
+
+    setElementInterior(player, ret.interior)
+    setElementDimension(player, ret.dimension)
+    setElementPosition(player, ret.x, ret.y, ret.z)
+    previewReturn[player] = nil
+
+    outputChatBox("[Preview] Returned to your original position.", player, 120, 255, 120, true)
 end)
 
 -- Clean up if player quits during preview
