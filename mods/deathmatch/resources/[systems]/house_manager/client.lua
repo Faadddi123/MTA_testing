@@ -71,10 +71,11 @@ local function buildPanel()
     guiGridListAddColumn(propList, "Lock",  55  / gw)
 
     -- action buttons
-    local btnTeleport = guiCreateButton(  4, 372, 110, 26, "Go There",  false, tabList)
-    local btnEdit     = guiCreateButton(120, 372, 110, 26, "Edit",      false, tabList)
-    local btnDelete   = guiCreateButton(236, 372, 110, 26, "Delete",    false, tabList)
-    local btnRefresh  = guiCreateButton(352, 372, 110, 26, "Refresh",   false, tabList)
+    local btnTeleport = guiCreateButton(  4, 372, 85, 26, "Go There",    false, tabList)
+    local btnTeleInt  = guiCreateButton( 93, 372, 85, 26, "Go Interior", false, tabList)
+    local btnEdit     = guiCreateButton(182, 372, 85, 26, "Edit",        false, tabList)
+    local btnDelete   = guiCreateButton(271, 372, 85, 26, "Delete",      false, tabList)
+    local btnRefresh  = guiCreateButton(360, 372, 85, 26, "Refresh",     false, tabList)
 
     lblStatus = guiCreateLabel(4, 404, W - 30, 18, "", false, tabList)
     guiLabelSetColor(lblStatus, 100, 230, 100)
@@ -194,6 +195,16 @@ local function buildPanel()
         end
         local id = tonumber(guiGridListGetItemText(propList, sel, 1))
         if id then triggerServerEvent("hm:requestTeleport", localPlayer, id) end
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnTeleInt, function()
+        local sel = guiGridListGetSelectedItem(propList)
+        if sel < 0 then
+            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
+            return
+        end
+        local id = tonumber(guiGridListGetItemText(propList, sel, 1))
+        if id then triggerServerEvent("hm:requestTeleportInterior", localPlayer, id) end
     end, false)
 
     addEventHandler("onClientGUIClick", btnEdit, function()

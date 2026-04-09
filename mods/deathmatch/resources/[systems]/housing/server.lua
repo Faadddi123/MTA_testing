@@ -316,6 +316,9 @@ local entryMarkers    = {}   -- marker element → house id  (exterior, yellow)
 local exitMarkers     = {}   -- marker element → house id  (interior, orange)
 local houseBlips      = {}   -- blip element   → house id
 
+local previewTimers   = {}   -- player → preview expiration timer
+local previewData     = {}   -- player → return location data
+
 -- ───────────────────────────────────────────────────────────────
 -- HELPERS
 -- ───────────────────────────────────────────────────────────────
@@ -446,42 +449,51 @@ local function loadHouses()
 
     for _, row in ipairs(centralQuery("SELECT * FROM houses ORDER BY id ASC")) do
         local houseId = tonumber(row.id)
-        houses[houseId] = {
-            id            = houseId,
-            name          = row.name,
-            property_type = row.property_type or "house",
-            price         = math.floor(tonumber(row.price) or 0),
-            owner_key     = row.owner_key,
-            owner_account = row.owner_account,
-            locked        = tonumber(row.locked) ~= 0,
-            exterior = {
-                x        = tonumber(row.exterior_x) or 0,
-                y        = tonumber(row.exterior_y) or 0,
-                z        = tonumber(row.exterior_z) or 0,
-                rotation = tonumber(row.exterior_rot) or 0,
-                interior = tonumber(row.exterior_interior) or 0,
-            },
-            interior = {
-                x        = tonumber(row.interior_x) or 0,
-                y        = tonumber(row.interior_y) or 0,
-                z        = tonumber(row.interior_z) or 0,
-                rotation = tonumber(row.interior_rot) or 0,
-                interior = tonumber(row.interior_id) or 0,
-            },
-            dimension = tonumber(row.dimension) or 0,
-            garage = {
-                x      = tonumber(row.garage_x) or 0,
-                y      = tonumber(row.garage_y) or 0,
-                z      = tonumber(row.garage_z) or 0,
-                radius = tonumber(row.garage_radius) or 8,
-            },
-            garage_int = {
-                x        = tonumber(row.garage_int_x) or 0,
-                y        = tonumber(row.garage_int_y) or 0,
-                z        = tonumber(row.garage_int_z) or 0,
-                rotation = tonumber(row.garage_int_rot) or 0,
-            },
-        }
+        local ex = tonumber(row.exterior_x) or 0
+        local ey = tonumber(row.exterior_y) or 0
+        
+        -- Prevent ghost markers: skip loading orphaned coordinates (0, 0, 0)
+        local hasOwner = row.owner_key and row.owner_key ~= ""
+        if ex == 0 and ey == 0 and not hasOwner then
+            -- We safely ignore this ghost property frame
+        else
+            houses[houseId] = {
+                id            = houseId,
+                name          = row.name,
+                property_type = row.property_type or "house",
+                price         = math.floor(tonumber(row.price) or 0),
+                owner_key     = row.owner_key,
+                owner_account = row.owner_account,
+                locked        = tonumber(row.locked) ~= 0,
+                exterior = {
+                    x        = ex,
+                    y        = ey,
+                    z        = tonumber(row.exterior_z) or 0,
+                    rotation = tonumber(row.exterior_rot) or 0,
+                    interior = tonumber(row.exterior_interior) or 0,
+                },
+                interior = {
+                    x        = tonumber(row.interior_x) or 0,
+                    y        = tonumber(row.interior_y) or 0,
+                    z        = tonumber(row.interior_z) or 0,
+                    rotation = tonumber(row.interior_rot) or 0,
+                    interior = tonumber(row.interior_id) or 0,
+                },
+                dimension = tonumber(row.dimension) or 0,
+                garage = {
+                    x      = tonumber(row.garage_x) or 0,
+                    y      = tonumber(row.garage_y) or 0,
+                    z      = tonumber(row.garage_z) or 0,
+                    radius = tonumber(row.garage_radius) or 8,
+                },
+                garage_int = {
+                    x        = tonumber(row.garage_int_x) or 0,
+                    y        = tonumber(row.garage_int_y) or 0,
+                    z        = tonumber(row.garage_int_z) or 0,
+                    rotation = tonumber(row.garage_int_rot) or 0,
+                },
+            }
+        end
     end
 end
 
@@ -691,6 +703,7 @@ local function buildHousePopupPayload(player, house)
 end
 
 local function showHousePopupForPlayer(player, house)
+    if previewData[player] then return end -- Hide popup if previewing
     triggerClientEvent(player, "rp_ui:showHousePopup", root, buildHousePopupPayload(player, house))
 end
 
@@ -712,6 +725,70 @@ local function movePlayerOutOfHouse(player, house)
     setPedRotation(player, house.exterior.rotation)
     local label = house.property_type == "apartment" and "apartment" or "house"
     outputChatBox("Housing: exited " .. house.name .. " (" .. label .. ").", player, 120, 255, 120, true)
+end
+
+-- ───────────────────────────────────────────────────────────────
+-- PREVIEW LOGIC
+-- ───────────────────────────────────────────────────────────────
+local function cleanUpPreview(player, warpBack)
+    if isTimer(previewTimers[player]) then
+        killTimer(previewTimers[player])
+    end
+    previewTimers[player] = nil
+
+    if warpBack and previewData[player] then
+        fadeCamera(player, false, 1.0)
+        local data = previewData[player]
+        setTimer(function()
+            if not isElement(player) then return end
+            setElementInterior(player, data.int)
+            setElementDimension(player, data.dim)
+            setElementPosition(player, data.x, data.y, data.z)
+            setPedRotation(player, data.rot)
+            fadeCamera(player, true, 1.0)
+            outputChatBox("Housing: Preview ended.", player, 255, 180, 100, true)
+        end, 1000, 1)
+    end
+    previewData[player] = nil
+end
+
+local function beginHousePreview(player, house)
+    if previewData[player] then
+        outputChatBox("Housing: You are already in preview mode.", player, 255, 80, 80, true)
+        return
+    end
+
+    if house.owner_key and house.owner_key ~= "" then
+        outputChatBox("Housing: You can only preview unowned houses.", player, 255, 80, 80, true)
+        return
+    end
+
+    hideHousePopupForPlayer(player)
+    
+    local ex, ey, ez = getElementPosition(player)
+    previewData[player] = {
+        houseId = house.id,
+        x = ex, y = ey, z = ez,
+        int = getElementInterior(player),
+        dim = getElementDimension(player),
+        rot = getPedRotation(player)
+    }
+
+    local previewDimension = 90000 + math.random(1, 9999)
+
+    fadeCamera(player, false, 1.0)
+    setTimer(function()
+        if not isElement(player) then return end
+        setElementInterior(player, house.interior.interior)
+        setElementDimension(player, previewDimension)
+        setElementPosition(player, house.interior.x, house.interior.y, house.interior.z)
+        setPedRotation(player, house.interior.rotation)
+        fadeCamera(player, true, 1.0)
+        
+        outputChatBox("Housing: Previewing " .. house.name .. " for 60 seconds.", player, 120, 255, 255, true)
+        
+        previewTimers[player] = setTimer(cleanUpPreview, 60000, 1, player, true)
+    end, 1000, 1)
 end
 
 local function showHouseInfo(player, house)
@@ -826,6 +903,11 @@ local function tryEnterHouse(player, house)
 end
 
 local function tryBuyHouse(player, house)
+    if previewData[player] then
+        outputChatBox("Housing: you cannot buy properties while previewing.", player, 255, 80, 80, true)
+        return false
+    end
+
     if not house then
         outputChatBox("Housing: stand near a property pickup first.", player, 255, 80, 80, true)
         return false
@@ -872,6 +954,8 @@ local function tryBuyHouse(player, house)
 end
 
 local function tryToggleHouseLock(player, house)
+    if previewData[player] then return false end
+
     if not house or not isHouseOwner(player, house) then
         outputChatBox("Housing: you must be at your property to lock/unlock.", player, 255, 80, 80, true)
         return false
@@ -1026,6 +1110,7 @@ addCommandHandler("lockhouse", function(player)
 end)
 
 addCommandHandler("myproperties", function(player)
+    if previewData[player] then return end
     local ownerKey = getAccountOwnerKey(player)
     if not ownerKey then
         outputChatBox("Housing: you are not logged in.", player, 255, 80, 80, true)
@@ -1044,6 +1129,15 @@ addCommandHandler("myproperties", function(player)
     else
         outputChatBox("Housing: your properties: " .. table.concat(owned, " | "), player, 120, 255, 120, true)
     end
+end)
+
+addCommandHandler("previewhouse", function(player)
+    local house = getNearbyExteriorHouse(player, 4)
+    if not house then
+        outputChatBox("Housing: you must be at an unowned property to preview it.", player, 255, 80, 80, true)
+        return
+    end
+    beginHousePreview(player, house)
 end)
 
 -- ───────────────────────────────────────────────────────────────
@@ -1068,7 +1162,7 @@ addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimens
     local entryHouseId = entryMarkers[source]
     if entryHouseId then
         local house = houses[entryHouseId]
-        if house then
+        if house and not previewData[player] then
             showHousePopupForPlayer(player, house)
             showHouseInfo(player, house)
         end
@@ -1079,10 +1173,16 @@ addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimens
     local exitHouseId = exitMarkers[source]
     if exitHouseId then
         local house = houses[exitHouseId]
-        if house then
+        if previewData[player] and previewData[player].houseId == exitHouseId then
+            cleanUpPreview(player, true)
+        elseif house then
             movePlayerOutOfHouse(player, house)
         end
     end
+end)
+
+addEventHandler("onPlayerQuit", root, function()
+    cleanUpPreview(source, false)
 end)
 
 

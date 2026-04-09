@@ -68,6 +68,7 @@ addEventHandler("hm:requestCreate", root, function(data)
 
     -- Exterior = player's current world position
     local ex, ey, ez = getElementPosition(player)
+    ez = ez - 1 -- Make marker flush with the ground
     local erot       = getPedRotation(player)
     local eint       = getElementInterior(player)
 
@@ -180,6 +181,22 @@ addEventHandler("hm:requestTeleport", root, function(houseId)
     setElementDimension(player, 0)
     setElementPosition(player, tonumber(r.exterior_x), tonumber(r.exterior_y), tonumber(r.exterior_z) + 1)
     outputChatBox("[HouseAdmin] Teleported to property #" .. houseId .. ".", player, 120, 255, 180, true)
+end)
+
+addEvent("hm:requestTeleportInterior", true)
+addEventHandler("hm:requestTeleportInterior", root, function(houseId)
+    local player = client
+    if not isAdmin(player) then return end
+
+    houseId = tonumber(houseId)
+    local rows = centralQuery("SELECT interior_x, interior_y, interior_z, interior_id, dimension FROM houses WHERE id = ?", houseId)
+    if #rows == 0 then return end
+    local r = rows[1]
+
+    setElementInterior(player, tonumber(r.interior_id) or 0)
+    setElementDimension(player, tonumber(r.dimension) or 0)
+    setElementPosition(player, tonumber(r.interior_x), tonumber(r.interior_y), tonumber(r.interior_z))
+    outputChatBox("[HouseAdmin] Teleported to property interior #" .. houseId .. ".", player, 120, 255, 180, true)
 end)
 
 -- ── ADMIN COMMAND ───────────────────────────────────────────────
