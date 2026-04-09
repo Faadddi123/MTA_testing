@@ -136,6 +136,7 @@ function reloadHouses()
             setElementData(intMarker, "housing:houseId", h.id, false)
             exitMarkers[intMarker] = h.id
         end
+        end -- close ghost property if-else
     end
 end
 addEventHandler("onResourceStart", resourceRoot, reloadHouses)
