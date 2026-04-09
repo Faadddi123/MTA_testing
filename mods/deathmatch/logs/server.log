@@ -1,0 +1,1580 @@
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-04 03:42:30] ERROR: Error parsing acl.xml - No file specified
+[26-04-04 03:42:31] Server stopped!
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-04 03:43:02] Compacting accounts database 'internal.db' ...
+[26-04-04 03:43:02] File 'settings.xml' not present, creating new node.
+[26-04-04 03:43:02] Compacting database 'registry.db' ...
+[26-04-04 03:43:02] Starting resources...
+[26-04-04 03:43:02] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-04 03:43:02] WARNING: <owner_email_address> not set
+[26-04-04 03:43:02] Server started and is ready to accept connections!
+[26-04-04 03:43:02] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-04 03:43:02] Type 'help' for a list of commands.
+[26-04-04 03:43:02] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-04 03:43:50] Server stopped!
+[26-04-04 03:43:50] Stopping resources...
+[26-04-04 03:43:50] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22005
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-04 03:46:05] Starting resources...
+[26-04-04 03:46:05] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-04 03:46:05] WARNING: <owner_email_address> not set
+[26-04-04 03:46:05] Server started and is ready to accept connections!
+[26-04-04 03:46:05] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-04 03:46:05] Type 'help' for a list of commands.
+[26-04-04 03:46:06] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-04 03:47:06] ERROR: Could not bind the server on interface '' and port '22003'!
+[26-04-04 03:47:06] Server stopped!
+[26-04-04 03:47:06] Stopping resources...
+[26-04-04 03:47:06] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-04 03:47:32] Starting resources...
+[26-04-04 03:47:32] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-04 03:47:32] WARNING: <owner_email_address> not set
+[26-04-04 03:47:32] Server started and is ready to accept connections!
+[26-04-04 03:47:32] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-04 03:47:32] Type 'help' for a list of commands.
+[26-04-04 03:47:32] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-04 03:47:36] Server stopped!
+[26-04-04 03:47:36] Stopping resources...
+[26-04-04 03:47:36] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-04 03:47:39] Starting resources...
+[26-04-04 03:47:39] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-04 03:47:39] WARNING: <owner_email_address> not set
+[26-04-04 03:47:39] Server started and is ready to accept connections!
+[26-04-04 03:47:39] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-04 03:47:39] Type 'help' for a list of commands.
+[26-04-04 03:47:40] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-04 04:21:30] Server minclientversion is now 1.6.0-9.23324.0
+[26-04-04 04:21:30] CONNECT: Haughtrick connected (IP: 105.157.156.40  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24034.0)
+[26-04-04 04:21:37] JOIN: Haughtrick joined the game (IP: 105.157.156.40)
+[26-04-04 04:38:55] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:06:03] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 02:06:03] CONNECT: Haughtrick failed to connect (Client version is below minimum) (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24034.0)
+[26-04-08 02:06:03] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:08:22] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:08:24] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:08:53] CHAT: Haughtrick: ttas
+[26-04-08 02:08:56] CHAT: Haughtrick: sdfasdfsd
+[26-04-08 02:08:59] CHAT: Haughtrick: fasfas
+[26-04-08 02:10:10] CHAT: Haughtrick: a wlad l97ab
+[26-04-08 02:10:56] Server stopped!
+[26-04-08 02:10:56] Stopping resources...
+[26-04-08 02:10:56] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:13:21] Compacting accounts database 'internal.db' ...
+[26-04-08 02:13:21] Compacting database 'registry.db' ...
+[26-04-08 02:13:21] Starting resources...
+[26-04-08 02:13:21] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:13:21] WARNING: <owner_email_address> not set
+[26-04-08 02:13:21] Server started and is ready to accept connections!
+[26-04-08 02:13:21] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:13:21] Type 'help' for a list of commands.
+[26-04-08 02:13:22] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:14:07] Server stopped!
+[26-04-08 02:14:07] Stopping resources...
+[26-04-08 02:14:07] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:14:12] Starting resources...
+[26-04-08 02:14:12] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:14:12] WARNING: <owner_email_address> not set
+[26-04-08 02:14:12] Server started and is ready to accept connections!
+[26-04-08 02:14:12] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:14:12] Type 'help' for a list of commands.
+[26-04-08 02:14:13] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:14:15] Server stopped!
+[26-04-08 02:14:15] Stopping resources...
+[26-04-08 02:14:15] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:14:18] Starting resources...
+[26-04-08 02:14:18] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:14:18] WARNING: <owner_email_address> not set
+[26-04-08 02:14:18] Server started and is ready to accept connections!
+[26-04-08 02:14:18] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:14:18] Type 'help' for a list of commands.
+[26-04-08 02:14:19] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:15:00] Server stopped!
+[26-04-08 02:15:00] Stopping resources...
+[26-04-08 02:15:00] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:15:27] Starting resources...
+[26-04-08 02:15:27] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:15:27] WARNING: <owner_email_address> not set
+[26-04-08 02:15:27] Server started and is ready to accept connections!
+[26-04-08 02:15:27] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:15:27] Type 'help' for a list of commands.
+[26-04-08 02:15:27] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:17:18] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 02:17:18] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:17:18] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:17:33] CHAT: Haughtrick: zab
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:19:24] Starting resources...
+[26-04-08 02:19:24] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:19:24] WARNING: <owner_email_address> not set
+[26-04-08 02:19:24] Server started and is ready to accept connections!
+[26-04-08 02:19:24] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:19:24] Type 'help' for a list of commands.
+[26-04-08 02:19:24] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:19:31] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 02:19:31] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:19:31] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:20:28] start: Requested by Console
+[26-04-08 02:20:28] start: Resource 'freeroam' could not be found
+[26-04-08 02:23:39] SHUTDOWN: Got shutdown command from Console (No reason specified)
+[26-04-08 02:23:40] Server stopped!
+[26-04-08 02:23:40] Stopping resources...
+[26-04-08 02:23:40] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:23:48] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-08 02:23:48] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-08 02:23:48] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-08 02:23:48] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-08 02:23:48] Resources: 205 loaded, 0 failed
+[26-04-08 02:23:48] Starting resources...
+[26-04-08 02:23:48] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:23:48] WARNING: <owner_email_address> not set
+[26-04-08 02:23:48] Server started and is ready to accept connections!
+[26-04-08 02:23:48] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:23:48] Type 'help' for a list of commands.
+[26-04-08 02:23:49] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:23:59] start: Requested by Console
+[26-04-08 02:23:59] Starting freeroam
+[26-04-08 02:23:59] Starting playerblips
+[26-04-08 02:23:59] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 02:23:59] start: Resource 'freeroam' started
+[26-04-08 02:24:07] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:24:07] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:25:30] CHAT: Haughtrick: zab 
+[26-04-08 02:27:05] Server stopped!
+[26-04-08 02:27:05] Stopping resources....
+[26-04-08 02:27:05] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:31:54] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-08 02:31:54] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-08 02:31:54] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-08 02:31:54] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-08 02:31:54] Resources: 205 loaded, 0 failed
+[26-04-08 02:31:54] Starting resources...
+[26-04-08 02:31:54] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:31:54] WARNING: <owner_email_address> not set
+[26-04-08 02:31:54] Server started and is ready to accept connections!
+[26-04-08 02:31:54] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:31:54] Type 'help' for a list of commands.
+[26-04-08 02:31:55] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:32:04] start: Requested by Console
+[26-04-08 02:32:04] Starting spawnmanager
+[26-04-08 02:32:04] start: Resource 'spawnmanager' started
+[26-04-08 02:32:10] Server stopped!
+[26-04-08 02:32:10] Stopping resources....
+[26-04-08 02:32:10] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:32:19] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-08 02:32:19] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-08 02:32:19] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-08 02:32:20] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-08 02:32:20] Resources: 205 loaded, 0 failed
+[26-04-08 02:32:20] Starting resources...
+[26-04-08 02:32:20] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:32:20] WARNING: <owner_email_address> not set
+[26-04-08 02:32:20] Server started and is ready to accept connections!
+[26-04-08 02:32:20] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:32:20] Type 'help' for a list of commands.
+[26-04-08 02:32:20] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:32:34] start: Requested by Console
+[26-04-08 02:32:34] Starting spawnmanager
+[26-04-08 02:32:34] start: Resource 'spawnmanager' started
+[26-04-08 02:32:41] start: Requested by Console
+[26-04-08 02:32:41] Starting mapmanager
+[26-04-08 02:32:41] start: Resource 'mapmanager' started
+[26-04-08 02:32:48] start: Requested by Console
+[26-04-08 02:32:48] Starting freeroam
+[26-04-08 02:32:48] Starting playerblips
+[26-04-08 02:32:48] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 02:32:48] start: Resource 'freeroam' started
+[26-04-08 02:32:54] start: Requested by Console
+[26-04-08 02:32:54] Starting scoreboard
+[26-04-08 02:32:54] start: Resource 'scoreboard' started
+[26-04-08 02:33:00] start: Requested by Console
+[26-04-08 02:33:00] start: Resource 'default' could not be found
+[26-04-08 02:33:10] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:33:10] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:33:14] == Resource list ==
+[26-04-08 02:33:14] acpanel                STOPPED   (14 files)
+[26-04-08 02:33:14] admin                  STOPPED   (63 files)
+[26-04-08 02:33:14] admin2                 STOPPED   (81 files)
+[26-04-08 02:33:14] ajax                   STOPPED   (4 files)
+[26-04-08 02:33:14] as-area51              STOPPED   (2 files)
+[26-04-08 02:33:14] as-cliff               STOPPED   (2 files)
+[26-04-08 02:33:14] as-dam                 STOPPED   (2 files)
+[26-04-08 02:33:14] as-docks               STOPPED   (1 files)
+[26-04-08 02:33:14] as-heist               STOPPED   (2 files)
+[26-04-08 02:33:14] as-sharks              STOPPED   (4 files)
+[26-04-08 02:33:14] as-ship                STOPPED   (2 files)
+[26-04-08 02:33:14] as-supermarket         STOPPED   (3 files)
+[26-04-08 02:33:14] assault                STOPPED   (4 files)
+[26-04-08 02:33:14] br-sf                  STOPPED   (2 files)
+[26-04-08 02:33:14] br-sf-autoteams        STOPPED   (2 files)
+[26-04-08 02:33:14] br-sf-teams            STOPPED   (2 files)
+[26-04-08 02:33:14] briefcase              STOPPED   (1 files)
+[26-04-08 02:33:14] briefcaserace          STOPPED   (27 files)
+[26-04-08 02:33:14] chatmanager            STOPPED   (3 files)
+[26-04-08 02:33:14] ctf                    STOPPED   (6 files)
+[26-04-08 02:33:14] ctf-bombsite           STOPPED   (2 files)
+[26-04-08 02:33:14] ctf-canals             STOPPED   (2 files)
+[26-04-08 02:33:14] ctf-csitaly            STOPPED   (2 files)
+[26-04-08 02:33:14] ctf-goldcove           STOPPED   (2 files)
+[26-04-08 02:33:14] ctf-hideout_z          STOPPED   (2 files)
+[26-04-08 02:33:14] ctf-hydrastrike        STOPPED   (3 files)
+[26-04-08 02:33:14] ctf-sewer              STOPPED   (2 files)
+[26-04-08 02:33:14] ctf-tbd                STOPPED   (2 files)
+[26-04-08 02:33:14] ctv                    STOPPED   (6 files)
+[26-04-08 02:33:14] ctv-ls                 STOPPED   (1 files)
+[26-04-08 02:33:14] ctv-smalltownrumble    STOPPED   (1 files)
+[26-04-08 02:33:14] deathmatch             STOPPED   (12 files)
+[26-04-08 02:33:14] deathmessages          STOPPED   (1 files)
+[26-04-08 02:33:14] deathpickups           STOPPED   (1 files)
+[26-04-08 02:33:14] defaultstats           STOPPED   (1 files)
+[26-04-08 02:33:14] dialogs                STOPPED   (7 files)
+[26-04-08 02:33:14] dm-arena1              STOPPED   (1 files)
+[26-04-08 02:33:14] dm-canals              STOPPED   (1 files)
+[26-04-08 02:33:14] dm-port69              STOPPED   (2 files)
+[26-04-08 02:33:14] dm-smallville          STOPPED   (1 files)
+[26-04-08 02:33:14] easytext               STOPPED   (1 files)
+[26-04-08 02:33:14] edf                    STOPPED   (16 files)
+[26-04-08 02:33:14] editor                 STOPPED   (2 files)
+[26-04-08 02:33:14] editor_gui             STOPPED   (123 files)
+[26-04-08 02:33:14] editor_main            STOPPED   (57 files)
+[26-04-08 02:33:14] elementbrowser         STOPPED   (8 files)
+[26-04-08 02:33:14] fallout                STOPPED   (8 files)
+[26-04-08 02:33:14] fastrope               STOPPED   (2 files)
+[26-04-08 02:33:14] freecam                STOPPED   (2 files)
+[26-04-08 02:33:14] freeroam               RUNNING   (0 dependents)
+[26-04-08 02:33:14] glue                   STOPPED   (14 files)
+[26-04-08 02:33:14] gps                    STOPPED   (7 files)
+[26-04-08 02:33:14] hay                    STOPPED   (2 files)
+[26-04-08 02:33:14] headshot               STOPPED   (3 files)
+[26-04-08 02:33:14] hedit                  STOPPED   (45 files)
+[26-04-08 02:33:14] helpmanager            STOPPED   (2 files)
+[26-04-08 02:33:14] interiors              STOPPED   (4 files)
+[26-04-08 02:33:14] internetradio          STOPPED   (11 files)
+[26-04-08 02:33:14] ip2c                   STOPPED   (252 files)
+[26-04-08 02:33:14] ipb                    STOPPED   (13 files)
+[26-04-08 02:33:14] joinquit               STOPPED   (1 files)
+[26-04-08 02:33:14] killmessages           STOPPED   (118 files)
+[26-04-08 02:33:14] mapcycler              STOPPED   (4 files)
+[26-04-08 02:33:14] mapfixes               STOPPED   (4 files)
+[26-04-08 02:33:14] maplimits              STOPPED   (1 files)
+[26-04-08 02:33:14] mapmanager             RUNNING   (0 dependents)
+[26-04-08 02:33:14] mapratings             STOPPED   (1 files)
+[26-04-08 02:33:14] missiontimer           STOPPED   (5 files)
+[26-04-08 02:33:14] move_cursor            STOPPED   (2 files)
+[26-04-08 02:33:14] move_freecam           STOPPED   (2 files)
+[26-04-08 02:33:14] move_keyboard          STOPPED   (2 files)
+[26-04-08 02:33:14] msgbox                 STOPPED   (5 files)
+[26-04-08 02:33:14] parachute              STOPPED   (6 files)
+[26-04-08 02:33:14] parachute2             STOPPED   (1 files)
+[26-04-08 02:33:14] performancebrowser     STOPPED   (13 files)
+[26-04-08 02:33:14] pickuphandler          STOPPED   (2 files)
+[26-04-08 02:33:14] play                   STOPPED   (4 files)
+[26-04-08 02:33:14] playerblips            RUNNING   (1 dependents)
+[26-04-08 02:33:14] playercolors           STOPPED   (1 files)
+[26-04-08 02:33:14] race                   STOPPED   (61 files)
+[26-04-08 02:33:14] race-10laphotring      STOPPED   (1 files)
+[26-04-08 02:33:14] race-3lapdirtring      STOPPED   (1 files)
+[26-04-08 02:33:14] race-5lap8track        STOPPED   (1 files)
+[26-04-08 02:33:14] race-airportdogfight   STOPPED   (1 files)
+[26-04-08 02:33:14] race-airportspeedway   STOPPED   (1 files)
+[26-04-08 02:33:14] race-apacheassault     STOPPED   (1 files)
+[26-04-08 02:33:14] race-awalkinthepark    STOPPED   (1 files)
+[26-04-08 02:33:14] race-badlandsblastar   STOPPED   (1 files)
+[26-04-08 02:33:14] race-bandito           STOPPED   (1 files)
+[26-04-08 02:33:14] race-bayareacircuit    STOPPED   (1 files)
+[26-04-08 02:33:14] race-bloodring         STOPPED   (1 files)
+[26-04-08 02:33:14] race-blowthedam        STOPPED   (1 files)
+[26-04-08 02:33:14] race-boatingblastaro   STOPPED   (1 files)
+[26-04-08 02:33:14] race-bobcatblastarou   STOPPED   (1 files)
+[26-04-08 02:33:14] race-break             STOPPED   (1 files)
+[26-04-08 02:33:14] race-chiliadclimb      STOPPED   (1 files)
+[26-04-08 02:33:14] race-chrmleasy         STOPPED   (1 files)
+[26-04-08 02:33:14] race-chrmlhard         STOPPED   (1 files)
+[26-04-08 02:33:14] race-degenerationofx   STOPPED   (1 files)
+[26-04-08 02:33:14] race-desertdogfight    STOPPED   (1 files)
+[26-04-08 02:33:14] race-destructionderb   STOPPED   (1 files)
+[26-04-08 02:33:14] race-dockbikes         STOPPED   (1 files)
+[26-04-08 02:33:14] race-docksideblastar   STOPPED   (1 files)
+[26-04-08 02:33:14] race-drift             STOPPED   (1 files)
+[26-04-08 02:33:14] race-driftcity         STOPPED   (1 files)
+[26-04-08 02:33:14] race-dunebuggy         STOPPED   (1 files)
+[26-04-08 02:33:14] race-errand            STOPPED   (1 files)
+[26-04-08 02:33:14] race-farewellmylove    STOPPED   (1 files)
+[26-04-08 02:33:14] race-farm2city         STOPPED   (1 files)
+[26-04-08 02:33:14] race-findthecock       STOPPED   (1 files)
+[26-04-08 02:33:14] race-freeroam          STOPPED   (1 files)
+[26-04-08 02:33:14] race-highnoon          STOPPED   (1 files)
+[26-04-08 02:33:14] race-homeinthehills    STOPPED   (1 files)
+[26-04-08 02:33:14] race-hotroute          STOPPED   (1 files)
+[26-04-08 02:33:14] race-hydrarace         STOPPED   (1 files)
+[26-04-08 02:33:14] race-island            STOPPED   (1 files)
+[26-04-08 02:33:14] race-justanotherbike   STOPPED   (1 files)
+[26-04-08 02:33:14] race-longwayround      STOPPED   (1 files)
+[26-04-08 02:33:14] race-lsairport         STOPPED   (1 files)
+[26-04-08 02:33:14] race-lstrenches        STOPPED   (1 files)
+[26-04-08 02:33:14] race-lvsprint          STOPPED   (1 files)
+[26-04-08 02:33:14] race-midairmayhem      STOPPED   (1 files)
+[26-04-08 02:33:14] race-miniputt          STOPPED   (1 files)
+[26-04-08 02:33:14] race-monsterblastaro   STOPPED   (1 files)
+[26-04-08 02:33:14] race-mx_sky            STOPPED   (1 files)
+[26-04-08 02:33:14] race-offroadblastaro   STOPPED   (1 files)
+[26-04-08 02:33:14] race-predatorzone      STOPPED   (1 files)
+[26-04-08 02:33:14] race-quarryrun         STOPPED   (1 files)
+[26-04-08 02:33:14] race-rcairwar          STOPPED   (1 files)
+[26-04-08 02:33:14] race-rcwarz            STOPPED   (1 files)
+[26-04-08 02:33:14] race-runway69          STOPPED   (1 files)
+[26-04-08 02:33:14] race-rustlerrampage    STOPPED   (1 files)
+[26-04-08 02:33:14] race-sandking          STOPPED   (1 files)
+[26-04-08 02:33:14] race-santosdrive       STOPPED   (1 files)
+[26-04-08 02:33:14] race-seadragon         STOPPED   (1 files)
+[26-04-08 02:33:14] race-seahunter         STOPPED   (1 files)
+[26-04-08 02:33:14] race-searustler        STOPPED   (1 files)
+[26-04-08 02:33:14] race-sewers            STOPPED   (1 files)
+[26-04-08 02:33:14] race-sfbynight         STOPPED   (1 files)
+[26-04-08 02:33:14] race-smugglersrun      STOPPED   (1 files)
+[26-04-08 02:33:14] race-sparrowstorm      STOPPED   (1 files)
+[26-04-08 02:33:14] race-specialdelivery   STOPPED   (1 files)
+[26-04-08 02:33:14] race-speedforweed      STOPPED   (1 files)
+[26-04-08 02:33:14] race-squalorace        STOPPED   (1 files)
+[26-04-08 02:33:14] race-stunt             STOPPED   (1 files)
+[26-04-08 02:33:14] race-suburbanspeedwa   STOPPED   (1 files)
+[26-04-08 02:33:14] race-superhydrarace    STOPPED   (1 files)
+[26-04-08 02:33:14] race-technicalitch     STOPPED   (1 files)
+[26-04-08 02:33:14] race-thepanopticon     STOPPED   (1 files)
+[26-04-08 02:33:14] race-vinewoodblastar   STOPPED   (1 files)
+[26-04-08 02:33:14] race-wuzimu            STOPPED   (1 files)
+[26-04-08 02:33:14] race_carfade           STOPPED   (7 files)
+[26-04-08 02:33:14] race_delay_indicator   STOPPED   (4 files)
+[26-04-08 02:33:14] race_ghost             STOPPED   (9 files)
+[26-04-08 02:33:14] race_nos               STOPPED   (5 files)
+[26-04-08 02:33:14] race_racewar           STOPPED   (4 files)
+[26-04-08 02:33:14] race_toptimes          STOPPED   (10 files)
+[26-04-08 02:33:14] race_traffic_sensor    STOPPED   (4 files)
+[26-04-08 02:33:14] race_voicepack         STOPPED   (8 files)
+[26-04-08 02:33:14] realdriveby            STOPPED   (7 files)
+[26-04-08 02:33:14] reload                 STOPPED   (2 files)
+[26-04-08 02:33:14] resourcebrowser        STOPPED   (6 files)
+[26-04-08 02:33:14] resourcemanager        STOPPED   (4 files)
+[26-04-08 02:33:14] runcode                STOPPED   (14 files)
+[26-04-08 02:33:14] rustlerbombs           STOPPED   (1 files)
+[26-04-08 02:33:14] scoreboard             RUNNING   (0 dependents)
+[26-04-08 02:33:14] scores                 STOPPED   (1 files)
+[26-04-08 02:33:14] security               STOPPED   (5 files)
+[26-04-08 02:33:14] sfxbrowser             STOPPED   (2 files)
+[26-04-08 02:33:14] sirenEdit              STOPPED   (4 files)
+[26-04-08 02:33:14] spawnmanager           RUNNING   (0 dependents)
+[26-04-08 02:33:14] speedometer            STOPPED   (3 files)
+[26-04-08 02:33:14] stealth                STOPPED   (24 files)
+[26-04-08 02:33:14] sth-carrier            STOPPED   (1 files)
+[26-04-08 02:33:14] sth-chinatown          STOPPED   (1 files)
+[26-04-08 02:33:14] sth-church             STOPPED   (1 files)
+[26-04-08 02:33:14] sth-coookiepirates     STOPPED   (4 files)
+[26-04-08 02:33:14] sth-dra-park           STOPPED   (1 files)
+[26-04-08 02:33:14] sth-factory            STOPPED   (1 files)
+[26-04-08 02:33:14] sth-junkyard           STOPPED   (1 files)
+[26-04-08 02:33:14] sth-ritzy              STOPPED   (1 files)
+[26-04-08 02:33:14] sth-sewers             STOPPED   (1 files)
+[26-04-08 02:33:14] sth-shopping           STOPPED   (1 files)
+[26-04-08 02:33:14] sth-terminal           STOPPED   (1 files)
+[26-04-08 02:33:14] sth-thebunker          STOPPED   (1 files)
+[26-04-08 02:33:14] superman               STOPPED   (10 files)
+[26-04-08 02:33:14] tdm                    STOPPED   (11 files)
+[26-04-08 02:33:14] tdma                   STOPPED   (11 files)
+[26-04-08 02:33:14] tdma-damwars           STOPPED   (1 files)
+[26-04-08 02:33:14] tdma-gridlock          STOPPED   (1 files)
+[26-04-08 02:33:14] tdma-medieval          STOPPED   (1 files)
+[26-04-08 02:33:14] tdma-nomansland        STOPPED   (1 files)
+[26-04-08 02:33:14] tdma-tbd               STOPPED   (1 files)
+[26-04-08 02:33:14] tdma-vinewood          STOPPED   (1 files)
+[26-04-08 02:33:14] teammanager            STOPPED   (6 files)
+[26-04-08 02:33:14] tooltip                STOPPED   (1 files)
+[26-04-08 02:33:14] trainhorn              STOPPED   (3 files)
+[26-04-08 02:33:14] visualiser             STOPPED   (4 files)
+[26-04-08 02:33:14] voice                  STOPPED   (10 files)
+[26-04-08 02:33:14] voice_local            STOPPED   (5 files)
+[26-04-08 02:33:14] votemanager            STOPPED   (6 files)
+[26-04-08 02:33:14] webadmin               STOPPED   (11 files)
+[26-04-08 02:33:14] webbrowser             STOPPED   (3 files)
+[26-04-08 02:33:14] webmap                 STOPPED   (6 files)
+[26-04-08 02:33:14] webstats               STOPPED   (5 files)
+[26-04-08 02:33:14] Resources: 205 loaded, 0 failed, 5 running
+[26-04-08 02:34:21] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:34:22] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:34:22] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:35:12] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:35:13] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:35:13] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:35:17] start: Requested by Console
+[26-04-08 02:35:17] start: Resource 'mapmanager' is already running
+[26-04-08 02:35:22] start: Requested by Console
+[26-04-08 02:35:22] start: Resource 'spawnmanager' is already running
+[26-04-08 02:35:27] start: Requested by Console
+[26-04-08 02:35:27] start: Resource 'scoreboard' is already running
+[26-04-08 02:35:31] start: Requested by Console
+[26-04-08 02:35:31] Starting admin
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_players' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_resources' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_maps' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_server' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_bans' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_adminchat' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.kick' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.freeze' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.mute' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setnick' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.shout' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.spectate' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.slap' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgroup' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.sethealth' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setarmour' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setmoney' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setskin' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setteam' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.removefromteam' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.giveweapon' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setstat' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.jetpack' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.warp' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.warpto' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setdimension' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setinterior' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.createteam' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.destroyteam' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.givevehicle' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.repair' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.blowvehicle' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.destroyvehicle' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.customize' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setcolor' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setlights' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setpaintjob' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setplates' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listmessages' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.readmessage' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listresources' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.start' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.stop' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.stopall' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.delete' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.restart' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclmanager' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclcreate' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.acldestroy' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.acladd' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclremove' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setpassword' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setwelcome' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgame' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setmap' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setweather' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.blendweather' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setblurlevel' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setwaveheight' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setskygradient' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgamespeed' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgravity' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.settime' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setfpslimit' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'function.shutdown' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.clearchat' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.ban' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unban' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.banip' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unbanip' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.banserial' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unbanserial' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listbans' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.takescreenshot' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.deletescreenshot' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.deleteallscreenshot' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.viewscreenshot' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listscreenshots' DISALLOW added in ACL 'Default'
+[26-04-08 02:35:31] ACL: admin: Right 'general.adminpanel' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_players' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_resources' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_maps' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_server' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_bans' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_adminchat' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.kick' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.freeze' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.mute' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setnick' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.shout' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.spectate' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.slap' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgroup' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.sethealth' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setarmour' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setmoney' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setskin' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.removefromteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.giveweapon' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setstat' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.jetpack' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.warp' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.warpto' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setdimension' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setinterior' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.createteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.destroyteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.givevehicle' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.repair' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.blowvehicle' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.destroyvehicle' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.customize' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setcolor' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setlights' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setpaintjob' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setplates' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listmessages' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.readmessage' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listresources' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.start' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.stop' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.stopall' DISALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.delete' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.restart' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclmanager' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclcreate' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.acldestroy' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.acladd' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclremove' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setpassword' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setwelcome' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgame' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setmap' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setweather' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.blendweather' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setblurlevel' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setwaveheight' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setskygradient' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgamespeed' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgravity' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.settime' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setfpslimit' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'function.shutdown' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.clearchat' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.ban' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unban' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.banip' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unbanip' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.banserial' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unbanserial' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listbans' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.takescreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.deletescreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.deleteallscreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.viewscreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listscreenshots' ALLOW added in ACL 'Admin'
+[26-04-08 02:35:31] ACL: admin: Right 'general.adminpanel' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_players' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_resources' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_maps' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_server' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_bans' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'general.tab_adminchat' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.kick' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.freeze' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.mute' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setnick' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.shout' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.spectate' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.slap' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgroup' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.sethealth' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setarmour' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setmoney' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setskin' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.removefromteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.giveweapon' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setstat' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.jetpack' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.warp' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.warpto' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setdimension' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setinterior' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.createteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.destroyteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.givevehicle' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.repair' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.blowvehicle' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.destroyvehicle' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.customize' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setcolor' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setlights' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setpaintjob' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setplates' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listmessages' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.readmessage' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listresources' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.start' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.stop' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.stopall' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.delete' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.restart' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclmanager' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclcreate' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.acldestroy' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.acladd' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.aclremove' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setpassword' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setwelcome' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgame' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setmap' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setweather' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.blendweather' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setblurlevel' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setwaveheight' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setskygradient' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgamespeed' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setgravity' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.settime' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.setfpslimit' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'function.shutdown' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.clearchat' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.ban' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unban' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.banip' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unbanip' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.banserial' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.unbanserial' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listbans' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.takescreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.deletescreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.deleteallscreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.viewscreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] ACL: admin: Right 'command.listscreenshots' DISALLOW added in ACL 'RPC'
+[26-04-08 02:35:31] Admin access list successfully updated 
+[26-04-08 02:35:31] INFO: Admin added 236 missing rights
+[26-04-08 02:35:31] Starting ip2c
+[26-04-08 02:35:31] INFO: IpToCountry file not found, successfully copied from backup
+[26-04-08 02:35:31] WARNING: [admin]/ip2c/server.lua:230: Access denied @ 'fetchRemote'
+[26-04-08 02:35:31] startResource: Resource 'ip2c' started
+[26-04-08 02:35:31] start: Resource 'admin' started
+[26-04-08 02:35:44] ACL: Denied 'Console' access to command 'start'
+[26-04-08 02:35:44] ACL: Access denied for 'start'
+[26-04-08 02:35:49] ACL: Denied 'Console' access to command 'start'
+[26-04-08 02:35:49] ACL: Access denied for 'start'
+[26-04-08 02:36:37] Server stopped!
+[26-04-08 02:36:37] Stopping resources.........
+[26-04-08 02:36:37] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:37:29] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-08 02:37:29] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-08 02:37:29] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-08 02:37:29] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-08 02:37:29] Resources: 205 loaded, 0 failed
+[26-04-08 02:37:29] Starting resources...
+[26-04-08 02:37:29] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:37:29] WARNING: <owner_email_address> not set
+[26-04-08 02:37:29] Server started and is ready to accept connections!
+[26-04-08 02:37:29] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:37:29] Type 'help' for a list of commands.
+[26-04-08 02:37:33] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:37:35] start: Requested by Console
+[26-04-08 02:37:36] Starting freeroam
+[26-04-08 02:37:36] Starting playerblips
+[26-04-08 02:37:36] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 02:37:36] start: Resource 'freeroam' started
+[26-04-08 02:38:25] start: Requested by Console
+[26-04-08 02:38:25] start: Resource 'freeroam' is already running
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:25] start: Resource '' could not be found
+[26-04-08 02:38:35] start: Requested by Console
+[26-04-08 02:38:35] Starting spawnmanager
+[26-04-08 02:38:35] start: Resource 'spawnmanager' started
+[26-04-08 02:38:44] start: Requested by Console
+[26-04-08 02:38:44] start: Resource 'spawnmanager' is already running
+[26-04-08 02:38:50] start: Requested by Console
+[26-04-08 02:38:50] Starting mapmanager
+[26-04-08 02:38:50] start: Resource 'mapmanager' started
+[26-04-08 02:39:09] start: Requested by Console
+[26-04-08 02:39:09] Starting admin
+[26-04-08 02:39:09] ACL: admin: Right 'general.adminpanel' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_players' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_resources' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_maps' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_server' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_bans' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_adminchat' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.kick' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.freeze' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.mute' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setnick' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.shout' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.spectate' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.slap' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgroup' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.sethealth' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setarmour' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setmoney' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setskin' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setteam' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.removefromteam' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.giveweapon' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setstat' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.jetpack' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.warp' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.warpto' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setdimension' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setinterior' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.createteam' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.destroyteam' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.givevehicle' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.repair' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.blowvehicle' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.destroyvehicle' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.customize' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setcolor' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setlights' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setpaintjob' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setplates' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listmessages' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.readmessage' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listresources' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.start' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.stop' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.stopall' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.delete' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.restart' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclmanager' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclcreate' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.acldestroy' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.acladd' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclremove' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setpassword' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setwelcome' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgame' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setmap' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setweather' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.blendweather' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setblurlevel' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setwaveheight' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setskygradient' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgamespeed' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgravity' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.settime' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setfpslimit' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'function.shutdown' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.clearchat' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.ban' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unban' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.banip' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unbanip' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.banserial' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unbanserial' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listbans' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.takescreenshot' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.deletescreenshot' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.deleteallscreenshot' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.viewscreenshot' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listscreenshots' DISALLOW added in ACL 'Console'
+[26-04-08 02:39:09] ACL: admin: Right 'general.adminpanel' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_players' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_resources' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_maps' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_server' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_bans' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_adminchat' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.kick' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.freeze' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.mute' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setnick' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.shout' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.spectate' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.slap' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgroup' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.sethealth' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setarmour' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setmoney' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setskin' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.removefromteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.giveweapon' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setstat' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.jetpack' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.warp' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.warpto' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setdimension' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setinterior' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.createteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.destroyteam' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.givevehicle' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.repair' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.blowvehicle' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.destroyvehicle' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.customize' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setcolor' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setlights' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setpaintjob' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setplates' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listmessages' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.readmessage' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listresources' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.start' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.stop' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.stopall' DISALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.delete' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.restart' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclmanager' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclcreate' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.acldestroy' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.acladd' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclremove' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setpassword' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setwelcome' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgame' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setmap' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setweather' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.blendweather' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setblurlevel' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setwaveheight' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setskygradient' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgamespeed' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgravity' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.settime' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setfpslimit' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'function.shutdown' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.clearchat' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.ban' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unban' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.banip' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unbanip' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.banserial' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unbanserial' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listbans' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.takescreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.deletescreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.deleteallscreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.viewscreenshot' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listscreenshots' ALLOW added in ACL 'Admin'
+[26-04-08 02:39:09] ACL: admin: Right 'general.adminpanel' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_players' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_resources' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_maps' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_server' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_bans' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'general.tab_adminchat' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.kick' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.freeze' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.mute' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setnick' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.shout' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.spectate' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.slap' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgroup' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.sethealth' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setarmour' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setmoney' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setskin' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.removefromteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.giveweapon' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setstat' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.jetpack' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.warp' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.warpto' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setdimension' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setinterior' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.createteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.destroyteam' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.givevehicle' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.repair' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.blowvehicle' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.destroyvehicle' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.customize' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setcolor' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setlights' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setpaintjob' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setplates' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listmessages' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.readmessage' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listresources' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.start' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.stop' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.stopall' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.delete' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.restart' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclmanager' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclcreate' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.acldestroy' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.acladd' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.aclremove' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setpassword' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setwelcome' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgame' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setmap' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setweather' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.blendweather' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setblurlevel' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setwaveheight' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setskygradient' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgamespeed' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setgravity' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.settime' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.setfpslimit' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'function.shutdown' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.clearchat' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.ban' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unban' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.banip' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unbanip' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.banserial' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.unbanserial' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listbans' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.takescreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.deletescreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.deleteallscreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.viewscreenshot' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] ACL: admin: Right 'command.listscreenshots' DISALLOW added in ACL 'RPC'
+[26-04-08 02:39:09] Admin access list successfully updated 
+[26-04-08 02:39:09] INFO: Admin added 237 missing rights
+[26-04-08 02:39:09] Starting ip2c
+[26-04-08 02:39:09] startResource: Resource 'ip2c' started
+[26-04-08 02:39:09] start: Resource 'admin' started
+[26-04-08 02:39:20] start: Requested by Console
+[26-04-08 02:39:20] start: Resource 'admin' is already running
+[26-04-08 02:39:26] start: Requested by Console
+[26-04-08 02:39:26] Starting scoreboard
+[26-04-08 02:39:26] start: Resource 'scoreboard' started
+[26-04-08 02:39:31] start: Requested by Console
+[26-04-08 02:39:31] start: Resource 'scoreboard' is already running
+[26-04-08 02:39:37] start: Requested by Console
+[26-04-08 02:39:37] start: Resource 'freeroam' is already running
+[26-04-08 02:39:43] start: Requested by Console
+[26-04-08 02:39:43] start: Resource 'freeroa' could not be found
+[26-04-08 02:39:45] start: Requested by Console
+[26-04-08 02:39:45] start: Resource 'admin' is already running
+[26-04-08 02:40:12] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:40:13] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:41:19] start: Requested by Console
+[26-04-08 02:41:19] start: Resource 'spawnmanager' is already running
+[26-04-08 02:41:25] start: Requested by Console
+[26-04-08 02:41:25] start: Resource 'spawnmanager' is already running
+[26-04-08 02:41:35] start: Requested by Console
+[26-04-08 02:41:35] start: Resource 'mapmanager' is already running
+[26-04-08 02:41:36] start: Requested by Console
+[26-04-08 02:41:36] start: Resource 'freeroam' is already running
+[26-04-08 02:41:45] start: Requested by Console
+[26-04-08 02:41:45] start: Resource 'freeroam-map' could not be found
+[26-04-08 02:42:25] == Resource list ==
+[26-04-08 02:42:25] Resources: 205 loaded, 0 failed, 7 running
+[26-04-08 02:42:44] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:42:45] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:42:46] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:43:01] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:43:01] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:43:02] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:43:37] start: Requested by Console
+[26-04-08 02:43:37] Starting tdma-vinewood
+[26-04-08 02:43:37] start: Resource 'tdma-vinewood' started
+[26-04-08 02:44:07] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:44:07] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:44:07] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:44:43] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 02:44:43] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 02:44:43] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 02:46:06] Server stopped!
+[26-04-08 02:46:06] Stopping resources..........
+[26-04-08 02:46:06] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:50:30] Starting resources...
+[26-04-08 02:50:30] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:50:30] WARNING: <owner_email_address> not set
+[26-04-08 02:50:30] Server started and is ready to accept connections!
+[26-04-08 02:50:30] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:50:30] Type 'help' for a list of commands.
+[26-04-08 02:50:31] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:50:50] start: Requested by Console
+[26-04-08 02:50:50] start: Resource 'freeroom' could not be found
+[26-04-08 02:50:57] start: Requested by Console
+[26-04-08 02:50:57] start: Resource 'freeroam' could not be found
+[26-04-08 02:51:05] Server stopped!
+[26-04-08 02:51:05] Stopping resources...
+[26-04-08 02:51:05] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 02:57:26] Starting resources...
+[26-04-08 02:57:26] ERROR: Couldn't find resource admin. Check it exists.
+[26-04-08 02:57:26] ERROR: Couldn't find resource scoreboard. Check it exists.
+[26-04-08 02:57:26] ERROR: Couldn't find resource freeroam. Check it exists.
+[26-04-08 02:57:26] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 02:57:26] WARNING: <owner_email_address> not set
+[26-04-08 02:57:26] Server started and is ready to accept connections!
+[26-04-08 02:57:26] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 02:57:26] Type 'help' for a list of commands.
+[26-04-08 02:57:26] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 02:57:59] Server stopped!
+[26-04-08 02:57:59] Stopping resources...
+[26-04-08 02:57:59] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 03:01:12] Starting resources...
+[26-04-08 03:01:12] ERROR: Couldn't find resource [admin]/admin. Check it exists.
+[26-04-08 03:01:12] ERROR: Couldn't find resource [gameplay]/scoreboard. Check it exists.
+[26-04-08 03:01:12] ERROR: Couldn't find resource [gameplay]/freeroam. Check it exists.
+[26-04-08 03:01:12] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 03:01:12] WARNING: <owner_email_address> not set
+[26-04-08 03:01:12] Server started and is ready to accept connections!
+[26-04-08 03:01:12] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 03:01:12] Type 'help' for a list of commands.
+[26-04-08 03:01:13] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 03:04:26] Server stopped!
+[26-04-08 03:04:26] Stopping resources...
+[26-04-08 03:04:26] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 03:04:29] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-08 03:04:29] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-08 03:04:29] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-08 03:04:29] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-08 03:04:29] Resources: 205 loaded, 0 failed
+[26-04-08 03:04:30] Starting resources...
+[26-04-08 03:04:30] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 03:04:30] startResource: Resource 'ip2c' started
+[26-04-08 03:04:30] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 03:04:30] WARNING: <owner_email_address> not set
+[26-04-08 03:04:30] Server started and is ready to accept connections!
+[26-04-08 03:04:30] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 03:04:30] Type 'help' for a list of commands.
+[26-04-08 03:04:30] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 03:04:31] INFO: IpToCountry file not found, successfully copied from backup
+[26-04-08 03:05:12] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 03:05:13] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 03:07:02] Starting admin2
+[26-04-08 03:07:02] INFO: Verifying ACL...
+[26-04-08 03:07:02] ACL: admin2: Right 'command.shutdown' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.getscreen' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.unmute' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setconfig' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setpingkicker' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'general.tab_acl' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setheathazelevel' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setfpskicker' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setidlekicker' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.execute' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setglitch' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.unfreeze' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setworldproperty' DISALLOW added in ACL 'Console'
+[26-04-08 03:07:02] INFO: Updated 13 entries in ACL 'Console'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.shutdown' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.getscreen' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.unmute' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setconfig' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.execute' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setpingkicker' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setheathazelevel' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setfpskicker' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setidlekicker' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setglitch' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'general.adminMapWarp' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.unfreeze' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'general.tab_acl' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setworldproperty' ALLOW added in ACL 'Admin'
+[26-04-08 03:07:02] INFO: Updated 14 entries in ACL 'Admin'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.shutdown' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.getscreen' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.unmute' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setconfig' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setpingkicker' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'general.tab_acl' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setheathazelevel' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setfpskicker' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setidlekicker' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.execute' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setglitch' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.unfreeze' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] ACL: admin2: Right 'command.setworldproperty' DISALLOW added in ACL 'RPC'
+[26-04-08 03:07:02] INFO: Updated 13 entries in ACL 'RPC'
+[26-04-08 03:07:02] startResource: Resource 'admin2' started
+[26-04-08 03:07:02] ADMIN: Resource 'admin2' started by Haughtrick
+[26-04-08 03:07:07] Starting ajax
+[26-04-08 03:07:07] startResource: Resource 'ajax' started
+[26-04-08 03:07:07] ADMIN: Resource 'ajax' started by Haughtrick
+[26-04-08 03:08:10] ADMIN: Haughtrick warped to map coordinates: 2083.3333, 433.33334, -38.041016
+[26-04-08 03:11:15] Server stopped!
+[26-04-08 03:11:15] Stopping resources.........
+[26-04-08 03:11:15] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-08 03:11:19] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-08 03:11:19] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-08 03:11:19] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-08 03:11:19] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-08 03:11:19] Resources: 205 loaded, 0 failed
+[26-04-08 03:11:19] Starting resources...
+[26-04-08 03:11:19] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-08 03:11:19] startResource: Resource 'ip2c' started
+[26-04-08 03:11:19] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-08 03:11:19] WARNING: <owner_email_address> not set
+[26-04-08 03:11:19] Server started and is ready to accept connections!
+[26-04-08 03:11:19] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-08 03:11:19] Type 'help' for a list of commands.
+[26-04-08 03:11:20] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-08 03:11:20] Starting play
+[26-04-08 03:11:20] Starting internetradio
+[26-04-08 03:11:20] Starting superman
+[26-04-08 03:11:21] Starting hedit
+[26-04-08 03:11:21] Starting mapfixes
+[26-04-08 03:11:21] Starting chatmanager
+[26-04-08 03:11:21] startResource: Resource 'play' started
+[26-04-08 03:11:21] INFO: ip2c bootstrap: started 'play'
+[26-04-08 03:11:23] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 03:11:23] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 03:31:02] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 16:21:05] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 16:21:06] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 16:31:35] CONNECT: DEFTAARR failed to connect (Client version is below minimum) (IP: 105.66.133.63  Serial: 32CFB47D351C60814E10E01985B4C442  Version: 1.6.0-9.23952.0)
+[26-04-08 16:31:35] QUIT: DEFTAARR left the game [Quit] 
+[26-04-08 16:36:51] CONNECT: DEFTAARR connected (IP: 105.66.133.63  Serial: 32CFB47D351C60814E10E01985B4C442  Version: 1.6.0-9.24056.0)
+[26-04-08 16:36:53] JOIN: DEFTAARR joined the game (IP: 105.66.133.63)
+[26-04-08 17:28:02] QUIT: DEFTAARR left the game [Quit] 
+[26-04-08 18:05:33] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 18:53:01] CONNECT: Haughtrick connected (IP: 41.140.222.29  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 18:53:02] JOIN: Haughtrick joined the game (IP: 41.140.222.29)
+[26-04-08 18:58:12] QUIT: Haughtrick left the game [Quit] 
+[26-04-08 21:09:41] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-08 21:09:42] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 00:47:27] Server stopped!
+[26-04-09 00:47:27] Stopping resources............
+[26-04-09 00:47:27] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 00:47:32] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 00:47:33] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 00:47:33] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 00:47:33] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 00:47:33] Resources: 205 loaded, 0 failed
+[26-04-09 00:47:33] Starting resources...
+[26-04-09 00:47:33] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 00:47:33] startResource: Resource 'ip2c' started
+[26-04-09 00:47:33] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 00:47:33] WARNING: <owner_email_address> not set
+[26-04-09 00:47:33] Server started and is ready to accept connections!
+[26-04-09 00:47:33] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 00:47:33] Type 'help' for a list of commands.
+[26-04-09 00:47:33] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 00:47:34] Starting play
+[26-04-09 00:47:34] Starting internetradio
+[26-04-09 00:47:34] Starting superman
+[26-04-09 00:47:34] Starting hedit
+[26-04-09 00:47:34] Starting mapfixes
+[26-04-09 00:47:34] Starting chatmanager
+[26-04-09 00:47:34] startResource: Resource 'play' started
+[26-04-09 00:47:34] INFO: ip2c bootstrap: started 'play'
+[26-04-09 00:47:46] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 00:47:46] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
