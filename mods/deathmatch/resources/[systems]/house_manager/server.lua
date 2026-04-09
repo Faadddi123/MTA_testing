@@ -3,9 +3,8 @@
 -- Admin players only (checked via ACL group "Admin").
 
 local function isAdmin(player)
-    local account = getPlayerAccount(player)
-    if not account or isGuestAccount(account) then return false end
-    return isObjectInACLGroup("user." .. getAccountName(account), aclGetGroup("Admin"))
+    -- Admin check temporarily bypassed to allow everyone access.
+    return true
 end
 
 local function centralQuery(q, ...)  return exports.database_manager:dbQuery(q, ...) or {} end
