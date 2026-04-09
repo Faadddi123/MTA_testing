@@ -86,10 +86,19 @@ function reloadHouses()
             interior_rot = tonumber(row.interior_rot) or 0,
             interior_interior = tonumber(row.interior_id) or 0,
 
-            garage_x = tonumber(row.garage_x) or 0,
-            garage_y = tonumber(row.garage_y) or 0,
-            garage_z = tonumber(row.garage_z) or 0,
-            garage_radius = tonumber(row.garage_radius) or 6,
+            exterior = { interior = tonumber(row.exterior_interior) or 0 },
+            garage = {
+                x = tonumber(row.garage_x) or 0,
+                y = tonumber(row.garage_y) or 0,
+                z = tonumber(row.garage_z) or 0,
+                radius = tonumber(row.garage_radius) or 6,
+            },
+            garage_int = {
+                x = tonumber(row.garage_int_x) or 0,
+                y = tonumber(row.garage_int_y) or 0,
+                z = tonumber(row.garage_int_z) or 0,
+                rotation = tonumber(row.garage_int_rot) or 0,
+            }
         }
 
         houses[h.id] = h
@@ -103,8 +112,8 @@ function reloadHouses()
             setElementData(extMarker, "housing:houseId", h.id, false)
             entryMarkers[extMarker] = h.id
 
-            -- Map Blip
-            local icon = h.property_type == "apartment" and 40 or 31
+            -- Map Blip (GTA SA natively uses 31 for properties)
+            local icon = 31
             local blip = createBlip(h.exterior_x, h.exterior_y, h.exterior_z, icon, 1, 255, 255, 255, 255, 0, 200)
             setElementInterior(blip, h.exterior_interior)
             setElementDimension(blip, 0)

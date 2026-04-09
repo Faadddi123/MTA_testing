@@ -1,17 +1,18 @@
 -- house_manager/client.lua
--- Native MTA GUI admin panel. Open with /houseadmin or /ha.
--- NOTE: MTA CEGUI does NOT support emoji/unicode – all labels use plain ASCII.
+-- Rewrite: adds Preview button, instant delete row removal, cleaner layout.
 
 local panel    = nil
 local isOpen   = false
-local propList = nil    -- gridlist
-local presets  = {}     -- { key, label } list from server
-local editRow  = -1     -- selected row index for Edit mode
+local propList = nil
+local presets  = {}
+local editRow  = -1
+local isPreviewing = false
 
--- ── forward declarations ────────────────────────────────────────
+-- Forward declarations
 local lblStatus, lblAddSt
 local edtEName, edtEPrice, btnESave, btnECancel
 local lblEName, lblEPrice
+local btnExitPreview  -- visible only during preview
 
 -- ═══════════════════════════════════════════════════════════════
 -- HELPERS
@@ -35,14 +36,57 @@ local function showEditWidgets(show)
     guiSetVisible(btnECancel, show)
 end
 
+local function setStatus(msg, r, g, b)
+    if lblStatus and isElement(lblStatus) then
+        guiSetText(lblStatus, msg)
+        if r then guiLabelSetColor(lblStatus, r, g, b) end
+    end
+end
+
+local function setAddStatus(msg, r, g, b)
+    if lblAddSt and isElement(lblAddSt) then
+        guiSetText(lblAddSt, msg)
+        if r then guiLabelSetColor(lblAddSt, r, g, b) end
+    end
+end
+
+-- Remove a specific row from the grid by house ID
+local function removeRowById(id)
+    if not propList or not isElement(propList) then return end
+    local count = guiGridListGetRowCount(propList)
+    for i = 0, count - 1 do
+        local rowId = tonumber(guiGridListGetItemText(propList, i, 1))
+        if rowId == id then
+            guiGridListRemoveRow(propList, i)
+            return
+        end
+    end
+end
+
 -- ═══════════════════════════════════════════════════════════════
--- BUILD GUI  (called once)
+-- SERVER EVENTS (registered early, outside buildPanel)
+-- ═══════════════════════════════════════════════════════════════
+
+-- Delete result: remove the row immediately without waiting for housing reload
+addEvent("hm:deleteResult", true)
+addEventHandler("hm:deleteResult", root, function(success, houseId)
+    if success then
+        removeRowById(tonumber(houseId))
+        setStatus("Deleted #" .. tostring(houseId) .. ".", 255, 160, 60)
+    else
+        setStatus("Delete failed: property not found.", 255, 80, 80)
+    end
+    editRow = -1
+    showEditWidgets(false)
+end)
+
+-- ═══════════════════════════════════════════════════════════════
+-- BUILD GUI
 -- ═══════════════════════════════════════════════════════════════
 local function buildPanel()
     if panel and isElement(panel) then return end
 
-    local W, H = 800, 540
-
+    local W, H = 820, 560
     panel = guiCreateWindow(0, 0, W, H, "House Manager - Property Admin", false)
     if not panel then
         outputChatBox("[HouseAdmin] ERROR: Could not create GUI window.", 255, 60, 60)
@@ -56,36 +100,34 @@ local function buildPanel()
     -- ╔══════════════════════════════════════════════════════╗
     -- TAB 1: Properties List
     -- ╚══════════════════════════════════════════════════════╝
-    local tabList = guiCreateTab("Properties List", tabs)
-
-    propList = guiCreateGridList(4, 4, W - 24, 360, false, tabList)
-    guiGridListSetSelectionMode(propList, 0)
-
-    -- columns (widths as fractions of gridlist width)
+    local tabList = guiCreateTab("Properties", tabs)
     local gw = W - 24
-    guiGridListAddColumn(propList, "ID",    40  / gw)
-    guiGridListAddColumn(propList, "Name",  200 / gw)
-    guiGridListAddColumn(propList, "Type",  90  / gw)
-    guiGridListAddColumn(propList, "Price", 90  / gw)
-    guiGridListAddColumn(propList, "Owner", 160 / gw)
-    guiGridListAddColumn(propList, "Lock",  55  / gw)
 
-    -- action buttons
-    local btnTeleport = guiCreateButton(  4, 372, 110, 26, "Go There",  false, tabList)
-    local btnEdit     = guiCreateButton(120, 372, 110, 26, "Edit",      false, tabList)
-    local btnDelete   = guiCreateButton(236, 372, 110, 26, "Delete",    false, tabList)
-    local btnRefresh  = guiCreateButton(352, 372, 110, 26, "Refresh",   false, tabList)
+    propList = guiCreateGridList(4, 4, gw, 340, false, tabList)
+    guiGridListSetSelectionMode(propList, 0)
+    guiGridListAddColumn(propList, "ID",       45  / gw)
+    guiGridListAddColumn(propList, "Name",     210 / gw)
+    guiGridListAddColumn(propList, "Type",     90  / gw)
+    guiGridListAddColumn(propList, "Price",    90  / gw)
+    guiGridListAddColumn(propList, "Owner",    170 / gw)
+    guiGridListAddColumn(propList, "Lock",     55  / gw)
 
-    lblStatus = guiCreateLabel(4, 404, W - 30, 18, "", false, tabList)
-    guiLabelSetColor(lblStatus, 100, 230, 100)
+    -- Row 1 of buttons
+    local btnTeleport = guiCreateButton(  4, 350, 115, 26, "Go to Exterior",  false, tabList)
+    local btnEdit     = guiCreateButton(124, 350, 90,  26, "Edit",             false, tabList)
+    local btnDelete   = guiCreateButton(220, 350, 90,  26, "Delete",           false, tabList)
+    local btnRefresh  = guiCreateButton(316, 350, 90,  26, "Refresh",          false, tabList)
 
-    -- inline edit widgets (hidden until Edit clicked)
-    lblEName  = guiCreateLabel( 4, 428,  50, 20, "Name:",  false, tabList)
-    edtEName  = guiCreateEdit( 58, 426, 210, 22, "",       false, tabList)
-    lblEPrice = guiCreateLabel(276, 428,  45, 20, "Price:", false, tabList)
-    edtEPrice = guiCreateEdit(324, 426, 120, 22, "",       false, tabList)
-    btnESave  = guiCreateButton(452, 426,  90, 22, "Save",  false, tabList)
-    btnECancel= guiCreateButton(548, 426,  90, 22, "Cancel",false, tabList)
+    lblStatus = guiCreateLabel(4, 382, gw - 8, 18, "", false, tabList)
+    guiLabelSetColor(lblStatus, 180, 180, 180)
+
+    -- Inline edit row (hidden)
+    lblEName  = guiCreateLabel( 4, 406,  50, 20, "Name:",  false, tabList)
+    edtEName  = guiCreateEdit( 58, 404, 220, 22, "",       false, tabList)
+    lblEPrice = guiCreateLabel(286, 406,  46, 20, "Price:", false, tabList)
+    edtEPrice = guiCreateEdit(336, 404, 120, 22, "",       false, tabList)
+    btnESave  = guiCreateButton(464, 404,  85, 22, "Save",  false, tabList)
+    btnECancel= guiCreateButton(556, 404,  85, 22, "Cancel",false, tabList)
     showEditWidgets(false)
 
     -- ╔══════════════════════════════════════════════════════╗
@@ -93,62 +135,83 @@ local function buildPanel()
     -- ╚══════════════════════════════════════════════════════╝
     local tabAdd = guiCreateTab("Add Property", tabs)
 
-    guiCreateLabel(10, 8, W - 30, 36,
-        "Stand at the front door of the house, fill in the details below, then click Add.",
+    guiCreateLabel(8, 6, gw - 16, 18,
+        "Stand at the FRONT DOOR of the building, fill in the details, then click Add.",
+        false, tabAdd)
+    guiCreateLabel(8, 22, gw - 16, 18,
+        "Use Preview to check how each interior looks before creating.",
         false, tabAdd)
 
-    guiCreateLabel(10, 52, 120, 22, "Property Name:", false, tabAdd)
-    local edtName = guiCreateEdit(140, 50, 280, 24, "My House", false, tabAdd)
+    guiCreateLabel(8, 50, 130, 22, "Property Name:", false, tabAdd)
+    local edtName = guiCreateEdit(142, 48, 260, 24, "My Property", false, tabAdd)
 
-    guiCreateLabel(10, 84, 120, 22, "Category:", false, tabAdd)
-    local cmbCat = guiCreateComboBox(140, 82, 240, 24, "Select type...", false, tabAdd)
+    guiCreateLabel(8, 82, 130, 22, "Interior Type:", false, tabAdd)
+    local cmbCat = guiCreateComboBox(142, 80, 260, 24, "Select type...", false, tabAdd)
 
-    guiCreateLabel(10, 116, 120, 22, "Price ($):", false, tabAdd)
-    local edtPrice = guiCreateEdit(140, 114, 160, 24, "50000", false, tabAdd)
+    guiCreateLabel(8, 114, 130, 22, "Price ($):", false, tabAdd)
+    local edtPrice = guiCreateEdit(142, 112, 160, 24, "50000", false, tabAdd)
 
-    guiCreateLabel(10, 148, W - 30, 18,
-        "Interior layout is chosen automatically from the category preset.",
-        false, tabAdd)
-    guiCreateLabel(10, 168, W - 30, 18,
-        "Garage zone is placed 10m behind you. Dimension = 6000 + new house ID.",
-        false, tabAdd)
+    -- Preview button
+    local btnPreview = guiCreateButton(142, 146, 160, 26, "Preview Selected Interior", false, tabAdd)
+    btnExitPreview   = guiCreateButton(310, 146, 130, 26, "Exit Preview",              false, tabAdd)
+    guiSetVisible(btnExitPreview, false)
 
-    local btnAdd = guiCreateButton(140, 196, 210, 30, "Add Property at My Position", false, tabAdd)
-    lblAddSt = guiCreateLabel(10, 234, W - 30, 18, "", false, tabAdd)
+    local btnAdd = guiCreateButton(142, 184, 260, 30, "Add Property at My Position", false, tabAdd)
+
+    lblAddSt = guiCreateLabel(8, 222, gw - 16, 18, "", false, tabAdd)
     guiLabelSetColor(lblAddSt, 100, 230, 100)
+
+    guiCreateLabel(8, 248, gw - 16, 360,
+        "SIZE GUIDE\n"..
+        "  Studio Flat       - 1 room, tiny (Interior 5)\n"..
+        "  Small Apartment   - compact 1-bed (Interior 1)\n"..
+        "  2-Room Apartment  - standard (Interior 9)\n"..
+        "  3-Room Apartment  - spacious (Interior 12)\n"..
+        "  Penthouse         - luxury high-rise (Interior 8)\n"..
+        "  Villa             - house interior (Interior 7)\n"..
+        "  Mansion           - biggest available (Interior 5, zone 1)\n"..
+        "  Small Garage      - 1-2 cars (Interior 4)\n"..
+        "  Large Garage      - 4+ cars (Interior 15)\n"..
+        "  Warehouse         - open plan (Interior 5, zone 2)\n\n"..
+        "NOTE: Each house gets its own DIMENSION (6000 + house ID)\n"..
+        "so players are always isolated in their own space.",
+        false, tabAdd)
 
     -- ╔══════════════════════════════════════════════════════╗
     -- TAB 3: Help
     -- ╚══════════════════════════════════════════════════════╝
     local tabHelp = guiCreateTab("Help", tabs)
-    guiCreateLabel(10, 8, W - 30, 460,
+    guiCreateLabel(8, 6, gw - 16, 500,
         "COMMANDS\n"..
-        "  /houseadmin   or   /ha   - open this panel\n\n"..
-        "CATEGORIES\n"..
-        "  small      - compact 1-bed (Interior 4)\n"..
-        "  medium     - standard 2-bed (Interior 1)\n"..
-        "  large      - spacious 3-bed (Interior 2)\n"..
-        "  mansion    - luxury (Interior 4)\n"..
-        "  apartment  - high-rise (Interior 3)\n"..
-        "  penthouse  - rooftop suite (Interior 5)\n"..
-        "  warehouse  - industrial (Interior 18)\n\n"..
+        "  /houseadmin  or  /ha          Open this panel\n"..
+        "  /exitpreview                  Exit interior preview\n\n"..
+        "PLAYER COMMANDS (in housing resource)\n"..
+        "  F key      Enter / Exit property\n"..
+        "  B key      Buy property\n"..
+        "  G key      Lock / Unlock\n"..
+        "  /sharekey <player>   Give house key\n"..
+        "  /revokekey <player>  Remove house key\n"..
+        "  /myproperties        List your owned properties\n\n"..
         "HOW TO ADD A PROPERTY\n"..
-        "  1. Walk to the front door of the building in-game\n"..
-        "  2. Open /ha, go to 'Add Property' tab\n"..
-        "  3. Fill name, category, price\n"..
-        "  4. Click 'Add Property at My Position'\n"..
-        "  5. Housing restarts in ~1 second\n"..
-        "  6. Yellow arrow appears at that door\n\n"..
-        "KEY BINDS (at a property)\n"..
-        "  [F] Enter / Exit     [B] Buy\n"..
-        "  [G] Lock / Unlock    [ESC] Dismiss popup\n\n"..
-        "SHARING\n"..
-        "  /sharekey <player>    /revokekey <player>\n"..
-        "  /myproperties",
+        "  1. Walk to the front door of a building in-game\n"..
+        "  2. Open /ha -> 'Add Property' tab\n"..
+        "  3. Choose the interior type (use Preview to check it first)\n"..
+        "  4. Set name and price\n"..
+        "  5. Click 'Add Property at My Position'\n"..
+        "  6. Housing reloads (~1 second), blip appears at door\n\n"..
+        "HOW TO DELETE\n"..
+        "  1. Select a property in the list\n"..
+        "  2. Click Delete\n"..
+        "  3. Click Delete again to confirm (4 second window)\n"..
+        "  -> Row disappears immediately from the list\n\n"..
+        "DIMENSION SYSTEM\n"..
+        "  Each property has dimension = 6000 + house_id\n"..
+        "  Players are isolated - they never see each other inside\n"..
+        "  Preview uses dimension 99998 (safe, isolated)",
         false, tabHelp)
 
     -- ═══════════════════════════════════════════════════════
-    -- EVENTS: server -> client data
+    -- SERVER -> CLIENT EVENTS
     -- ═══════════════════════════════════════════════════════
 
     addEvent("hm:receivePresets", true)
@@ -156,7 +219,7 @@ local function buildPanel()
         presets = cats
         guiComboBoxClear(cmbCat)
         for _, c in ipairs(cats) do
-            guiComboBoxAddItem(cmbCat, c.label)
+            guiComboBoxAddItem(cmbCat, c.label .. " [" .. (c.size or "?") .. "]")
         end
         if #cats > 0 then guiComboBoxSetSelected(cmbCat, 0) end
     end)
@@ -171,10 +234,10 @@ local function buildPanel()
             guiGridListSetItemText(propList, row, 2, p.name,          false, false)
             guiGridListSetItemText(propList, row, 3, p.ptype,         false, false)
             guiGridListSetItemText(propList, row, 4, fmtMoney(p.price), false, false)
-            guiGridListSetItemText(propList, row, 5, (p.owner ~= "" and p.owner or "Available"), false, false)
+            guiGridListSetItemText(propList, row, 5, (p.owner ~= "" and p.owner or "-- Available --"), false, false)
             guiGridListSetItemText(propList, row, 6, p.locked and "[L]" or "[U]", false, false)
         end
-        if lblStatus then guiSetText(lblStatus, "Loaded " .. #list .. " properties.") end
+        setStatus("Loaded " .. #list .. " properties.", 100, 230, 100)
     end)
 
     -- ═══════════════════════════════════════════════════════
@@ -183,25 +246,19 @@ local function buildPanel()
 
     addEventHandler("onClientGUIClick", btnRefresh, function()
         triggerServerEvent("hm:requestList", localPlayer)
-        if lblStatus then guiSetText(lblStatus, "Refreshing...") end
+        setStatus("Refreshing...", 200, 200, 100)
     end, false)
 
     addEventHandler("onClientGUIClick", btnTeleport, function()
         local sel = guiGridListGetSelectedItem(propList)
-        if sel < 0 then
-            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
-            return
-        end
+        if sel < 0 then setStatus("Select a property first.", 255, 160, 60) return end
         local id = tonumber(guiGridListGetItemText(propList, sel, 1))
         if id then triggerServerEvent("hm:requestTeleport", localPlayer, id) end
     end, false)
 
     addEventHandler("onClientGUIClick", btnEdit, function()
         local sel = guiGridListGetSelectedItem(propList)
-        if sel < 0 then
-            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
-            return
-        end
+        if sel < 0 then setStatus("Select a property first.", 255, 160, 60) return end
         editRow = sel
         guiSetText(edtEName,  guiGridListGetItemText(propList, sel, 2))
         guiSetText(edtEPrice, guiGridListGetItemText(propList, sel, 4):gsub("%$", ""))
@@ -214,13 +271,13 @@ local function buildPanel()
         local name  = guiGetText(edtEName)
         local price = tonumber(guiGetText(edtEPrice))
         if not id or not name or name == "" or not price then
-            if lblStatus then guiSetText(lblStatus, "Invalid name or price.") end
+            setStatus("Invalid name or price.", 255, 80, 80)
             return
         end
         triggerServerEvent("hm:requestUpdate", localPlayer, id, name, price)
         showEditWidgets(false)
         editRow = -1
-        if lblStatus then guiSetText(lblStatus, "Updated #" .. id) end
+        setStatus("Sending update for #" .. id .. "...", 200, 200, 100)
     end, false)
 
     addEventHandler("onClientGUIClick", btnECancel, function()
@@ -228,15 +285,12 @@ local function buildPanel()
         editRow = -1
     end, false)
 
-    -- Delete with double-click confirm
+    -- Delete: double-click confirm
     local confirmDeleteId = nil
     local confirmTimer    = nil
     addEventHandler("onClientGUIClick", btnDelete, function()
         local sel = guiGridListGetSelectedItem(propList)
-        if sel < 0 then
-            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
-            return
-        end
+        if sel < 0 then setStatus("Select a property first.", 255, 160, 60) return end
         local id   = tonumber(guiGridListGetItemText(propList, sel, 1))
         local name = guiGridListGetItemText(propList, sel, 2)
         if not id then return end
@@ -244,39 +298,68 @@ local function buildPanel()
         if confirmDeleteId ~= id then
             confirmDeleteId = id
             if confirmTimer and isTimer(confirmTimer) then killTimer(confirmTimer) end
-            confirmTimer = setTimer(function() confirmDeleteId = nil end, 4000, 1)
-            if lblStatus then guiSetText(lblStatus, "Click Delete again to confirm: " .. name) end
+            confirmTimer = setTimer(function()
+                confirmDeleteId = nil
+                setStatus("", 180, 180, 180)
+            end, 4000, 1)
+            setStatus("Click Delete again to confirm: '" .. name .. "'", 255, 200, 50)
         else
             confirmDeleteId = nil
             if confirmTimer and isTimer(confirmTimer) then killTimer(confirmTimer) end
             triggerServerEvent("hm:requestDelete", localPlayer, id)
-            if lblStatus then guiSetText(lblStatus, "Deleting #" .. id .. "...") end
+            setStatus("Deleting #" .. id .. "...", 255, 160, 60)
         end
     end, false)
 
+    -- Preview
+    addEventHandler("onClientGUIClick", btnPreview, function()
+        local catIdx = guiComboBoxGetSelected(cmbCat)
+        if catIdx < 0 then
+            setAddStatus("Select an interior type first.", 255, 160, 60)
+            return
+        end
+        local cat = (presets[catIdx + 1] and presets[catIdx + 1].key) or nil
+        if not cat then return end
+
+        isPreviewing = true
+        guiSetVisible(btnExitPreview, true)
+        triggerServerEvent("hm:requestPreview", localPlayer, cat)
+        setAddStatus("Previewing... click 'Exit Preview' or type /exitpreview to return.", 100, 200, 255)
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnExitPreview, function()
+        isPreviewing = false
+        guiSetVisible(btnExitPreview, false)
+        triggerServerEvent("hm:exitPreview", localPlayer)
+        setAddStatus("Returned from preview.", 120, 255, 120)
+    end, false)
+
+    -- Add property
     addEventHandler("onClientGUIClick", btnAdd, function()
+        if isPreviewing then
+            setAddStatus("Exit preview first before creating.", 255, 160, 60)
+            return
+        end
         local name   = guiGetText(edtName)
         local price  = tonumber(guiGetText(edtPrice))
         local catIdx = guiComboBoxGetSelected(cmbCat)
         if name == "" or not price or catIdx < 0 then
-            if lblAddSt then guiSetText(lblAddSt, "Fill in all fields first.") end
+            setAddStatus("Fill in all fields first.", 255, 80, 80)
             return
         end
-        local category = (presets[catIdx + 1] and presets[catIdx + 1].key) or "small"
+        local category = (presets[catIdx + 1] and presets[catIdx + 1].key) or "studio"
         triggerServerEvent("hm:requestCreate", localPlayer, {
             name     = name,
             price    = price,
             category = category,
         })
-        if lblAddSt then guiSetText(lblAddSt, "Done! Housing is restarting...") end
+        setAddStatus("Property created! Housing is reloading (~1s)...", 100, 255, 100)
     end, false)
 
     addEventHandler("onClientGUIClose", panel, function()
         isOpen = false
         showCursor(false)
     end, false)
-
-    outputChatBox("[HouseAdmin] Panel built OK.", 100, 230, 100)
 end
 
 -- ═══════════════════════════════════════════════════════════════
@@ -284,10 +367,9 @@ end
 -- ═══════════════════════════════════════════════════════════════
 addEvent("hm:openPanel", true)
 addEventHandler("hm:openPanel", root, function()
-    outputChatBox("[HouseAdmin] Opening panel...", 100, 200, 255)
     buildPanel()
     if not panel or not isElement(panel) then
-        outputChatBox("[HouseAdmin] ERROR: Panel is nil after build.", 255, 60, 60)
+        outputChatBox("[HouseAdmin] ERROR: Panel failed to build.", 255, 60, 60)
         return
     end
     guiSetVisible(panel, true)

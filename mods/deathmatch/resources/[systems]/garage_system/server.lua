@@ -96,10 +96,15 @@ local function movePlayerIntoGarage(player, houseId)
     end
     garageOccupants[houseId][player] = true
 
+    local gx = house.garage_int and house.garage_int.x or house.garage_int_x
+    local gy = house.garage_int and house.garage_int.y or house.garage_int_y
+    local gz = house.garage_int and house.garage_int.z or house.garage_int_z
+    local grot = house.garage_int and house.garage_int.rotation or house.garage_int_rot
+
     setElementInterior(player, 0)
     setElementDimension(player, garageDim)
-    setElementPosition(player, house.garage_int.x, house.garage_int.y, house.garage_int.z)
-    setPedRotation(player, house.garage_int.rotation)
+    setElementPosition(player, gx, gy, gz)
+    setPedRotation(player, grot)
 
     outputChatBox("Garage: entered " .. house.name .. " garage. Use /exitgarage to leave.", player, 120, 200, 255, true)
 
@@ -115,9 +120,14 @@ local function movePlayerOutOfGarage(player, houseId)
         garageOccupants[houseId][player] = nil
     end
 
-    setElementInterior(player, house.exterior.interior or 0)
+    local gx = house.garage and house.garage.x or house.garage_x
+    local gy = house.garage and house.garage.y or house.garage_y
+    local gz = house.garage and house.garage.z or house.garage_z
+    local eint = house.exterior and house.exterior.interior or house.exterior_interior or 0
+
+    setElementInterior(player, eint)
     setElementDimension(player, 0)
-    setElementPosition(player, house.garage.x, house.garage.y, house.garage.z)
+    setElementPosition(player, gx, gy, gz)
     setPedRotation(player, 0)
 
     outputChatBox("Garage: exited " .. house.name .. " garage.", player, 120, 200, 255, true)
@@ -167,36 +177,46 @@ local function buildGarageElements()
     for houseId = 1, 30 do
         local house = getHouseData(houseId)
         if house then
-            -- Exterior entry marker (on world)
-            local entryMarker = createMarker(
-                house.garage.x, house.garage.y, house.garage.z - 1,
-                "cylinder", 3.0, 80, 120, 255, 100
-            )
-            setElementInterior(entryMarker, house.exterior.interior or 0)
-            setElementDimension(entryMarker, 0)
-            setElementData(entryMarker, "garage:houseId", houseId, false)
-            setElementParent(entryMarker, resourceRoot)
-            garageZoneMarkers[entryMarker] = houseId
+            local gx = house.garage and house.garage.x or house.garage_x
+            local gy = house.garage and house.garage.y or house.garage_y
+            local gz = house.garage and house.garage.z or house.garage_z
 
-            -- Garage interior exit marker (inside garage dimension)
-            local garageDim = garageDimension(houseId)
-            local exitMx = house.garage_int.x
-            local exitMy = house.garage_int.y - 3  -- slightly behind spawn point
-            local exitMz = house.garage_int.z - 1
+            if gx and gy and gz then
+                -- Exterior entry marker (on world)
+                local entryMarker = createMarker(
+                    gx, gy, gz - 1,
+                    "cylinder", 3.0, 80, 120, 255, 100
+                )
+                local eint = house.exterior and house.exterior.interior or house.exterior_interior or 0
+                setElementInterior(entryMarker, eint)
+                setElementDimension(entryMarker, 0)
+                setElementData(entryMarker, "garage:houseId", houseId, false)
+                setElementParent(entryMarker, resourceRoot)
+                garageZoneMarkers[entryMarker] = houseId
 
-            local exitMarker = createMarker(exitMx, exitMy, exitMz, "arrow", 1.5, 255, 60, 60, 150)
-            setElementInterior(exitMarker, 0)
-            setElementDimension(exitMarker, garageDim)
-            setElementData(exitMarker, "garage:houseId", houseId, false)
-            setElementParent(exitMarker, resourceRoot)
-            garageExitMarkers[exitMarker] = houseId
+                -- Garage interior exit marker (inside garage dimension)
+                local garageDim = garageDimension(houseId)
+                local gix = house.garage_int and house.garage_int.x or house.garage_int_x
+                local giy = house.garage_int and house.garage_int.y or house.garage_int_y
+                local giz = house.garage_int and house.garage_int.z or house.garage_int_z
+                local exitMx = gix
+                local exitMy = giy - 3  -- slightly behind spawn point
+                local exitMz = giz - 1
 
-            -- Blip for the garage
-            local blip = createBlip(house.garage.x, house.garage.y, house.garage.z, 55, 1, 80, 120, 255, 200, 0, 150)
-            setElementInterior(blip, house.exterior.interior or 0)
-            setElementDimension(blip, 0)
-            setElementParent(blip, resourceRoot)
-            garageBlips[blip] = houseId
+                local exitMarker = createMarker(exitMx, exitMy, exitMz, "arrow", 1.5, 255, 60, 60, 150)
+                setElementInterior(exitMarker, 0)
+                setElementDimension(exitMarker, garageDim)
+                setElementData(exitMarker, "garage:houseId", houseId, false)
+                setElementParent(exitMarker, resourceRoot)
+                garageExitMarkers[exitMarker] = houseId
+
+                -- Blip for the garage
+                local blip = createBlip(gx, gy, gz, 55, 1, 80, 120, 255, 200, 0, 150)
+                setElementInterior(blip, eint)
+                setElementDimension(blip, 0)
+                setElementParent(blip, resourceRoot)
+                garageBlips[blip] = houseId
+            end
         end
     end
 end
@@ -298,9 +318,16 @@ addEventHandler("onResourceStop", resourceRoot, function()
             if isElement(player) then
                 local house = getHouseData(houseId)
                 if house then
-                    setElementInterior(player, house.exterior.interior or 0)
+                    local eint = house.exterior and house.exterior.interior or house.exterior_interior or 0
+                    local gx = house.garage and house.garage.x or house.garage_x
+                    local gy = house.garage and house.garage.y or house.garage_y
+                    local gz = house.garage and house.garage.z or house.garage_z
+                    
+                    setElementInterior(player, eint)
                     setElementDimension(player, 0)
-                    setElementPosition(player, house.garage.x, house.garage.y, house.garage.z)
+                    if gx and gy and gz then
+                        setElementPosition(player, gx, gy, gz)
+                    end
                 end
             end
         end
