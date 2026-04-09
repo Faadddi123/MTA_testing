@@ -151,7 +151,7 @@ local function buildPanel()
     -- EVENTS: server -> client data
     -- ═══════════════════════════════════════════════════════
 
-    addEvent("hm:receivePresets", false)
+    addEvent("hm:receivePresets", true)
     addEventHandler("hm:receivePresets", root, function(cats)
         presets = cats
         guiComboBoxClear(cmbCat)
@@ -161,7 +161,7 @@ local function buildPanel()
         if #cats > 0 then guiComboBoxSetSelected(cmbCat, 0) end
     end)
 
-    addEvent("hm:receiveList", false)
+    addEvent("hm:receiveList", true)
     addEventHandler("hm:receiveList", root, function(list)
         if not propList or not isElement(propList) then return end
         guiGridListClear(propList)
@@ -282,7 +282,7 @@ end
 -- ═══════════════════════════════════════════════════════════════
 -- OPEN / CLOSE
 -- ═══════════════════════════════════════════════════════════════
-addEvent("hm:openPanel", false)
+addEvent("hm:openPanel", true)
 addEventHandler("hm:openPanel", root, function()
     outputChatBox("[HouseAdmin] Opening panel...", 100, 200, 255)
     buildPanel()
