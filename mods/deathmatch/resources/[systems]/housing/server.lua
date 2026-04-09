@@ -312,9 +312,9 @@ local propertyDefinitions = {
 -- STATE
 -- ───────────────────────────────────────────────────────────────
 local houses          = {}   -- id → house data table
-local purchasePickups = {}   -- pickup element → house id
-local exitMarkers     = {}   -- marker element → house id
-local houseBlips      = {}   -- blip element → house id
+local entryMarkers    = {}   -- marker element → house id  (exterior, yellow)
+local exitMarkers     = {}   -- marker element → house id  (interior, orange)
+local houseBlips      = {}   -- blip element   → house id
 
 -- ───────────────────────────────────────────────────────────────
 -- HELPERS
@@ -488,8 +488,8 @@ end
 -- ELEMENT CREATION / CLEANUP
 -- ───────────────────────────────────────────────────────────────
 local function destroyHouseElements()
-    for pickup in pairs(purchasePickups) do
-        if isElement(pickup) then destroyElement(pickup) end
+    for marker in pairs(entryMarkers) do
+        if isElement(marker) then destroyElement(marker) end
     end
     for marker in pairs(exitMarkers) do
         if isElement(marker) then destroyElement(marker) end
@@ -497,41 +497,81 @@ local function destroyHouseElements()
     for blip in pairs(houseBlips) do
         if isElement(blip) then destroyElement(blip) end
     end
-    purchasePickups = {}
-    exitMarkers     = {}
-    houseBlips      = {}
+    entryMarkers = {}
+    exitMarkers  = {}
+    houseBlips   = {}
+end
+
+-- Build a lookup of positions already covered by interiors.map entries
+local function buildInteriorsCoverageMap()
+    local covered = {}
+    for _, el in ipairs(getElementsByType("interiorEntry")) do
+        local ex = tonumber(getElementData(el, "posX")) or 0
+        local ey = tonumber(getElementData(el, "posY")) or 0
+        local ez = tonumber(getElementData(el, "posZ")) or 0
+        covered[#covered + 1] = { x = ex, y = ey, z = ez }
+    end
+    return covered
+end
+
+local function isCoveredByInteriors(houseExt, covered)
+    for _, pos in ipairs(covered) do
+        if getDistanceBetweenPoints3D(houseExt.x, houseExt.y, houseExt.z,
+                                      pos.x, pos.y, pos.z) <= 3 then
+            return true
+        end
+    end
+    return false
 end
 
 local function createHouseElements()
     destroyHouseElements()
 
+    local covered = buildInteriorsCoverageMap()
+
     for _, house in pairs(houses) do
-        local isApartment = house.property_type == "apartment"
-        local pickupModel = isApartment and 1318 or 1273         -- apartment key vs house icon
-        local blipIcon    = isApartment and 40 or 31             -- different blip icons
-        local blipColor   = isApartment and { 255, 120, 40 } or { 40, 140, 255 }
+        local isApart = house.property_type == "apartment"
 
-        local pickup      = createPickup(house.exterior.x, house.exterior.y, house.exterior.z, 3, pickupModel)
-        local exitMarker  = createMarker(house.interior.x, house.interior.y, house.interior.z - 1, "arrow", 1.1, 255, 140, 40, 120)
-        local blip        = createBlip(house.exterior.x, house.exterior.y, house.exterior.z, blipIcon, 2, blipColor[1], blipColor[2], blipColor[3], 255, 0, 200)
+        -- ── Exterior yellow entry arrow ──────────────────────────────
+        -- Only create if interiors.map doesn't already have a marker here.
+        -- (Properties 1-6 are in interiors.map; new admin-added ones are not.)
+        if not isCoveredByInteriors(house.exterior, covered) then
+            local entryMarker = createMarker(
+                house.exterior.x, house.exterior.y, house.exterior.z + 0.5,
+                "arrow", 2.0, 255, 255, 0, 200
+            )
+            setElementInterior(entryMarker, house.exterior.interior)
+            setElementDimension(entryMarker, 0)
+            setElementData(entryMarker, "housing:houseId", house.id, false)
+            setElementParent(entryMarker, resourceRoot)
+            entryMarkers[entryMarker] = house.id
+        end
 
-        setElementInterior(pickup, house.exterior.interior)
-        setElementDimension(pickup, 0)
+        -- ── Interior exit marker (orange arrow, inside private dimension) ──
+        local exitMarker = createMarker(
+            house.interior.x, house.interior.y, house.interior.z - 1,
+            "arrow", 1.2, 255, 140, 40, 160
+        )
         setElementInterior(exitMarker, house.interior.interior)
         setElementDimension(exitMarker, house.dimension)
-
-        setElementData(pickup, "housing:houseId", house.id, false)
         setElementData(exitMarker, "housing:houseId", house.id, false)
-
-        setElementParent(pickup, resourceRoot)
         setElementParent(exitMarker, resourceRoot)
-        setElementParent(blip, resourceRoot)
+        exitMarkers[exitMarker] = house.id
 
-        purchasePickups[pickup]  = house.id
-        exitMarkers[exitMarker]  = house.id
-        houseBlips[blip]         = house.id
+        -- ── Map blip (house/apartment icon, shown on radar) ──
+        local blipIcon      = isApart and 40 or 31
+        local br, bg, bb    = isApart and 255 or 80, isApart and 160 or 200, isApart and 60 or 255
+        local blip = createBlip(
+            house.exterior.x, house.exterior.y, house.exterior.z,
+            blipIcon, 1, br, bg, bb, 200, 0, 180
+        )
+        setElementInterior(blip, house.exterior.interior)
+        setElementDimension(blip, 0)
+        setElementParent(blip, resourceRoot)
+        houseBlips[blip] = house.id
     end
 end
+
 
 -- ───────────────────────────────────────────────────────────────
 -- ACCESS LOGIC
@@ -1012,23 +1052,39 @@ addEventHandler("onResourceStart", resourceRoot, function()
     seedHouses()
     migrateLegacyHousing()
     loadHouses()
-    createHouseElements()
+    -- Delay element creation 3s so interiors resource finishes loading first.
+    -- interiors.map interiorEntry elements must exist for isCoveredByInteriors() to work.
+    setTimer(createHouseElements, 3000, 1)
 end)
 
-addEventHandler("onPickupHit", resourceRoot, function(hitElement)
-    if getElementType(hitElement) ~= "player" then return end
-    showHouseInfo(hitElement, houses[purchasePickups[source]])
-end)
 
+-- Interior exit marker → warp player back outside
 addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimension)
     if not matchingDimension or getElementType(hitElement) ~= "player" then return end
-    local house = houses[exitMarkers[source]]
-    if house then
-        movePlayerOutOfHouse(hitElement, house)
+    local player = hitElement
+
+    -- Entry marker (exterior yellow arrow) → show popup
+    local entryHouseId = entryMarkers[source]
+    if entryHouseId then
+        local house = houses[entryHouseId]
+        if house then
+            showHousePopupForPlayer(player, house)
+            showHouseInfo(player, house)
+        end
+        return
+    end
+
+    -- Exit marker (interior orange arrow) → warp out
+    local exitHouseId = exitMarkers[source]
+    if exitHouseId then
+        local house = houses[exitHouseId]
+        if house then
+            movePlayerOutOfHouse(player, house)
+        end
     end
 end)
 
--- Remote UI events
+
 addEvent("housing:requestBuy", true)
 addEventHandler("housing:requestBuy", root, function(requestedHouseId)
     tryBuyHouse(client, getExteriorHouseForUiRequest(client, requestedHouseId))
@@ -1048,3 +1104,4 @@ addEvent("housing:requestToggleLock", true)
 addEventHandler("housing:requestToggleLock", root, function(requestedHouseId)
     tryToggleHouseLock(client, getExteriorHouseForUiRequest(client, requestedHouseId) or getInteriorHouse(client))
 end)
+

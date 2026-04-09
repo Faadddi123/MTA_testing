@@ -1,0 +1,6 @@
+<meta>
+    <info author="Codex" name="house_manager" type="script" version="1.0.0"
+          description="In-game admin GUI to add/edit/delete properties. Requires housing, database_manager." />
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+</meta>
