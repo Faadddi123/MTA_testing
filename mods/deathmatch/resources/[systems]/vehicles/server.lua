@@ -96,7 +96,9 @@ end
 local function respawnPersistentVehicles()
     destroyPersistentVehicles()
 
-    for _, row in ipairs(centralQuery("SELECT * FROM vehicles ORDER BY id ASC")) do
+    -- Only auto-spawn vehicles NOT linked to a garage (house_id IS NULL).
+    -- Garage vehicles are spawned on-demand by garage_system when a player enters.
+    for _, row in ipairs(centralQuery("SELECT * FROM vehicles WHERE house_id IS NULL ORDER BY id ASC")) do
         spawnVehicleFromRow(row)
     end
 end
@@ -290,6 +292,82 @@ function releaseHouseVehicles(houseId)
     return true
 end
 
+function spawnGarageVehicles(houseId)
+    houseId = tonumber(houseId)
+    if not houseId then return false end
+
+    local garageDim = 7000 + houseId
+
+    -- Load garage vehicles from DB that are not yet spawned
+    local rows = centralQuery("SELECT * FROM vehicles WHERE house_id = ? ORDER BY id ASC", houseId)
+    for _, row in ipairs(rows) do
+        local recordId = tonumber(row.id)
+        -- Skip if already spawned
+        local alreadySpawned = false
+        for _, rId in pairs(spawnedVehicles) do
+            if rId == recordId then
+                alreadySpawned = true
+                break
+            end
+        end
+        if not alreadySpawned then
+            spawnVehicleFromRow(row)
+            -- Find the vehicle we just spawned and force it into the garage dimension
+            for vehicle, rId in pairs(spawnedVehicles) do
+                if rId == recordId and isElement(vehicle) then
+                    setElementDimension(vehicle, garageDim)
+                    setElementInterior(vehicle, 0)
+                    break
+                end
+            end
+        end
+    end
+
+    return true
+end
+
+function despawnGarageVehicles(houseId)
+    houseId = tonumber(houseId)
+    if not houseId then return false end
+
+    local toRemove = {}
+    for vehicle, recordId in pairs(spawnedVehicles) do
+        local row = spawnedVehicleRows[recordId]
+        if row and row.house_id == houseId then
+            toRemove[#toRemove + 1] = vehicle
+        end
+    end
+
+    for _, vehicle in ipairs(toRemove) do
+        if isElement(vehicle) then
+            -- Save position before despawning
+            local recordId = spawnedVehicles[vehicle]
+            local row = spawnedVehicleRows[recordId]
+            if row and row.owner_key then
+                local x, y, z = getElementPosition(vehicle)
+                local rx, ry, rz = getElementRotation(vehicle)
+                centralExecute([[
+                    UPDATE vehicles SET
+                        pos_x = ?, pos_y = ?, pos_z = ?,
+                        rot_x = ?, rot_y = ?, rot_z = ?,
+                        interior = ?, dimension = ?, health = ?, upgrades = ?
+                    WHERE id = ?
+                ]],
+                    x, y, z, rx, ry, rz,
+                    getElementInterior(vehicle),
+                    getElementDimension(vehicle),
+                    getElementHealth(vehicle),
+                    serializeUpgrades(vehicle),
+                    recordId
+                )
+            end
+            destroyElement(vehicle)
+        end
+    end
+
+    return true
+end
+
 addEventHandler("onResourceStart", resourceRoot, function()
     respawnPersistentVehicles()
 end)
@@ -314,7 +392,21 @@ addCommandHandler("park", function(player)
     parkVehicleForPlayer(player, false)
 end)
 
+-- Client-triggered: triggerServerEvent("vehicles:requestPark", localPlayer, houseId)
 addEvent("vehicles:requestPark", true)
 addEventHandler("vehicles:requestPark", root, function(requestedHouseId)
-    parkVehicleForPlayer(client, requestedHouseId)
+    -- 'client' is set only for client-driven events; 'source' is the element
+    local player = client or (isElement(source) and source or nil)
+    if player then
+        parkVehicleForPlayer(player, requestedHouseId)
+    end
 end)
+
+-- Server-triggered: triggerEvent("vehicles:requestPark", playerElement, houseId)
+-- When called server→server, source = playerElement, client = nil
+-- The handler above already covers this via 'source', so no duplicate needed.
+
+-- Direct export for garage_system or other server resources
+function parkVehicle(player, houseId)
+    return parkVehicleForPlayer(player, houseId)
+end

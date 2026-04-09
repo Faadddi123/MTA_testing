@@ -8,4 +8,7 @@
     <export function="ensureOwnerRecord" type="server" />
     <export function="isMigrationComplete" type="server" />
     <export function="markMigrationComplete" type="server" />
+    <export function="hasPropertyKeyAccess" type="server" />
+    <export function="grantPropertyKey" type="server" />
+    <export function="revokePropertyKey" type="server" />
 </meta>

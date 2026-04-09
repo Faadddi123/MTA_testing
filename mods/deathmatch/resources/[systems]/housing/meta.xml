@@ -1,5 +1,7 @@
 <meta>
-    <info author="Codex" name="housing" type="script" version="1.0.0" description="Lightweight RP housing system" />
+    <info author="Codex" name="housing" type="script" version="2.0.0" description="RP housing + apartment system with shared keys and garage support" />
     <script src="server.lua" type="server" />
     <export function="getOwnedGarageHouseIdForPosition" type="server" />
+    <export function="getHouseData" type="server" />
+    <export function="checkHouseAccess" type="server" />
 </meta>

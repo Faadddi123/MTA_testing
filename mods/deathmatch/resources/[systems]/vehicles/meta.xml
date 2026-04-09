@@ -3,4 +3,7 @@
     <script src="server.lua" type="server" />
     <export function="setGarageVehiclesLocked" type="server" />
     <export function="releaseHouseVehicles" type="server" />
+    <export function="spawnGarageVehicles" type="server" />
+    <export function="despawnGarageVehicles" type="server" />
+    <export function="parkVehicle" type="server" />
 </meta>

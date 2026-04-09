@@ -180,6 +180,37 @@ function markMigrationComplete(migrationName)
     )
 end
 
+function hasPropertyKeyAccess(houseId, ownerKey)
+    houseId = tonumber(houseId)
+    ownerKey = tostring(ownerKey or "")
+    if not houseId or ownerKey == "" then return false end
+    return querySingleInternal(
+        "SELECT id FROM property_keys WHERE house_id = ? AND grantee_key = ? LIMIT 1",
+        houseId, ownerKey
+    ) ~= nil
+end
+
+function grantPropertyKey(houseId, granteeKey, grantedByKey)
+    houseId = tonumber(houseId)
+    granteeKey = tostring(granteeKey or "")
+    grantedByKey = tostring(grantedByKey or "")
+    if not houseId or granteeKey == "" then return false end
+    return dbExecute(
+        "INSERT OR IGNORE INTO property_keys (house_id, grantee_key, granted_by, granted_at) VALUES (?, ?, ?, ?)",
+        houseId, granteeKey, grantedByKey, getTimestamp()
+    )
+end
+
+function revokePropertyKey(houseId, granteeKey)
+    houseId = tonumber(houseId)
+    granteeKey = tostring(granteeKey or "")
+    if not houseId or granteeKey == "" then return false end
+    return dbExecute(
+        "DELETE FROM property_keys WHERE house_id = ? AND grantee_key = ?",
+        houseId, granteeKey
+    )
+end
+
 local function mergeOwnerKeys(fromOwnerKey, toOwnerKey)
     if not fromOwnerKey or not toOwnerKey or fromOwnerKey == toOwnerKey then
         return
@@ -250,6 +281,7 @@ addEventHandler("onResourceStart", resourceRoot, function()
             id INTEGER PRIMARY KEY,
             name TEXT NOT NULL,
             price INTEGER NOT NULL DEFAULT 0,
+            property_type TEXT NOT NULL DEFAULT 'house',
             owner_key TEXT,
             owner_account TEXT,
             locked INTEGER NOT NULL DEFAULT 1,
@@ -267,9 +299,36 @@ addEventHandler("onResourceStart", resourceRoot, function()
             garage_x REAL NOT NULL DEFAULT 0,
             garage_y REAL NOT NULL DEFAULT 0,
             garage_z REAL NOT NULL DEFAULT 0,
-            garage_radius REAL NOT NULL DEFAULT 8
+            garage_radius REAL NOT NULL DEFAULT 8,
+            garage_int_x REAL NOT NULL DEFAULT 0,
+            garage_int_y REAL NOT NULL DEFAULT 0,
+            garage_int_z REAL NOT NULL DEFAULT 0,
+            garage_int_rot REAL NOT NULL DEFAULT 0
         )
     ]])
+    dbExecute([[
+        CREATE TABLE IF NOT EXISTS property_keys (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            house_id INTEGER NOT NULL,
+            grantee_key TEXT NOT NULL,
+            granted_by TEXT NOT NULL,
+            granted_at INTEGER NOT NULL,
+            UNIQUE(house_id, grantee_key)
+        )
+    ]])
+    -- Schema migrations for existing databases
+    local colCheck = queryRowsInternal("PRAGMA table_info(houses)")
+    local existingCols = {}
+    for _, col in ipairs(colCheck) do existingCols[col.name] = true end
+    if not existingCols["property_type"] then
+        dbExecute("ALTER TABLE houses ADD COLUMN property_type TEXT NOT NULL DEFAULT 'house'")
+    end
+    if not existingCols["garage_int_x"] then
+        dbExecute("ALTER TABLE houses ADD COLUMN garage_int_x REAL NOT NULL DEFAULT 0")
+        dbExecute("ALTER TABLE houses ADD COLUMN garage_int_y REAL NOT NULL DEFAULT 0")
+        dbExecute("ALTER TABLE houses ADD COLUMN garage_int_z REAL NOT NULL DEFAULT 0")
+        dbExecute("ALTER TABLE houses ADD COLUMN garage_int_rot REAL NOT NULL DEFAULT 0")
+    end
     dbExecute([[
         CREATE TABLE IF NOT EXISTS vehicles (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -25,18 +25,45 @@ local function normalizeItemName(itemName)
 end
 
 local itemWeights = {
-    bread = 0.6,
-    water = 0.4,
-    pistol = 2.8,
-    key = 0.1,
+    bread        = 0.6,
+    water        = 0.4,
+    pistol       = 2.8,
+    key          = 0.1,
+    property_key = 0.1,
 }
 
 local itemIcons = {
-    bread = "icons/bread.png",
-    water = "icons/water.png",
-    pistol = "icons/pistol.png",
-    key = "icons/key.png",
+    bread        = "icons/bread.png",
+    water        = "icons/water.png",
+    pistol       = "icons/pistol.png",
+    key          = "icons/key.png",
+    property_key = "icons/property_key.png",
 }
+
+-- Resolve weight/icon for dynamic item names like "property_key_1"
+local function getItemWeight(itemName)
+    if itemWeights[itemName] then return itemWeights[itemName] end
+    -- property_key_<id> pattern
+    if itemName:sub(1, 13) == "property_key_" then return 0.1 end
+    return 1
+end
+
+local function getItemIcon(itemName)
+    if itemIcons[itemName] then return itemIcons[itemName] end
+    if itemName:sub(1, 13) == "property_key_" then
+        return "icons/property_key.png"
+    end
+    return "icons/key.png"
+end
+
+local function getItemLabel(itemName)
+    -- "property_key_3" → "Property Key #3"
+    if itemName:sub(1, 13) == "property_key_" then
+        local id = itemName:sub(14)
+        return "Property Key #" .. id
+    end
+    return itemName:gsub("_", " ")
+end
 
 local function sanitizePlayerName(playerName)
     return tostring(playerName or ""):gsub("#%x%x%x%x%x%x", "")
@@ -108,13 +135,13 @@ local function getInventoryRows(ownerKey)
     for _, row in ipairs(rows) do
         local amount = math.floor(tonumber(row.amount) or 0)
         if amount > 0 then
-            local itemWeight = itemWeights[row.item_name] or 1
+            local weight = getItemWeight(row.item_name)
             items[#items + 1] = {
-                item = row.item_name,
+                item   = row.item_name,
                 amount = amount,
-                label = row.item_name:gsub("_", " "),
-                weight = itemWeight,
-                icon = itemIcons[row.item_name] or "icons/key.png",
+                label  = getItemLabel(row.item_name),
+                weight = weight,
+                icon   = getItemIcon(row.item_name),
             }
         end
     end

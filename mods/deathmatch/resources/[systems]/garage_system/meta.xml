@@ -1,0 +1,6 @@
+<meta>
+    <info author="Codex" name="garage_system" type="script" version="1.0.0"
+          description="Garage interior access with on-demand vehicle spawn/despawn. Requires housing, vehicles, database_manager." />
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+</meta>

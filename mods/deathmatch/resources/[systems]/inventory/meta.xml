@@ -9,6 +9,7 @@
     <file src="web/icons/water.png" />
     <file src="web/icons/pistol.png" />
     <file src="web/icons/key.png" />
+    <file src="web/icons/property_key.png" />
     <export function="getInventoryContents" type="server" />
     <export function="getInventoryItemCount" type="server" />
     <export function="addInventoryItem" type="server" />
