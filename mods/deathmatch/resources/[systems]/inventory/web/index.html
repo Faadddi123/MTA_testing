@@ -11,17 +11,13 @@
 <body>
     <div id="app">
         <section id="inventory-shell" class="inventory-shell hidden">
-            <div class="inventory-backdrop"></div>
             <div class="inventory-panel">
                 <header class="inventory-header">
                     <div>
-                        <p class="eyebrow">Roleplay Inventory</p>
-                        <h1>Storage</h1>
+                        <p class="eyebrow">Inventory</p>
+                        <h1>Backpack</h1>
                     </div>
                     <div class="header-actions">
-                        <button class="icon-button" type="button" title="Settings">
-                            <i class="fa-solid fa-gear"></i>
-                        </button>
                         <button id="inventory-close" class="icon-button close-button" type="button" title="Close">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
@@ -45,6 +41,7 @@
                 <footer class="quick-slot-panel">
                     <div class="quick-slot-label">Quick Slots</div>
                     <div id="quick-slots" class="quick-slot-grid"></div>
+                    <div class="inventory-hint">Press <strong>I</strong> or <strong>Esc</strong> to close</div>
                 </footer>
             </div>
         </section>

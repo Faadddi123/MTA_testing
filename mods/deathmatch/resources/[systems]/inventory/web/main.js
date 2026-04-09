@@ -28,7 +28,7 @@ const state = {
         currentWeight: 0,
         maxWeight: 35,
         quickSlots: [],
-        totalSlots: 30,
+        totalSlots: 24,
     },
     house: null,
 };
@@ -90,8 +90,8 @@ function createSlot(item) {
 function renderInventory() {
     inventoryGrid.innerHTML = "";
 
-    const items = Array.isArray(state.inventory.items) ? state.inventory.items.slice(0, state.inventory.totalSlots || 30) : [];
-    const totalSlots = Math.max(30, items.length);
+    const items = Array.isArray(state.inventory.items) ? state.inventory.items.slice(0, state.inventory.totalSlots || 24) : [];
+    const totalSlots = Math.max(24, items.length);
     for (let index = 0; index < totalSlots; index += 1) {
         inventoryGrid.appendChild(createSlot(items[index] || null));
     }
@@ -180,6 +180,13 @@ window.updateHousePopup = function updateHousePopup(data) {
 };
 
 inventoryClose.addEventListener("click", () => safeTrigger("inventory:browserClose"));
+
+window.addEventListener("keydown", (event) => {
+    if (!state.inventoryVisible) return;
+    if (event.key === "Escape" || event.key.toLowerCase() === "i") {
+        safeTrigger("inventory:browserClose");
+    }
+});
 
 renderInventory();
 renderHousePopup();
