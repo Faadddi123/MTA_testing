@@ -376,9 +376,10 @@ local function seedHouses()
                 interior_x, interior_y, interior_z, interior_rot, interior_id, dimension,
                 garage_x, garage_y, garage_z, garage_radius,
                 garage_int_x, garage_int_y, garage_int_z, garage_int_rot
-            ) VALUES (?, ?, ?, ?, NULL, NULL, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ]],
             def.id, def.name, def.price, def.type or "house",
+            nil, nil, 1,
             def.exterior.x, def.exterior.y, def.exterior.z, def.exterior.rotation, def.exterior.interior,
             def.interior.x, def.interior.y, def.interior.z, def.interior.rotation, def.interior.interior,
             dimension,

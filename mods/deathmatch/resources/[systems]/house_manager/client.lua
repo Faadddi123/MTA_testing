@@ -1,22 +1,17 @@
 -- house_manager/client.lua
--- Pure MTA native GUI admin panel. No browser, no cursor lock issues.
--- Open with /houseadmin (or /ha). Admin only.
+-- Native MTA GUI admin panel. Open with /houseadmin or /ha.
+-- NOTE: MTA CEGUI does NOT support emoji/unicode – all labels use plain ASCII.
 
-local panel      = nil   -- main window
-local isOpen     = false
-local propList   = nil   -- gridlist element
-local presets    = {}    -- received from server
-local editRow    = -1    -- currently selected row in list
+local panel    = nil
+local isOpen   = false
+local propList = nil    -- gridlist
+local presets  = {}     -- { key, label } list from server
+local editRow  = -1     -- selected row index for Edit mode
 
--- ── Attach GUI click handlers concisely ──
-function guiAddEventHandler(element, eventName, handler)
-    local fullName = ({
-        onClick    = "onClientGUIClick",
-        onChange   = "onClientGUIChanged",
-        onAccepted = "onClientGUIComboBoxAccepted",
-    })[eventName] or ("onClientGUI" .. eventName)
-    addEventHandler(fullName, element, handler)
-end
+-- ── forward declarations ────────────────────────────────────────
+local lblStatus, lblAddSt
+local edtEName, edtEPrice, btnESave, btnECancel
+local lblEName, lblEPrice
 
 -- ═══════════════════════════════════════════════════════════════
 -- HELPERS
@@ -31,279 +26,257 @@ local function fmtMoney(n)
     return "$" .. tostring(math.floor(tonumber(n) or 0))
 end
 
+local function showEditWidgets(show)
+    guiSetVisible(lblEName,   show)
+    guiSetVisible(edtEName,   show)
+    guiSetVisible(lblEPrice,  show)
+    guiSetVisible(edtEPrice,  show)
+    guiSetVisible(btnESave,   show)
+    guiSetVisible(btnECancel, show)
+end
+
 -- ═══════════════════════════════════════════════════════════════
--- BUILD GUI
+-- BUILD GUI  (called once)
 -- ═══════════════════════════════════════════════════════════════
 local function buildPanel()
     if panel and isElement(panel) then return end
 
-    local W, H = 820, 560
-    panel = guiCreateWindow(0, 0, W, H, "🏘  House Manager  —  Admin Only", false)
+    local W, H = 800, 540
+
+    panel = guiCreateWindow(0, 0, W, H, "House Manager - Property Admin", false)
+    if not panel then
+        outputChatBox("[HouseAdmin] ERROR: Could not create GUI window.", 255, 60, 60)
+        return
+    end
     guiCenter(panel)
     guiWindowSetSizable(panel, false)
-    guiSetAlpha(panel, 0.96)
 
-    -- Close on X
-    guiCreateButton(W - 28, 4, 22, 22, "✕", false, panel)
-
-    -- ── TAB PANEL ──────────────────────────────────────────────
-    local tabs = guiCreateTabPanel(6, 28, W - 12, H - 36, false, panel)
+    local tabs = guiCreateTabPanel(6, 24, W - 12, H - 32, false, panel)
 
     -- ╔══════════════════════════════════════════════════════╗
-    -- ║  TAB 1 – Properties List                            ║
+    -- TAB 1: Properties List
     -- ╚══════════════════════════════════════════════════════╝
-    local tabList = guiCreateTab("📋  Properties List", tabs)
+    local tabList = guiCreateTab("Properties List", tabs)
 
-    propList = guiCreateGridList(4, 4, W - 24, 380, false, tabList)
+    propList = guiCreateGridList(4, 4, W - 24, 360, false, tabList)
     guiGridListSetSelectionMode(propList, 0)
-    local cols = {
-        { name = "ID",    w = 40  },
-        { name = "Name",  w = 200 },
-        { name = "Type",  w = 90  },
-        { name = "Price", w = 90  },
-        { name = "Owner", w = 150 },
-        { name = "Lock",  w = 50  },
-    }
-    for _, c in ipairs(cols) do
-        guiGridListAddColumn(propList, c.name, c.w / (W - 24))
-    end
 
-    -- Action bar below the list
-    local btnTeleport = guiCreateButton( 4,  390, 120, 28, "🚀 Go There",   false, tabList)
-    local btnEdit     = guiCreateButton(130,  390, 120, 28, "✏  Edit",       false, tabList)
-    local btnDelete   = guiCreateButton(256,  390, 120, 28, "🗑  Delete",     false, tabList)
-    local btnRefresh  = guiCreateButton(382,  390, 120, 28, "🔄 Refresh",    false, tabList)
+    -- columns (widths as fractions of gridlist width)
+    local gw = W - 24
+    guiGridListAddColumn(propList, "ID",    40  / gw)
+    guiGridListAddColumn(propList, "Name",  200 / gw)
+    guiGridListAddColumn(propList, "Type",  90  / gw)
+    guiGridListAddColumn(propList, "Price", 90  / gw)
+    guiGridListAddColumn(propList, "Owner", 160 / gw)
+    guiGridListAddColumn(propList, "Lock",  55  / gw)
 
-    local lblStatus   = guiCreateLabel(4, 424, W - 30, 20, "", false, tabList)
-    guiLabelSetColor(lblStatus, 180, 255, 180)
+    -- action buttons
+    local btnTeleport = guiCreateButton(  4, 372, 110, 26, "Go There",  false, tabList)
+    local btnEdit     = guiCreateButton(120, 372, 110, 26, "Edit",      false, tabList)
+    local btnDelete   = guiCreateButton(236, 372, 110, 26, "Delete",    false, tabList)
+    local btnRefresh  = guiCreateButton(352, 372, 110, 26, "Refresh",   false, tabList)
 
-    -- ── Edit row (inline, shown when a row is selected + Edit clicked) ──
-    local editFrame  = guiCreateStaticImage(4, 444, W - 26, 90, "white.png", false, tabList)    -- placeholder
-    guiSetVisible(editFrame, false)
-    local lblEName   = guiCreateLabel(    8, 448,  60, 20, "Name:",  false, tabList)
-    local edtEName   = guiCreateEdit(    70, 448, 220, 22, "",       false, tabList)
-    local lblEPrice  = guiCreateLabel(  300, 448,  50, 20, "Price:", false, tabList)
-    local edtEPrice  = guiCreateEdit(   352, 448, 120, 22, "",       false, tabList)
-    local btnESave   = guiCreateButton( 480, 448, 100, 22, "💾 Save", false, tabList)
-    local btnECancel = guiCreateButton( 586, 448, 100, 22, "✖ Cancel",false, tabList)
-    guiSetVisible(lblEName,  false)
-    guiSetVisible(edtEName,  false)
-    guiSetVisible(lblEPrice, false)
-    guiSetVisible(edtEPrice, false)
-    guiSetVisible(btnESave,  false)
-    guiSetVisible(btnECancel,false)
+    lblStatus = guiCreateLabel(4, 404, W - 30, 18, "", false, tabList)
+    guiLabelSetColor(lblStatus, 100, 230, 100)
 
-    local function showEditRow(show)
-        guiSetVisible(lblEName,  show)
-        guiSetVisible(edtEName,  show)
-        guiSetVisible(lblEPrice, show)
-        guiSetVisible(edtEPrice, show)
-        guiSetVisible(btnESave,  show)
-        guiSetVisible(btnECancel,show)
-    end
+    -- inline edit widgets (hidden until Edit clicked)
+    lblEName  = guiCreateLabel( 4, 428,  50, 20, "Name:",  false, tabList)
+    edtEName  = guiCreateEdit( 58, 426, 210, 22, "",       false, tabList)
+    lblEPrice = guiCreateLabel(276, 428,  45, 20, "Price:", false, tabList)
+    edtEPrice = guiCreateEdit(324, 426, 120, 22, "",       false, tabList)
+    btnESave  = guiCreateButton(452, 426,  90, 22, "Save",  false, tabList)
+    btnECancel= guiCreateButton(548, 426,  90, 22, "Cancel",false, tabList)
+    showEditWidgets(false)
 
     -- ╔══════════════════════════════════════════════════════╗
-    -- ║  TAB 2 – Add New Property                           ║
+    -- TAB 2: Add Property
     -- ╚══════════════════════════════════════════════════════╝
-    local tabAdd = guiCreateTab("➕  Add Property", tabs)
+    local tabAdd = guiCreateTab("Add Property", tabs)
 
-    -- Info box
-    guiCreateLabel(10, 10, W - 30, 40,
-        "Stand exactly at the front door of the property you want to add.\n"..
-        "The entry point will be captured from your current world position.",
+    guiCreateLabel(10, 8, W - 30, 36,
+        "Stand at the front door of the house, fill in the details below, then click Add.",
         false, tabAdd)
 
-    -- Fields
-    local function addRow(y, labelText, ...)
-        guiCreateLabel(10, y, 120, 22, labelText, false, tabAdd)
-    end
+    guiCreateLabel(10, 52, 120, 22, "Property Name:", false, tabAdd)
+    local edtName = guiCreateEdit(140, 50, 280, 24, "My House", false, tabAdd)
 
-    local Y = 58
-    local ROW = 34
+    guiCreateLabel(10, 84, 120, 22, "Category:", false, tabAdd)
+    local cmbCat = guiCreateComboBox(140, 82, 240, 24, "Select type...", false, tabAdd)
 
-    -- Name
-    addRow(Y, "Property Name:")
-    local edtName = guiCreateEdit(140, Y, 300, 24, "My House", false, tabAdd)
-    Y = Y + ROW
+    guiCreateLabel(10, 116, 120, 22, "Price ($):", false, tabAdd)
+    local edtPrice = guiCreateEdit(140, 114, 160, 24, "50000", false, tabAdd)
 
-    -- Category
-    addRow(Y, "Category:")
-    local cmbCat = guiCreateComboBox(140, Y, 250, 24, "Select type...", false, tabAdd)
-    Y = Y + ROW
-
-    -- Price
-    addRow(Y, "Price ($):")
-    local edtPrice = guiCreateEdit(140, Y, 180, 24, "50000", false, tabAdd)
-    Y = Y + ROW
-
-    -- Info labels
-    local lblPos = guiCreateLabel(10, Y, W - 30, 20, "Entry: (will use your position when you click Add)", false, tabAdd)
-    guiLabelSetColor(lblPos, 200, 200, 255)
-    Y = Y + 26
-
-    local lblPreview = guiCreateLabel(10, Y, W - 30, 60,
-        "Interior: chosen automatically from category preset\n"..
-        "Garage zone: 10 units behind you\n"..
-        "Dimension: auto-assigned (6000 + new ID)",
+    guiCreateLabel(10, 148, W - 30, 18,
+        "Interior layout is chosen automatically from the category preset.",
         false, tabAdd)
-    guiLabelSetColor(lblPreview, 160, 160, 160)
-    Y = Y + 72
+    guiCreateLabel(10, 168, W - 30, 18,
+        "Garage zone is placed 10m behind you. Dimension = 6000 + new house ID.",
+        false, tabAdd)
 
-    -- Submit
-    local btnAdd    = guiCreateButton(140, Y, 200, 32, "✅  Add Property Here", false, tabAdd)
-    local lblAddSt  = guiCreateLabel(  10, Y + 38, W - 30, 20, "", false, tabAdd)
-    guiLabelSetColor(lblAddSt, 180, 255, 180)
+    local btnAdd = guiCreateButton(140, 196, 210, 30, "Add Property at My Position", false, tabAdd)
+    lblAddSt = guiCreateLabel(10, 234, W - 30, 18, "", false, tabAdd)
+    guiLabelSetColor(lblAddSt, 100, 230, 100)
 
     -- ╔══════════════════════════════════════════════════════╗
-    -- ║  TAB 3 – Help                                       ║
+    -- TAB 3: Help
     -- ╚══════════════════════════════════════════════════════╝
-    local tabHelp = guiCreateTab("❓  Help", tabs)
-    guiCreateLabel(10, 10, W - 30, 500,
+    local tabHelp = guiCreateTab("Help", tabs)
+    guiCreateLabel(10, 8, W - 30, 460,
         "COMMANDS\n"..
-        "  /houseadmin  or  /ha   — open this panel\n\n"..
-        "PROPERTY CATEGORIES\n"..
-        "  Small House   — compact 1-bed interior (Interior 4)\n"..
-        "  Medium House  — standard 2-bed interior (Interior 1)\n"..
-        "  Large House   — spacious 3-bed interior (Interior 2)\n"..
-        "  Mansion       — luxury interior (Interior 4, dim 0)\n"..
-        "  Apartment     — high-rise apartment (Interior 3)\n"..
-        "  Penthouse     — rooftop suite (Interior 5)\n"..
-        "  Warehouse     — industrial space (Interior 18)\n\n"..
-        "PROCESS TO ADD A PROPERTY\n"..
-        "  1. Drive to the actual door of the house/building in-game\n"..
-        "  2. Open /houseadmin → 'Add Property' tab\n"..
-        "  3. Fill in name, category, and price\n"..
-        "  4. Click '✅ Add Property Here'\n"..
-        "  5. Housing resource restarts automatically (~1 second)\n"..
-        "  6. Yellow triangle appears at that location\n\n"..
-        "ENTRY / EXIT\n"..
-        "  Yellow arrow  → property entrance. Walk into it to see popup.\n"..
-        "  [F] Enter   [B] Buy   [G] Lock/Unlock   [ESC] Dismiss\n"..
-        "  Orange arrow inside the property → exit back outside.\n\n"..
-        "SHARING KEYS\n"..
-        "  /sharekey <playerName>   — on your property\n"..
-        "  /revokekey <playerName>  — on your property\n"..
-        "  /myproperties            — list your own properties",
+        "  /houseadmin   or   /ha   - open this panel\n\n"..
+        "CATEGORIES\n"..
+        "  small      - compact 1-bed (Interior 4)\n"..
+        "  medium     - standard 2-bed (Interior 1)\n"..
+        "  large      - spacious 3-bed (Interior 2)\n"..
+        "  mansion    - luxury (Interior 4)\n"..
+        "  apartment  - high-rise (Interior 3)\n"..
+        "  penthouse  - rooftop suite (Interior 5)\n"..
+        "  warehouse  - industrial (Interior 18)\n\n"..
+        "HOW TO ADD A PROPERTY\n"..
+        "  1. Walk to the front door of the building in-game\n"..
+        "  2. Open /ha, go to 'Add Property' tab\n"..
+        "  3. Fill name, category, price\n"..
+        "  4. Click 'Add Property at My Position'\n"..
+        "  5. Housing restarts in ~1 second\n"..
+        "  6. Yellow arrow appears at that door\n\n"..
+        "KEY BINDS (at a property)\n"..
+        "  [F] Enter / Exit     [B] Buy\n"..
+        "  [G] Lock / Unlock    [ESC] Dismiss popup\n\n"..
+        "SHARING\n"..
+        "  /sharekey <player>    /revokekey <player>\n"..
+        "  /myproperties",
         false, tabHelp)
 
-    -- ═══════════════════════════════════════════════════════════
-    -- EVENT WIRING
-    -- ═══════════════════════════════════════════════════════════
+    -- ═══════════════════════════════════════════════════════
+    -- EVENTS: server -> client data
+    -- ═══════════════════════════════════════════════════════
 
-    -- Populate category combobox when presets arrive
     addEvent("hm:receivePresets", false)
     addEventHandler("hm:receivePresets", root, function(cats)
         presets = cats
+        guiComboBoxClear(cmbCat)
         for _, c in ipairs(cats) do
             guiComboBoxAddItem(cmbCat, c.label)
         end
         if #cats > 0 then guiComboBoxSetSelected(cmbCat, 0) end
     end)
 
-    -- Populate list when data arrives
     addEvent("hm:receiveList", false)
     addEventHandler("hm:receiveList", root, function(list)
+        if not propList or not isElement(propList) then return end
         guiGridListClear(propList)
         for _, p in ipairs(list) do
             local row = guiGridListAddRow(propList)
-            guiGridListSetItemText(propList, row, 1, tostring(p.id), false, false)
-            guiGridListSetItemText(propList, row, 2, p.name,         false, false)
-            guiGridListSetItemText(propList, row, 3, p.ptype,        false, false)
+            guiGridListSetItemText(propList, row, 1, tostring(p.id),  false, false)
+            guiGridListSetItemText(propList, row, 2, p.name,          false, false)
+            guiGridListSetItemText(propList, row, 3, p.ptype,         false, false)
             guiGridListSetItemText(propList, row, 4, fmtMoney(p.price), false, false)
-            guiGridListSetItemText(propList, row, 5, p.owner ~= "" and p.owner or "Available", false, false)
-            guiGridListSetItemText(propList, row, 6, p.locked and "🔒" or "🔓", false, false)
+            guiGridListSetItemText(propList, row, 5, (p.owner ~= "" and p.owner or "Available"), false, false)
+            guiGridListSetItemText(propList, row, 6, p.locked and "[L]" or "[U]", false, false)
         end
-        guiSetText(lblStatus, "Loaded " .. #list .. " properties.")
+        if lblStatus then guiSetText(lblStatus, "Loaded " .. #list .. " properties.") end
     end)
 
-    -- Refresh
-    guiAddEventHandler(btnRefresh, "onClick", function()
+    -- ═══════════════════════════════════════════════════════
+    -- BUTTON EVENTS
+    -- ═══════════════════════════════════════════════════════
+
+    addEventHandler("onClientGUIClick", btnRefresh, function()
         triggerServerEvent("hm:requestList", localPlayer)
-        guiSetText(lblStatus, "Refreshing...")
-    end)
+        if lblStatus then guiSetText(lblStatus, "Refreshing...") end
+    end, false)
 
-    -- Teleport
-    guiAddEventHandler(btnTeleport, "onClick", function()
-        local selRow = guiGridListGetSelectedItem(propList)
-        if selRow < 0 then guiSetText(lblStatus, "Select a property first.") return end
-        local id = tonumber(guiGridListGetItemText(propList, selRow, 1))
+    addEventHandler("onClientGUIClick", btnTeleport, function()
+        local sel = guiGridListGetSelectedItem(propList)
+        if sel < 0 then
+            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
+            return
+        end
+        local id = tonumber(guiGridListGetItemText(propList, sel, 1))
         if id then triggerServerEvent("hm:requestTeleport", localPlayer, id) end
-    end)
+    end, false)
 
-    -- Edit
-    guiAddEventHandler(btnEdit, "onClick", function()
-        local selRow = guiGridListGetSelectedItem(propList)
-        if selRow < 0 then guiSetText(lblStatus, "Select a property first.") return end
-        editRow = selRow
-        guiSetText(edtEName, guiGridListGetItemText(propList, selRow, 2))
-        guiSetText(edtEPrice, (guiGridListGetItemText(propList, selRow, 4)):gsub("%$", ""))
-        showEditRow(true)
-    end)
+    addEventHandler("onClientGUIClick", btnEdit, function()
+        local sel = guiGridListGetSelectedItem(propList)
+        if sel < 0 then
+            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
+            return
+        end
+        editRow = sel
+        guiSetText(edtEName,  guiGridListGetItemText(propList, sel, 2))
+        guiSetText(edtEPrice, guiGridListGetItemText(propList, sel, 4):gsub("%$", ""))
+        showEditWidgets(true)
+    end, false)
 
-    -- Edit Save
-    guiAddEventHandler(btnESave, "onClick", function()
+    addEventHandler("onClientGUIClick", btnESave, function()
         if editRow < 0 then return end
         local id    = tonumber(guiGridListGetItemText(propList, editRow, 1))
         local name  = guiGetText(edtEName)
         local price = tonumber(guiGetText(edtEPrice))
         if not id or not name or name == "" or not price then
-            guiSetText(lblStatus, "Invalid name or price.")
+            if lblStatus then guiSetText(lblStatus, "Invalid name or price.") end
             return
         end
         triggerServerEvent("hm:requestUpdate", localPlayer, id, name, price)
-        showEditRow(false)
+        showEditWidgets(false)
         editRow = -1
-        guiSetText(lblStatus, "Update sent for #" .. id .. "...")
-    end)
+        if lblStatus then guiSetText(lblStatus, "Updated #" .. id) end
+    end, false)
 
-    -- Edit Cancel
-    guiAddEventHandler(btnECancel, "onClick", function()
-        showEditRow(false)
+    addEventHandler("onClientGUIClick", btnECancel, function()
+        showEditWidgets(false)
         editRow = -1
-    end)
+    end, false)
 
-    -- Delete
-    guiAddEventHandler(btnDelete, "onClick", function()
-        local selRow = guiGridListGetSelectedItem(propList)
-        if selRow < 0 then guiSetText(lblStatus, "Select a property first.") return end
-        local id   = tonumber(guiGridListGetItemText(propList, selRow, 1))
-        local name = guiGridListGetItemText(propList, selRow, 2)
-        if not id then return end
-        -- Simple confirm via re-click (second click within 3s deletes)
-        if not panel._confirmDelete or panel._confirmDelete ~= id then
-            panel._confirmDelete = id
-            guiSetText(lblStatus, "⚠ Click Delete again to confirm deleting '" .. name .. "' #" .. id)
-            setTimer(function() panel._confirmDelete = nil end, 4000, 1)
-        else
-            panel._confirmDelete = nil
-            triggerServerEvent("hm:requestDelete", localPlayer, id)
-            guiSetText(lblStatus, "Deleting #" .. id .. "...")
-        end
-    end)
-
-    -- Add property
-    guiAddEventHandler(btnAdd, "onClick", function()
-        local name  = guiGetText(edtName)
-        local price = tonumber(guiGetText(edtPrice))
-        local catIdx = guiComboBoxGetSelected(cmbCat)
-        if name == "" or not price or catIdx < 0 then
-            guiSetText(lblAddSt, "Fill in all fields first.")
+    -- Delete with double-click confirm
+    local confirmDeleteId = nil
+    local confirmTimer    = nil
+    addEventHandler("onClientGUIClick", btnDelete, function()
+        local sel = guiGridListGetSelectedItem(propList)
+        if sel < 0 then
+            if lblStatus then guiSetText(lblStatus, "Select a property first.") end
             return
         end
-        local category = presets[catIdx + 1] and presets[catIdx + 1].key or "small"
+        local id   = tonumber(guiGridListGetItemText(propList, sel, 1))
+        local name = guiGridListGetItemText(propList, sel, 2)
+        if not id then return end
+
+        if confirmDeleteId ~= id then
+            confirmDeleteId = id
+            if confirmTimer and isTimer(confirmTimer) then killTimer(confirmTimer) end
+            confirmTimer = setTimer(function() confirmDeleteId = nil end, 4000, 1)
+            if lblStatus then guiSetText(lblStatus, "Click Delete again to confirm: " .. name) end
+        else
+            confirmDeleteId = nil
+            if confirmTimer and isTimer(confirmTimer) then killTimer(confirmTimer) end
+            triggerServerEvent("hm:requestDelete", localPlayer, id)
+            if lblStatus then guiSetText(lblStatus, "Deleting #" .. id .. "...") end
+        end
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnAdd, function()
+        local name   = guiGetText(edtName)
+        local price  = tonumber(guiGetText(edtPrice))
+        local catIdx = guiComboBoxGetSelected(cmbCat)
+        if name == "" or not price or catIdx < 0 then
+            if lblAddSt then guiSetText(lblAddSt, "Fill in all fields first.") end
+            return
+        end
+        local category = (presets[catIdx + 1] and presets[catIdx + 1].key) or "small"
         triggerServerEvent("hm:requestCreate", localPlayer, {
             name     = name,
             price    = price,
             category = category,
         })
-        guiSetText(lblAddSt, "✅ Sent! Housing restarting in ~1s…")
-    end)
+        if lblAddSt then guiSetText(lblAddSt, "Done! Housing is restarting...") end
+    end, false)
 
-    -- Close panel (onClientGUIClose fires when the X is clicked)
     addEventHandler("onClientGUIClose", panel, function()
         isOpen = false
         showCursor(false)
-    end)
+    end, false)
+
+    outputChatBox("[HouseAdmin] Panel built OK.", 100, 230, 100)
 end
 
 -- ═══════════════════════════════════════════════════════════════
@@ -311,16 +284,20 @@ end
 -- ═══════════════════════════════════════════════════════════════
 addEvent("hm:openPanel", false)
 addEventHandler("hm:openPanel", root, function()
+    outputChatBox("[HouseAdmin] Opening panel...", 100, 200, 255)
     buildPanel()
+    if not panel or not isElement(panel) then
+        outputChatBox("[HouseAdmin] ERROR: Panel is nil after build.", 255, 60, 60)
+        return
+    end
     guiSetVisible(panel, true)
     guiBringToFront(panel)
     showCursor(true)
     isOpen = true
     triggerServerEvent("hm:requestPresets", localPlayer)
-    triggerServerEvent("hm:requestList",   localPlayer)
+    triggerServerEvent("hm:requestList",    localPlayer)
 end)
 
--- ESC to close
 addEventHandler("onClientKey", root, function(key, press)
     if press and key == "escape" and isOpen then
         isOpen = false
@@ -330,5 +307,3 @@ addEventHandler("onClientKey", root, function(key, press)
         end
     end
 end)
-
-
