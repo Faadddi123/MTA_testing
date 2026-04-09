@@ -1,6 +1,11 @@
 <meta>
-    <info author="Codex" name="housing" type="script" version="2.0.0" description="RP housing + apartment system with shared keys and garage support" />
+    <info author="Antigravity" name="housing" type="script" version="3.0.0" description="Complete RP Housing System" />
+    
     <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+
+    <!-- Exports requested by user for hot-reloading and integration -->
+    <export function="reloadHouses" type="server" />
     <export function="getOwnedGarageHouseIdForPosition" type="server" />
     <export function="getHouseData" type="server" />
     <export function="checkHouseAccess" type="server" />

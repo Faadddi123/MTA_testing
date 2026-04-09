@@ -233,17 +233,8 @@ addEventHandler("hm:requestCreate", root, function(data)
 
     -- Exterior = where admin is standing right now
     local ex, ey, ez = getElementPosition(player)
-    ez = ez - 1 -- Make marker flush with the ground
     local erot       = getPedRotation(player)
     local eint       = getElementInterior(player)
-
-    -- Garage zone slightly behind the player
-    local gx = ex + math.sin(math.rad(erot)) * 6
-    local gy = ey + math.cos(math.rad(erot)) * 6
-
-    -- Garage interior spawn
-    local gix = ex + math.sin(math.rad(erot)) * 10
-    local giy = ey + math.cos(math.rad(erot)) * 10
 
     local newId = getNextHouseId()
     local dimId = 6000 + newId   -- each house gets its own dimension
@@ -252,17 +243,13 @@ addEventHandler("hm:requestCreate", root, function(data)
         INSERT OR IGNORE INTO houses (
             id, name, price, property_type, owner_key, owner_account, locked,
             exterior_x, exterior_y, exterior_z, exterior_rot, exterior_interior,
-            interior_x, interior_y, interior_z, interior_rot, interior_id, dimension,
-            garage_x, garage_y, garage_z, garage_radius,
-            garage_int_x, garage_int_y, garage_int_z, garage_int_rot
-        ) VALUES (?,?,?,?,NULL,NULL,1,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            interior_x, interior_y, interior_z, interior_rot, interior_id, dimension
+        ) VALUES (?,?,?,?,NULL,NULL,1,?,?,?,?,?,?,?,?,?,?,?)
     ]],
         newId, name, price, ptype,
         ex, ey, ez, erot, eint,
         preset.x, preset.y, preset.z, 0, preset.interior,
-        dimId,
-        gx, gy, ez, 10,
-        gix, giy, ez, erot
+        dimId
     )
 
     outputChatBox(string.format(
@@ -362,22 +349,6 @@ addEventHandler("hm:requestTeleport", root, function(houseId)
     setElementPosition(player,
         tonumber(r.exterior_x), tonumber(r.exterior_y), tonumber(r.exterior_z) + 1)
     outputChatBox("[HouseAdmin] Teleported to property #" .. houseId .. ".", player, 120, 255, 180, true)
-end)
-
-addEvent("hm:requestTeleportInterior", true)
-addEventHandler("hm:requestTeleportInterior", root, function(houseId)
-    local player = client
-    if not isAdmin(player) then return end
-
-    houseId = tonumber(houseId)
-    local rows = centralQuery("SELECT interior_x, interior_y, interior_z, interior_id, dimension FROM houses WHERE id = ?", houseId)
-    if #rows == 0 then return end
-    local r = rows[1]
-
-    setElementInterior(player, tonumber(r.interior_id) or 0)
-    setElementDimension(player, tonumber(r.dimension) or 0)
-    setElementPosition(player, tonumber(r.interior_x), tonumber(r.interior_y), tonumber(r.interior_z))
-    outputChatBox("[HouseAdmin] Teleported to property interior #" .. houseId .. ".", player, 120, 255, 180, true)
 end)
 
 -- ─────────────────────────────────────────────────────────────────────────────
