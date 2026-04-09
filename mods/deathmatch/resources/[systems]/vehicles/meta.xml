@@ -1,0 +1,6 @@
+<meta>
+    <info author="Codex" name="vehicles" type="script" version="1.0.0" description="Persistent RP vehicles" />
+    <script src="server.lua" type="server" />
+    <export function="setGarageVehiclesLocked" type="server" />
+    <export function="releaseHouseVehicles" type="server" />
+</meta>

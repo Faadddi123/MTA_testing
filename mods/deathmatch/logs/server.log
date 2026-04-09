@@ -1578,3 +1578,168 @@
 [26-04-09 00:47:34] INFO: ip2c bootstrap: started 'play'
 [26-04-09 00:47:46] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
 [26-04-09 00:47:46] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 03:10:41] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 03:10:41] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 03:10:41] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 03:10:42] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 03:10:42] Resources: 210 loaded, 0 failed
+[26-04-09 03:10:42] Starting resources...
+[26-04-09 03:10:42] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 03:10:42] startResource: Resource 'ip2c' started
+[26-04-09 03:10:42] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 03:10:42] WARNING: <owner_email_address> not set
+[26-04-09 03:10:42] Server started and is ready to accept connections!
+[26-04-09 03:10:42] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 03:10:42] Type 'help' for a list of commands.
+[26-04-09 03:10:42] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 03:10:43] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 03:10:43] WARNING: [admin]/ip2c/server.lua:300: Access denied @ 'fetchRemote'
+[26-04-09 03:10:43] Starting play
+[26-04-09 03:10:43] Starting internetradio
+[26-04-09 03:10:43] Starting superman
+[26-04-09 03:10:43] Starting hedit
+[26-04-09 03:10:43] Starting mapfixes
+[26-04-09 03:10:43] Starting chatmanager
+[26-04-09 03:10:43] startResource: Resource 'play' started
+[26-04-09 03:10:43] INFO: ip2c bootstrap: started 'play'
+[26-04-09 03:10:44] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 03:11:06] Server stopped!
+[26-04-09 03:11:06] Stopping resources............
+[26-04-09 03:11:06] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 03:21:08] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 03:21:09] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 03:21:09] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 03:21:09] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 03:21:09] Resources: 211 loaded, 0 failed
+[26-04-09 03:21:09] Starting resources...
+[26-04-09 03:21:09] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 03:21:09] startResource: Resource 'ip2c' started
+[26-04-09 03:21:09] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 03:21:09] WARNING: <owner_email_address> not set
+[26-04-09 03:21:09] Server started and is ready to accept connections!
+[26-04-09 03:21:09] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 03:21:09] Type 'help' for a list of commands.
+[26-04-09 03:21:09] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 03:21:10] Starting play
+[26-04-09 03:21:10] Starting internetradio
+[26-04-09 03:21:10] Starting superman
+[26-04-09 03:21:10] Starting hedit
+[26-04-09 03:21:10] Starting mapfixes
+[26-04-09 03:21:10] Starting chatmanager
+[26-04-09 03:21:10] startResource: Resource 'play' started
+[26-04-09 03:21:10] INFO: ip2c bootstrap: started 'play'
+[26-04-09 03:21:30] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 03:21:30] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 03:33:13] Server stopped!
+[26-04-09 03:33:13] Stopping resources............
+[26-04-09 03:33:13] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 03:33:16] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 03:33:16] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 03:33:16] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 03:33:16] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 03:33:16] Resources: 212 loaded, 0 failed
+[26-04-09 03:33:16] Starting resources...
+[26-04-09 03:33:16] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 03:33:16] startResource: Resource 'ip2c' started
+[26-04-09 03:33:17] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 03:33:17] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 03:33:17] WARNING: <owner_email_address> not set
+[26-04-09 03:33:17] Server started and is ready to accept connections!
+[26-04-09 03:33:17] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 03:33:17] Type 'help' for a list of commands.
+[26-04-09 03:33:17] Starting play
+[26-04-09 03:33:17] Starting internetradio
+[26-04-09 03:33:17] Starting superman
+[26-04-09 03:33:18] Starting hedit
+[26-04-09 03:33:18] Starting mapfixes
+[26-04-09 03:33:18] Starting chatmanager
+[26-04-09 03:33:18] startResource: Resource 'play' started
+[26-04-09 03:33:18] INFO: ip2c bootstrap: started 'play'
+[26-04-09 03:33:21] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 03:33:21] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 03:33:25] * Syntax: restart <resource1> <resource2> ...
+[26-04-09 03:53:35] Server stopped!
+[26-04-09 03:53:35] Stopping resources...................
+[26-04-09 03:53:35] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 03:53:38] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 03:53:38] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 03:53:38] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 03:53:38] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 03:53:38] Resources: 212 loaded, 0 failed
+[26-04-09 03:53:38] Starting resources...
+[26-04-09 03:53:38] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 03:53:38] startResource: Resource 'ip2c' started
+[26-04-09 03:53:39] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 03:53:39] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 03:53:39] WARNING: <owner_email_address> not set
+[26-04-09 03:53:39] Server started and is ready to accept connections!
+[26-04-09 03:53:39] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 03:53:39] Type 'help' for a list of commands.
+[26-04-09 03:53:40] Starting play
+[26-04-09 03:53:40] Starting internetradio
+[26-04-09 03:53:40] Starting superman
+[26-04-09 03:53:40] Starting hedit
+[26-04-09 03:53:40] Starting mapfixes
+[26-04-09 03:53:40] Starting chatmanager
+[26-04-09 03:53:40] startResource: Resource 'play' started
+[26-04-09 03:53:40] INFO: ip2c bootstrap: started 'play'
+[26-04-09 03:53:47] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 03:53:47] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 03:58:00] restart: Requested by Console
+[26-04-09 03:58:00] restart: Resource 'inventory' restarting...
+[26-04-09 03:58:00] Stopping inventory
+[26-04-09 03:58:00] Resource 'inventory' changed, reloading and starting
+[26-04-09 03:58:00] Starting inventory
+[26-04-09 03:58:00] inventory restarted successfully

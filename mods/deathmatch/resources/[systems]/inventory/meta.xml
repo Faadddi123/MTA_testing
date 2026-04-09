@@ -1,0 +1,16 @@
+<meta>
+    <info author="Codex" name="inventory" type="script" version="1.0.0" description="Lightweight RP inventory system" />
+    <script src="server.lua" type="server" />
+    <script src="client.lua" type="client" />
+    <file src="web/index.html" />
+    <file src="web/style.css" />
+    <file src="web/main.js" />
+    <file src="web/icons/bread.png" />
+    <file src="web/icons/water.png" />
+    <file src="web/icons/pistol.png" />
+    <file src="web/icons/key.png" />
+    <export function="getInventoryContents" type="server" />
+    <export function="getInventoryItemCount" type="server" />
+    <export function="addInventoryItem" type="server" />
+    <export function="removeInventoryItem" type="server" />
+</meta>

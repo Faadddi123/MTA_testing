@@ -1,0 +1,181 @@
+RP Resource Installation Report
+Date: 2026-04-09
+Server tree used: /home/opc/multitheftauto_linux_x64/mods/deathmatch
+
+Summary
+- Top-level resources detected under resources/: 85
+- Category folders present: [core], [systems], [interiors], [maps], [ui], [addons]
+- Existing stock interiors resource reused: yes
+- New RP resources added: inventory, housing, bank, open_interiors
+- Existing resources moved: none
+- Existing resources disabled: none
+
+Current Top-Level Resources
+[admin]
+- acpanel
+- admin
+- admin2
+- ip2c
+- ipb
+- runcode
+- security
+
+[editor]
+- edf
+- editor
+- editor_gui
+- editor_main
+- freecam
+- move_cursor
+- move_freecam
+- move_keyboard
+- msgbox
+- tooltip
+
+[gamemodes]
+- [assault]
+- [briefcaserace]
+- [ctf]
+- [ctv]
+- [deathmatch]
+- [fallout]
+- [hay]
+- [play]
+- [race]
+- [stealth]
+- [tdm]
+
+[gameplay]
+- deathmessages
+- deathpickups
+- defaultstats
+- dialogs
+- easytext
+- fastrope
+- freeroam
+- glue
+- gps
+- headshot
+- hedit
+- interiors
+- internetradio
+- joinquit
+- killmessages
+- mapfixes
+- maplimits
+- mapratings
+- missiontimer
+- parachute
+- parachute2
+- pickuphandler
+- playerblips
+- playercolors
+- realdriveby
+- reload
+- rustlerbombs
+- scoreboard
+- scores
+- sfxbrowser
+- sirenEdit
+- speedometer
+- superman
+- trainhorn
+- visualiser
+- voice
+- voice_local
+- webbrowser
+
+[managers]
+- chatmanager
+- helpmanager
+- mapcycler
+- mapmanager
+- spawnmanager
+- teammanager
+- votemanager
+
+[web]
+- ajax
+- elementbrowser
+- performancebrowser
+- resourcebrowser
+- resourcemanager
+- webadmin
+- webmap
+- webstats
+
+[systems]
+- bank
+- housing
+- inventory
+
+[maps]
+- open_interiors
+
+[core]
+- none
+
+[interiors]
+- none
+
+[ui]
+- none
+
+[addons]
+- none
+
+Requested RP Resources
+- interiors: skipped, already present as stock resource [gameplay]/interiors
+- open_interiors: installed under [maps]/open_interiors
+- inventory: installed under [systems]/inventory
+- housing: installed under [systems]/housing
+- bank: installed under [systems]/bank
+
+Duplicates And Potential Conflicts
+- Exact duplicate names among top-level resources: none
+- Duplicate requested RP systems: none
+- Existing stock overlaps worth noting:
+- admin and admin2 both exist
+- parachute and parachute2 both exist
+- voice and voice_local both exist
+- freeroam is still active and may overlap RP expectations, but it was left in place to preserve current behaviour
+
+Startup Configuration
+- Preserved existing startup lines for admin, scoreboard and freeroam
+- Appended:
+- inventory
+- housing
+- bank
+- interiors
+- open_interiors
+
+Validation
+- meta.xml present for all newly added resources
+- Lua syntax parse passed for:
+- [systems]/inventory/server.lua
+- [systems]/bank/server.lua
+- [systems]/housing/server.lua
+- XML validation passed for:
+- [systems]/inventory/meta.xml
+- [systems]/bank/meta.xml
+- [systems]/housing/meta.xml
+- [maps]/open_interiors/open_interiors.map
+- mtaserver.conf
+- Note: MTA's stock interiors meta uses the non-standard edf:definition attribute. open_interiors follows the same MTA convention, so generic xmllint reports a namespace warning on that meta file even though the format matches the bundled MTA resource.
+
+Files Added
+- resources/[systems]/inventory/meta.xml
+- resources/[systems]/inventory/server.lua
+- resources/[systems]/bank/meta.xml
+- resources/[systems]/bank/server.lua
+- resources/[systems]/housing/meta.xml
+- resources/[systems]/housing/server.lua
+- resources/[maps]/open_interiors/meta.xml
+- resources/[maps]/open_interiors/open_interiors.edf
+- resources/[maps]/open_interiors/open_interiors.map
+
+Files Modified
+- mtaserver.conf
+
+Errors
+- No blocking installation errors found

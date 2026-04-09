@@ -1,0 +1,10 @@
+<map>
+    <interiorEntry id="RP_RECORDS_OFFICE" posX="1481.20" posY="-1772.05" posZ="18.80" rotation="90" dimension="0" interior="0" />
+    <interiorReturn refid="RP_RECORDS_OFFICE" posX="243.75" posY="304.82" posZ="999.14" rotation="270" dimension="7101" interior="1" />
+
+    <interiorEntry id="RP_JOB_CENTER" posX="1368.30" posY="-1279.20" posZ="13.55" rotation="180" dimension="0" interior="0" />
+    <interiorReturn refid="RP_JOB_CENTER" posX="292.89" posY="309.90" posZ="999.15" rotation="90" dimension="7102" interior="3" />
+
+    <interiorEntry id="RP_STORAGE_UNIT" posX="594.43" posY="-1247.16" posZ="18.28" rotation="270" dimension="0" interior="0" />
+    <interiorReturn refid="RP_STORAGE_UNIT" posX="322.25" posY="302.42" posZ="999.15" rotation="0" dimension="7103" interior="5" />
+</map>

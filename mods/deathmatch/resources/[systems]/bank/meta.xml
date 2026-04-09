@@ -1,0 +1,7 @@
+<meta>
+    <info author="Codex" name="bank" type="script" version="1.0.0" description="Lightweight RP bank system" />
+    <script src="server.lua" type="server" />
+    <export function="getBankBalance" type="server" />
+    <export function="depositPlayerBankMoney" type="server" />
+    <export function="withdrawPlayerBankMoney" type="server" />
+</meta>

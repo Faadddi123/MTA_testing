@@ -1,0 +1,4 @@
+<meta>
+    <info author="Codex" name="open_interiors" type="map" version="1.0.0" description="RP public entry map for the stock interiors resource" edf:definition="open_interiors.edf" />
+    <map src="open_interiors.map" />
+</meta>
