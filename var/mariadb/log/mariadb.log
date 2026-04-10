@@ -1,0 +1,107 @@
+2026-04-10  0:50:14 0 [Note] Starting MariaDB 10.5.29-MariaDB source revision c461188ca6ad6ec3a54201eb87ebd75797d296df server_uid 2Rjoe9UgHcD24pStQNQYpX6ovFc= as process 808561
+2026-04-10  0:50:14 0 [Note] InnoDB: Uses event mutexes
+2026-04-10  0:50:14 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2026-04-10  0:50:14 0 [Note] InnoDB: Number of pools: 1
+2026-04-10  0:50:14 0 [Note] InnoDB: Using ARMv8 crc32 + pmull instructions
+2026-04-10  0:50:14 0 [Note] InnoDB: Using Linux native AIO
+2026-04-10  0:50:14 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+2026-04-10  0:50:14 0 [Note] InnoDB: Completed initialization of buffer pool
+2026-04-10  0:50:14 0 [Note] InnoDB: 128 rollback segments are active.
+2026-04-10  0:50:14 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2026-04-10  0:50:14 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-10  0:50:14 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2026-04-10  0:50:14 0 [Note] InnoDB: 10.5.29 started; log sequence number 45079; transaction id 20
+2026-04-10  0:50:14 0 [Note] Plugin 'FEEDBACK' is disabled.
+2026-04-10  0:50:14 0 [Note] InnoDB: Loading buffer pool(s) from /home/opc/multitheftauto_linux_x64/var/mariadb/data/ib_buffer_pool
+2026-04-10  0:50:14 0 [Note] InnoDB: Buffer pool(s) load completed at 260410  0:50:14
+2026-04-10  0:50:14 0 [Note] Server socket created on IP: '127.0.0.1'.
+2026-04-10  0:50:14 0 [ERROR] Can't start server: Bind on TCP/IP port. Got error: 98: Address already in use
+2026-04-10  0:50:14 0 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+2026-04-10  0:50:14 0 [ERROR] Aborting
+2026-04-10  0:57:41 0 [Note] Starting MariaDB 10.5.29-MariaDB source revision c461188ca6ad6ec3a54201eb87ebd75797d296df server_uid aj8PRl4cQw71k+1OKLxA4SrUHUg= as process 954717
+2026-04-10  0:57:41 0 [Note] InnoDB: Uses event mutexes
+2026-04-10  0:57:41 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2026-04-10  0:57:41 0 [Note] InnoDB: Number of pools: 1
+2026-04-10  0:57:41 0 [Note] InnoDB: Using ARMv8 crc32 + pmull instructions
+2026-04-10  0:57:41 0 [Note] InnoDB: Using Linux native AIO
+2026-04-10  0:57:41 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+2026-04-10  0:57:41 0 [Note] InnoDB: Completed initialization of buffer pool
+2026-04-10  0:57:41 0 [Note] InnoDB: 128 rollback segments are active.
+2026-04-10  0:57:41 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2026-04-10  0:57:41 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-10  0:57:41 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2026-04-10  0:57:41 0 [Note] InnoDB: 10.5.29 started; log sequence number 45091; transaction id 20
+2026-04-10  0:57:41 0 [Note] InnoDB: Loading buffer pool(s) from /home/opc/multitheftauto_linux_x64/var/mariadb/data/ib_buffer_pool
+2026-04-10  0:57:41 0 [Note] Plugin 'FEEDBACK' is disabled.
+2026-04-10  0:57:41 0 [Note] InnoDB: Buffer pool(s) load completed at 260410  0:57:41
+2026-04-10  0:57:41 0 [Note] Server socket created on IP: '127.0.0.1'.
+2026-04-10  0:57:41 0 [Warning] 'user' entry 'root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:57:41 0 [Warning] 'proxies_priv' entry '@% root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:57:41 0 [Note] Reading of all Master_info entries succeeded
+2026-04-10  0:57:41 0 [Note] Added new Master_info '' to hash table
+2026-04-10  0:57:41 0 [Note] mariadbd: ready for connections.
+Version: '10.5.29-MariaDB'  socket: '/home/opc/multitheftauto_linux_x64/var/mariadb/run/mysql.sock'  port: 3307  MariaDB Server
+2026-04-10  0:57:42 4 [Warning] 'user' entry 'root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:57:42 4 [Warning] 'proxies_priv' entry '@% root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:58:42 0 [Note] Starting MariaDB 10.5.29-MariaDB source revision c461188ca6ad6ec3a54201eb87ebd75797d296df server_uid aj8PRl4cQw71k+1OKLxA4SrUHUg= as process 981729
+2026-04-10  0:58:42 0 [Note] mariadbd: Aria engine: starting recovery
+recovered pages: 0% 15% 25% 39% 52% 66% 79% 93% 100% (0.0 seconds); tables to flush: 2 1 0
+ (0.0 seconds); 
+2026-04-10  0:58:42 0 [Note] mariadbd: Aria engine: recovery done
+2026-04-10  0:58:42 0 [Note] InnoDB: Uses event mutexes
+2026-04-10  0:58:42 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2026-04-10  0:58:42 0 [Note] InnoDB: Number of pools: 1
+2026-04-10  0:58:42 0 [Note] InnoDB: Using ARMv8 crc32 + pmull instructions
+2026-04-10  0:58:42 0 [Note] InnoDB: Using Linux native AIO
+2026-04-10  0:58:42 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+2026-04-10  0:58:42 0 [Note] InnoDB: Completed initialization of buffer pool
+2026-04-10  0:58:42 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45091,45091
+2026-04-10  0:58:42 0 [Note] InnoDB: 128 rollback segments are active.
+2026-04-10  0:58:42 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2026-04-10  0:58:42 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2026-04-10  0:58:42 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-10  0:58:42 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2026-04-10  0:58:42 0 [Note] InnoDB: 10.5.29 started; log sequence number 45103; transaction id 20
+2026-04-10  0:58:42 0 [Note] Plugin 'FEEDBACK' is disabled.
+2026-04-10  0:58:42 0 [Note] InnoDB: Loading buffer pool(s) from /home/opc/multitheftauto_linux_x64/var/mariadb/data/ib_buffer_pool
+2026-04-10  0:58:42 0 [Note] InnoDB: Buffer pool(s) load completed at 260410  0:58:42
+2026-04-10  0:58:42 0 [Note] Server socket created on IP: '127.0.0.1'.
+2026-04-10  0:58:42 0 [Warning] 'user' entry 'root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:58:42 0 [Warning] 'proxies_priv' entry '@% root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:58:42 0 [Note] Reading of all Master_info entries succeeded
+2026-04-10  0:58:42 0 [Note] Added new Master_info '' to hash table
+2026-04-10  0:58:42 0 [Note] mariadbd: ready for connections.
+Version: '10.5.29-MariaDB'  socket: '/home/opc/multitheftauto_linux_x64/var/mariadb/run/mysql.sock'  port: 3307  MariaDB Server
+2026-04-10  0:58:43 4 [Warning] 'user' entry 'root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  0:58:43 4 [Warning] 'proxies_priv' entry '@% root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  1:04:38 0 [Note] Starting MariaDB 10.5.29-MariaDB source revision c461188ca6ad6ec3a54201eb87ebd75797d296df server_uid aj8PRl4cQw71k+1OKLxA4SrUHUg= as process 1092205
+2026-04-10  1:04:38 0 [Note] mariadbd: Aria engine: starting recovery
+recovered pages: 0% 12% 28% 45% 62% 78% 95% 100% (0.0 seconds); tables to flush: 2 1 0
+ (0.0 seconds); 
+2026-04-10  1:04:38 0 [Note] mariadbd: Aria engine: recovery done
+2026-04-10  1:04:38 0 [Note] InnoDB: Uses event mutexes
+2026-04-10  1:04:38 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2026-04-10  1:04:38 0 [Note] InnoDB: Number of pools: 1
+2026-04-10  1:04:38 0 [Note] InnoDB: Using ARMv8 crc32 + pmull instructions
+2026-04-10  1:04:39 0 [Note] InnoDB: Using Linux native AIO
+2026-04-10  1:04:39 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+2026-04-10  1:04:39 0 [Note] InnoDB: Completed initialization of buffer pool
+2026-04-10  1:04:39 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45115,45115
+2026-04-10  1:04:39 0 [Note] InnoDB: 128 rollback segments are active.
+2026-04-10  1:04:39 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2026-04-10  1:04:39 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2026-04-10  1:04:39 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-10  1:04:39 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2026-04-10  1:04:39 0 [Note] InnoDB: 10.5.29 started; log sequence number 45127; transaction id 20
+2026-04-10  1:04:39 0 [Note] Plugin 'FEEDBACK' is disabled.
+2026-04-10  1:04:39 0 [Note] InnoDB: Loading buffer pool(s) from /home/opc/multitheftauto_linux_x64/var/mariadb/data/ib_buffer_pool
+2026-04-10  1:04:39 0 [Note] InnoDB: Buffer pool(s) load completed at 260410  1:04:39
+2026-04-10  1:04:39 0 [Note] Server socket created on IP: '127.0.0.1'.
+2026-04-10  1:04:39 0 [Warning] 'user' entry 'root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  1:04:39 0 [Warning] 'proxies_priv' entry '@% root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  1:04:39 0 [Note] Reading of all Master_info entries succeeded
+2026-04-10  1:04:39 0 [Note] Added new Master_info '' to hash table
+2026-04-10  1:04:39 0 [Note] mariadbd: ready for connections.
+Version: '10.5.29-MariaDB'  socket: '/home/opc/multitheftauto_linux_x64/var/mariadb/run/mysql.sock'  port: 3307  MariaDB Server
+2026-04-10  1:04:39 4 [Warning] 'user' entry 'root@llm-server' ignored in --skip-name-resolve mode.
+2026-04-10  1:04:39 4 [Warning] 'proxies_priv' entry '@% root@llm-server' ignored in --skip-name-resolve mode.

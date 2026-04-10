@@ -24,6 +24,14 @@
         <acl name="autoACL_runcode"></acl>
         <object name="resource.runcode"></object>
     </group>
+    <group name="autoGroup_vrp">
+        <acl name="autoACL_vrp"></acl>
+        <object name="resource.vrp"></object>
+    </group>
+    <group name="autoGroup_vrp_build">
+        <acl name="autoACL_vrp_build"></acl>
+        <object name="resource.vrp_build"></object>
+    </group>
     <acl name="Console">
         <right name="command.*" access="true"></right>
         <right name="function.*" access="true"></right>
@@ -332,5 +340,37 @@
     </acl>
     <acl name="autoACL_runcode">
         <right name="function.loadstring" access="false" who="" pending="true" date=""></right>
+    </acl>
+    <acl name="autoACL_vrp">
+        <right name="function.startResource" access="false" who="" pending="true" date=""></right>
+        <right name="function.stopResource" access="false" who="" pending="true" date=""></right>
+        <right name="function.kickPlayer" access="false" who="" pending="true" date=""></right>
+        <right name="function.fetchRemote" access="false" who="" pending="true" date=""></right>
+        <right name="function.createResource" access="false" who="" pending="true" date=""></right>
+        <right name="function.ModifyOtherObjects" access="false" who="" pending="true" date=""></right>
+        <right name="function.addAccount" access="false" who="" pending="true" date=""></right>
+        <right name="function.removeAccount" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclCreateGroup" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclCreate" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclGroupAddACL" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclSetRight" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclGroupAddObject" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclGroupRemoveObject" access="false" who="" pending="true" date=""></right>
+    </acl>
+    <acl name="autoACL_vrp_build">
+        <right name="function.startResource" access="false" who="" pending="true" date=""></right>
+        <right name="function.stopResource" access="false" who="" pending="true" date=""></right>
+        <right name="function.kickPlayer" access="false" who="" pending="true" date=""></right>
+        <right name="function.fetchRemote" access="false" who="" pending="true" date=""></right>
+        <right name="function.createResource" access="false" who="" pending="true" date=""></right>
+        <right name="function.ModifyOtherObjects" access="false" who="" pending="true" date=""></right>
+        <right name="function.addAccount" access="false" who="" pending="true" date=""></right>
+        <right name="function.removeAccount" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclCreateGroup" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclCreate" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclGroupAddACL" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclSetRight" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclGroupAddObject" access="false" who="" pending="true" date=""></right>
+        <right name="function.aclGroupRemoveObject" access="false" who="" pending="true" date=""></right>
     </acl>
 </acl>

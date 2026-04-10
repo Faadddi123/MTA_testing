@@ -1,0 +1,33 @@
+<meta>
+	<map src="hospital.map" />
+
+    <script src="utils.lua" type="client" />
+    <script src="classlib.lua" type="client" />
+    <script src="Object.lua" type="client" />
+
+    <script src="sample.cutscene.lua" type="client" />
+    <script src="vrpintro.lua" type="client" />
+    <script src="Arrest.lua" type="client" />
+    <script src="hospital.lua" type="client" />
+	<script src="ZombieSurvival.lua" type="client" />
+	<script src="tour.lua" type="client" />
+	<script src="GravelJob.lua" type="client" />
+	<script src="Fishing.lua" type="client" />
+
+    <script src="Cutscene/Scene.lua" type="client" />
+    <script src="Cutscene/Cutscene.lua" type="client" />
+    <script src="Cutscene/Action.lua" type="client" />
+    <script src="Cutscene/Actions/Action.Audio.lua" type="client" />
+    <script src="Cutscene/Actions/Action.Camera.lua" type="client" />
+    <script src="Cutscene/Actions/Action.General.lua" type="client" />
+    <script src="Cutscene/Actions/Action.Graphic.lua" type="client" />
+    <script src="Cutscene/Actions/Action.Vehicle.lua" type="client" />
+    <script src="Cutscene/Actions/Action.Ped.lua" type="client" />
+    <script src="Cutscene/Actions/Action.Element.lua" type="client" />
+	<script src="Cutscene/Actions/Action.Object.lua" type="client" />
+
+    <script src="runthis.lua" type="client" />
+
+	<file src="Logo.png"/>
+	<!--file src="tour_bobberbar_info.png"/-->
+</meta>

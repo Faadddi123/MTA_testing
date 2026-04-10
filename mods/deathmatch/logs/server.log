@@ -1743,3 +1743,937 @@
 [26-04-09 03:58:00] Resource 'inventory' changed, reloading and starting
 [26-04-09 03:58:00] Starting inventory
 [26-04-09 03:58:00] inventory restarted successfully
+[26-04-09 04:53:51] New resource 'garage_system' loaded
+[26-04-09 04:53:51] Resources: 213 loaded, 0 failed
+[26-04-09 04:54:03] restart: Requested by Console
+[26-04-09 04:54:03] restart: Resource 'inventory' restarting...
+[26-04-09 04:54:03] Stopping inventory
+[26-04-09 04:54:03] Resource 'inventory' changed, reloading and starting
+[26-04-09 04:54:03] Starting inventory
+[26-04-09 04:54:03] inventory restarted successfully
+[26-04-09 04:54:11] CHAT: Haughtrick : z
+[26-04-09 04:55:32] Server stopped!
+[26-04-09 04:55:32] Stopping resources...................
+[26-04-09 04:55:33] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 04:55:37] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 04:55:37] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 04:55:37] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 04:55:37] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 04:55:37] Resources: 213 loaded, 0 failed
+[26-04-09 04:55:37] Starting resources...
+[26-04-09 04:55:37] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 04:55:37] startResource: Resource 'ip2c' started
+[26-04-09 04:55:38] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 04:55:38] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 04:55:38] WARNING: <owner_email_address> not set
+[26-04-09 04:55:38] Server started and is ready to accept connections!
+[26-04-09 04:55:38] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 04:55:38] Type 'help' for a list of commands.
+[26-04-09 04:55:38] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns
+[26-04-09 04:55:38] Starting play
+[26-04-09 04:55:38] Starting internetradio
+[26-04-09 04:55:38] Starting superman
+[26-04-09 04:55:38] Starting hedit
+[26-04-09 04:55:39] Starting mapfixes
+[26-04-09 04:55:39] Starting chatmanager
+[26-04-09 04:55:39] startResource: Resource 'play' started
+[26-04-09 04:55:39] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns  [DUP x10]
+[26-04-09 04:55:39] INFO: ip2c bootstrap: started 'play'
+[26-04-09 04:55:42] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 04:55:42] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 05:25:39] Server stopped!
+[26-04-09 05:25:39] Stopping resources....................
+[26-04-09 05:25:39] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 05:25:42] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 05:25:42] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 05:25:42] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 05:25:42] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 05:25:42] Resources: 213 loaded, 0 failed
+[26-04-09 05:25:42] Starting resources...
+[26-04-09 05:25:42] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 05:25:42] startResource: Resource 'ip2c' started
+[26-04-09 05:25:43] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 05:25:43] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 05:25:43] WARNING: <owner_email_address> not set
+[26-04-09 05:25:43] Server started and is ready to accept connections!
+[26-04-09 05:25:43] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 05:25:43] Type 'help' for a list of commands.
+[26-04-09 05:25:43] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns
+[26-04-09 05:25:43] Starting play
+[26-04-09 05:25:43] Starting internetradio
+[26-04-09 05:25:43] Starting superman
+[26-04-09 05:25:44] Starting hedit
+[26-04-09 05:25:44] Starting mapfixes
+[26-04-09 05:25:44] Starting chatmanager
+[26-04-09 05:25:44] startResource: Resource 'play' started
+[26-04-09 05:25:44] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns  [DUP x40]
+[26-04-09 05:25:44] INFO: ip2c bootstrap: started 'play'
+[26-04-09 05:25:49] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 05:25:49] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 05:32:13] Starting deathpickups
+[26-04-09 05:32:13] startResource: Resource 'deathpickups' started
+[26-04-09 05:32:13] ADMIN: Resource 'deathpickups' started by Haughtrick
+[26-04-09 05:32:22] ADMIN: Resource 'deathpickups' stopped by Haughtrick
+[26-04-09 05:32:22] Stopping deathpickups
+[26-04-09 06:02:58] Server stopped!
+[26-04-09 06:02:58] Stopping resources....................
+[26-04-09 06:02:58] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 06:03:01] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 06:03:01] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 06:03:01] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 06:03:01] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 06:03:01] Resources: 214 loaded, 0 failed
+[26-04-09 06:03:01] Starting resources...
+[26-04-09 06:03:01] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 06:03:01] startResource: Resource 'ip2c' started
+[26-04-09 06:03:02] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 06:03:02] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 06:03:02] WARNING: <owner_email_address> not set
+[26-04-09 06:03:02] Server started and is ready to accept connections!
+[26-04-09 06:03:02] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 06:03:02] Type 'help' for a list of commands.
+[26-04-09 06:03:02] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns
+[26-04-09 06:03:02] Starting play
+[26-04-09 06:03:02] Starting internetradio
+[26-04-09 06:03:02] Starting superman
+[26-04-09 06:03:02] Starting hedit
+[26-04-09 06:03:02] Starting mapfixes
+[26-04-09 06:03:02] Starting chatmanager
+[26-04-09 06:03:02] startResource: Resource 'play' started
+[26-04-09 06:03:02] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns  [DUP x40]
+[26-04-09 06:03:02] INFO: ip2c bootstrap: started 'play'
+[26-04-09 06:03:05] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 06:03:05] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 06:11:47] Server stopped!
+[26-04-09 06:11:47] Stopping resources.....................
+[26-04-09 06:11:48] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 06:11:51] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 06:11:51] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 06:11:51] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 06:11:51] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 06:11:51] Resources: 214 loaded, 0 failed
+[26-04-09 06:11:51] Starting resources...
+[26-04-09 06:11:51] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 06:11:51] startResource: Resource 'ip2c' started
+[26-04-09 06:11:52] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 06:11:52] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 06:11:52] WARNING: <owner_email_address> not set
+[26-04-09 06:11:52] Server started and is ready to accept connections!
+[26-04-09 06:11:52] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 06:11:52] Type 'help' for a list of commands.
+[26-04-09 06:11:52] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns
+[26-04-09 06:11:52] Starting play
+[26-04-09 06:11:52] Starting internetradio
+[26-04-09 06:11:52] Starting superman
+[26-04-09 06:11:52] Starting hedit
+[26-04-09 06:11:52] Starting mapfixes
+[26-04-09 06:11:52] Starting chatmanager
+[26-04-09 06:11:52] startResource: Resource 'play' started
+[26-04-09 06:11:52] WARNING: [core]/database_manager/server.lua:94: dbExec failed; (1) 25 values for 26 columns  [DUP x40]
+[26-04-09 06:11:52] INFO: ip2c bootstrap: started 'play'
+[26-04-09 06:12:00] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 06:12:00] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 06:13:40] restart: Requested by Console
+[26-04-09 06:13:40] restart: Resource 'house_manager' restarting...
+[26-04-09 06:13:40] restart: Resource '' could not be found
+[26-04-09 06:13:40] Stopping house_manager
+[26-04-09 06:13:40] Starting house_manager
+[26-04-09 06:13:40] house_manager restarted successfully
+[26-04-09 06:18:42] start: Requested by Console
+[26-04-09 06:18:42] start: Resource 'house_manager' is already running
+[26-04-09 06:26:19] start: Requested by Console
+[26-04-09 06:26:19] start: Resource 'house_manager' is already running
+[26-04-09 06:26:40] Server stopped!
+[26-04-09 06:26:40] Stopping resources.....................
+[26-04-09 06:26:40] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 06:26:45] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 06:26:45] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 06:26:45] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 06:26:45] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 06:26:45] Resources: 214 loaded, 0 failed
+[26-04-09 06:26:46] Starting resources...
+[26-04-09 06:26:46] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 06:26:46] startResource: Resource 'ip2c' started
+[26-04-09 06:26:46] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 06:26:46] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 06:26:46] WARNING: <owner_email_address> not set
+[26-04-09 06:26:46] Server started and is ready to accept connections!
+[26-04-09 06:26:46] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 06:26:46] Type 'help' for a list of commands.
+[26-04-09 06:26:47] Starting play
+[26-04-09 06:26:47] Starting internetradio
+[26-04-09 06:26:47] Starting superman
+[26-04-09 06:26:47] Starting hedit
+[26-04-09 06:26:47] Starting mapfixes
+[26-04-09 06:26:47] Starting chatmanager
+[26-04-09 06:26:47] startResource: Resource 'play' started
+[26-04-09 06:26:47] INFO: ip2c bootstrap: started 'play'
+[26-04-09 06:26:56] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 06:26:56] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 06:30:35] Server stopped!
+[26-04-09 06:30:35] Stopping resources.....................
+[26-04-09 06:30:35] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 06:30:37] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 06:30:38] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 06:30:38] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 06:30:38] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 06:30:38] Resources: 214 loaded, 0 failed
+[26-04-09 06:30:38] Starting resources...
+[26-04-09 06:30:38] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 06:30:38] startResource: Resource 'ip2c' started
+[26-04-09 06:30:38] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 06:30:38] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 06:30:38] WARNING: <owner_email_address> not set
+[26-04-09 06:30:38] Server started and is ready to accept connections!
+[26-04-09 06:30:38] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 06:30:38] Type 'help' for a list of commands.
+[26-04-09 06:30:39] Starting play
+[26-04-09 06:30:39] Starting internetradio
+[26-04-09 06:30:39] Starting superman
+[26-04-09 06:30:39] Starting hedit
+[26-04-09 06:30:39] Starting mapfixes
+[26-04-09 06:30:39] Starting chatmanager
+[26-04-09 06:30:39] startResource: Resource 'play' started
+[26-04-09 06:30:39] INFO: ip2c bootstrap: started 'play'
+[26-04-09 06:30:48] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24052.0)
+[26-04-09 06:30:48] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 06:35:34] restart: Requested by Console
+[26-04-09 06:35:34] restart: Resource 'house_manager' restarting...
+[26-04-09 06:35:34] Stopping house_manager
+[26-04-09 06:35:34] Resource 'house_manager' changed, reloading and starting
+[26-04-09 06:35:34] Starting house_manager
+[26-04-09 06:35:34] house_manager restarted successfully
+[26-04-09 06:37:18] QUIT: Haughtrick left the game [Quit] 
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 16:55:37] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 16:55:37] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 16:55:37] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 16:55:37] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 16:55:37] Resources: 214 loaded, 0 failed
+[26-04-09 16:55:37] Starting resources...
+[26-04-09 16:55:37] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 16:55:37] startResource: Resource 'ip2c' started
+[26-04-09 16:55:38] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 16:55:38] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 16:55:38] WARNING: <owner_email_address> not set
+[26-04-09 16:55:38] Server started and is ready to accept connections!
+[26-04-09 16:55:38] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 16:55:38] Type 'help' for a list of commands.
+[26-04-09 16:55:38] Starting play
+[26-04-09 16:55:38] Starting internetradio
+[26-04-09 16:55:38] Starting superman
+[26-04-09 16:55:38] Starting hedit
+[26-04-09 16:55:38] Starting mapfixes
+[26-04-09 16:55:38] Starting chatmanager
+[26-04-09 16:55:38] startResource: Resource 'play' started
+[26-04-09 16:55:38] INFO: ip2c bootstrap: started 'play'
+[26-04-09 17:04:17] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 17:04:18] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 17:04:44] QUIT: Haughtrick left the game [Timed out] 
+[26-04-09 17:05:01] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 17:05:02] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 17:17:35] Stopping housing
+[26-04-09 17:17:35] Starting housing
+[26-04-09 17:17:36] housing restarted successfully
+[26-04-09 17:17:48] Stopping housing
+[26-04-09 17:17:48] Starting housing
+[26-04-09 17:17:48] housing restarted successfully
+[26-04-09 17:17:54] Stopping housing
+[26-04-09 17:17:54] Starting housing
+[26-04-09 17:17:54] housing restarted successfully
+[26-04-09 17:17:58] Stopping housing
+[26-04-09 17:17:58] Starting housing
+[26-04-09 17:17:58] housing restarted successfully
+[26-04-09 17:18:00] Stopping housing
+[26-04-09 17:18:00] Starting housing
+[26-04-09 17:18:00] housing restarted successfully
+[26-04-09 17:18:02] Stopping housing
+[26-04-09 17:18:02] Starting housing
+[26-04-09 17:18:02] housing restarted successfully
+[26-04-09 17:18:04] Stopping housing
+[26-04-09 17:18:04] Starting housing
+[26-04-09 17:18:04] housing restarted successfully
+[26-04-09 17:18:06] Stopping housing
+[26-04-09 17:18:06] Starting housing
+[26-04-09 17:18:06] housing restarted successfully
+[26-04-09 17:18:12] Stopping housing
+[26-04-09 17:18:12] Starting housing
+[26-04-09 17:18:12] housing restarted successfully
+[26-04-09 17:18:15] Stopping housing
+[26-04-09 17:18:15] Starting housing
+[26-04-09 17:18:15] housing restarted successfully
+[26-04-09 17:18:21] Stopping housing
+[26-04-09 17:18:21] Starting housing
+[26-04-09 17:18:21] housing restarted successfully
+[26-04-09 17:18:23] Stopping housing
+[26-04-09 17:18:23] Starting housing
+[26-04-09 17:18:23] housing restarted successfully
+[26-04-09 17:18:24] Stopping housing
+[26-04-09 17:18:24] Starting housing
+[26-04-09 17:18:24] housing restarted successfully
+[26-04-09 17:18:26] Stopping housing
+[26-04-09 17:18:26] Starting housing
+[26-04-09 17:18:26] housing restarted successfully
+[26-04-09 17:18:27] Stopping housing
+[26-04-09 17:18:27] Starting housing
+[26-04-09 17:18:27] housing restarted successfully
+[26-04-09 17:18:29] Stopping housing
+[26-04-09 17:18:29] Starting housing
+[26-04-09 17:18:29] housing restarted successfully
+[26-04-09 17:18:34] Stopping housing
+[26-04-09 17:18:34] Starting housing
+[26-04-09 17:18:34] housing restarted successfully
+[26-04-09 17:18:36] Stopping housing
+[26-04-09 17:18:36] Starting housing
+[26-04-09 17:18:36] housing restarted successfully
+[26-04-09 17:18:37] Stopping housing
+[26-04-09 17:18:37] Starting housing
+[26-04-09 17:18:37] housing restarted successfully
+[26-04-09 17:18:38] Stopping housing
+[26-04-09 17:18:38] Starting housing
+[26-04-09 17:18:38] housing restarted successfully
+[26-04-09 17:18:40] Stopping housing
+[26-04-09 17:18:40] Starting housing
+[26-04-09 17:18:40] housing restarted successfully
+[26-04-09 17:18:45] Stopping housing
+[26-04-09 17:18:45] Starting housing
+[26-04-09 17:18:45] housing restarted successfully
+[26-04-09 17:18:47] Stopping housing
+[26-04-09 17:18:47] Starting housing
+[26-04-09 17:18:47] housing restarted successfully
+[26-04-09 17:18:49] Stopping housing
+[26-04-09 17:18:49] Starting housing
+[26-04-09 17:18:49] housing restarted successfully
+[26-04-09 17:18:52] Stopping housing
+[26-04-09 17:18:52] Starting housing
+[26-04-09 17:18:52] housing restarted successfully
+[26-04-09 17:18:55] Stopping housing
+[26-04-09 17:18:55] Starting housing
+[26-04-09 17:18:55] housing restarted successfully
+[26-04-09 17:18:57] Stopping housing
+[26-04-09 17:18:57] Starting housing
+[26-04-09 17:18:57] housing restarted successfully
+[26-04-09 17:18:59] Stopping housing
+[26-04-09 17:18:59] Starting housing
+[26-04-09 17:18:59] housing restarted successfully
+[26-04-09 17:19:02] Stopping housing
+[26-04-09 17:19:02] Starting housing
+[26-04-09 17:19:02] housing restarted successfully
+[26-04-09 17:19:05] Stopping housing
+[26-04-09 17:19:05] Starting housing
+[26-04-09 17:19:05] housing restarted successfully
+[26-04-09 17:19:08] Stopping housing
+[26-04-09 17:19:08] Starting housing
+[26-04-09 17:19:08] housing restarted successfully
+[26-04-09 17:19:10] Stopping housing
+[26-04-09 17:19:10] Starting housing
+[26-04-09 17:19:10] housing restarted successfully
+[26-04-09 17:19:15] Stopping housing
+[26-04-09 17:19:15] Starting housing
+[26-04-09 17:19:15] housing restarted successfully
+[26-04-09 17:19:17] Stopping housing
+[26-04-09 17:19:17] Starting housing
+[26-04-09 17:19:17] housing restarted successfully
+[26-04-09 17:19:19] Stopping housing
+[26-04-09 17:19:19] Starting housing
+[26-04-09 17:19:19] housing restarted successfully
+[26-04-09 17:19:21] Stopping housing
+[26-04-09 17:19:21] Starting housing
+[26-04-09 17:19:21] housing restarted successfully
+[26-04-09 17:19:22] Stopping housing
+[26-04-09 17:19:22] Starting housing
+[26-04-09 17:19:22] housing restarted successfully
+[26-04-09 17:19:23] Stopping housing
+[26-04-09 17:19:23] Starting housing
+[26-04-09 17:19:23] housing restarted successfully
+[26-04-09 17:19:24] Stopping housing
+[26-04-09 17:19:24] Starting housing
+[26-04-09 17:19:24] housing restarted successfully
+[26-04-09 17:19:26] Stopping housing
+[26-04-09 17:19:26] Starting housing
+[26-04-09 17:19:26] housing restarted successfully
+[26-04-09 17:19:27] Stopping housing
+[26-04-09 17:19:27] Starting housing
+[26-04-09 17:19:27] housing restarted successfully
+[26-04-09 17:19:29] Stopping housing
+[26-04-09 17:19:29] Starting housing
+[26-04-09 17:19:29] housing restarted successfully
+[26-04-09 17:19:33] Stopping housing
+[26-04-09 17:19:33] Starting housing
+[26-04-09 17:19:33] housing restarted successfully
+[26-04-09 17:19:35] Stopping housing
+[26-04-09 17:19:35] Starting housing
+[26-04-09 17:19:35] housing restarted successfully
+[26-04-09 17:19:36] Stopping housing
+[26-04-09 17:19:36] Starting housing
+[26-04-09 17:19:36] housing restarted successfully
+[26-04-09 17:19:37] Stopping housing
+[26-04-09 17:19:37] Starting housing
+[26-04-09 17:19:37] housing restarted successfully
+[26-04-09 17:19:39] Stopping housing
+[26-04-09 17:19:39] Starting housing
+[26-04-09 17:19:39] housing restarted successfully
+[26-04-09 17:19:45] Stopping housing
+[26-04-09 17:19:45] Starting housing
+[26-04-09 17:19:45] housing restarted successfully
+[26-04-09 17:19:50] Stopping housing
+[26-04-09 17:19:50] Starting housing
+[26-04-09 17:19:50] housing restarted successfully
+[26-04-09 17:20:00] Stopping housing
+[26-04-09 17:20:00] Starting housing
+[26-04-09 17:20:00] housing restarted successfully
+[26-04-09 17:20:36] QUIT: Haughtrick left the game [Quit] 
+[26-04-09 17:20:37] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 17:20:38] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 17:25:45] Server stopped!
+[26-04-09 17:25:45] Stopping resources.....................
+[26-04-09 17:25:46] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 17:25:48] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 17:25:49] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 17:25:49] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 17:25:49] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 17:25:49] Resources: 214 loaded, 0 failed
+[26-04-09 17:25:49] Starting resources...
+[26-04-09 17:25:49] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 17:25:49] startResource: Resource 'ip2c' started
+[26-04-09 17:25:49] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 17:25:49] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 17:25:49] WARNING: <owner_email_address> not set
+[26-04-09 17:25:49] Server started and is ready to accept connections!
+[26-04-09 17:25:49] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 17:25:49] Type 'help' for a list of commands.
+[26-04-09 17:25:50] Starting play
+[26-04-09 17:25:50] Starting internetradio
+[26-04-09 17:25:50] Starting superman
+[26-04-09 17:25:50] Starting hedit
+[26-04-09 17:25:50] Starting mapfixes
+[26-04-09 17:25:50] Starting chatmanager
+[26-04-09 17:25:50] startResource: Resource 'play' started
+[26-04-09 17:25:50] INFO: ip2c bootstrap: started 'play'
+[26-04-09 17:25:53] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 17:25:53] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 18:14:44] CONNECT: tipr failed to connect (Client version is below minimum) (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.23952.0)
+[26-04-09 18:14:44] QUIT: tipr left the game [Quit] 
+[26-04-09 18:17:03] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 18:17:08] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 18:19:46] QUIT: tipr left the game [Quit] 
+[26-04-09 18:20:33] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 18:20:39] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 18:22:47] QUIT: tipr left the game [Quit] 
+[26-04-09 18:23:45] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 18:23:46] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 18:30:08] QUIT: tipr left the game [Quit] 
+[26-04-09 18:32:09] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 18:32:10] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 18:32:56] QUIT: tipr left the game [Quit] 
+[26-04-09 18:33:18] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 18:33:20] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 18:33:40] CHAT: tipr : tzz&sdwzq
+[26-04-09 18:34:57] QUIT: tipr left the game [Quit] 
+[26-04-09 18:35:19] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 18:35:20] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 19:11:42] CONNECT: iblisss failed to connect (Client version is below minimum) (IP: 46.193.6.85  Serial: C82D0D87E836C2D94CB50A229D23CE03  Version: 1.6.0-9.23952.0)
+[26-04-09 19:11:42] QUIT: iblisss left the game [Quit] 
+[26-04-09 19:13:37] CONNECT: iblisss connected (IP: 46.193.6.85  Serial: C82D0D87E836C2D94CB50A229D23CE03  Version: 1.6.0-9.24060.0)
+[26-04-09 19:13:39] JOIN: iblisss joined the game (IP: 46.193.6.85)
+[26-04-09 19:22:07] QUIT: iblisss left the game [Quit] 
+[26-04-09 19:28:43] QUIT: tipr left the game [Quit] 
+[26-04-09 19:33:14] Server stopped!
+[26-04-09 19:33:14] Stopping resources.....................
+[26-04-09 19:33:14] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 19:33:17] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 19:33:17] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 19:33:17] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 19:33:17] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 19:33:17] Resources: 214 loaded, 0 failed
+[26-04-09 19:33:17] Starting resources...
+[26-04-09 19:33:17] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 19:33:17] startResource: Resource 'ip2c' started
+[26-04-09 19:33:18] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 19:33:18] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 19:33:18] WARNING: <owner_email_address> not set
+[26-04-09 19:33:18] Server started and is ready to accept connections!
+[26-04-09 19:33:18] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 19:33:18] Type 'help' for a list of commands.
+[26-04-09 19:33:18] Starting play
+[26-04-09 19:33:18] Starting internetradio
+[26-04-09 19:33:18] Starting superman
+[26-04-09 19:33:18] Starting hedit
+[26-04-09 19:33:18] Starting mapfixes
+[26-04-09 19:33:18] Starting chatmanager
+[26-04-09 19:33:19] startResource: Resource 'play' started
+[26-04-09 19:33:19] INFO: ip2c bootstrap: started 'play'
+[26-04-09 19:33:19] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:33:22] CONNECT: Haughtrick connected (IP: 41.140.152.242  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 19:33:23] JOIN: Haughtrick joined the game (IP: 41.140.152.242)
+[26-04-09 19:34:25] Stopping housing
+[26-04-09 19:34:25] Starting housing
+[26-04-09 19:34:25] housing restarted successfully
+[26-04-09 19:34:26] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:29] Stopping housing
+[26-04-09 19:34:29] Starting housing
+[26-04-09 19:34:29] housing restarted successfully
+[26-04-09 19:34:30] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:33] Stopping housing
+[26-04-09 19:34:33] Starting housing
+[26-04-09 19:34:33] housing restarted successfully
+[26-04-09 19:34:36] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:36] Stopping housing
+[26-04-09 19:34:36] Starting housing
+[26-04-09 19:34:36] housing restarted successfully
+[26-04-09 19:34:38] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:39] Stopping housing
+[26-04-09 19:34:39] Starting housing
+[26-04-09 19:34:39] housing restarted successfully
+[26-04-09 19:34:43] Stopping housing
+[26-04-09 19:34:43] Starting housing
+[26-04-09 19:34:43] housing restarted successfully
+[26-04-09 19:34:44] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:44] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:44] Stopping housing
+[26-04-09 19:34:44] Starting housing
+[26-04-09 19:34:44] housing restarted successfully
+[26-04-09 19:34:45] Stopping housing
+[26-04-09 19:34:45] Starting housing
+[26-04-09 19:34:46] housing restarted successfully
+[26-04-09 19:34:46] Stopping housing
+[26-04-09 19:34:46] Starting housing
+[26-04-09 19:34:46] housing restarted successfully
+[26-04-09 19:34:48] Stopping housing
+[26-04-09 19:34:48] Starting housing
+[26-04-09 19:34:48] housing restarted successfully
+[26-04-09 19:34:49] Stopping housing
+[26-04-09 19:34:49] Starting housing
+[26-04-09 19:34:49] housing restarted successfully
+[26-04-09 19:34:50] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)  [DUP x4]
+[26-04-09 19:34:51] Stopping housing
+[26-04-09 19:34:51] Starting housing
+[26-04-09 19:34:51] housing restarted successfully
+[26-04-09 19:34:51] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:52] Stopping housing
+[26-04-09 19:34:52] Starting housing
+[26-04-09 19:34:52] housing restarted successfully
+[26-04-09 19:34:53] Stopping housing
+[26-04-09 19:34:53] Starting housing
+[26-04-09 19:34:53] housing restarted successfully
+[26-04-09 19:34:54] Stopping housing
+[26-04-09 19:34:54] Starting housing
+[26-04-09 19:34:54] housing restarted successfully
+[26-04-09 19:34:55] Stopping housing
+[26-04-09 19:34:55] Starting housing
+[26-04-09 19:34:55] housing restarted successfully
+[26-04-09 19:34:56] Stopping housing
+[26-04-09 19:34:56] Starting housing
+[26-04-09 19:34:56] housing restarted successfully
+[26-04-09 19:34:57] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)  [DUP x4]
+[26-04-09 19:34:57] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:34:57] Stopping housing
+[26-04-09 19:34:57] Starting housing
+[26-04-09 19:34:57] housing restarted successfully
+[26-04-09 19:34:58] Stopping housing
+[26-04-09 19:34:59] Starting housing
+[26-04-09 19:34:59] housing restarted successfully
+[26-04-09 19:35:00] Stopping housing
+[26-04-09 19:35:00] Starting housing
+[26-04-09 19:35:00] housing restarted successfully
+[26-04-09 19:35:01] Stopping housing
+[26-04-09 19:35:01] Starting housing
+[26-04-09 19:35:01] housing restarted successfully
+[26-04-09 19:35:03] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)  [DUP x5]
+[26-04-09 19:35:03] Stopping housing
+[26-04-09 19:35:03] Starting housing
+[26-04-09 19:35:03] housing restarted successfully
+[26-04-09 19:35:04] Stopping housing
+[26-04-09 19:35:04] Starting housing
+[26-04-09 19:35:04] housing restarted successfully
+[26-04-09 19:35:04] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:35:06] Stopping housing
+[26-04-09 19:35:06] Starting housing
+[26-04-09 19:35:06] housing restarted successfully
+[26-04-09 19:35:07] Stopping housing
+[26-04-09 19:35:07] Starting housing
+[26-04-09 19:35:07] housing restarted successfully
+[26-04-09 19:35:09] Stopping housing
+[26-04-09 19:35:09] Starting housing
+[26-04-09 19:35:09] housing restarted successfully
+[26-04-09 19:35:10] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)  [DUP x3]
+[26-04-09 19:35:10] Stopping housing
+[26-04-09 19:35:10] Starting housing
+[26-04-09 19:35:10] housing restarted successfully
+[26-04-09 19:35:11] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:35:12] Stopping housing
+[26-04-09 19:35:12] Starting housing
+[26-04-09 19:35:12] housing restarted successfully
+[26-04-09 19:35:17] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)  [DUP x2]
+[26-04-09 19:38:57] QUIT: Haughtrick left the game [Timed out] 
+[26-04-09 19:40:45] CONNECT: Haughtrick connected (IP: 41.140.195.131  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 19:40:45] JOIN: Haughtrick joined the game (IP: 41.140.195.131)
+[26-04-09 19:47:25] QUIT: Haughtrick left the game [Quit] 
+[26-04-09 19:47:28] CONNECT: Haughtrick connected (IP: 41.140.195.131  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 19:47:28] JOIN: Haughtrick joined the game (IP: 41.140.195.131)
+[26-04-09 19:47:50] Stopping housing
+[26-04-09 19:47:50] Starting housing
+[26-04-09 19:47:50] housing restarted successfully
+[26-04-09 19:47:51] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 19:49:10] restart: Requested by Haughtrick(guest)
+[26-04-09 19:49:10] Stopping house_manager
+[26-04-09 19:49:10] Starting house_manager
+[26-04-09 19:49:10] house_manager restarted successfully
+[26-04-09 19:49:23] restart: Requested by Haughtrick(guest)
+[26-04-09 19:49:23] Stopping house_manager
+[26-04-09 19:49:23] Starting house_manager
+[26-04-09 19:49:23] house_manager restarted successfully
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 19:57:23] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 19:57:23] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 19:57:23] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 19:57:23] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 19:57:23] Resources: 214 loaded, 0 failed
+[26-04-09 19:57:23] Starting resources...
+[26-04-09 19:57:24] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 19:57:24] startResource: Resource 'ip2c' started
+[26-04-09 19:57:24] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 19:57:24] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 19:57:24] WARNING: <owner_email_address> not set
+[26-04-09 19:57:24] Server started and is ready to accept connections!
+[26-04-09 19:57:24] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 19:57:24] Type 'help' for a list of commands.
+[26-04-09 19:57:25] Starting play
+[26-04-09 19:57:25] Starting internetradio
+[26-04-09 19:57:25] Starting superman
+[26-04-09 19:57:25] Starting hedit
+[26-04-09 19:57:25] Starting mapfixes
+[26-04-09 19:57:25] Starting chatmanager
+[26-04-09 19:57:25] startResource: Resource 'play' started
+[26-04-09 19:57:25] INFO: ip2c bootstrap: started 'play'
+[26-04-09 19:57:25] ERROR: [systems]/garage_system/server.lua:172: attempt to index field 'garage' (a nil value)
+[26-04-09 20:03:59] Server stopped!
+[26-04-09 20:03:59] Stopping resources.....................
+[26-04-09 20:03:59] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 20:04:01] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 20:04:01] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 20:04:01] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 20:04:01] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 20:04:02] Resources: 214 loaded, 0 failed
+[26-04-09 20:04:02] Starting resources...
+[26-04-09 20:04:02] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 20:04:02] startResource: Resource 'ip2c' started
+[26-04-09 20:04:02] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 20:04:02] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 20:04:02] WARNING: <owner_email_address> not set
+[26-04-09 20:04:02] Server started and is ready to accept connections!
+[26-04-09 20:04:02] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 20:04:02] Type 'help' for a list of commands.
+[26-04-09 20:04:03] Starting play
+[26-04-09 20:04:03] Starting internetradio
+[26-04-09 20:04:03] Starting superman
+[26-04-09 20:04:03] Starting hedit
+[26-04-09 20:04:03] Starting mapfixes
+[26-04-09 20:04:03] Starting chatmanager
+[26-04-09 20:04:03] startResource: Resource 'play' started
+[26-04-09 20:04:03] INFO: ip2c bootstrap: started 'play'
+[26-04-09 20:04:11] CONNECT: Haughtrick connected (IP: 41.140.195.131  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:04:12] JOIN: Haughtrick joined the game (IP: 41.140.195.131)
+[26-04-09 20:05:20] CONNECT: ObtainableSqueegee62 failed to connect (Client version is below minimum) (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.23952.0)
+[26-04-09 20:05:20] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 20:08:55] CONNECT: tipr connected (IP: 102.97.162.223  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-09 20:08:58] JOIN: tipr joined the game (IP: 102.97.162.223)
+[26-04-09 20:13:20] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:13:23] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 20:15:12] Stopping housing
+[26-04-09 20:15:12] Starting housing
+[26-04-09 20:15:12] housing restarted successfully
+[26-04-09 20:15:28] Stopping housing
+[26-04-09 20:15:28] Starting housing
+[26-04-09 20:15:28] housing restarted successfully
+[26-04-09 20:18:46] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 20:22:15] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:22:18] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 20:24:48] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 20:25:17] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:25:20] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 20:25:43] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 20:30:15] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:30:18] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 20:34:46] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 20:37:43] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:37:45] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 20:45:26] CHAT: ObtainableSqueegee62 : t
+[26-04-09 20:57:37] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 20:59:10] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 20:59:12] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 21:17:40] QUIT: tipr left the game [Timed out] 
+[26-04-09 21:52:23] restart: Requested by Haughtrick(guest)
+[26-04-09 21:52:23] Stopping housing
+[26-04-09 21:52:23] Resource 'housing' changed, reloading and starting
+[26-04-09 21:52:23] Starting housing
+[26-04-09 21:52:23] housing restarted successfully
+[26-04-09 21:52:52] restart: Requested by Haughtrick(guest)
+[26-04-09 21:52:52] Stopping house_manager
+[26-04-09 21:52:52] Resource 'house_manager' changed, reloading and starting
+[26-04-09 21:52:52] Starting house_manager
+[26-04-09 21:52:52] house_manager restarted successfully
+[26-04-09 21:54:59] Stopping housing
+[26-04-09 21:54:59] Starting housing
+[26-04-09 21:54:59] housing restarted successfully
+[26-04-09 21:55:04] Stopping housing
+[26-04-09 21:55:04] Starting housing
+[26-04-09 21:55:04] housing restarted successfully
+[26-04-09 21:55:07] Stopping housing
+[26-04-09 21:55:07] Starting housing
+[26-04-09 21:55:07] housing restarted successfully
+[26-04-09 21:55:13] Stopping housing
+[26-04-09 21:55:13] Starting housing
+[26-04-09 21:55:13] housing restarted successfully
+[26-04-09 21:55:17] Stopping housing
+[26-04-09 21:55:17] Starting housing
+[26-04-09 21:55:17] housing restarted successfully
+[26-04-09 21:56:53] QUIT: ObtainableSqueegee62 left the game [Quit] 
+[26-04-09 21:57:17] CONNECT: ObtainableSqueegee62 connected (IP: 196.75.10.129  Serial: EE84B1F1413B34FDD18066E1FBEE79A4  Version: 1.6.0-9.24060.0)
+[26-04-09 21:57:19] JOIN: ObtainableSqueegee62 joined the game (IP: 196.75.10.129)
+[26-04-09 21:59:41] Server stopped!
+[26-04-09 21:59:41] Stopping resources.....................
+[26-04-09 21:59:41] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-09 21:59:53] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-09 21:59:53] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-09 21:59:53] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-09 21:59:53] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-09 21:59:53] Resources: 214 loaded, 0 failed
+[26-04-09 21:59:53] Starting resources...
+[26-04-09 21:59:54] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-09 21:59:54] startResource: Resource 'ip2c' started
+[26-04-09 21:59:54] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-09 21:59:54] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-09 21:59:54] WARNING: <owner_email_address> not set
+[26-04-09 21:59:54] Server started and is ready to accept connections!
+[26-04-09 21:59:54] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-09 21:59:54] Type 'help' for a list of commands.
+[26-04-09 21:59:55] Starting play
+[26-04-09 21:59:55] Starting internetradio
+[26-04-09 21:59:55] Starting superman
+[26-04-09 21:59:55] Starting hedit
+[26-04-09 21:59:55] Starting mapfixes
+[26-04-09 21:59:55] Starting chatmanager
+[26-04-09 21:59:55] startResource: Resource 'play' started
+[26-04-09 21:59:55] INFO: ip2c bootstrap: started 'play'
+[26-04-09 22:20:35] restart: Requested by Console
+[26-04-09 22:20:35] restart: Resource 'housing' restarting...
+[26-04-09 22:20:35] Stopping housing
+[26-04-09 22:20:35] Resource 'housing' changed, reloading and starting
+[26-04-09 22:20:35] Starting housing
+[26-04-09 22:20:35] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-09 22:20:35] housing restarted successfully
+[26-04-09 22:20:49] restart: Requested by Console
+[26-04-09 22:20:49] restart: Resource 'house_manager' restarting...
+[26-04-09 22:20:49] Stopping house_manager
+[26-04-09 22:20:49] Resource 'house_manager' changed, reloading and starting
+[26-04-09 22:20:49] Starting house_manager
+[26-04-09 22:20:49] house_manager restarted successfully
+[26-04-09 22:43:57] CONNECT: Haughtrick connected (IP: 41.140.195.131  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-09 22:43:57] JOIN: Haughtrick joined the game (IP: 41.140.195.131)
+[26-04-09 22:52:29] WARNING: [systems]/house_manager/server.lua:176: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-09 22:52:36] WARNING: [systems]/house_manager/server.lua:176: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-09 22:53:28] WARNING: [systems]/house_manager/server.lua:176: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-09 22:53:36] Stopping housing
+[26-04-09 22:53:36] Starting housing
+[26-04-09 22:53:36] INFO: [Housing] Loaded 9 rows, 9 valid houses.
+[26-04-09 22:53:36] housing restarted successfully
+[26-04-09 22:55:06] WARNING: [systems]/house_manager/server.lua:176: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-09 22:58:53] QUIT: Haughtrick left the game [Quit] 
+[26-04-10 00:57:32] Server stopped!
+[26-04-10 00:57:32] Stopping resources.....................
+[26-04-10 00:57:32] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-10 01:09:18] Resource 'vrp' requests some acl rights. Use the command 'aclrequest list vrp'
+[26-04-10 01:09:19] Resource 'vrp_build' requests some acl rights. Use the command 'aclrequest list vrp_build'
+[26-04-10 01:09:19] ERROR: Problem with resource: stage; Failed to link to realdriveby
+[26-04-10 01:09:19] ERROR: Problem with resource: vrp; Failed to link to reload
+[26-04-10 01:09:19] ERROR: Problem with resource: vrp_build; Failed to link to reload
+[26-04-10 01:09:19] Resources: 32 loaded, 3 failed
+[26-04-10 01:09:19] Server password set to 'Sjkf125q@'
+[26-04-10 01:09:19] Starting resources...
+[26-04-10 01:09:19] ERROR: Couldn't find resource parachute. Check it exists.
+[26-04-10 01:09:19] ERROR: Unable to start resource vrp_build; Failed to link to reload
+[26-04-10 01:09:19] WARNING: admin_exo/server/admin_server.lua(Line 52) [Server] getPlayerWeapon is deprecated and may not work in future versions. Please replace with getPedWeapon.
+[26-04-10 01:09:19] WARNING: admin_exo/server/admin_server.lua(Line 1063) [Server] doesPedHaveJetPack is deprecated and may not work in future versions. Please replace with isPedWearingJetpack.
+[26-04-10 01:09:19] WARNING: admin_exo/server/admin_server.lua(Line 1064) [Server] removePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[26-04-10 01:09:19] WARNING: admin_exo/server/admin_server.lua(Line 1069) [Server] givePedJetPack no longer works. Replaced with setPedWearingJetpack. Refer to the wiki for details
+[26-04-10 01:09:19] Some files in 'admin_exo' use deprecated functions.
+[26-04-10 01:09:19] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-10 01:09:19] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-10 01:09:19] ERROR: Couldn't find resource reload. Check it exists.
+[26-04-10 01:09:19] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-10 01:09:19] WARNING: <owner_email_address> not set
+[26-04-10 01:09:19] Server started and is ready to accept connections!
+[26-04-10 01:09:19] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-10 01:09:19] Type 'help' for a list of commands.
+[26-04-10 01:09:19] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-10 01:09:28] Server stopped!
+[26-04-10 01:09:28] Stopping resources.....
+[26-04-10 01:09:28] Closing SQLite3 database
