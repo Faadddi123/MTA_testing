@@ -1107,7 +1107,7 @@ function setVehicleOverrideLightsEx(vehid, lst)
 end
 
 function setVehicleEmerLightsEx(vehid, lst)
-	call ( getResourceFromName ( "emerlights" ), "setStroboLightsOn", getElementByID(vehid), lst)
+	call ( getResourceFromName ( "[vrp]/[deps]/emerlights" ), "setStroboLightsOn", getElementByID(vehid), lst)
 end
 
 function StopPlay()

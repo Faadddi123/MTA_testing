@@ -7,5 +7,5 @@
 	<file src="client/sounds/recstart.wav" type="file" />
 	<file src="client/sounds/stop.wav" type="file" />
 	<include resource="[vrp]/[deps]/realdriveby_exo" />
-	<include resource="emerlights" />	
+	<include resource="[vrp]/[deps]/emerlights" />	
 </meta>

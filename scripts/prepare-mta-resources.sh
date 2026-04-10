@@ -2,9 +2,14 @@
 # Run once after clone or when [gameplay] stock resources are present.
 # eXo meta + mtaserver expect resource names "reload" and "parachute" at the
 # resources/ root; stock MTA ships them under mods/deathmatch/[gameplay]/.
+# emerlights lives only under [vrp]/[deps]/emerlights — remove stale resources/emerlights if upgrading.
 set -euo pipefail
 RES="$(cd "$(dirname "$0")/../mods/deathmatch/resources" && pwd)"
 cd "$RES"
+if [[ -e emerlights && ! -L emerlights ]]; then
+	echo "Removing duplicate resources/emerlights (use [vrp]/[deps]/emerlights only)." >&2
+	rm -rf emerlights
+fi
 ln -sfn ../[gameplay]/reload reload
 ln -sfn ../[gameplay]/parachute parachute
 echo "Symlinks OK: reload, parachute -> ../[gameplay]/..."
