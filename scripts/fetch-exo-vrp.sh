@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Optional: refresh upstream eXo gamemode. Afterward run: ./scripts/prepare-mta-resources.sh
 set -euo pipefail
 
 REPO_URL="${REPO_URL:-https://github.com/eXo-OpenSource/mta-gamemode.git}"

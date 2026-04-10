@@ -3596,7 +3596,7 @@
 	<include resource="SnowFlakes" />
 	<include resource="SnowGround" />
 
-	<include resource="Weapon_Attach" />
+	<include resource="weapon_attach" />
 	<include resource="superman" />
 
 	<!-- ACL Request -->
