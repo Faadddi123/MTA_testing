@@ -1,4 +1,38 @@
 <settings>
-    <setting name="ip2c.ip2cUpdateTime" value="[1775704243]"></setting>
-    <setting name="admin_exo.ip2cUpdateTime" value="[1775783360]"></setting>
+	<setting name="@mysql.production_server" value="PRODUCTION_SERVER" /> <!-- 1 = Live server 0 = Local/Dev server -->
+
+	<!-- MySQL -->
+	<setting name="@mysql.socket" value="" />
+	<!-- MTA DB -->
+	<setting name="@mysql.database" value="owlgaming" />
+	<setting name="@mysql.username" value="root" />
+	<setting name="@mysql.password" value="YOUR_DB_PASSWORD" />
+	<setting name="@mysql.hostname" value="127.0.0.1" />
+	<setting name="@mysql.port" value="3306" />
+	<!-- Core DB -->
+	<setting name="@mysql.core_database" value="owlgaming" />
+	<setting name="@mysql.core_username" value="root" />
+	<setting name="@mysql.core_password" value="YOUR_DB_PASSWORD" />
+	<setting name="@mysql.core_hostname" value="127.0.0.1" />
+	<setting name="@mysql.core_port" value="3306" />
+
+	<!-- UCP Access -->
+	<setting name="@usercontrolpanel.website_pass" value="WEBSITE_PASSWORD" />
+
+	<!-- Forums API Key -->
+	<setting name="@integration.forumsAPIKey" value="FORUMS_API_KEY" />
+	<!-- Imgur Client ID used to get dimensions of skins and item-texture stuff -->
+	<setting name="imgurClient" value="IMGUR_API_KEY" />
+
+	<!-- Scanner -->
+	<setting name="@payday.inactivityscanner_vehicles" value="1" />
+	<setting name="@payday.inactivityscanner_interiors" value="1" />
+	<setting name="@item-world.inactivityscanner_items" value="2" />
+	<!--
+		Inactivity scanner modes: 0: disabled, 1: enabled
+		item deletion modes: 0: off, 1: delete all items after 30 days, 2: delete only exterior items after 30 days
+		Notes (72) are deleted after 3 days.
+		Storage items 81 (fridge), 103 (fridge), 223 (storage generic) and 231 (shipping container) are excempt from deletion
+		Other excempt items: 169 (keyless digital door lock)
+	-->
 </settings>
