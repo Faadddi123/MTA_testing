@@ -51,4 +51,18 @@
 		<export function="insert"  type="server" http="false" />
 		<export function="update"  type="server" http="false" />
 		<export function="delete"  type="server" http="false" />
+
+    <settings>
+        <setting name="*hostname" value="127.0.0.1" />
+        <setting name="*username" value="root" />
+        <setting name="*password" value="YOUR_DB_PASSWORD" />
+        <setting name="*database" value="owlgaming" />
+        <setting name="*port" value="3306" />
+
+        <setting name="*core_hostname" value="127.0.0.1" />
+        <setting name="*core_username" value="root" />
+        <setting name="*core_password" value="YOUR_DB_PASSWORD" />
+        <setting name="*core_database" value="owlgaming" />
+        <setting name="*core_port" value="3306" />
+    </settings>
 </meta>
