@@ -26,11 +26,11 @@
     </group>
     <group name="autoGroup_vrp">
         <acl name="autoACL_vrp"></acl>
-        <object name="resource.vrp"></object>
+        <object name="resource.exo/vrp"></object>
     </group>
     <group name="autoGroup_vrp_build">
         <acl name="autoACL_vrp_build"></acl>
-        <object name="resource.vrp_build"></object>
+        <object name="resource.exo/vrp_build"></object>
     </group>
     <acl name="Console">
         <right name="command.*" access="true"></right>

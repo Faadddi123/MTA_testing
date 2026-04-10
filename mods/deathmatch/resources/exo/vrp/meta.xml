@@ -3576,28 +3576,28 @@
 	<!-- Data maps (IMPORTANT) -->
 	<map src="files/maps/Busstops.map"/>
 
-	<!-- Includes -->
-	<include resource="exo_maps" />
-	<include resource="bone_attach" />
+	<!-- Includes (full paths — required on Linux; bracket paths break some MTA/XML loaders) -->
+	<include resource="exo/maps/exo_maps" />
+	<include resource="exo/deps/bone_attach" />
 	<include resource="reload"/>
-	<include resource="helicopterrope" />
-	<include resource="heligrab" />
+	<include resource="exo/deps/helicopterrope" />
+	<include resource="exo/deps/heligrab" />
 	<!-- Shaders -->
-	<include resource="Bloom" />
-	<include resource="Contrast" />
-	<include resource="Detail" />
-	<include resource="RoadShine" />
-	<!--include resource="dynamic_lighting" /-->
-	<include resource="SkyBox" />
-	<include resource="DoF" />
-	<include resource="VehicleReflections" />
-	<include resource="Water" />
-	<include resource="WetRoads" />
-	<include resource="SnowFlakes" />
-	<include resource="SnowGround" />
+	<include resource="exo/shader/Bloom" />
+	<include resource="exo/shader/Contrast" />
+	<include resource="exo/shader/Detail" />
+	<include resource="exo/shader/RoadShine" />
+	<!--include resource="exo/shader/dynamic_lighting" /-->
+	<include resource="exo/shader/SkyBox" />
+	<include resource="exo/shader/DoF" />
+	<include resource="exo/shader/VehicleReflections" />
+	<include resource="exo/shader/Water" />
+	<include resource="exo/shader/WetRoads" />
+	<include resource="exo/shader/SnowFlakes" />
+	<include resource="exo/shader/SnowGround" />
 
-	<include resource="weapon_attach" />
-	<include resource="superman" />
+	<include resource="exo/deps/weapon_attach" />
+	<include resource="exo/deps/superman" />
 
 	<!-- ACL Request -->
 	<aclrequest>

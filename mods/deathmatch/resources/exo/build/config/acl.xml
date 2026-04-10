@@ -23,7 +23,7 @@
       <object name="resource.admin"/>
       <object name="resource.webadmin"/>
       <object name="resource.acpanel"/>
-      <object name="resource.vrp_build"/>
+      <object name="resource.exo/vrp_build"/>
    </group>
    <group name="Console">
       <acl name="Moderator"/>

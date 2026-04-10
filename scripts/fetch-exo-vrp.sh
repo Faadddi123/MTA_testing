@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_URL="${REPO_URL:-https://github.com/eXo-OpenSource/mta-gamemode.git}"
-TARGET_DIR="${1:-mods/deathmatch/resources/[vrp]}"
+TARGET_DIR="${1:-mods/deathmatch/resources/exo}"
 WORK_DIR="$(mktemp -d)"
 
 cleanup() {

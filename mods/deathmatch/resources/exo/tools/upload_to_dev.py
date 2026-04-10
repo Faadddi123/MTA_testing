@@ -32,7 +32,7 @@ artifacts = tarfile.open(ARTIFACTS_PATH, "w:gz")
 
 # Add files (see build/make_archives.py)
 print("Packing archive...")
-for name in ["[shader]", "[deps]", "[maps]", "vrp_build"]:
+for name in ["shader", "deps", "maps", "vrp_build"]:
 	artifacts.add(name)
 
 artifacts.close()

@@ -1,5 +1,5 @@
 param(
-    [string]$TargetDir = "mods/deathmatch/resources/[vrp]",
+    [string]$TargetDir = "mods/deathmatch/resources/exo",
     [string]$RepoUrl = "https://github.com/eXo-OpenSource/mta-gamemode.git"
 )
 
