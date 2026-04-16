@@ -2127,3 +2127,63 @@
 [26-04-16 02:11:05] Starting housing
 [26-04-16 02:11:05] INFO: [Housing] Loaded 2 rows, 2 valid houses.
 [26-04-16 02:11:05] housing restarted successfully
+[26-04-16 02:23:58] restart: Requested by Console
+[26-04-16 02:23:58] restart: Resource 'vehicles' restarting...
+[26-04-16 02:23:58] Stopping vehicles
+[26-04-16 02:23:58] Starting vehicles
+[26-04-16 02:23:58] vehicles restarted successfully
+[26-04-16 02:24:01] restart: Requested by Console
+[26-04-16 02:24:01] restart: Resource 'inventory' restarting...
+[26-04-16 02:24:01] Stopping inventory
+[26-04-16 02:24:01] Resource 'inventory' changed, reloading and starting
+[26-04-16 02:24:01] Starting inventory
+[26-04-16 02:24:01] inventory restarted successfully
+[26-04-16 02:24:05] restart: Requested by Console
+[26-04-16 02:24:05] restart: Resource 'house_manager' restarting...
+[26-04-16 02:24:05] Stopping house_manager
+[26-04-16 02:24:05] Starting house_manager
+[26-04-16 02:24:05] house_manager restarted successfully
+[26-04-16 02:24:08] restart: Requested by Console
+[26-04-16 02:24:08] restart: Resource 'housing' restarting...
+[26-04-16 02:24:08] Stopping housing
+[26-04-16 02:24:08] Resource 'housing' changed, reloading and starting
+[26-04-16 02:24:08] Starting housing
+[26-04-16 02:24:08] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 02:24:08] housing restarted successfully
+[26-04-16 02:24:12] restart: Requested by Console
+[26-04-16 02:24:12] restart: Resource 'garage_system' restarting...
+[26-04-16 02:24:12] Stopping garage_system
+[26-04-16 02:24:12] Resource 'garage_system' changed, reloading and starting
+[26-04-16 02:24:12] Starting garage_system
+[26-04-16 02:24:12] garage_system restarted successfully
+[26-04-16 02:24:22] restart: Requested by Console
+[26-04-16 02:24:22] restart: Resource 'database_manager' restarting...
+[26-04-16 02:24:22] Stopping database_manager
+[26-04-16 02:24:22] Starting database_manager
+[26-04-16 02:24:22] database_manager restarted successfully
+[26-04-16 02:24:41] Stopping housing
+[26-04-16 02:24:41] Starting housing
+[26-04-16 02:24:41] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 02:24:41] housing restarted successfully
+[26-04-16 02:24:43] Stopping housing
+[26-04-16 02:24:43] Starting housing
+[26-04-16 02:24:43] INFO: [Housing] Loaded 0 rows, 0 valid houses.
+[26-04-16 02:24:43] housing restarted successfully
+[26-04-16 02:24:48] Stopping housing
+[26-04-16 02:24:48] Starting housing
+[26-04-16 02:24:48] housing restarted successfully
+[26-04-16 02:24:49] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 02:25:34] Stopping housing
+[26-04-16 02:25:34] Starting housing
+[26-04-16 02:25:34] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 02:25:34] housing restarted successfully
+[26-04-16 02:27:01] CONNECT: tipr connected (IP: 102.97.175.44  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 02:27:03] Stopping housing
+[26-04-16 02:27:03] Starting housing
+[26-04-16 02:27:03] INFO: [Housing] Loaded 3 rows, 3 valid houses.
+[26-04-16 02:27:03] housing restarted successfully
+[26-04-16 02:27:03] JOIN: tipr joined the game (IP: 102.97.175.44)
+[26-04-16 02:28:44] Stopping housing
+[26-04-16 02:28:44] Starting housing
+[26-04-16 02:28:44] INFO: [Housing] Loaded 3 rows, 3 valid houses.
+[26-04-16 02:28:44] housing restarted successfully

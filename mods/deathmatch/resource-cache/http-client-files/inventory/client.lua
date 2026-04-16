@@ -296,31 +296,14 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
     -- Inventory toggle
     bindKey("i", "down", toggleInventory)
 
-    -- House popup actions (only when popup is visible and not typing)
+    -- House popup is display-only for F/B/G.
+    -- The housing resource owns those keybinds to avoid duplicate enter/buy/lock events.
     local function guardedKey(fn)
         return function()
             if isChatBoxInputActive() or isConsoleActive() or isMainMenuActive() then return end
             fn()
         end
     end
-
-    bindKey("f", "down", guardedKey(function()
-        if housePopup.visible and housePopup.payload and housePopup.payload.canEnter then
-            triggerHouseAction("housing:requestEnter")
-        end
-    end))
-
-    bindKey("b", "down", guardedKey(function()
-        if housePopup.visible and housePopup.payload and housePopup.payload.canBuy then
-            triggerHouseAction("housing:requestBuy")
-        end
-    end))
-
-    bindKey("g", "down", guardedKey(function()
-        if housePopup.visible and housePopup.payload and housePopup.payload.canLock then
-            triggerHouseAction("housing:requestToggleLock")
-        end
-    end))
 
     bindKey("p", "down", guardedKey(function()
         if housePopup.visible and housePopup.payload and housePopup.payload.canPark then

@@ -136,6 +136,17 @@ local function getExteriorReturnZ(house)
     return (tonumber(house and house.exterior_z) or 0) + EXTERIOR_RETURN_Z_OFFSET
 end
 
+local function isHousingDebugEnabled(player)
+    return isElement(player) and getElementType(player) == "player" and getElementData(player, "housing:debug") == true
+end
+
+local function debugHousing(player, message)
+    if not isHousingDebugEnabled(player) then
+        return
+    end
+    outputChatBox("[HousingDebug] " .. tostring(message), player, 255, 220, 120, true)
+end
+
 local function hasPropertyKeyAccess(houseId, ownerKey)
     houseId = tonumber(houseId)
     ownerKey = tostring(ownerKey or "")
@@ -540,6 +551,17 @@ addEventHandler("onMarkerHit", resourceRoot, function(player, matchDim)
 
     local h = houses[houseId]
     local markerType = entryMarkers[source] and "exterior" or "interior"
+    debugHousing(player, string.format(
+        "onMarkerHit house=%d marker=%s property=%s pos=(%.2f, %.2f, %.2f) int=%d dim=%d",
+        tonumber(h.id) or 0,
+        tostring(markerType),
+        tostring(h.property_type),
+        tonumber(h.exterior_x) or 0,
+        tonumber(h.exterior_y) or 0,
+        tonumber(h.exterior_z) or 0,
+        tonumber(getElementInterior(player)) or 0,
+        tonumber(getElementDimension(player)) or 0
+    ))
     showHousePopup(player, h, markerType)
 
     -- Chat fallback
@@ -609,24 +631,68 @@ addEventHandler("housing:requestEnter", root, function()
         return
     end
 
+    local px, py, pz = getElementPosition(client)
+    debugHousing(client, string.format(
+        "requestEnter tick=%d playerPos=(%.2f, %.2f, %.2f) int=%d dim=%d",
+        getTickCount(),
+        px,
+        py,
+        pz,
+        tonumber(getElementInterior(client)) or 0,
+        tonumber(getElementDimension(client)) or 0
+    ))
+
     local house, mType = getNearbyMarkerHouse(client)
-    if not house then return end
+    if not house then
+        debugHousing(client, "requestEnter found no nearby housing marker.")
+        return
+    end
+
+    debugHousing(client, string.format(
+        "requestEnter selected house=%d marker=%s property=%s interiorSpawn=(%.2f, %.2f, %.2f) exterior=(%.2f, %.2f, %.2f)",
+        tonumber(house.id) or 0,
+        tostring(mType),
+        tostring(house.property_type),
+        tonumber(house.interior_x) or 0,
+        tonumber(house.interior_y) or 0,
+        tonumber(house.interior_z) or 0,
+        tonumber(house.exterior_x) or 0,
+        tonumber(house.exterior_y) or 0,
+        tonumber(house.exterior_z) or 0
+    ))
 
     if mType == "exterior" then
         if isGarageProperty(house) then
+            debugHousing(client, "requestEnter blocked: garage property on housing marker.")
             outputChatBox("Garage: use the blue garage marker to enter this garage.", client, 180, 220, 255)
             return
         end
         if not canAccessHouse(client, house) then
+            debugHousing(client, "requestEnter blocked: property locked.")
             outputChatBox("Housing: The door is locked.", client, 255, 80, 80)
             return
         end
+        debugHousing(client, string.format(
+            "requestEnter teleporting INSIDE to (%.2f, %.2f, %.2f) int=%d dim=%d",
+            tonumber(house.interior_x) or 0,
+            tonumber(house.interior_y) or 0,
+            tonumber(house.interior_z) or 0,
+            tonumber(house.interior_interior) or 0,
+            tonumber(house.dimension) or 0
+        ))
         triggerClientEvent(client, "rp_ui:hideHousePopup", root)
         setElementInterior(client, house.interior_interior)
         setElementDimension(client, house.dimension)
         setElementPosition(client, house.interior_x, house.interior_y, house.interior_z)
         setPedRotation(client, house.interior_rot)
     elseif mType == "interior" then
+        debugHousing(client, string.format(
+            "requestEnter teleporting OUTSIDE to (%.2f, %.2f, %.2f) int=%d dim=0",
+            tonumber(house.exterior_x) or 0,
+            tonumber(house.exterior_y) or 0,
+            tonumber(getExteriorReturnZ(house)) or 0,
+            tonumber(house.exterior_interior) or 0
+        ))
         triggerClientEvent(client, "rp_ui:hideHousePopup", root)
         setElementInterior(client, house.exterior_interior)
         setElementDimension(client, 0)
@@ -737,6 +803,45 @@ addCommandHandler("sharekey", function(player, cmd, targetName)
     end
 
     outputChatBox("Housing: You gave access to account '" .. targetName .. "' for " .. tostring(grantCount) .. " linked property(s).", player, 100, 255, 100)
+end)
+
+addCommandHandler("housedebug", function(player)
+    local enabled = not isHousingDebugEnabled(player)
+    setElementData(player, "housing:debug", enabled, false)
+    outputChatBox("[HousingDebug] " .. (enabled and "Enabled" or "Disabled") .. ".", player, 255, 220, 120, true)
+
+    if not enabled then
+        return
+    end
+
+    local px, py, pz = getElementPosition(player)
+    debugHousing(player, string.format(
+        "status playerPos=(%.2f, %.2f, %.2f) int=%d dim=%d",
+        px,
+        py,
+        pz,
+        tonumber(getElementInterior(player)) or 0,
+        tonumber(getElementDimension(player)) or 0
+    ))
+
+    local house, markerType = getNearbyMarkerHouse(player)
+    if not house then
+        debugHousing(player, "status no nearby housing marker.")
+        return
+    end
+
+    debugHousing(player, string.format(
+        "status nearby house=%d marker=%s property=%s exterior=(%.2f, %.2f, %.2f) interiorSpawn=(%.2f, %.2f, %.2f)",
+        tonumber(house.id) or 0,
+        tostring(markerType),
+        tostring(house.property_type),
+        tonumber(house.exterior_x) or 0,
+        tonumber(house.exterior_y) or 0,
+        tonumber(house.exterior_z) or 0,
+        tonumber(house.interior_x) or 0,
+        tonumber(house.interior_y) or 0,
+        tonumber(house.interior_z) or 0
+    ))
 end)
 
 addCommandHandler("revokekey", function(player, cmd, targetName)

@@ -7,6 +7,16 @@ local garageOccupants = {}
 local garageBlips = {}
 local GARAGE_EXIT_Z_OFFSET = 1.00
 
+local function debugGarage(player, message)
+    if not isElement(player) or getElementType(player) ~= "player" then
+        return
+    end
+    if getElementData(player, "housing:debug") ~= true then
+        return
+    end
+    outputChatBox("[HousingDebug] garage_system: " .. tostring(message), player, 160, 220, 255, true)
+end
+
 local function centralQuery(query, ...)
     return exports.database_manager:dbQuery(query, ...) or {}
 end
@@ -343,6 +353,20 @@ addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimens
 
     local entryPropertyId = garageZoneMarkers[source]
     if entryPropertyId then
+        local context = getGarageRuntimeContext(entryPropertyId)
+        if context then
+            debugGarage(player, string.format(
+                "garage entry marker hit property=%d exterior=(%.2f, %.2f, %.2f) interior=(%.2f, %.2f, %.2f)",
+                tonumber(entryPropertyId) or 0,
+                tonumber(context.exterior.x) or 0,
+                tonumber(context.exterior.y) or 0,
+                tonumber(context.exterior.z) or 0,
+                tonumber(context.interior.x) or 0,
+                tonumber(context.interior.y) or 0,
+                tonumber(context.interior.z) or 0
+            ))
+        end
+
         if getElementData(player, "garage:inside") then
             return
         end
@@ -358,6 +382,19 @@ addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimens
 
     local exitPropertyId = garageExitMarkers[source]
     if exitPropertyId then
+        local context = getGarageRuntimeContext(exitPropertyId)
+        if context then
+            debugGarage(player, string.format(
+                "garage exit marker hit property=%d exit=(%.2f, %.2f, %.2f) exterior=(%.2f, %.2f, %.2f)",
+                tonumber(exitPropertyId) or 0,
+                tonumber(context.interior.exit_x) or 0,
+                tonumber(context.interior.exit_y) or 0,
+                tonumber(context.interior.exit_z) or 0,
+                tonumber(context.exterior.x) or 0,
+                tonumber(context.exterior.y) or 0,
+                tonumber(context.exterior.z) or 0
+            ))
+        end
         movePlayerOutOfGarage(player, exitPropertyId)
     end
 end)

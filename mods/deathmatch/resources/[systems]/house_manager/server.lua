@@ -13,6 +13,8 @@ local function centralExecute(query, ...)
     return exports.database_manager:dbExecute(query, ...)
 end
 
+local HOUSE_EXTERIOR_CREATE_Z_OFFSET = -0.50
+
 local INTERIOR_CATALOG = {
     studio = {
         label = "Studio Flat", size = "small",
@@ -397,6 +399,11 @@ addEventHandler("hm:requestCreate", root, function(data)
     local newId = getNextPropertyId()
     local dimensionBase = propertyType == "garage" and 7000 or 6000
     local propertyDimension = dimensionBase + newId
+    local exteriorZ = ez
+
+    if propertyType ~= "garage" then
+        exteriorZ = ez + HOUSE_EXTERIOR_CREATE_Z_OFFSET
+    end
 
     centralExecute([[
         INSERT OR IGNORE INTO houses (
@@ -413,7 +420,7 @@ addEventHandler("hm:requestCreate", root, function(data)
         propertyType,
         ex,
         ey,
-        ez,
+        exteriorZ,
         exteriorRot,
         exteriorInterior,
         preset.x,
