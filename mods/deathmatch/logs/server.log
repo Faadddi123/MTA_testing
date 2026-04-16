@@ -2344,3 +2344,45 @@
 [26-04-16 05:03:28] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
 [26-04-16 05:03:29] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
 [26-04-16 05:04:09] CHAT: Haughtrick : clear
+[26-04-16 05:16:00] Server stopped!
+[26-04-16 05:16:00] Stopping resources.....................
+[26-04-16 05:16:00] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 05:16:09] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-16 05:16:09] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-16 05:16:09] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-16 05:16:09] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-16 05:16:10] Resources: 214 loaded, 0 failed
+[26-04-16 05:16:10] Starting resources...
+[26-04-16 05:16:10] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-16 05:16:10] startResource: Resource 'ip2c' started
+[26-04-16 05:16:10] INFO: [Housing] Loaded 10 rows, 10 valid houses.
+[26-04-16 05:16:10] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-16 05:16:10] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-16 05:16:10] WARNING: <owner_email_address> not set
+[26-04-16 05:16:10] Server started and is ready to accept connections!
+[26-04-16 05:16:10] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-16 05:16:10] Type 'help' for a list of commands.
+[26-04-16 05:16:11] WARNING: [admin]/ip2c/server.lua:300: Access denied @ 'fetchRemote'
+[26-04-16 05:16:11] Starting play
+[26-04-16 05:16:11] Starting internetradio
+[26-04-16 05:16:11] Starting superman
+[26-04-16 05:16:11] Starting hedit
+[26-04-16 05:16:11] Starting mapfixes
+[26-04-16 05:16:11] Starting chatmanager
+[26-04-16 05:16:11] startResource: Resource 'play' started
+[26-04-16 05:16:11] INFO: ip2c bootstrap: started 'play'
+[26-04-16 05:16:26] CONNECT: Haughtrick connected (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 05:16:27] JOIN: Haughtrick joined the game (IP: 41.249.114.117)
