@@ -1,4 +1,4 @@
---STOLED FROM ARC_ LUL
+﻿--STOLED FROM ARC_ LUL
 --[[
 	Anim queue: list of animation specifications that have to complete their animation one after the other
 	Anim: an element (GUI, player, vehicle...) and a list of phases
@@ -94,7 +94,7 @@ function Animation:remove()
 	else
 		table.removevalue(Animation.collection, self)
 		if not Animation.playingAnimationsExist() then
-			removeEventHandler('onClientRender', root, updateAnim)
+			removeEventHandler('onClientRender', getRootElement(), updateAnim)
 			Animation.prevTick = nil
 		end
 	end
@@ -118,7 +118,7 @@ function Animation:play()
 	end
 	if not Animation.playingAnimationsExist() then
 		Animation.prevTick = getTickCount()
-		addEventHandler('onClientRender', root, updateAnim)
+		addEventHandler('onClientRender', getRootElement(), updateAnim)
 	end
 	self.playing = true
 end
@@ -126,7 +126,7 @@ end
 function Animation:pause()
 	self.playing = false
 	if not Animation.playingAnimationsExist() then
-		removeEventHandler('onClientRender', root, updateAnim)
+		removeEventHandler('onClientRender', getRootElement(), updateAnim)
 		Animation.prevTick = nil
 	end
 end
@@ -134,7 +134,7 @@ end
 function updateAnim()
 	local phase
 	local curTick = getTickCount()
-
+	
 	for i,obj in ipairs(Animation.collection) do
 		if not isElement(obj.elem) then
 			obj:remove()
