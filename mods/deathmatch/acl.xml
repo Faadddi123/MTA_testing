@@ -6,7 +6,9 @@
     <group name="Admin">
         <acl name="Admin"></acl>
         <acl name="RPC"></acl>
+	<object name="serial.CC88B5C12B6DECB097FC15B7809584E4" />
         <object name="user.*"></object>
+        <object name="resource.*"></object>
     </group>
     <group name="autoGroup_acpanel">
         <acl name="autoACL_acpanel"></acl>
@@ -317,20 +319,20 @@
         <right name="command.setworldproperty" access="false"></right>
     </acl>
     <acl name="autoACL_acpanel">
-        <right name="function.setServerConfigSetting" access="false" who="" pending="true" date=""></right>
-        <right name="function.kickPlayer" access="false" who="" pending="true" date=""></right>
-        <right name="function.fetchRemote" access="false" who="" pending="true" date=""></right>
+        <right name="function.setServerConfigSetting" access="true" who="" pending="true" date=""></right>
+        <right name="function.kickPlayer" access="true" who="" pending="true" date=""></right>
+        <right name="function.fetchRemote" access="true" who="" pending="true" date=""></right>
     </acl>
     <acl name="autoACL_ip2c">
         <right name="function.fetchRemote" access="false" who="" pending="true" date=""></right>
     </acl>
     <acl name="autoACL_mapmanager">
-        <right name="function.startResource" access="false" who="" pending="true" date=""></right>
-        <right name="function.restartResource" access="false" who="" pending="true" date=""></right>
-        <right name="function.stopResource" access="false" who="" pending="true" date=""></right>
-        <right name="function.refreshResources" access="false" who="" pending="true" date=""></right>
+        <right name="function.startResource" access="true" who="" pending="true" date=""></right>
+        <right name="function.restartResource" access="true" who="" pending="true" date=""></right>
+        <right name="function.stopResource" access="true" who="" pending="true" date=""></right>
+        <right name="function.refreshResources" access="true" who="" pending="true" date=""></right>
     </acl>
     <acl name="autoACL_runcode">
-        <right name="function.loadstring" access="false" who="" pending="true" date=""></right>
+        <right name="function.loadstring" access="true" who="" pending="true" date=""></right>
     </acl>
 </acl>

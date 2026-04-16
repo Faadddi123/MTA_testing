@@ -2562,3 +2562,70 @@
 [26-04-16 06:00:18] INFO: ip2c bootstrap: started 'play'
 [26-04-16 06:00:31] CONNECT: Haughtrick connected (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
 [26-04-16 06:00:32] JOIN: Haughtrick joined the game (IP: 41.249.114.117)
+[26-04-16 06:03:16] ADMIN: Resource 'database_manager' restarted by Haughtrick
+[26-04-16 06:03:16] Stopping database_manager
+[26-04-16 06:03:16] Starting database_manager
+[26-04-16 06:03:16] database_manager restarted successfully
+[26-04-16 06:05:47] start: Requested by Console
+[26-04-16 06:05:47] start: Resource 'interiors' is already running
+[26-04-16 06:13:29] QUIT: Haughtrick left the game [Quit] 
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 16:40:58] ERROR: Error parsing acl.xml - Line 10: Error reading end tag.
+[26-04-16 16:40:59] Server stopped!
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 16:44:20] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-16 16:44:20] Resources: 214 loaded, 0 failed
+[26-04-16 16:44:20] Starting resources...
+[26-04-16 16:44:20] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-16 16:44:20] startResource: Resource 'ip2c' started
+[26-04-16 16:44:20] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-16 16:44:20] Some files in 'interiors' use deprecated functions.
+[26-04-16 16:44:20] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-16 16:44:20] INFO: [Housing] Loaded 10 rows, 10 valid houses.
+[26-04-16 16:44:20] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-16 16:44:20] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-16 16:44:20] WARNING: <owner_email_address> not set
+[26-04-16 16:44:20] Server started and is ready to accept connections!
+[26-04-16 16:44:20] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-16 16:44:20] Type 'help' for a list of commands.
+[26-04-16 16:44:21] Starting play
+[26-04-16 16:44:21] Starting internetradio
+[26-04-16 16:44:21] Starting superman
+[26-04-16 16:44:21] Starting hedit
+[26-04-16 16:44:21] Starting mapfixes
+[26-04-16 16:44:21] Starting chatmanager
+[26-04-16 16:44:21] startResource: Resource 'play' started
+[26-04-16 16:44:21] INFO: ip2c bootstrap: started 'play'
+[26-04-16 16:50:50] CONNECT: Haughtrick connected (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 16:50:51] JOIN: Haughtrick joined the game (IP: 41.249.114.117)
+[26-04-16 16:52:15] ACCOUNTS: Haughtrick registered account 'TESTnocode' (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4)
+[26-04-16 16:53:11] LOGIN: Haughtrick tried to log in as 'Haughtrick' (Unknown account) (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4)
+[26-04-16 16:53:35] ACCOUNTS: Haughtrick registered account 'Haughtrick' (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4)
+[26-04-16 16:53:37] LOGIN: Haughtrick tried to log in as 'Haughtrick' with an invalid password (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4)
+[26-04-16 16:53:50] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-16 16:53:50] LOGIN: (Admin) Haughtrick successfully logged in as 'Haughtrick' (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4)
+[26-04-16 17:20:51] CHAT: Haughtrick : z
