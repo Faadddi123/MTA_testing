@@ -2288,3 +2288,26 @@
 [26-04-16 04:01:39] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
 [26-04-16 04:02:52] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
 [26-04-16 04:02:56] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 04:42:09] restart: Requested by Console
+[26-04-16 04:42:09] restart: Resource 'house_manager' restarting...
+[26-04-16 04:42:09] Stopping house_manager
+[26-04-16 04:42:09] Resource 'house_manager' changed, reloading and starting
+[26-04-16 04:42:09] Starting house_manager
+[26-04-16 04:42:09] house_manager restarted successfully
+[26-04-16 04:42:10] restart: Requested by Console
+[26-04-16 04:42:10] restart: Resource 'garage_system' restarting...
+[26-04-16 04:42:10] Stopping garage_system
+[26-04-16 04:42:10] Resource 'garage_system' changed, reloading and starting
+[26-04-16 04:42:10] Starting garage_system
+[26-04-16 04:42:10] garage_system restarted successfully
+[26-04-16 04:42:14] restart: Requested by Console
+[26-04-16 04:42:14] restart: Resource 'housing' restarting...
+[26-04-16 04:42:14] Stopping housing
+[26-04-16 04:42:14] Resource 'housing' changed, reloading and starting
+[26-04-16 04:42:14] Starting housing
+[26-04-16 04:42:14] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-16 04:42:14] housing restarted successfully
+[26-04-16 04:43:50] Stopping housing
+[26-04-16 04:43:50] Starting housing
+[26-04-16 04:43:50] INFO: [Housing] Loaded 9 rows, 9 valid houses.
+[26-04-16 04:43:50] housing restarted successfully

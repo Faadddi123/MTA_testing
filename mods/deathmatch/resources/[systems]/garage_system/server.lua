@@ -133,13 +133,21 @@ local function getGarageRuntimeContext(propertyId)
 end
 
 local function canAccessGarage(player, propertyId)
-    local ownerKey = getPlayerOwnerKey(player)
-    if not ownerKey or not isHousingReady() then
+    if not isHousingReady() then
         return false
     end
 
     local house = getHouseData(propertyId)
-    if not house or not house.owner_key or house.owner_key == "" then
+    if not house then
+        return false
+    end
+
+    if not house.owner_key or house.owner_key == "" then
+        return true
+    end
+
+    local ownerKey = getPlayerOwnerKey(player)
+    if not ownerKey then
         return false
     end
 
@@ -453,11 +461,6 @@ addEventHandler("garage:requestEnter", root, function(requestedPropertyId)
 
     if requestedPropertyId and tonumber(requestedPropertyId) and tonumber(requestedPropertyId) ~= tonumber(propertyId) then
         debugGarage(player, "requestEnter ignored mismatched client property id.")
-    end
-
-    if not canAccessGarage(player, propertyId) then
-        outputChatBox("Garage: buy or unlock this garage before entering it.", player, 255, 80, 80, true)
-        return
     end
 
     movePlayerIntoGarage(player, propertyId)

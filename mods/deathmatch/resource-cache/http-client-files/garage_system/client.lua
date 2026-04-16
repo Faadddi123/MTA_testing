@@ -5,6 +5,7 @@ local screenWidth, screenHeight = guiGetScreenSize()
 local nearGarageHint = false
 local nearGarageHouseId = nil
 local nearGarageMarkerType = nil
+local MAX_DISTANCE = 8
 
 local function isInGarageDimension()
     return tonumber(getElementData(localPlayer, "garage:inside")) ~= nil
@@ -39,6 +40,10 @@ local function getNearestGarageMarker()
     end
 
     if not bestMarker then
+        return nil, nil
+    end
+
+    if bestDistance > MAX_DISTANCE then
         return nil, nil
     end
 

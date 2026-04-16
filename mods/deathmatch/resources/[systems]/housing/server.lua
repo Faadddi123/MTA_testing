@@ -553,6 +553,7 @@ addEventHandler("onMarkerHit", resourceRoot, function(player, matchDim)
 
     local houseId = entryMarkers[source] or exitMarkers[source]
     if not houseId or not houses[houseId] then return end
+    if isGarageProperty(houses[tonumber(houseId)]) then return end
 
     local h = houses[houseId]
     local markerType = entryMarkers[source] and "exterior" or "interior"
