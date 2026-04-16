@@ -2187,3 +2187,74 @@
 [26-04-16 02:28:44] Starting housing
 [26-04-16 02:28:44] INFO: [Housing] Loaded 3 rows, 3 valid houses.
 [26-04-16 02:28:44] housing restarted successfully
+[26-04-16 02:38:57] Stopping housing
+[26-04-16 02:38:57] Resource 'housing' changed, reloading and starting
+[26-04-16 02:38:57] Starting housing
+[26-04-16 02:38:57] INFO: [Housing] Loaded 4 rows, 4 valid houses.
+[26-04-16 02:38:57] housing restarted successfully
+[26-04-16 02:40:12] Stopping housing
+[26-04-16 02:40:12] Starting housing
+[26-04-16 02:40:12] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-16 02:40:12] housing restarted successfully
+[26-04-16 02:54:50] restart: Requested by Console
+[26-04-16 02:54:50] restart: Resource 'vehicles' restarting...
+[26-04-16 02:54:50] Stopping vehicles
+[26-04-16 02:54:50] Starting vehicles
+[26-04-16 02:54:50] vehicles restarted successfully
+[26-04-16 02:54:53] restart: Requested by Console
+[26-04-16 02:54:53] restart: Resource 'inventory' restarting...
+[26-04-16 02:54:53] Stopping inventory
+[26-04-16 02:54:53] Resource 'inventory' changed, reloading and starting
+[26-04-16 02:54:53] Starting inventory
+[26-04-16 02:54:53] inventory restarted successfully
+[26-04-16 02:54:55] restart: Requested by Console
+[26-04-16 02:54:55] restart: Resource 'database_manager' restarting...
+[26-04-16 02:54:55] Stopping database_manager
+[26-04-16 02:54:55] Starting database_manager
+[26-04-16 02:54:55] database_manager restarted successfully
+[26-04-16 02:54:59] restart: Requested by Console
+[26-04-16 02:54:59] restart: Resource 'garage_system' restarting...
+[26-04-16 02:54:59] Stopping garage_system
+[26-04-16 02:54:59] Starting garage_system
+[26-04-16 02:54:59] garage_system restarted successfully
+[26-04-16 02:55:03] restart: Requested by Console
+[26-04-16 02:55:03] restart: Resource 'database_manager' restarting...
+[26-04-16 02:55:03] Stopping database_manager
+[26-04-16 02:55:03] Starting database_manager
+[26-04-16 02:55:03] database_manager restarted successfully
+[26-04-16 02:55:06] restart: Requested by Console
+[26-04-16 02:55:06] restart: Resource 'garage_system' restarting...
+[26-04-16 02:55:06] Stopping garage_system
+[26-04-16 02:55:06] Starting garage_system
+[26-04-16 02:55:06] garage_system restarted successfully
+[26-04-16 02:55:11] restart: Requested by Console
+[26-04-16 02:55:11] restart: Resource 'housing' restarting...
+[26-04-16 02:55:11] Stopping housing
+[26-04-16 02:55:11] Resource 'housing' changed, reloading and starting
+[26-04-16 02:55:11] Starting housing
+[26-04-16 02:55:11] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-16 02:55:11] housing restarted successfully
+[26-04-16 02:55:15] restart: Requested by Console
+[26-04-16 02:55:15] restart: Resource 'house_manager' restarting...
+[26-04-16 02:55:15] Stopping house_manager
+[26-04-16 02:55:15] Resource 'house_manager' changed, reloading and starting
+[26-04-16 02:55:15] Starting house_manager
+[26-04-16 02:55:15] house_manager restarted successfully
+[26-04-16 02:55:33] restart: Requested by Console
+[26-04-16 02:55:33] restart: Resource 'vehicles' restarting...
+[26-04-16 02:55:33] Stopping vehicles
+[26-04-16 02:55:33] Starting vehicles
+[26-04-16 02:55:33] vehicles restarted successfully
+[26-04-16 02:56:01] restart: Requested by Console
+[26-04-16 02:56:01] restart: Resource 'inventory' restarting...
+[26-04-16 02:56:01] Stopping inventory
+[26-04-16 02:56:01] Starting inventory
+[26-04-16 02:56:01] inventory restarted successfully
+[26-04-16 02:56:36] Stopping housing
+[26-04-16 02:56:36] Starting housing
+[26-04-16 02:56:36] INFO: [Housing] Loaded 6 rows, 6 valid houses.
+[26-04-16 02:56:36] housing restarted successfully
+[26-04-16 02:57:29] Stopping housing
+[26-04-16 02:57:29] Starting housing
+[26-04-16 02:57:29] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 02:57:29] housing restarted successfully

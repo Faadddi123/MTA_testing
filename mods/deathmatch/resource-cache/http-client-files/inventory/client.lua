@@ -250,7 +250,7 @@ end)
 
 addEvent("rp_ui:showHousePopup", true)
 addEventHandler("rp_ui:showHousePopup", root, function(payload)
-    showHousePopupLocal(payload)
+    -- showHousePopupLocal(payload)
 end)
 
 addEvent("rp_ui:hideHousePopup", true)

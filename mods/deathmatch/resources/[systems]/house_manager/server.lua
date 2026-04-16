@@ -66,15 +66,15 @@ local INTERIOR_CATALOG = {
     },
     garage_small = {
         label = "Small Garage", size = "small",
-        x = 299.78, y = 309.89, z = 1003.30,
-        exit_x = 303.00, exit_y = 309.89, exit_z = 1003.30,
-        interior = 4,
+        x = -2038.60, y = 178.65, z = 28.35,
+        exit_x = -2038.60, exit_y = 178.65, exit_z = 28.35,
+        interior = 1,
     },
     garage_large = {
         label = "Large Garage", size = "medium",
-        x = -283.44, y = 1470.93, z = 1084.38,
-        exit_x = -278.00, exit_y = 1470.93, exit_z = 1084.38,
-        interior = 15,
+        x = 140.17, y = 1366.07, z = 1083.65,
+        exit_x = 140.17, exit_y = 1366.07, exit_z = 1083.65,
+        interior = 5,
     },
 }
 

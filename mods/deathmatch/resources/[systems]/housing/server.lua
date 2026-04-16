@@ -13,7 +13,7 @@ local houseBlips   = {}   -- blip element   → house id
 local previewTimers = {}  -- player → preview expiration timer
 local previewData   = {}  -- player → { houseId, x, y, z, int, dim, rot }
 
-local ENTRY_MARKER_Z_OFFSET = 2.00
+local ENTRY_MARKER_Z_OFFSET = 1.20
 local EXIT_MARKER_Z_OFFSET  = 1.00
 local EXTERIOR_RETURN_Z_OFFSET = 1.00
 
@@ -285,12 +285,13 @@ function reloadHouses()
             -- Raise house entry markers so they stay visible above uneven ground near doors.
             if h.exterior_x and h.exterior_y and h.exterior_z then
                 local extMarker = createMarker(h.exterior_x, h.exterior_y, h.exterior_z + ENTRY_MARKER_Z_OFFSET, "arrow", 2.0, 255, 255, 0, 150)
-                setElementInterior(extMarker, h.exterior_interior)
-                setElementDimension(extMarker, 0)
-                setElementData(extMarker, "housing:houseId", h.id, false)
-                entryMarkers[extMarker] = h.id
-
-                if not isGarageProperty(h) then
+                if isGarageProperty(h) then
+                    destroyElement(extMarker)
+                else
+                    setElementInterior(extMarker, h.exterior_interior)
+                    setElementDimension(extMarker, 0)
+                    setElementData(extMarker, "housing:houseId", h.id, false)
+                    entryMarkers[extMarker] = h.id
                     local blip = createBlip(h.exterior_x, h.exterior_y, h.exterior_z, 31, 1, 255, 255, 255, 255, 0, 200)
                     setElementInterior(blip, h.exterior_interior)
                     setElementDimension(blip, 0)
@@ -299,12 +300,16 @@ function reloadHouses()
             end
 
             -- Raise interior exit markers too, so they remain visible inside properties.
-            if not isGarageProperty(h) and h.interior_x and h.interior_y and h.interior_z then
+            if h.interior_x and h.interior_y and h.interior_z then
                 local intMarker = createMarker(h.interior_x, h.interior_y, h.interior_z + EXIT_MARKER_Z_OFFSET, "arrow", 1.5, 255, 120, 0, 150)
-                setElementInterior(intMarker, h.interior_interior)
-                setElementDimension(intMarker, h.dimension)
-                setElementData(intMarker, "housing:houseId", h.id, false)
-                exitMarkers[intMarker] = h.id
+                if isGarageProperty(h) then
+                    destroyElement(intMarker)
+                else
+                    setElementInterior(intMarker, h.interior_interior)
+                    setElementDimension(intMarker, h.dimension)
+                    setElementData(intMarker, "housing:houseId", h.id, false)
+                    exitMarkers[intMarker] = h.id
+                end
             end
         end
     end
