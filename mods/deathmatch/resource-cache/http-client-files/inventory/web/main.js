@@ -16,7 +16,9 @@ const defaultIcons = {
     water: "icons/water.png",
     pistol: "icons/pistol.png",
     key: "icons/key.png",
+    property_key: "icons/property_key.png",
 };
+
 
 const state = {
     inventoryVisible: false,
@@ -26,7 +28,7 @@ const state = {
         currentWeight: 0,
         maxWeight: 35,
         quickSlots: [],
-        totalSlots: 30,
+        totalSlots: 24,
     },
     house: null,
 };
@@ -50,10 +52,12 @@ function getItemIcon(item) {
     if (item && item.icon) {
         return item.icon;
     }
-
     const key = item && item.item ? String(item.item).toLowerCase() : "key";
+    // property_key_N → use property_key icon
+    if (key.startsWith("property_key_")) return defaultIcons.property_key || defaultIcons.key;
     return defaultIcons[key] || defaultIcons.key;
 }
+
 
 function formatMoney(value) {
     return `$${Number(value || 0).toLocaleString()}`;
@@ -86,8 +90,8 @@ function createSlot(item) {
 function renderInventory() {
     inventoryGrid.innerHTML = "";
 
-    const items = Array.isArray(state.inventory.items) ? state.inventory.items.slice(0, state.inventory.totalSlots || 30) : [];
-    const totalSlots = Math.max(30, items.length);
+    const items = Array.isArray(state.inventory.items) ? state.inventory.items.slice(0, state.inventory.totalSlots || 24) : [];
+    const totalSlots = Math.max(24, items.length);
     for (let index = 0; index < totalSlots; index += 1) {
         inventoryGrid.appendChild(createSlot(items[index] || null));
     }
@@ -127,15 +131,18 @@ function buildActionButton(label, eventName, variant) {
 
 function renderHousePopup() {
     const house = state.house || {};
+    const typeLabel = house.property_type === "apartment" ? "Apartment" : "House";
     houseName.textContent = house.name || "Property";
+    // Show type badge next to name
+    const typeBadge = document.createElement ? null : "";
     houseOwner.textContent = house.ownerName || "Available";
     housePrice.textContent = formatMoney(house.price || 0);
-    houseStatus.textContent = house.locked ? "Locked" : "Unlocked";
+    houseStatus.textContent = (house.locked ? "🔒 Locked" : "🔓 Unlocked") + (house.property_type ? " · " + typeLabel : "");
 
     houseActions.innerHTML = "";
 
     if (house.canBuy) {
-        houseActions.appendChild(buildActionButton("Buy", "housing:browserBuy", "primary"));
+        houseActions.appendChild(buildActionButton(`Buy ${typeLabel}`, "housing:browserBuy", "primary"));
     }
 
     if (house.canEnter) {
@@ -150,6 +157,7 @@ function renderHousePopup() {
         houseActions.appendChild(buildActionButton("Park Vehicle", "vehicles:browserPark"));
     }
 }
+
 
 window.setInventoryVisible = function setInventoryVisible(visible) {
     state.inventoryVisible = Boolean(visible);
@@ -172,6 +180,13 @@ window.updateHousePopup = function updateHousePopup(data) {
 };
 
 inventoryClose.addEventListener("click", () => safeTrigger("inventory:browserClose"));
+
+window.addEventListener("keydown", (event) => {
+    if (!state.inventoryVisible) return;
+    if (event.key === "Escape" || event.key.toLowerCase() === "i") {
+        safeTrigger("inventory:browserClose");
+    }
+});
 
 renderInventory();
 renderHousePopup();

@@ -1,0 +1,767 @@
+PROJECT CONTEXT FOR CLAUDE SONNET 4.6
+Repo path: /home/opc/multitheftauto_linux_x64
+Generated: 2026-04-15
+
+1. WHAT THIS PROJECT IS
+
+This repository is not a normal greenfield app. It is a Multi Theft Auto (MTA) Linux server distribution for GTA San Andreas, with a custom roleplay layer added on top of the stock MTA resource tree.
+
+The important distinction is:
+
+- Most of `mods/deathmatch/[admin]`, `[editor]`, `[gamemodes]`, `[gameplay]`, `[managers]`, and `[web]` is stock MTA content.
+- The actual project-specific logic lives primarily in:
+  - `mods/deathmatch/resources/[core]/database_manager`
+  - `mods/deathmatch/resources/[systems]/bank`
+  - `mods/deathmatch/resources/[systems]/inventory`
+  - `mods/deathmatch/resources/[systems]/housing`
+  - `mods/deathmatch/resources/[systems]/vehicles`
+  - `mods/deathmatch/resources/[systems]/garage_system`
+  - `mods/deathmatch/resources/[systems]/house_manager`
+  - `mods/deathmatch/resources/[maps]/open_interiors`
+
+If another model needs to understand the real project, it should start with those resources, not the stock gamemodes.
+
+
+2. STARTUP AND LOAD ORDER
+
+The live startup order is defined in `mods/deathmatch/mtaserver.conf`.
+
+Relevant startup resources:
+
+```xml
+<resource src="admin"            startup="1" protected="0" />
+<resource src="scoreboard"       startup="1" protected="0" />
+<resource src="freeroam"         startup="1" protected="0" />
+<resource src="database_manager" startup="1" protected="0" />
+<resource src="interiors"        startup="1" protected="0" />
+<resource src="open_interiors"   startup="1" protected="0" />
+<resource src="inventory"        startup="1" protected="0" />
+<resource src="bank"             startup="1" protected="0" />
+<resource src="housing"          startup="1" protected="0" />
+<resource src="vehicles"         startup="1" protected="0" />
+<resource src="garage_system"    startup="1" protected="0" />
+<resource src="house_manager"    startup="1" protected="0" />
+```
+
+Operationally the dependency chain is:
+
+1. `database_manager` starts first and creates/opens the central SQLite database.
+2. `interiors` and `open_interiors` make static/public interiors available.
+3. `inventory`, `bank`, `housing`, `vehicles`, `garage_system`, and `house_manager` build the roleplay systems on top of that database.
+
+Note: `mtaserver.conf` also contains a real `serverpassword`. Treat that value as sensitive. Do not duplicate it into prompts or external docs unless explicitly needed.
+
+
+3. CURATED FILE STRUCTURE
+
+This is the useful tree, not the full stock MTA tree.
+
+```text
+/home/opc/multitheftauto_linux_x64
+├── mta-server64
+├── README
+├── server.lua
+├── client.lua
+├── mods/
+│   └── deathmatch/
+│       ├── mtaserver.conf
+│       ├── acl.xml
+│       ├── settings.xml
+│       ├── resources/
+│       │   ├── [core]/
+│       │   │   └── database_manager/
+│       │   │       ├── meta.xml
+│       │   │       ├── server.lua
+│       │   │       └── roleplay.db
+│       │   ├── [systems]/
+│       │   │   ├── bank/
+│       │   │   │   ├── meta.xml
+│       │   │   │   ├── server.lua
+│       │   │   │   └── bank.db
+│       │   │   ├── inventory/
+│       │   │   │   ├── meta.xml
+│       │   │   │   ├── server.lua
+│       │   │   │   ├── client.lua
+│       │   │   │   ├── inventory.db
+│       │   │   │   └── web/
+│       │   │   │       ├── index.html
+│       │   │   │       ├── main.js
+│       │   │   │       ├── style.css
+│       │   │   │       └── icons/
+│       │   │   ├── housing/
+│       │   │   │   ├── meta.xml
+│       │   │   │   ├── server.lua
+│       │   │   │   ├── client.lua
+│       │   │   │   └── housing.db
+│       │   │   ├── vehicles/
+│       │   │   │   ├── meta.xml
+│       │   │   │   └── server.lua
+│       │   │   ├── garage_system/
+│       │   │   │   ├── meta.xml
+│       │   │   │   ├── server.lua
+│       │   │   │   └── client.lua
+│       │   │   └── house_manager/
+│       │   │       ├── meta.xml
+│       │   │       ├── server.lua
+│       │   │       └── client.lua
+│       │   └── [maps]/
+│       │       └── open_interiors/
+│       │           ├── meta.xml
+│       │           ├── open_interiors.edf
+│       │           └── open_interiors.map
+│       ├── resource-cache/
+│       │   ├── http-client-files/
+│       │   └── http-client-files-no-client-cache/
+│       ├── logs/
+│       ├── databases/
+│       ├── internal.db
+│       └── registry.db
+└── x64/
+```
+
+Important navigation notes:
+
+- `mods/deathmatch/resources/...` is the source of truth for custom authored resources.
+- `mods/deathmatch/resource-cache/...` is runtime/generated client cache content. Do not treat it as primary source unless debugging what the client actually received.
+- Root-level `server.lua` and `client.lua` are not the live scripts MTA loads. They are older/stale copies related to `house_manager`.
+
+
+4. WHAT THE CUSTOM MODS / RESOURCES ACTUALLY DO
+
+4.1 `database_manager`
+
+Purpose:
+- Central RP database layer.
+- Owns the authoritative SQLite file: `roleplay.db`.
+- Normalizes player identity into `owner_key`.
+- Exports helpers used by every other system.
+
+Core idea:
+- A player identity is stored as either:
+  - `account:<accountName>`
+  - `serial:<hardwareSerial>`
+
+This lets the project support guest/serial-backed temporary state and then merge that into account-backed state on login.
+
+Main exports:
+- `dbExecute`
+- `dbQuery`
+- `getPlayerOwnerKey`
+- `ensurePlayerRecord`
+- `ensureOwnerRecord`
+- `isMigrationComplete`
+- `markMigrationComplete`
+- `hasPropertyKeyAccess`
+- `grantPropertyKey`
+- `revokePropertyKey`
+
+What happens on player lifecycle:
+- On join: ensures a player record exists.
+- On login: merges `serial:*` ownership into `account:*`.
+- On quit: updates the player record again.
+
+Main tables it creates:
+- `players`
+- `items`
+- `houses`
+- `property_keys`
+- `vehicles`
+- `migration_state`
+
+
+4.2 `bank`
+
+Purpose:
+- Simple bank system using `players.bank_balance` in the central database.
+
+Key behavior:
+- Adds bank markers/blips at Los Santos, San Fierro, and Las Venturas.
+- `/balance` works anywhere.
+- `/deposit <amount>` and `/withdraw <amount>` only work when standing in a bank marker.
+- `/setbank <player> <amount>` is admin-only.
+
+Design detail:
+- Bank balances are not stored in `bank.db` anymore as the authoritative source.
+- `bank.db` is now only legacy migration material.
+
+
+4.3 `inventory`
+
+Purpose:
+- Central item storage and UI.
+
+Server side:
+- Stores items in `items(owner_key, item_name, amount)`.
+- Supports item normalization, dynamic item labels, icon mapping, and weight calculations.
+- Uses central owner records.
+- Admin commands:
+  - `/inventory`
+  - `/inv`
+  - `/giveitem <player> <item_name> [amount]`
+  - `/takeitem <player> <item_name> [amount]`
+
+Client side:
+- Press `I` to open the browser-based inventory UI.
+- Inventory UI is rendered from:
+  - `web/index.html`
+  - `web/main.js`
+  - `web/style.css`
+- House interaction popup is not browser-based anymore. It is drawn with `dxDraw` directly in `inventory/client.lua`.
+
+Dynamic item logic:
+- `property_key_<houseId>` items are treated specially:
+  - custom icon
+  - custom label like `Property Key #7`
+  - low fixed weight
+
+
+4.4 `housing`
+
+Purpose:
+- Core property ownership and enter/exit system.
+
+Responsibilities:
+- Loads houses from the central `houses` table.
+- Creates exterior markers, interior exit markers, and map blips.
+- Lets players buy properties.
+- Lets owners and key holders access locked properties.
+- Supports locking/unlocking.
+- Supports listing owned properties.
+- Supports previewing unowned houses.
+- Gives new logged-in accounts a free apartment one time.
+
+Important spatial model:
+- Property interior dimension = `6000 + house_id`
+- This isolates each owned property in its own MTA dimension.
+
+Player-facing commands:
+- `F` key: enter/exit property
+- `B` key: buy property
+- `G` key: lock/unlock property
+- `/sharekey <player account name>`
+- `/revokekey <player account name>`
+- `/myproperties`
+- `/previewhouse`
+
+Exports:
+- `reloadHouses`
+- `getOwnedGarageHouseIdForPosition`
+- `getHouseData`
+- `checkHouseAccess`
+
+Free apartment flow:
+- On first real account login, if account data `free_apartment_given` is missing:
+  - creates a zero-price apartment
+  - exterior is in Jefferson, Los Santos
+  - sets owner to the logged-in account
+  - assigns dimension `6000 + new_id`
+
+
+4.5 `vehicles`
+
+Purpose:
+- Persistent vehicle storage using the same central database.
+
+Responsibilities:
+- Stores persistent vehicles in `vehicles`.
+- Respawns non-garage vehicles on resource start.
+- Saves vehicle state on park and on player quit.
+- Links vehicles to garages if parked inside a valid owned garage zone.
+- Spawns garage vehicles on demand.
+- Despawns garage vehicles when the garage empties.
+
+Commands/events:
+- `/park`
+- `/mycars`
+- `vehicles:requestPark`
+
+Storage model:
+- If `house_id IS NULL`, vehicle is a world-stored persistent vehicle.
+- If `house_id` is set, it is a garage-linked persistent vehicle.
+
+
+4.6 `garage_system`
+
+Purpose:
+- Connects house garage zones to garage interior instances.
+
+Responsibilities:
+- Builds exterior garage markers and blips from housing data.
+- Teleports players into garage interiors.
+- Uses dimension `7000 + house_id` for each garage.
+- Tracks garage occupants.
+- Spawns linked garage vehicles when first occupant enters.
+- Despawns them when last occupant leaves.
+
+Commands:
+- `/parkgarage`
+- `/exitgarage`
+
+Dependency direction:
+- Reads house info from `housing`.
+- Calls vehicle spawn/park helpers in `vehicles`.
+- Uses identity from `database_manager`.
+
+
+4.7 `house_manager`
+
+Purpose:
+- In-game admin GUI for creating, editing, deleting, previewing, and teleporting to properties.
+
+Responsibilities:
+- Maintains an interior preset catalog.
+- Lets an admin create a property at their current world position.
+- Auto-generates:
+  - property dimension (`6000 + id`)
+  - garage world zone near the admin
+  - garage interior spawn
+- Reloads `housing` after changes.
+
+Admin commands:
+- `/houseadmin`
+- `/ha`
+- `/exitpreview`
+
+Important UI features:
+- Property list tab
+- Add property tab
+- Help tab
+- Preview selected interior
+- Teleport to exterior
+- Teleport to interior
+- Inline edit
+- double-click delete confirmation
+
+
+4.8 `open_interiors`
+
+Purpose:
+- Map-only helper resource exposing public interiors through the stock `interiors` system.
+
+Current public interior entries:
+- `RP_RECORDS_OFFICE`
+- `RP_JOB_CENTER`
+- `RP_STORAGE_UNIT`
+
+This resource uses dedicated dimensions `7101`, `7102`, and `7103`, so it does not collide with normal housing (`6000+`) or garage (`7000+`) dimensions.
+
+
+5. AUTHORITATIVE DATABASE STATE RIGHT NOW
+
+Central DB:
+- `mods/deathmatch/resources/[core]/database_manager/roleplay.db`
+
+Tables currently present:
+- `houses`
+- `items`
+- `migration_state`
+- `players`
+- `property_keys`
+- `vehicles`
+
+Current row counts:
+- `players`: 3
+- `items`: 0
+- `houses`: 7
+- `property_keys`: 0
+- `vehicles`: 0
+- `migration_state`: 3
+
+Current migration flags:
+- `bank_legacy_v1`
+- `housing_legacy_v1`
+- `inventory_legacy_v1`
+
+Current players:
+- All 3 player records are currently serial-based, not account-based.
+- All 3 have `bank_balance = 0`.
+
+Current houses:
+- There are 7 rows in `houses`.
+- Houses `1..6` appear to be the original seeded/migrated properties.
+- House `7` is `My Property`, which strongly suggests it was created later through `house_manager`.
+
+Current persistent vehicles:
+- None yet.
+
+Current inventory items:
+- None yet.
+
+Current property keys:
+- None yet.
+
+
+6. LEGACY DATABASE FILES
+
+These still exist but are not the main source of truth anymore:
+
+- `mods/deathmatch/resources/[systems]/bank/bank.db`
+  - table: `bank_accounts`
+  - rows: 0
+
+- `mods/deathmatch/resources/[systems]/inventory/inventory.db`
+  - table: `inventory`
+  - rows: 0
+
+- `mods/deathmatch/resources/[systems]/housing/housing.db`
+  - table: `houses`
+  - rows: 6
+  - schema is only:
+    - `id`
+    - `owner`
+    - `locked`
+
+Interpretation:
+- `bank.db` and `inventory.db` are now basically empty legacy shells.
+- `housing.db` still contains the old minimal housing table, but the authoritative modern housing data is now in `roleplay.db`.
+- `migration_state` says `housing_legacy_v1` already happened at some point, but the current repo no longer contains the housing migration source code. Treat `roleplay.db` as the truth.
+
+
+7. IMPORTANT CODE EXCERPTS
+
+7.1 Identity and schema bootstrap
+File: `mods/deathmatch/resources/[core]/database_manager/server.lua`
+
+```lua
+function getPlayerOwnerKey(player, requireAccount)
+    local accountName = getPlayerAccountName(player)
+    if accountName then
+        return "account:" .. accountName
+    end
+    if requireAccount then
+        return nil
+    end
+    local serial = getPlayerSerial(player)
+    if serial and serial ~= "" then
+        return "serial:" .. serial
+    end
+    return nil
+end
+```
+
+```lua
+CREATE TABLE IF NOT EXISTS players (...)
+CREATE TABLE IF NOT EXISTS items (...)
+CREATE TABLE IF NOT EXISTS houses (...)
+CREATE TABLE IF NOT EXISTS property_keys (...)
+CREATE TABLE IF NOT EXISTS vehicles (...)
+CREATE TABLE IF NOT EXISTS migration_state (...)
+```
+
+Why this matters:
+- This is the real foundation of the project.
+- If ownership, migration, or persistence is wrong, almost every other resource breaks.
+
+
+7.2 House instance dimensions
+File: `mods/deathmatch/resources/[systems]/house_manager/server.lua`
+
+```lua
+local newId = getNextHouseId()
+local dimId = 6000 + newId
+```
+
+File: `mods/deathmatch/resources/[systems]/housing/server.lua`
+
+```lua
+local intMarker = createMarker(h.interior_x, h.interior_y, h.interior_z - 1.0, "arrow", 1.5, 255, 120, 0, 150)
+setElementInterior(intMarker, h.interior_interior)
+setElementDimension(intMarker, h.dimension)
+```
+
+Why this matters:
+- Every property is isolated into its own MTA dimension.
+- The housing system assumes that `dimension = 6000 + house_id` is stable and meaningful.
+
+
+7.3 Garage dimensions
+File: `mods/deathmatch/resources/[systems]/garage_system/server.lua`
+
+```lua
+local function garageDimension(houseId)
+    return 7000 + houseId
+end
+```
+
+Why this matters:
+- Housing interiors and garages are separate instance spaces.
+- Vehicles parked in garages are expected to live in the garage dimension, not the house interior dimension.
+
+
+7.4 Inventory browser + dxDraw split
+File: `mods/deathmatch/resources/[systems]/inventory/client.lua`
+
+```lua
+-- Browser  -> Inventory panel only
+-- House popup -> pure dxDraw overlay
+```
+
+```lua
+bindKey("i", "down", toggleInventory)
+bindKey("f", "down", guardedKey(function()
+    if housePopup.visible and housePopup.payload and housePopup.payload.canEnter then
+        triggerHouseAction("housing:requestEnter")
+    end
+end))
+```
+
+Why this matters:
+- Inventory UI and property popup are now two different client rendering paths.
+- If someone edits the web UI expecting to affect the house popup, they will be changing the wrong layer.
+
+
+8. IMPLEMENTED MODS / FEATURES IN PRACTICAL TERMS
+
+The custom gameplay layer currently implements:
+
+- Unified roleplay database with account/serial identity merging.
+- Property ownership with buy/enter/exit/lock flows.
+- Per-house instancing via unique dimensions.
+- One-time free apartment creation for new real accounts.
+- Bank system integrated into the same player identity layer.
+- Inventory system with browser-based backpack UI.
+- Dynamic property key items and icon support.
+- Persistent vehicles saved to SQL.
+- Garage-linked vehicles with on-demand spawn/despawn.
+- In-game admin property management GUI.
+- Public interior entrances via `open_interiors`.
+
+These are the real "mods" in this repo. The rest of the repository is largely standard MTA scaffolding and stock resources.
+
+
+9. IMPORTANT CURRENT DIFFERENCES / LIVE MODIFICATIONS
+
+9.1 Root-level `server.lua` and `client.lua` are stale copies
+
+They are related to `house_manager`, but they are older than the live resource files.
+
+Observed differences:
+- live `house_manager/server.lua` adds garage coordinate generation on property create
+- live `house_manager/server.lua` adds interior teleport support
+- live `house_manager/client.lua` adds the `Go Int.` button and related event wiring
+
+Conclusion:
+- Do not edit root `server.lua` / `client.lua` thinking they are live.
+- Edit `mods/deathmatch/resources/[systems]/house_manager/*`.
+
+
+9.2 Runtime-generated cache duplicates exist
+
+Untracked/generated client cache content exists in:
+- `mods/deathmatch/resource-cache/http-client-files/garage_system/`
+- `mods/deathmatch/resource-cache/http-client-files/house_manager/`
+- `mods/deathmatch/resource-cache/http-client-files/housing/`
+- plus `inventory/web/icons/property_key.png` in cache
+
+Meaning:
+- The server has already served some client assets.
+- Cache copies are not the canonical authored version.
+
+
+9.3 The tracked working tree currently shows mostly runtime churn
+
+Tracked modifications include:
+- `mods/deathmatch/logs/server.log`
+- DB files under `mods/deathmatch/...`
+- `resource-cache/...`
+- `settings.xml`
+- `roleplay.db`
+
+This is mostly expected for an MTA server workspace that has been run.
+
+
+10. KNOWN ISSUES / SHARP EDGES
+
+These are important enough that another model should know them before changing anything.
+
+10.1 Property key schema mismatch
+
+`database_manager` creates:
+
+```lua
+property_keys (
+    id,
+    house_id,
+    grantee_key,
+    granted_by,
+    granted_at
+)
+```
+
+But `housing/server.lua` still queries and writes:
+- `account_name`
+
+Examples:
+- `SELECT id FROM property_keys WHERE house_id = ? AND account_name = ?`
+- `INSERT INTO property_keys (house_id, account_name) VALUES (?, ?)`
+
+This means the key-sharing/access path is structurally inconsistent with the current schema and is likely broken until reconciled.
+
+
+10.2 `house_manager` admin check is effectively disabled
+
+File: `mods/deathmatch/resources/[systems]/house_manager/server.lua`
+
+```lua
+return isObjectInACLGroup(...) or true
+```
+
+That `or true` means everyone effectively passes the admin check.
+
+
+10.3 Property popup never exposes park action
+
+File: `mods/deathmatch/resources/[systems]/housing/server.lua`
+
+```lua
+canPark = false
+```
+
+But `inventory/client.lua` still supports `P` hints and a `vehicles:browserPark` path.
+So the UI path exists on the client, but the housing payload never enables it.
+
+
+10.4 Duplicate keybind risk for housing actions
+
+Both resources bind `F`, `B`, and `G`:
+
+- `mods/deathmatch/resources/[systems]/housing/client.lua`
+- `mods/deathmatch/resources/[systems]/inventory/client.lua`
+
+That creates a risk of duplicate action firing when the popup is visible.
+
+
+10.5 Garage hint text does not match behavior
+
+File: `mods/deathmatch/resources/[systems]/garage_system/client.lua`
+
+It says:
+
+```lua
+"Press [E] or enter marker to access garage"
+```
+
+But there is no `E` key bind in the garage system. Garage access currently happens by entering the marker.
+
+
+10.6 Garage markers are only built for house IDs 1..30
+
+File: `mods/deathmatch/resources/[systems]/garage_system/server.lua`
+
+```lua
+for houseId = 1, 30 do
+```
+
+That means houses with IDs above 30 will not automatically get garage markers/blips from this resource.
+
+
+10.7 `previewhouse` dimension generation looks unsafe
+
+File: `mods/deathmatch/resources/[systems]/housing/server.lua`
+
+```lua
+local previewDimension = getElementID(player) + 2000
+```
+
+I did not find code in this repo assigning numeric element IDs to players. Unless another system does that outside this codebase, this expression looks unsafe and should be treated as suspicious.
+
+
+10.8 Housing migration is historically present, not currently visible
+
+`migration_state` contains `housing_legacy_v1`, but the current source tree does not contain housing migration code anymore.
+
+Implication:
+- If someone wants to re-run or inspect housing migration logic, it is not in the current repo.
+- The modern `roleplay.db` should be treated as the authoritative housing dataset.
+
+
+11. WHERE TO EDIT FOR COMMON TASKS
+
+If the goal is...
+
+- change startup resources or boot order:
+  - `mods/deathmatch/mtaserver.conf`
+
+- change the database schema or ownership logic:
+  - `mods/deathmatch/resources/[core]/database_manager/server.lua`
+
+- add inventory items, weights, icons, or payload structure:
+  - `mods/deathmatch/resources/[systems]/inventory/server.lua`
+
+- change inventory visuals:
+  - `mods/deathmatch/resources/[systems]/inventory/web/index.html`
+  - `mods/deathmatch/resources/[systems]/inventory/web/main.js`
+  - `mods/deathmatch/resources/[systems]/inventory/web/style.css`
+
+- change housing access, buying, lock behavior, markers, or free apartment logic:
+  - `mods/deathmatch/resources/[systems]/housing/server.lua`
+
+- change housing keybinds:
+  - `mods/deathmatch/resources/[systems]/housing/client.lua`
+
+- change persistent vehicles:
+  - `mods/deathmatch/resources/[systems]/vehicles/server.lua`
+
+- change garage entry/exit, occupancy rules, or dimension logic:
+  - `mods/deathmatch/resources/[systems]/garage_system/server.lua`
+  - `mods/deathmatch/resources/[systems]/garage_system/client.lua`
+
+- change admin property creation or presets:
+  - `mods/deathmatch/resources/[systems]/house_manager/server.lua`
+  - `mods/deathmatch/resources/[systems]/house_manager/client.lua`
+
+- change public world interior entrances:
+  - `mods/deathmatch/resources/[maps]/open_interiors/open_interiors.map`
+
+
+12. IF CLAUDE SHOULD READ ONLY A FEW FILES FIRST
+
+Read these in this order:
+
+1. `mods/deathmatch/mtaserver.conf`
+2. `mods/deathmatch/resources/[core]/database_manager/server.lua`
+3. `mods/deathmatch/resources/[systems]/housing/server.lua`
+4. `mods/deathmatch/resources/[systems]/vehicles/server.lua`
+5. `mods/deathmatch/resources/[systems]/garage_system/server.lua`
+6. `mods/deathmatch/resources/[systems]/inventory/server.lua`
+7. `mods/deathmatch/resources/[systems]/inventory/client.lua`
+8. `mods/deathmatch/resources/[systems]/house_manager/server.lua`
+9. `mods/deathmatch/resources/[systems]/house_manager/client.lua`
+
+That sequence gives the real architecture much faster than reading the whole repository.
+
+
+13. DETAILED END-TO-END EXPLANATION OF HOW EVERYTHING FITS TOGETHER
+
+At startup, MTA reads `mtaserver.conf` and brings up a mix of stock resources and custom roleplay resources. The first important custom resource is `database_manager`, which opens `roleplay.db`, creates the RP tables if they do not exist, and establishes the `owner_key` identity model. That identity model is the glue for the entire server: inventory, bank, houses, keys, and vehicles all hang off it.
+
+When a player joins, `database_manager` creates or refreshes a row in `players`. If they are not logged into an MTA account, the identity can fall back to `serial:<playerSerial>`. When they do log in, the system merges serial-backed state into `account:<accountName>`. That is why `database_manager` matters more than any other custom resource: it is doing both schema management and identity normalization.
+
+The bank system is intentionally thin. It does not have its own real domain model anymore. It simply reads and writes `players.bank_balance`, wraps that in commands and bank markers, and uses `database_manager` to make sure the current player has a stable owner record. In other words, bank is just a specific UI and command layer around one column in `players`.
+
+The inventory system is the next major subsystem. On the server side, it reads and writes the `items` table. On the client side, it opens a browser-based backpack panel with `I`. The browser UI is isolated to the inventory itself. The house interaction popup that appears near properties is no longer the browser UI; it is now a custom `dxDraw` overlay inside `inventory/client.lua`. That means this resource currently owns two separate user-facing presentation layers: browser HTML/CSS/JS for the backpack, and direct MTA rendering code for contextual house/garage hints.
+
+Housing is the main gameplay subsystem. It loads every row from `houses`, creates the world-space exterior markers and interior exit markers, and teleports players between them. Each property has a private MTA dimension, typically `6000 + house_id`, so players inside separate properties never overlap. Buying a house changes `owner_key`, `owner_account`, and `locked` in SQL. Access checks are based on owner identity and, in theory, property keys. The same resource also contains the one-time free apartment grant for newly logged-in accounts.
+
+Vehicles are persisted separately but are still tied into the housing layer. When a player parks a vehicle, the vehicles resource looks at the car position and asks the housing resource whether it sits inside an owned garage zone. If yes, the vehicle record gets a `house_id` and becomes a garage-linked vehicle. If not, it remains a general persistent world vehicle. World vehicles are auto-respawned on resource start; garage vehicles are spawned only when someone is actually inside the relevant garage.
+
+Garage logic is split into its own resource. It reads garage coordinates from housing, constructs garage markers and blips, teleports players into a garage dimension (`7000 + house_id`), tracks how many people are inside, and asks the vehicles resource to spawn or despawn garage-linked vehicles based on occupancy. Conceptually, housing owns the data model, vehicles owns persistence, and garage_system owns the garage-session runtime behavior.
+
+House creation and editing are handled by `house_manager`, which is an in-game admin GUI. It is effectively a content management tool for the `houses` table. The server script contains the preset interior catalog. The client script contains the GUI, preview buttons, delete confirmation, edit fields, and teleport buttons. When an admin creates a property, the resource captures their current world position as the exterior, picks an interior preset, generates a property dimension, creates garage coordinates relative to the admin's facing angle, inserts everything into SQL, and then restarts `housing` so the new markers and blips are rebuilt.
+
+`open_interiors` is separate from housing. It is a static map resource that exposes specific always-public buildings using the stock `interiors` resource. It does not depend on ownership or the `houses` table. It exists to make certain public RP buildings available even though the main housing system is reserved for buyable instanced properties.
+
+The stock MTA folders remain present and runnable, but they are not the custom project. They are infrastructure. The custom project is the roleplay layer composed of the core DB resource plus the systems resources listed above. If another model starts editing race maps, default gamemodes, or stock admin files without a very explicit reason, it is almost certainly working in the wrong place.
+
+In short, the project is a custom MTA roleplay server whose real architecture is:
+
+- `database_manager` = identity + schema + persistence root
+- `bank` = money storage UI over `players.bank_balance`
+- `inventory` = item storage + browser UI + house popup UI
+- `housing` = property ownership, dimensions, buy/enter/lock logic
+- `vehicles` = persistent vehicle storage and park logic
+- `garage_system` = garage teleports and on-demand garage vehicle spawning
+- `house_manager` = in-game property authoring/admin tool
+- `open_interiors` = static public interior entrances
+
+That is the project another model should carry in its head before making changes.

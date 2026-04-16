@@ -13,6 +13,10 @@ local houseBlips   = {}   -- blip element   → house id
 local previewTimers = {}  -- player → preview expiration timer
 local previewData   = {}  -- player → { houseId, x, y, z, int, dim, rot }
 
+local ENTRY_MARKER_Z_OFFSET = 2.00
+local EXIT_MARKER_Z_OFFSET  = 1.00
+local EXTERIOR_RETURN_Z_OFFSET = 1.00
+
 -- ─────────────────────────────────────────────────────────────
 -- FREE APARTMENT COORDINATES
 -- ─────────────────────────────────────────────────────────────
@@ -52,6 +56,140 @@ end
 
 local function formatMoney(amount)
     return "$" .. tostring(math.floor(tonumber(amount) or 0))
+end
+
+local function isGarageProperty(house)
+    return house and house.property_type == "garage"
+end
+
+local function hasLegacyGarage(house)
+    if not house or isGarageProperty(house) then
+        return false
+    end
+
+    local garage = house.garage or {}
+    return (tonumber(garage.x) or 0) ~= 0 or (tonumber(garage.y) or 0) ~= 0 or (tonumber(garage.z) or 0) ~= 0
+end
+
+local function getLinkedHouse(house)
+    if not house then
+        return nil
+    end
+
+    local linkedId = tonumber(house.linked_property_id)
+    if not linkedId then
+        return nil
+    end
+
+    return houses[linkedId]
+end
+
+local function getLinkedPropertyIds(houseId)
+    local ids = {}
+    local seen = {}
+
+    local function addId(id)
+        id = tonumber(id)
+        if id and not seen[id] and houses[id] then
+            seen[id] = true
+            ids[#ids + 1] = id
+        end
+    end
+
+    addId(houseId)
+
+    local house = houses[tonumber(houseId)]
+    if house then
+        addId(house.linked_property_id)
+    end
+
+    return ids
+end
+
+local function getGarageZoneData(house)
+    if not house then
+        return nil
+    end
+
+    if isGarageProperty(house) then
+        return {
+            x = house.exterior_x,
+            y = house.exterior_y,
+            z = house.exterior_z,
+            radius = 8,
+        }
+    end
+
+    if hasLegacyGarage(house) then
+        return {
+            x = house.garage.x,
+            y = house.garage.y,
+            z = house.garage.z,
+            radius = house.garage.radius or 8,
+        }
+    end
+
+    return nil
+end
+
+local function getExteriorReturnZ(house)
+    return (tonumber(house and house.exterior_z) or 0) + EXTERIOR_RETURN_Z_OFFSET
+end
+
+local function hasPropertyKeyAccess(houseId, ownerKey)
+    houseId = tonumber(houseId)
+    ownerKey = tostring(ownerKey or "")
+    if not houseId or ownerKey == "" then
+        return false
+    end
+    return exports.database_manager:hasPropertyKeyAccess(houseId, ownerKey)
+end
+
+local function setHouseOwnershipState(houseId, ownerKey, ownerAccount, locked)
+    houseId = tonumber(houseId)
+    if not houseId or not houses[houseId] then
+        return false
+    end
+
+    ownerKey = tostring(ownerKey or "")
+    ownerAccount = tostring(ownerAccount or "")
+    locked = locked and true or false
+
+    centralExecute(
+        "UPDATE houses SET owner_key = ?, owner_account = ?, locked = ? WHERE id = ?",
+        ownerKey ~= "" and ownerKey or nil,
+        ownerAccount ~= "" and ownerAccount or nil,
+        locked and 1 or 0,
+        houseId
+    )
+
+    houses[houseId].owner_key = ownerKey
+    houses[houseId].owner_account = ownerAccount
+    houses[houseId].locked = locked
+    return true
+end
+
+local function syncGarageVehicleLocks(houseId, locked)
+    local vehiclesResource = getResourceFromName("vehicles")
+    if not vehiclesResource or getResourceState(vehiclesResource) ~= "running" then
+        return
+    end
+    exports.vehicles:setGarageVehiclesLocked(houseId, locked)
+end
+
+local function setLinkedLockState(house, locked)
+    locked = locked and true or false
+
+    for _, propertyId in ipairs(getLinkedPropertyIds(house.id)) do
+        local property = houses[propertyId]
+        if property then
+            property.locked = locked
+            centralExecute("UPDATE houses SET locked = ? WHERE id = ?", locked and 1 or 0, propertyId)
+            if isGarageProperty(property) or hasLegacyGarage(property) then
+                syncGarageVehicleLocks(propertyId, locked)
+            end
+        end
+    end
 end
 
 -- ─────────────────────────────────────────────────────────────
@@ -99,6 +237,7 @@ function reloadHouses()
                 name           = row.name,
                 price          = tonumber(row.price) or 0,
                 property_type  = row.property_type or "house",
+                linked_property_id = tonumber(row.linked_property_id),
                 owner_key      = row.owner_key or "",
                 owner_account  = row.owner_account or "",
                 locked         = (tonumber(row.locked) == 1),
@@ -132,24 +271,25 @@ function reloadHouses()
 
             houses[h.id] = h
 
-            -- Exterior marker (yellow arrow) — sits flush on the ground
+            -- Raise house entry markers so they stay visible above uneven ground near doors.
             if h.exterior_x and h.exterior_y and h.exterior_z then
-                local extMarker = createMarker(h.exterior_x, h.exterior_y, h.exterior_z - 1.0, "arrow", 2.0, 255, 255, 0, 150)
+                local extMarker = createMarker(h.exterior_x, h.exterior_y, h.exterior_z + ENTRY_MARKER_Z_OFFSET, "arrow", 2.0, 255, 255, 0, 150)
                 setElementInterior(extMarker, h.exterior_interior)
                 setElementDimension(extMarker, 0)
                 setElementData(extMarker, "housing:houseId", h.id, false)
                 entryMarkers[extMarker] = h.id
 
-                -- Map blip (icon 31 = house)
-                local blip = createBlip(h.exterior_x, h.exterior_y, h.exterior_z, 31, 1, 255, 255, 255, 255, 0, 200)
-                setElementInterior(blip, h.exterior_interior)
-                setElementDimension(blip, 0)
-                houseBlips[blip] = h.id
+                if not isGarageProperty(h) then
+                    local blip = createBlip(h.exterior_x, h.exterior_y, h.exterior_z, 31, 1, 255, 255, 255, 255, 0, 200)
+                    setElementInterior(blip, h.exterior_interior)
+                    setElementDimension(blip, 0)
+                    houseBlips[blip] = h.id
+                end
             end
 
-            -- Interior exit marker (orange arrow)
-            if h.interior_x and h.interior_y and h.interior_z then
-                local intMarker = createMarker(h.interior_x, h.interior_y, h.interior_z - 1.0, "arrow", 1.5, 255, 120, 0, 150)
+            -- Raise interior exit markers too, so they remain visible inside properties.
+            if not isGarageProperty(h) and h.interior_x and h.interior_y and h.interior_z then
+                local intMarker = createMarker(h.interior_x, h.interior_y, h.interior_z + EXIT_MARKER_Z_OFFSET, "arrow", 1.5, 255, 120, 0, 150)
                 setElementInterior(intMarker, h.interior_interior)
                 setElementDimension(intMarker, h.dimension)
                 setElementData(intMarker, "housing:houseId", h.id, false)
@@ -168,20 +308,40 @@ addEventHandler("onResourceStart", resourceRoot, reloadHouses)
 -- ─────────────────────────────────────────────────────────────
 local function isHouseOwner(player, house)
     local pKey = getAccountOwnerKey(player)
-    return pKey and pKey ~= "" and house.owner_key == pKey
+    if not pKey or pKey == "" then
+        return false
+    end
+    if house.owner_key == pKey then
+        return true
+    end
+
+    local linked = getLinkedHouse(house)
+    return linked and linked.owner_key == pKey or false
 end
 
 local function hasHouseKey(player, houseId)
     local pKey = getAccountOwnerKey(player)
-    if not pKey or pKey == "" then return false end
-    local rows = centralQuery("SELECT id FROM property_keys WHERE house_id = ? AND account_name = ?", houseId, getAccountNameForKeys(player))
-    return #rows > 0
+    if not pKey or pKey == "" then
+        return false
+    end
+
+    for _, propertyId in ipairs(getLinkedPropertyIds(houseId)) do
+        if hasPropertyKeyAccess(propertyId, pKey) then
+            return true
+        end
+    end
+
+    return false
 end
 
 local function canAccessHouse(player, house)
     if not house.owner_key or house.owner_key == "" then return true end
     if isHouseOwner(player, house) then return true end
     if not house.locked then return true end
+    local linked = getLinkedHouse(house)
+    if linked and (linked.owner_key == "" or not linked.locked or isHouseOwner(player, linked)) then
+        return true
+    end
     return hasHouseKey(player, house.id)
 end
 
@@ -191,13 +351,19 @@ end
 function checkHouseAccess(houseId, ownerKey)
     local h = houses[tonumber(houseId)]
     if not h then return false end
-    if h.owner_key == ownerKey then return true end
+    ownerKey = tostring(ownerKey or "")
 
-    local rows = centralQuery("SELECT account_name FROM property_keys WHERE house_id = ?", h.id)
-    for _, row in ipairs(rows) do
-        local accKey = "account:" .. tostring(row.account_name)
-        if accKey == ownerKey then return true end
+    if h.owner_key == "" or not h.locked then return true end
+    if h.owner_key == ownerKey then return true end
+    if hasPropertyKeyAccess(h.id, ownerKey) then return true end
+
+    local linked = getLinkedHouse(h)
+    if linked then
+        if linked.owner_key == "" or not linked.locked then return true end
+        if linked.owner_key == ownerKey then return true end
+        if hasPropertyKeyAccess(linked.id, ownerKey) then return true end
     end
+
     return false
 end
 
@@ -208,9 +374,31 @@ end
 function getOwnedGarageHouseIdForPosition(ownerKey, x, y, z)
     if not ownerKey or ownerKey == "" then return false end
     for _, h in pairs(houses) do
-        if h.owner_key == ownerKey then
-            local dist = getDistanceBetweenPoints3D(x, y, z, h.garage.x, h.garage.y, h.garage.z)
-            if dist <= h.garage.radius then return h.id end
+        local garageZone = getGarageZoneData(h)
+        if garageZone then
+            local effectiveOwner = h.owner_key or ""
+            if effectiveOwner == "" then
+                local linked = getLinkedHouse(h)
+                effectiveOwner = linked and linked.owner_key or ""
+            end
+            if effectiveOwner == ownerKey then
+                local dist = getDistanceBetweenPoints3D(x, y, z, garageZone.x, garageZone.y, garageZone.z)
+                if dist <= (garageZone.radius or 8) then
+                    return h.id
+                end
+                if isGarageProperty(h) and h.interior_x and h.interior_y and h.interior_z then
+                    local interiorDist = getDistanceBetweenPoints3D(x, y, z, h.interior_x, h.interior_y, h.interior_z)
+                    if interiorDist <= 12 then
+                        return h.id
+                    end
+                end
+                if hasLegacyGarage(h) and h.garage_int and h.garage_int.x and h.garage_int.y and h.garage_int.z then
+                    local legacyInteriorDist = getDistanceBetweenPoints3D(x, y, z, h.garage_int.x, h.garage_int.y, h.garage_int.z)
+                    if legacyInteriorDist <= 12 then
+                        return h.id
+                    end
+                end
+            end
         end
     end
     return false
@@ -272,7 +460,55 @@ local function getNearbyMarkerHouse(player)
     return nil, nil
 end
 
-local function showHousePopup(player, house)
+local function getCurrentHouseContext(player)
+    local house, markerType = getNearbyMarkerHouse(player)
+    if house then
+        return house, markerType
+    end
+
+    local dim = getElementDimension(player)
+    if dim > 7000 then
+        local garageId = dim - 7000
+        if houses[garageId] then
+            return houses[garageId], "interior"
+        end
+    end
+
+    if dim > 6000 then
+        local houseId = dim - 6000
+        if houses[houseId] then
+            return houses[houseId], "interior"
+        end
+    end
+
+    return nil, nil
+end
+
+local function showHousePopup(player, house, markerType)
+    local buyerKey = getAccountOwnerKey(player)
+    local linked = getLinkedHouse(house)
+    local linkedBuyBlocked = linked and linked.owner_key ~= "" and linked.owner_key ~= buyerKey
+    local canEnter = not isGarageProperty(house) and canAccessHouse(player, house)
+    local popupPosition = {
+        x = house.exterior_x,
+        y = house.exterior_y,
+        z = house.exterior_z,
+        radius = 6,
+        interior = house.exterior_interior,
+        dimension = 0,
+    }
+
+    if markerType == "interior" and not isGarageProperty(house) then
+        popupPosition = {
+            x = house.interior_x,
+            y = house.interior_y,
+            z = house.interior_z,
+            radius = 6,
+            interior = house.interior_interior,
+            dimension = house.dimension,
+        }
+    end
+
     local payload = {
         id            = house.id,
         name          = house.name,
@@ -280,10 +516,11 @@ local function showHousePopup(player, house)
         ownerName     = (house.owner_key ~= "") and house.owner_account or "Available",
         price         = house.price,
         locked        = house.locked,
-        canBuy        = (house.owner_key == ""),
-        canEnter      = canAccessHouse(player, house),
+        canBuy        = (house.owner_key == "") and not linkedBuyBlocked,
+        canEnter      = canEnter,
         canLock       = isHouseOwner(player, house),
         canPark       = false,
+        position      = popupPosition,
     }
     triggerClientEvent(player, "rp_ui:showHousePopup", root, payload)
 end
@@ -302,17 +539,28 @@ addEventHandler("onMarkerHit", resourceRoot, function(player, matchDim)
     if not houseId or not houses[houseId] then return end
 
     local h = houses[houseId]
-    showHousePopup(player, h)
+    local markerType = entryMarkers[source] and "exterior" or "interior"
+    showHousePopup(player, h, markerType)
 
     -- Chat fallback
     if h.owner_key == "" then
-        outputChatBox("Housing: " .. h.name .. " is for sale for " .. formatMoney(h.price) .. ". Press [B] to buy.", player, 100, 255, 100)
+        if isGarageProperty(h) then
+            outputChatBox("Garage: " .. h.name .. " is for sale for " .. formatMoney(h.price) .. ". Press [B] to buy.", player, 100, 255, 100)
+            outputChatBox("Garage: after buying, use the blue garage marker to enter it.", player, 180, 220, 255)
+        else
+            outputChatBox("Housing: " .. h.name .. " is for sale for " .. formatMoney(h.price) .. ". Press [B] to buy.", player, 100, 255, 100)
+        end
     else
         if isHouseOwner(player, h) then
             local st = h.locked and "Locked" or "Unlocked"
-            outputChatBox("Housing: Your " .. h.property_type .. " (" .. st .. "). Press [F] Enter, [G] Lock.", player, 100, 255, 100)
+            if isGarageProperty(h) then
+                outputChatBox("Garage: Your garage (" .. st .. "). Use the blue marker to enter and [G] to lock.", player, 100, 255, 100)
+            else
+                outputChatBox("Housing: Your " .. h.property_type .. " (" .. st .. "). Press [F] Enter, [G] Lock.", player, 100, 255, 100)
+            end
         else
-            outputChatBox("Housing: " .. h.name .. ". Owner: " .. h.owner_account .. ".", player, 200, 200, 200)
+            local prefix = isGarageProperty(h) and "Garage: " or "Housing: "
+            outputChatBox(prefix .. h.name .. ". Owner: " .. h.owner_account .. ".", player, 200, 200, 200)
         end
     end
 end)
@@ -332,6 +580,23 @@ end)
 -- ─────────────────────────────────────────────────────────────
 -- INTERACT ACTIONS (F, B, G keybinds)
 -- ─────────────────────────────────────────────────────────────
+local function getLinkedBuyConflict(house, buyerKey)
+    local linked = getLinkedHouse(house)
+    if not linked or linked.owner_key == "" or linked.owner_key == buyerKey then
+        return nil
+    end
+    return linked
+end
+
+local function applyLinkedOwnership(house, ownerKey, ownerAccount, locked)
+    setHouseOwnershipState(house.id, ownerKey, ownerAccount, locked)
+
+    local linked = getLinkedHouse(house)
+    if linked and linked.owner_key == "" then
+        setHouseOwnershipState(linked.id, ownerKey, ownerAccount, locked)
+    end
+end
+
 addEvent("housing:requestEnter", true)
 addEventHandler("housing:requestEnter", root, function()
     -- If in preview and standing at the exit marker, end the preview
@@ -348,6 +613,10 @@ addEventHandler("housing:requestEnter", root, function()
     if not house then return end
 
     if mType == "exterior" then
+        if isGarageProperty(house) then
+            outputChatBox("Garage: use the blue garage marker to enter this garage.", client, 180, 220, 255)
+            return
+        end
         if not canAccessHouse(client, house) then
             outputChatBox("Housing: The door is locked.", client, 255, 80, 80)
             return
@@ -361,7 +630,7 @@ addEventHandler("housing:requestEnter", root, function()
         triggerClientEvent(client, "rp_ui:hideHousePopup", root)
         setElementInterior(client, house.exterior_interior)
         setElementDimension(client, 0)
-        setElementPosition(client, house.exterior_x, house.exterior_y, house.exterior_z)
+        setElementPosition(client, house.exterior_x, house.exterior_y, getExteriorReturnZ(house))
         setPedRotation(client, house.exterior_rot)
     end
 end)
@@ -381,6 +650,14 @@ addEventHandler("housing:requestBuy", root, function()
         return
     end
 
+    local buyerKey = getAccountOwnerKey(client)
+    local buyerAccount = getAccountNameForKeys(client)
+    local linkedConflict = getLinkedBuyConflict(house, buyerKey)
+    if linkedConflict then
+        outputChatBox("Housing: This property is linked to " .. linkedConflict.name .. ", which already belongs to another owner.", client, 255, 80, 80)
+        return
+    end
+
     local money = getPlayerMoney(client)
     if money < house.price then
         outputChatBox("Housing: You don't have enough money (" .. formatMoney(house.price) .. ").", client, 255, 80, 80)
@@ -388,28 +665,23 @@ addEventHandler("housing:requestBuy", root, function()
     end
 
     takePlayerMoney(client, house.price)
-    house.owner_key     = getAccountOwnerKey(client)
-    house.owner_account = getAccountNameForKeys(client)
-    house.locked        = true
+    applyLinkedOwnership(house, buyerKey, buyerAccount, true)
+    local buyPrefix = isGarageProperty(house) and "Garage: " or "Housing: "
+    outputChatBox(buyPrefix .. "You successfully bought " .. house.name .. " for " .. formatMoney(house.price) .. "!", client, 100, 255, 100)
 
-    centralExecute("UPDATE houses SET owner_key = ?, owner_account = ?, locked = 1 WHERE id = ?", house.owner_key, house.owner_account, house.id)
-    outputChatBox("Housing: You successfully bought " .. house.name .. " for " .. formatMoney(house.price) .. "!", client, 100, 255, 100)
+    local linked = getLinkedHouse(house)
+    if linked and linked.owner_key == buyerKey then
+        outputChatBox("Housing: Linked property access was also assigned for " .. linked.name .. ".", client, 120, 220, 255)
+    end
 
-    showHousePopup(client, house)
+    showHousePopup(client, house, mType)
 end)
 
 addEvent("housing:requestToggleLock", true)
 addEventHandler("housing:requestToggleLock", root, function()
     if isInPreview(client) then return end
 
-    local house = getNearbyMarkerHouse(client)
-    if not house then
-        -- Also check if they are inside their dimension
-        if getElementDimension(client) > 6000 then
-            local possibleId = getElementDimension(client) - 6000
-            if houses[possibleId] then house = houses[possibleId] end
-        end
-    end
+    local house = getCurrentHouseContext(client)
 
     if not house then return end
 
@@ -418,30 +690,27 @@ addEventHandler("housing:requestToggleLock", root, function()
         return
     end
 
-    house.locked = not house.locked
-    centralExecute("UPDATE houses SET locked = ? WHERE id = ?", house.locked and 1 or 0, house.id)
+    local newLockedState = not house.locked
+    setLinkedLockState(house, newLockedState)
 
-    local txt = house.locked and "locked" or "unlocked"
+    local txt = newLockedState and "locked" or "unlocked"
     outputChatBox("Housing: You " .. txt .. " the property.", client, 200, 255, 200)
 
-    showHousePopup(client, house)
+    local _, markerType = getCurrentHouseContext(client)
+    showHousePopup(client, house, markerType)
 end)
 
 -- ─────────────────────────────────────────────────────────────
 -- COMMANDS (Share / Revoke / List / Preview)
 -- ─────────────────────────────────────────────────────────────
 addCommandHandler("sharekey", function(player, cmd, targetName)
-    local houseId = (getElementDimension(player) > 6000) and (getElementDimension(player) - 6000) or nil
-    if not houseId and getNearbyMarkerHouse(player) then
-        houseId = getNearbyMarkerHouse(player).id
-    end
-
-    if not houseId or not houses[houseId] then
+    local house = getCurrentHouseContext(player)
+    if not house then
         outputChatBox("Housing: You must be inside or at the door of your property.", player, 255, 100, 100)
         return
     end
 
-    if not isHouseOwner(player, houses[houseId]) then
+    if not isHouseOwner(player, house) then
         outputChatBox("Housing: You do not own this property.", player, 255, 100, 100)
         return
     end
@@ -451,23 +720,57 @@ addCommandHandler("sharekey", function(player, cmd, targetName)
         return
     end
 
-    local rows = centralQuery("SELECT id FROM property_keys WHERE house_id = ? AND account_name = ?", houseId, targetName)
-    if #rows > 0 then
-        outputChatBox("Housing: " .. targetName .. " already has a key.", player, 255, 200, 50)
+    local targetOwnerKey = "account:" .. tostring(targetName)
+    local grantCount = 0
+    local grantedByKey = getAccountOwnerKey(player) or ""
+
+    for _, propertyId in ipairs(getLinkedPropertyIds(house.id)) do
+        if not hasPropertyKeyAccess(propertyId, targetOwnerKey) then
+            exports.database_manager:grantPropertyKey(propertyId, targetOwnerKey, grantedByKey)
+            grantCount = grantCount + 1
+        end
+    end
+
+    if grantCount == 0 then
+        outputChatBox("Housing: " .. targetName .. " already has access to this property set.", player, 255, 200, 50)
         return
     end
 
-    centralExecute("INSERT INTO property_keys (house_id, account_name) VALUES (?, ?)", houseId, targetName)
-    outputChatBox("Housing: You gave a key to account '" .. targetName .. "'.", player, 100, 255, 100)
+    outputChatBox("Housing: You gave access to account '" .. targetName .. "' for " .. tostring(grantCount) .. " linked property(s).", player, 100, 255, 100)
 end)
 
 addCommandHandler("revokekey", function(player, cmd, targetName)
+    local house = getCurrentHouseContext(player)
+    if not house then
+        outputChatBox("Housing: You must be inside or at the door of your property.", player, 255, 100, 100)
+        return
+    end
+
+    if not isHouseOwner(player, house) then
+        outputChatBox("Housing: You do not own this property.", player, 255, 100, 100)
+        return
+    end
+
     if not targetName then
         outputChatBox("Syntax: /revokekey [player account name]", player, 255, 200, 100)
         return
     end
-    centralExecute("DELETE FROM property_keys WHERE account_name = ?", targetName)
-    outputChatBox("Housing: Revoked all keys for '" .. targetName .. "'.", player, 255, 150, 100)
+
+    local targetOwnerKey = "account:" .. tostring(targetName)
+    local revokeCount = 0
+    for _, propertyId in ipairs(getLinkedPropertyIds(house.id)) do
+        if hasPropertyKeyAccess(propertyId, targetOwnerKey) then
+            exports.database_manager:revokePropertyKey(propertyId, targetOwnerKey)
+            revokeCount = revokeCount + 1
+        end
+    end
+
+    if revokeCount == 0 then
+        outputChatBox("Housing: '" .. targetName .. "' does not have access to this property set.", player, 255, 200, 100)
+        return
+    end
+
+    outputChatBox("Housing: Revoked access for '" .. targetName .. "' from " .. tostring(revokeCount) .. " linked property(s).", player, 255, 150, 100)
 end)
 
 addCommandHandler("myproperties", function(player)

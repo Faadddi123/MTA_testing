@@ -134,12 +134,20 @@ local function drawHousePopup()
     if not housePopup.visible or not housePopup.payload then return end
 
     local house = housePopup.payload
+    local isGarage = house.property_type == "garage"
     local pw, ph = 310, 210
     local px = screenWidth  - pw - 22
     local py = screenHeight - ph - 22
 
     local isApartment  = house.property_type == "apartment"
-    local accentR, accentG, accentB = isApartment and 255 or 50, isApartment and 130 or 140, isApartment and 40 or 255
+    local accentR, accentG, accentB
+    if isApartment then
+        accentR, accentG, accentB = 255, 130, 40
+    elseif isGarage then
+        accentR, accentG, accentB = 80, 180, 255
+    else
+        accentR, accentG, accentB = 50, 140, 255
+    end
     local accentCol    = tocolor(accentR, accentG, accentB, 255)
 
     -- ── shadow
@@ -155,7 +163,7 @@ local function drawHousePopup()
     dxDrawRectangle(px, py, pw, 4, accentCol, true)
 
     -- ── type tag
-    local typeLabel = isApartment and "APARTMENT" or "HOUSE"
+    local typeLabel = isApartment and "APARTMENT" or (isGarage and "GARAGE" or "HOUSE")
     dxDrawText(typeLabel, px + 12, py + 10, px + pw, py + 23, accentCol, 0.65, "default-bold")
 
     -- ── property name
@@ -204,8 +212,7 @@ end
 -- ║  GARAGE DIM HINTS                                ║
 -- ╚══════════════════════════════════════════════════╝
 local function drawGarageHints()
-    local dim = getElementDimension(localPlayer)
-    if dim < 7001 or dim > 7030 then return end
+    if not tonumber(getElementData(localPlayer, "garage:inside")) then return end
 
     local hints = {
         "[/exitgarage]  Leave garage",

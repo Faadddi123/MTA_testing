@@ -32,6 +32,41 @@ local function getHouseLockState(houseId)
     return row and tonumber(row.locked) ~= 0 or false
 end
 
+local function getGarageSpawnContext(houseId)
+    houseId = tonumber(houseId)
+    if not houseId then
+        return nil
+    end
+
+    local housingResource = getResourceFromName("housing")
+    if not housingResource or getResourceState(housingResource) ~= "running" then
+        return {
+            dimension = 7000 + houseId,
+            interior = 0,
+        }
+    end
+
+    local house = exports.housing:getHouseData(houseId)
+    if not house then
+        return {
+            dimension = 7000 + houseId,
+            interior = 0,
+        }
+    end
+
+    if house.property_type == "garage" then
+        return {
+            dimension = tonumber(house.dimension) or (7000 + houseId),
+            interior = tonumber(house.interior_interior) or 0,
+        }
+    end
+
+    return {
+        dimension = 7000 + houseId,
+        interior = 0,
+    }
+end
+
 local function destroyPersistentVehicles()
     for vehicle in pairs(spawnedVehicles) do
         if isElement(vehicle) then
@@ -296,7 +331,10 @@ function spawnGarageVehicles(houseId)
     houseId = tonumber(houseId)
     if not houseId then return false end
 
-    local garageDim = 7000 + houseId
+    local spawnContext = getGarageSpawnContext(houseId)
+    if not spawnContext then
+        return false
+    end
 
     -- Load garage vehicles from DB that are not yet spawned
     local rows = centralQuery("SELECT * FROM vehicles WHERE house_id = ? ORDER BY id ASC", houseId)
@@ -315,8 +353,8 @@ function spawnGarageVehicles(houseId)
             -- Find the vehicle we just spawned and force it into the garage dimension
             for vehicle, rId in pairs(spawnedVehicles) do
                 if rId == recordId and isElement(vehicle) then
-                    setElementDimension(vehicle, garageDim)
-                    setElementInterior(vehicle, 0)
+                    setElementDimension(vehicle, spawnContext.dimension)
+                    setElementInterior(vehicle, spawnContext.interior)
                     break
                 end
             end

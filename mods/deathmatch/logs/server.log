@@ -1743,3 +1743,387 @@
 [26-04-09 03:58:00] Resource 'inventory' changed, reloading and starting
 [26-04-09 03:58:00] Starting inventory
 [26-04-09 03:58:00] inventory restarted successfully
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-15 03:29:57] Compacting accounts database 'internal.db' ...
+[26-04-15 03:29:57] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-15 03:29:58] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-15 03:29:58] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-15 03:29:58] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-15 03:29:58] Resources: 214 loaded, 0 failed
+[26-04-15 03:29:58] Compacting database 'registry.db' ...
+[26-04-15 03:29:58] Starting resources...
+[26-04-15 03:29:58] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-15 03:29:58] startResource: Resource 'ip2c' started
+[26-04-15 03:29:59] INFO: [Housing] Loaded 6 rows, 6 valid houses.
+[26-04-15 03:29:59] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-15 03:29:59] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-15 03:29:59] WARNING: <owner_email_address> not set
+[26-04-15 03:29:59] Server started and is ready to accept connections!
+[26-04-15 03:29:59] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-15 03:29:59] Type 'help' for a list of commands.
+[26-04-15 03:29:59] WARNING: [admin]/ip2c/server.lua:300: Access denied @ 'fetchRemote'
+[26-04-15 03:30:00] Starting play
+[26-04-15 03:30:00] Starting internetradio
+[26-04-15 03:30:00] Starting superman
+[26-04-15 03:30:00] Starting hedit
+[26-04-15 03:30:00] Starting mapfixes
+[26-04-15 03:30:00] Starting chatmanager
+[26-04-15 03:30:00] startResource: Resource 'play' started
+[26-04-15 03:30:00] INFO: ip2c bootstrap: started 'play'
+[26-04-15 03:30:08] CONNECT: tipr connected (IP: 102.97.171.249  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-15 03:30:10] JOIN: tipr joined the game (IP: 102.97.171.249)
+[26-04-15 03:30:34] CONNECT: Haughtrick connected (IP: 105.156.208.233  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-15 03:30:37] JOIN: Haughtrick joined the game (IP: 105.156.208.233)
+[26-04-15 03:32:29] CHAT: tipr : ttTrdf
+[26-04-15 03:38:38] CHAT: tipr : f
+[26-04-15 03:39:26] Stopping housing
+[26-04-15 03:39:26] Starting housing
+[26-04-15 03:39:26] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-15 03:39:26] housing restarted successfully
+[26-04-15 03:42:17] CONNECT: Kurumi failed to connect (Client version is below minimum) (IP: 105.159.14.204  Serial: 30BA84F356FE025F1711105EF145A033  Version: 1.6.0-9.23952.0)
+[26-04-15 03:42:17] QUIT: Kurumi left the game [Quit] 
+[26-04-15 03:50:34] CONNECT: Kurumi connected (IP: 105.159.2.159  Serial: 30BA84F356FE025F1711105EF145A033  Version: 1.6.0-9.24060.0)
+[26-04-15 03:50:36] JOIN: Kurumi joined the game (IP: 105.159.2.159)
+[26-04-15 03:54:48] QUIT: Kurumi left the game [Quit] 
+[26-04-15 03:55:30] CONNECT: Kurumi connected (IP: 105.159.2.159  Serial: 30BA84F356FE025F1711105EF145A033  Version: 1.6.0-9.24060.0)
+[26-04-15 03:55:32] JOIN: Kurumi joined the game (IP: 105.159.2.159)
+[26-04-15 04:22:29] QUIT: Kurumi left the game [Quit] 
+[26-04-15 04:23:12] Server stopped!
+[26-04-15 04:23:12] Stopping resources.....................
+[26-04-15 04:23:12] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-15 23:52:06] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-15 23:52:06] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-15 23:52:07] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-15 23:53:12] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-15 23:53:12] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-15 23:53:12] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-15 23:53:12] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-15 23:53:12] Resources: 214 loaded, 0 failed
+[26-04-15 23:53:12] Starting resources...
+[26-04-15 23:53:13] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-15 23:53:13] startResource: Resource 'ip2c' started
+[26-04-15 23:53:13] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-15 23:53:13] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-15 23:53:13] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-15 23:53:13] WARNING: <owner_email_address> not set
+[26-04-15 23:53:13] Server started and is ready to accept connections!
+[26-04-15 23:53:13] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-15 23:53:13] Type 'help' for a list of commands.
+[26-04-15 23:53:14] Starting play
+[26-04-15 23:53:14] Starting internetradio
+[26-04-15 23:53:14] Starting superman
+[26-04-15 23:53:14] Starting hedit
+[26-04-15 23:53:14] Starting mapfixes
+[26-04-15 23:53:14] Starting chatmanager
+[26-04-15 23:53:14] startResource: Resource 'play' started
+[26-04-15 23:53:14] INFO: ip2c bootstrap: started 'play'
+[26-04-15 23:53:19] CONNECT: Haughtrick connected (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-15 23:53:20] JOIN: Haughtrick joined the game (IP: 41.249.114.117)
+[26-04-16 00:41:24] Server stopped!
+[26-04-16 00:41:24] Stopping resources.....................
+[26-04-16 00:41:25] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 00:41:27] Resource 'acpanel' requests some acl rights. Use the command 'aclrequest list acpanel'
+[26-04-16 00:41:27] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-16 00:41:27] Resource 'mapmanager' requests some acl rights. Use the command 'aclrequest list mapmanager'
+[26-04-16 00:41:27] Resource 'runcode' requests some acl rights. Use the command 'aclrequest list runcode'
+[26-04-16 00:41:27] Resources: 214 loaded, 0 failed
+[26-04-16 00:41:28] Starting resources...
+[26-04-16 00:41:28] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-16 00:41:28] startResource: Resource 'ip2c' started
+[26-04-16 00:41:28] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 00:41:28] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-16 00:41:28] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-16 00:41:28] WARNING: <owner_email_address> not set
+[26-04-16 00:41:28] Server started and is ready to accept connections!
+[26-04-16 00:41:28] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-16 00:41:28] Type 'help' for a list of commands.
+[26-04-16 00:41:29] Starting play
+[26-04-16 00:41:29] Starting internetradio
+[26-04-16 00:41:29] Starting superman
+[26-04-16 00:41:29] Starting hedit
+[26-04-16 00:41:29] Starting mapfixes
+[26-04-16 00:41:29] Starting chatmanager
+[26-04-16 00:41:29] startResource: Resource 'play' started
+[26-04-16 00:41:29] INFO: ip2c bootstrap: started 'play'
+[26-04-16 00:41:32] CONNECT: Haughtrick connected (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 00:41:33] JOIN: Haughtrick joined the game (IP: 41.249.114.117)
+[26-04-16 00:48:19] restart: Requested by Console
+[26-04-16 00:48:19] restart: Resource 'housing' restarting...
+[26-04-16 00:48:19] Stopping housing
+[26-04-16 00:48:19] Resource 'housing' changed, reloading and starting
+[26-04-16 00:48:19] Starting housing
+[26-04-16 00:48:19] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 00:48:19] housing restarted successfully
+[26-04-16 00:52:03] restart: Requested by Console
+[26-04-16 00:52:03] restart: Resource 'housing' restarting...
+[26-04-16 00:52:03] Stopping housing
+[26-04-16 00:52:03] Resource 'housing' changed, reloading and starting
+[26-04-16 00:52:03] Starting housing
+[26-04-16 00:52:03] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 00:52:03] housing restarted successfully
+[26-04-16 00:55:23] restart: Requested by Console
+[26-04-16 00:55:23] restart: Resource 'housing' restarting...
+[26-04-16 00:55:23] Stopping housing
+[26-04-16 00:55:23] Resource 'housing' changed, reloading and starting
+[26-04-16 00:55:23] Starting housing
+[26-04-16 00:55:23] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 00:55:23] housing restarted successfully
+[26-04-16 00:56:13] Stopping housing
+[26-04-16 00:56:13] Starting housing
+[26-04-16 00:56:13] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-16 00:56:13] housing restarted successfully
+[26-04-16 00:58:53] restart: Requested by Console
+[26-04-16 00:58:53] restart: Resource 'housing' restarting...
+[26-04-16 00:58:53] Stopping housing
+[26-04-16 00:58:53] Resource 'housing' changed, reloading and starting
+[26-04-16 00:58:53] Starting housing
+[26-04-16 00:58:53] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-16 00:58:53] housing restarted successfully
+[26-04-16 00:59:52] Stopping housing
+[26-04-16 00:59:52] Starting housing
+[26-04-16 00:59:52] INFO: [Housing] Loaded 9 rows, 9 valid houses.
+[26-04-16 00:59:52] housing restarted successfully
+[26-04-16 01:01:34] Stopping housing
+[26-04-16 01:01:34] Starting housing
+[26-04-16 01:01:34] INFO: [Housing] Loaded 10 rows, 10 valid houses.
+[26-04-16 01:01:34] housing restarted successfully
+[26-04-16 01:04:07] restart: Requested by Console
+[26-04-16 01:04:07] restart: Resource 'housing' restarting...
+[26-04-16 01:04:07] Stopping housing
+[26-04-16 01:04:07] Resource 'housing' changed, reloading and starting
+[26-04-16 01:04:07] Starting housing
+[26-04-16 01:04:07] INFO: [Housing] Loaded 10 rows, 10 valid houses.
+[26-04-16 01:04:07] housing restarted successfully
+[26-04-16 01:04:18] restart: Requested by Console
+[26-04-16 01:04:18] restart: Resource 'house_manager' restarting...
+[26-04-16 01:04:18] Stopping house_manager
+[26-04-16 01:04:18] Resource 'house_manager' changed, reloading and starting
+[26-04-16 01:04:18] Starting house_manager
+[26-04-16 01:04:18] house_manager restarted successfully
+[26-04-16 01:05:59] Stopping housing
+[26-04-16 01:05:59] Starting housing
+[26-04-16 01:05:59] INFO: [Housing] Loaded 9 rows, 9 valid houses.
+[26-04-16 01:05:59] housing restarted successfully
+[26-04-16 01:06:01] Stopping housing
+[26-04-16 01:06:01] Starting housing
+[26-04-16 01:06:01] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-16 01:06:01] housing restarted successfully
+[26-04-16 01:06:02] Stopping housing
+[26-04-16 01:06:02] Starting housing
+[26-04-16 01:06:02] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 01:06:02] housing restarted successfully
+[26-04-16 01:06:04] Stopping housing
+[26-04-16 01:06:04] Starting housing
+[26-04-16 01:06:04] INFO: [Housing] Loaded 6 rows, 6 valid houses.
+[26-04-16 01:06:04] housing restarted successfully
+[26-04-16 01:06:05] Stopping housing
+[26-04-16 01:06:05] Starting housing
+[26-04-16 01:06:05] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-16 01:06:05] housing restarted successfully
+[26-04-16 01:06:07] Stopping housing
+[26-04-16 01:06:07] Starting housing
+[26-04-16 01:06:07] INFO: [Housing] Loaded 4 rows, 4 valid houses.
+[26-04-16 01:06:07] housing restarted successfully
+[26-04-16 01:06:09] Stopping housing
+[26-04-16 01:06:09] Starting housing
+[26-04-16 01:06:09] INFO: [Housing] Loaded 3 rows, 3 valid houses.
+[26-04-16 01:06:09] housing restarted successfully
+[26-04-16 01:06:10] Stopping housing
+[26-04-16 01:06:10] Starting housing
+[26-04-16 01:06:10] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 01:06:10] housing restarted successfully
+[26-04-16 01:06:12] Stopping housing
+[26-04-16 01:06:12] Starting housing
+[26-04-16 01:06:12] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 01:06:12] housing restarted successfully
+[26-04-16 01:06:15] Stopping housing
+[26-04-16 01:06:15] Starting housing
+[26-04-16 01:06:15] INFO: [Housing] Loaded 0 rows, 0 valid houses.
+[26-04-16 01:06:15] housing restarted successfully
+[26-04-16 01:07:39] Stopping housing
+[26-04-16 01:07:39] Starting housing
+[26-04-16 01:07:39] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 01:07:39] housing restarted successfully
+[26-04-16 01:08:10] Stopping housing
+[26-04-16 01:08:10] Starting housing
+[26-04-16 01:08:10] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 01:08:10] housing restarted successfully
+[26-04-16 01:08:41] restart: Requested by Console
+[26-04-16 01:08:41] restart: Resource 'house_manager' restarting...
+[26-04-16 01:08:41] Stopping house_manager
+[26-04-16 01:08:41] Resource 'house_manager' changed, reloading and starting
+[26-04-16 01:08:41] Starting house_manager
+[26-04-16 01:08:41] house_manager restarted successfully
+[26-04-16 01:12:11] restart: Requested by Console
+[26-04-16 01:12:11] restart: Resource 'housing' restarting...
+[26-04-16 01:12:11] Stopping housing
+[26-04-16 01:12:11] Resource 'housing' changed, reloading and starting
+[26-04-16 01:12:11] Starting housing
+[26-04-16 01:12:11] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 01:12:11] housing restarted successfully
+[26-04-16 01:34:30] Stopping housing
+[26-04-16 01:34:30] Resource 'housing' changed, reloading and starting
+[26-04-16 01:34:30] Starting housing
+[26-04-16 01:34:30] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 01:34:30] housing restarted successfully
+[26-04-16 01:34:32] Stopping housing
+[26-04-16 01:34:32] Starting housing
+[26-04-16 01:34:32] INFO: [Housing] Loaded 0 rows, 0 valid houses.
+[26-04-16 01:34:32] housing restarted successfully
+[26-04-16 01:34:46] Stopping housing
+[26-04-16 01:34:46] Starting housing
+[26-04-16 01:34:46] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 01:34:46] housing restarted successfully
+[26-04-16 01:34:47] Stopping housing
+[26-04-16 01:34:47] Starting housing
+[26-04-16 01:34:47] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 01:34:47] housing restarted successfully
+[26-04-16 01:35:06] Stopping housing
+[26-04-16 01:35:06] Starting housing
+[26-04-16 01:35:06] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 01:35:06] housing restarted successfully
+[26-04-16 01:35:24] Stopping housing
+[26-04-16 01:35:24] Starting housing
+[26-04-16 01:35:24] INFO: [Housing] Loaded 3 rows, 3 valid houses.
+[26-04-16 01:35:24] housing restarted successfully
+[26-04-16 01:35:24] Stopping housing
+[26-04-16 01:35:24] Starting housing
+[26-04-16 01:35:24] housing restarted successfully
+[26-04-16 01:35:30] INFO: [Housing] Loaded 3 rows, 3 valid houses.
+[26-04-16 01:35:31] Stopping housing
+[26-04-16 01:35:31] Starting housing
+[26-04-16 01:35:31] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 01:35:31] housing restarted successfully
+[26-04-16 01:39:09] restart: Requested by Console
+[26-04-16 01:39:09] restart: Resource 'dbase_manager' could not be found
+[26-04-16 01:40:03] restart: Requested by Console
+[26-04-16 01:40:03] restart: Resource 'database_manager' restarting...
+[26-04-16 01:40:03] Stopping database_manager
+[26-04-16 01:40:03] Resource 'database_manager' changed, reloading and starting
+[26-04-16 01:40:03] Starting database_manager
+[26-04-16 01:40:03] database_manager restarted successfully
+[26-04-16 01:43:14] restart: Requested by Console
+[26-04-16 01:43:14] restart: Resource 'housing' restarting...
+[26-04-16 01:43:14] Stopping housing
+[26-04-16 01:43:14] Resource 'housing' changed, reloading and starting
+[26-04-16 01:43:14] Starting housing
+[26-04-16 01:43:14] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 01:43:14] housing restarted successfully
+[26-04-16 01:43:32] restart: Requested by Console
+[26-04-16 01:43:32] restart: Resource 'garage_system' restarting...
+[26-04-16 01:43:32] Stopping garage_system
+[26-04-16 01:43:32] Resource 'garage_system' changed, reloading and starting
+[26-04-16 01:43:32] Starting garage_system
+[26-04-16 01:43:32] garage_system restarted successfully
+[26-04-16 01:43:42] restart: Requested by Console
+[26-04-16 01:43:42] restart: Resource 'vehicles' restarting...
+[26-04-16 01:43:42] Stopping vehicles
+[26-04-16 01:43:42] Resource 'vehicles' changed, reloading and starting
+[26-04-16 01:43:42] Starting vehicles
+[26-04-16 01:43:42] vehicles restarted successfully
+[26-04-16 01:43:52] restart: Requested by Console
+[26-04-16 01:43:52] restart: Resource 'inventory' restarting...
+[26-04-16 01:43:52] Stopping inventory
+[26-04-16 01:43:52] Resource 'inventory' changed, reloading and starting
+[26-04-16 01:43:52] Starting inventory
+[26-04-16 01:43:52] inventory restarted successfully
+[26-04-16 01:44:01] restart: Requested by Console
+[26-04-16 01:44:01] restart: Resource 'house_manager' restarting...
+[26-04-16 01:44:01] Stopping house_manager
+[26-04-16 01:44:01] Resource 'house_manager' changed, reloading and starting
+[26-04-16 01:44:01] Starting house_manager
+[26-04-16 01:44:01] house_manager restarted successfully
+[26-04-16 02:09:33] restart: Requested by Console
+[26-04-16 02:09:33] restart: Resource 'house_manager' restarting...
+[26-04-16 02:09:33] Stopping house_manager
+[26-04-16 02:09:33] Resource 'house_manager' changed, reloading and starting
+[26-04-16 02:09:33] Starting house_manager
+[26-04-16 02:09:33] house_manager restarted successfully
+[26-04-16 02:09:37] restart: Requested by Console
+[26-04-16 02:09:37] restart: Resource 'housing' restarting...
+[26-04-16 02:09:37] Stopping housing
+[26-04-16 02:09:37] Resource 'housing' changed, reloading and starting
+[26-04-16 02:09:37] Starting housing
+[26-04-16 02:09:37] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 02:09:37] housing restarted successfully
+[26-04-16 02:09:41] restart: Requested by Console
+[26-04-16 02:09:41] restart: Resource 'garage_system' restarting...
+[26-04-16 02:09:41] Stopping garage_system
+[26-04-16 02:09:41] Resource 'garage_system' changed, reloading and starting
+[26-04-16 02:09:41] Starting garage_system
+[26-04-16 02:09:41] garage_system restarted successfully
+[26-04-16 02:10:20] Stopping housing
+[26-04-16 02:10:20] Starting housing
+[26-04-16 02:10:20] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 02:10:20] housing restarted successfully
+[26-04-16 02:10:22] Stopping housing
+[26-04-16 02:10:22] Starting housing
+[26-04-16 02:10:22] INFO: [Housing] Loaded 0 rows, 0 valid houses.
+[26-04-16 02:10:22] housing restarted successfully
+[26-04-16 02:10:33] Stopping housing
+[26-04-16 02:10:33] Starting housing
+[26-04-16 02:10:33] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 02:10:33] housing restarted successfully
+[26-04-16 02:10:33] Stopping housing
+[26-04-16 02:10:33] Starting housing
+[26-04-16 02:10:33] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 02:10:33] housing restarted successfully
+[26-04-16 02:10:38] Stopping housing
+[26-04-16 02:10:38] Starting housing
+[26-04-16 02:10:38] INFO: [Housing] Loaded 1 rows, 1 valid houses.
+[26-04-16 02:10:38] housing restarted successfully
+[26-04-16 02:11:05] Stopping housing
+[26-04-16 02:11:05] Starting housing
+[26-04-16 02:11:05] INFO: [Housing] Loaded 2 rows, 2 valid houses.
+[26-04-16 02:11:05] housing restarted successfully

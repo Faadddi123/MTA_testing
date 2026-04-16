@@ -1,232 +1,312 @@
 -- garage_system/server.lua
--- Manages garage entry, interior dimension teleport, and on-demand vehicle spawning.
--- Each property's garage uses dimension 7000 + house_id.
--- Players enter the garage exterior zone → teleported into garage interior dimension.
--- When they leave the dimension, vehicles despawn.
+-- Handles linked garage access for both legacy embedded garages and standalone garage properties.
 
--- ───────────────────────────────────────────────────────────────
--- STATE
--- ───────────────────────────────────────────────────────────────
-local garageZoneMarkers = {}   -- marker element → house_id
-local garageExitMarkers = {}   -- marker element → house_id  (inside garage)
-local garageOccupants   = {}   -- house_id → { player_element, ... }
-local garageBlips       = {}   -- blip element → house_id
+local garageZoneMarkers = {}
+local garageExitMarkers = {}
+local garageOccupants = {}
+local garageBlips = {}
+local GARAGE_EXIT_Z_OFFSET = 1.00
 
--- ───────────────────────────────────────────────────────────────
--- HELPERS
--- ───────────────────────────────────────────────────────────────
+local function centralQuery(query, ...)
+    return exports.database_manager:dbQuery(query, ...) or {}
+end
+
 local function isHousingReady()
-    local r = getResourceFromName("housing")
-    return r and getResourceState(r) == "running"
+    local resource = getResourceFromName("housing")
+    return resource and getResourceState(resource) == "running"
 end
 
 local function isVehiclesReady()
-    local r = getResourceFromName("vehicles")
-    return r and getResourceState(r) == "running"
+    local resource = getResourceFromName("vehicles")
+    return resource and getResourceState(resource) == "running"
 end
 
-local function getHouseData(houseId)
-    if not isHousingReady() then return nil end
-    return exports.housing:getHouseData(houseId)
+local function getHouseData(propertyId)
+    if not isHousingReady() then
+        return nil
+    end
+    return exports.housing:getHouseData(propertyId)
 end
 
 local function getPlayerOwnerKey(player)
     return exports.database_manager:getPlayerOwnerKey(player, true)
 end
 
-local function canAccessGarage(player, houseId)
-    local ownerKey = getPlayerOwnerKey(player)
-    if not ownerKey then return false end
-    if not isHousingReady() then return false end
-    return exports.housing:checkHouseAccess(houseId, ownerKey)
+local function isStandaloneGarage(house)
+    return house and house.property_type == "garage"
 end
 
-local function garageDimension(houseId)
-    return 7000 + houseId
-end
-
-local function getOccupantCount(houseId)
-    local occupants = garageOccupants[houseId]
-    if not occupants then return 0 end
-    local count = 0
-    for _ in pairs(occupants) do count = count + 1 end
-    return count
-end
-
--- ───────────────────────────────────────────────────────────────
--- VEHICLE MANAGEMENT
--- ───────────────────────────────────────────────────────────────
-local function onGarageEntered(houseId)
-    -- First occupant entering: spawn garage vehicles
-    if getOccupantCount(houseId) == 1 and isVehiclesReady() then
-        exports.vehicles:spawnGarageVehicles(houseId)
-        -- Teleport spawned vehicles to garage interior dimension
-        local house = getHouseData(houseId)
-        if house then
-            local garageDim = garageDimension(houseId)
-            for _, vehicle in ipairs(getElementsByType("vehicle")) do
-                if getElementDimension(vehicle) == garageDim then
-                    -- vehicle already in this dimension (freshly spawned with correct dim from DB)
-                    -- do nothing; spawnGarageVehicles sets dimension from DB record
-                end
-            end
-        end
-    end
-end
-
-local function onGarageExited(houseId)
-    -- Last occupant leaving: despawn garage vehicles
-    if getOccupantCount(houseId) == 0 and isVehiclesReady() then
-        exports.vehicles:despawnGarageVehicles(houseId)
-    end
-end
-
--- ───────────────────────────────────────────────────────────────
--- TELEPORT
--- ───────────────────────────────────────────────────────────────
-local function movePlayerIntoGarage(player, houseId)
-    local house = getHouseData(houseId)
-    if not house then return end
-
-    local garageDim = garageDimension(houseId)
-
-    -- Register as occupant
-    if not garageOccupants[houseId] then
-        garageOccupants[houseId] = {}
-    end
-    garageOccupants[houseId][player] = true
-
-    local gx = house.garage_int and house.garage_int.x or house.garage_int_x
-    local gy = house.garage_int and house.garage_int.y or house.garage_int_y
-    local gz = house.garage_int and house.garage_int.z or house.garage_int_z
-    local grot = house.garage_int and house.garage_int.rotation or house.garage_int_rot
-
-    setElementInterior(player, 0)
-    setElementDimension(player, garageDim)
-    setElementPosition(player, gx, gy, gz)
-    setPedRotation(player, grot)
-
-    outputChatBox("Garage: entered " .. house.name .. " garage. Use /exitgarage to leave.", player, 120, 200, 255, true)
-
-    onGarageEntered(houseId)
-end
-
-local function movePlayerOutOfGarage(player, houseId)
-    local house = getHouseData(houseId)
-    if not house then return end
-
-    -- Deregister occupant
-    if garageOccupants[houseId] then
-        garageOccupants[houseId][player] = nil
+local function hasLegacyGarage(house)
+    if not house or isStandaloneGarage(house) then
+        return false
     end
 
-    local gx = house.garage and house.garage.x or house.garage_x
-    local gy = house.garage and house.garage.y or house.garage_y
-    local gz = house.garage and house.garage.z or house.garage_z
-    local eint = house.exterior and house.exterior.interior or house.exterior_interior or 0
-
-    setElementInterior(player, eint)
-    setElementDimension(player, 0)
-    setElementPosition(player, gx, gy, gz)
-    setPedRotation(player, 0)
-
-    outputChatBox("Garage: exited " .. house.name .. " garage.", player, 120, 200, 255, true)
-
-    onGarageExited(houseId)
+    local garage = house.garage or {}
+    return (tonumber(garage.x) or 0) ~= 0 or (tonumber(garage.y) or 0) ~= 0 or (tonumber(garage.z) or 0) ~= 0
 end
 
-local function getGarageHouseByPlayer(player)
-    local dim = getElementDimension(player)
-    if dim < 7001 then return nil end
-    local houseId = dim - 7000
-    if garageOccupants[houseId] and garageOccupants[houseId][player] then
-        return houseId
+local function getGarageExteriorContext(house)
+    if isStandaloneGarage(house) then
+        return {
+            x = house.exterior_x,
+            y = house.exterior_y,
+            z = house.exterior_z,
+            interior = house.exterior_interior or 0,
+            dimension = 0,
+            radius = 3.0,
+        }
     end
+
+    if hasLegacyGarage(house) then
+        return {
+            x = house.garage.x,
+            y = house.garage.y,
+            z = house.garage.z,
+            interior = house.exterior_interior or 0,
+            dimension = 0,
+            radius = tonumber(house.garage.radius) or 3.0,
+        }
+    end
+
     return nil
 end
 
--- ───────────────────────────────────────────────────────────────
--- ZONE MARKERS (exterior entry zone)
--- ───────────────────────────────────────────────────────────────
+local function getGarageInteriorContext(house, propertyId)
+    if isStandaloneGarage(house) then
+        return {
+            x = house.interior_x,
+            y = house.interior_y,
+            z = house.interior_z,
+            rotation = house.interior_rot or 0,
+            interior = house.interior_interior or 0,
+            dimension = house.dimension or (7000 + propertyId),
+            exit_x = house.interior_x,
+            exit_y = house.interior_y,
+            exit_z = house.interior_z,
+        }
+    end
+
+    if hasLegacyGarage(house) then
+        return {
+            x = house.garage_int.x,
+            y = house.garage_int.y,
+            z = house.garage_int.z,
+            rotation = house.garage_int.rotation or 0,
+            interior = 0,
+            dimension = 7000 + propertyId,
+            exit_x = house.garage_int.x,
+            exit_y = house.garage_int.y - 3,
+            exit_z = house.garage_int.z,
+        }
+    end
+
+    return nil
+end
+
+local function getGarageRuntimeContext(propertyId)
+    local house = getHouseData(propertyId)
+    if not house then
+        return nil
+    end
+
+    local exterior = getGarageExteriorContext(house)
+    local interior = getGarageInteriorContext(house, propertyId)
+    if not exterior or not interior then
+        return nil
+    end
+
+    return {
+        house = house,
+        exterior = exterior,
+        interior = interior,
+    }
+end
+
+local function canAccessGarage(player, propertyId)
+    local ownerKey = getPlayerOwnerKey(player)
+    if not ownerKey or not isHousingReady() then
+        return false
+    end
+
+    local house = getHouseData(propertyId)
+    if not house or not house.owner_key or house.owner_key == "" then
+        return false
+    end
+
+    return exports.housing:checkHouseAccess(propertyId, ownerKey)
+end
+
+local function getOccupantCount(propertyId)
+    local occupants = garageOccupants[propertyId]
+    if not occupants then
+        return 0
+    end
+
+    local count = 0
+    for _ in pairs(occupants) do
+        count = count + 1
+    end
+    return count
+end
+
+local function onGarageEntered(propertyId)
+    if getOccupantCount(propertyId) == 1 and isVehiclesReady() then
+        exports.vehicles:spawnGarageVehicles(propertyId)
+    end
+end
+
+local function onGarageExited(propertyId)
+    if getOccupantCount(propertyId) == 0 and isVehiclesReady() then
+        exports.vehicles:despawnGarageVehicles(propertyId)
+    end
+end
+
+local function movePlayerIntoGarage(player, propertyId)
+    local context = getGarageRuntimeContext(propertyId)
+    if not context then
+        return
+    end
+
+    garageOccupants[propertyId] = garageOccupants[propertyId] or {}
+    garageOccupants[propertyId][player] = true
+
+    setElementInterior(player, context.interior.interior)
+    setElementDimension(player, context.interior.dimension)
+    setElementPosition(player, context.interior.x, context.interior.y, context.interior.z)
+    setPedRotation(player, context.interior.rotation)
+    setElementData(player, "garage:inside", propertyId)
+
+    outputChatBox("Garage: entered " .. context.house.name .. ". Use /exitgarage to leave.", player, 120, 200, 255, true)
+    onGarageEntered(propertyId)
+end
+
+local function movePlayerOutOfGarage(player, propertyId)
+    local context = getGarageRuntimeContext(propertyId)
+    if not context then
+        return
+    end
+
+    if garageOccupants[propertyId] then
+        garageOccupants[propertyId][player] = nil
+    end
+
+    setElementInterior(player, context.exterior.interior)
+    setElementDimension(player, context.exterior.dimension)
+    setElementPosition(player, context.exterior.x, context.exterior.y, context.exterior.z + GARAGE_EXIT_Z_OFFSET)
+    setPedRotation(player, tonumber(context.house.exterior_rot) or 0)
+    setElementData(player, "garage:inside", false)
+
+    outputChatBox("Garage: exited " .. context.house.name .. ".", player, 120, 200, 255, true)
+    onGarageExited(propertyId)
+end
+
+local function getGaragePropertyByPlayer(player)
+    local propertyId = tonumber(getElementData(player, "garage:inside"))
+    if not propertyId then
+        return nil
+    end
+
+    if garageOccupants[propertyId] and garageOccupants[propertyId][player] then
+        return propertyId
+    end
+
+    return nil
+end
+
 local function destroyGarageElements()
     for marker in pairs(garageZoneMarkers) do
-        if isElement(marker) then destroyElement(marker) end
+        if isElement(marker) then
+            destroyElement(marker)
+        end
     end
     for marker in pairs(garageExitMarkers) do
-        if isElement(marker) then destroyElement(marker) end
+        if isElement(marker) then
+            destroyElement(marker)
+        end
     end
     for blip in pairs(garageBlips) do
-        if isElement(blip) then destroyElement(blip) end
+        if isElement(blip) then
+            destroyElement(blip)
+        end
     end
+
     garageZoneMarkers = {}
     garageExitMarkers = {}
-    garageBlips       = {}
+    garageBlips = {}
 end
 
 local function buildGarageElements()
     if not isHousingReady() then
         setTimer(function()
-            if isHousingReady() then buildGarageElements() end
+            if isHousingReady() then
+                buildGarageElements()
+            end
         end, 2000, 1)
         return
     end
 
     destroyGarageElements()
 
-    -- Iterate all house IDs 1..30
-    for houseId = 1, 30 do
-        local house = getHouseData(houseId)
-        if house then
-            local gx = house.garage and house.garage.x or house.garage_x
-            local gy = house.garage and house.garage.y or house.garage_y
-            local gz = house.garage and house.garage.z or house.garage_z
+    local rows = centralQuery([[
+        SELECT id
+        FROM houses
+        WHERE property_type = 'garage'
+           OR garage_x != 0
+           OR garage_y != 0
+           OR garage_z != 0
+        ORDER BY id ASC
+    ]])
 
-            if gx and gy and gz then
-                -- Exterior entry marker (on world)
-                local entryMarker = createMarker(
-                    gx, gy, gz - 1,
-                    "cylinder", 3.0, 80, 120, 255, 100
-                )
-                local eint = house.exterior and house.exterior.interior or house.exterior_interior or 0
-                setElementInterior(entryMarker, eint)
-                setElementDimension(entryMarker, 0)
-                setElementData(entryMarker, "garage:houseId", houseId, false)
-                setElementParent(entryMarker, resourceRoot)
-                garageZoneMarkers[entryMarker] = houseId
+    for _, row in ipairs(rows) do
+        local propertyId = tonumber(row.id)
+        local context = propertyId and getGarageRuntimeContext(propertyId) or nil
+        if context then
+            local entryMarker = createMarker(
+                context.exterior.x,
+                context.exterior.y,
+                context.exterior.z - 1,
+                "cylinder",
+                context.exterior.radius,
+                80,
+                120,
+                255,
+                100
+            )
+            setElementInterior(entryMarker, context.exterior.interior)
+            setElementDimension(entryMarker, context.exterior.dimension)
+            setElementData(entryMarker, "garage:houseId", propertyId, false)
+            setElementParent(entryMarker, resourceRoot)
+            garageZoneMarkers[entryMarker] = propertyId
 
-                -- Garage interior exit marker (inside garage dimension)
-                local garageDim = garageDimension(houseId)
-                local gix = house.garage_int and house.garage_int.x or house.garage_int_x
-                local giy = house.garage_int and house.garage_int.y or house.garage_int_y
-                local giz = house.garage_int and house.garage_int.z or house.garage_int_z
-                local exitMx = gix
-                local exitMy = giy - 3  -- slightly behind spawn point
-                local exitMz = giz - 1
+            local exitMarker = createMarker(
+                context.interior.exit_x,
+                context.interior.exit_y,
+                context.interior.exit_z - 1,
+                "arrow",
+                1.5,
+                255,
+                60,
+                60,
+                150
+            )
+            setElementInterior(exitMarker, context.interior.interior)
+            setElementDimension(exitMarker, context.interior.dimension)
+            setElementData(exitMarker, "garage:houseId", propertyId, false)
+            setElementParent(exitMarker, resourceRoot)
+            garageExitMarkers[exitMarker] = propertyId
 
-                local exitMarker = createMarker(exitMx, exitMy, exitMz, "arrow", 1.5, 255, 60, 60, 150)
-                setElementInterior(exitMarker, 0)
-                setElementDimension(exitMarker, garageDim)
-                setElementData(exitMarker, "garage:houseId", houseId, false)
-                setElementParent(exitMarker, resourceRoot)
-                garageExitMarkers[exitMarker] = houseId
-
-                -- Blip for the garage
-                local blip = createBlip(gx, gy, gz, 55, 1, 80, 120, 255, 200, 0, 150)
-                setElementInterior(blip, eint)
-                setElementDimension(blip, 0)
-                setElementParent(blip, resourceRoot)
-                garageBlips[blip] = houseId
-            end
+            local blip = createBlip(context.exterior.x, context.exterior.y, context.exterior.z, 55, 1, 80, 120, 255, 200, 0, 150)
+            setElementInterior(blip, context.exterior.interior)
+            setElementDimension(blip, context.exterior.dimension)
+            setElementParent(blip, resourceRoot)
+            garageBlips[blip] = propertyId
         end
     end
 end
 
--- ───────────────────────────────────────────────────────────────
--- PARK VEHICLE IN GARAGE
--- ───────────────────────────────────────────────────────────────
 addCommandHandler("parkgarage", function(player)
-    local houseId = getGarageHouseByPlayer(player)
-    if not houseId then
+    local propertyId = getGaragePropertyByPlayer(player)
+    if not propertyId then
         outputChatBox("Garage: you are not inside a garage.", player, 255, 80, 80, true)
         return
     end
@@ -241,94 +321,74 @@ addCommandHandler("parkgarage", function(player)
         return
     end
 
-    -- Call the vehicles resource directly (server→server export)
-    exports.vehicles:parkVehicle(player, houseId)
+    exports.vehicles:parkVehicle(player, propertyId)
 end)
 
--- ───────────────────────────────────────────────────────────────
--- EXIT COMMAND
--- ───────────────────────────────────────────────────────────────
 addCommandHandler("exitgarage", function(player)
-    local houseId = getGarageHouseByPlayer(player)
-    if not houseId then
+    local propertyId = getGaragePropertyByPlayer(player)
+    if not propertyId then
         outputChatBox("Garage: you are not inside a garage.", player, 255, 80, 80, true)
         return
     end
 
-    movePlayerOutOfGarage(player, houseId)
+    movePlayerOutOfGarage(player, propertyId)
 end)
 
--- ───────────────────────────────────────────────────────────────
--- MARKER EVENTS
--- ───────────────────────────────────────────────────────────────
 addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimension)
-    if not matchingDimension or getElementType(hitElement) ~= "player" then return end
+    if not matchingDimension or getElementType(hitElement) ~= "player" then
+        return
+    end
+
     local player = hitElement
 
-    -- Entry marker (exterior)
-    local entryHouseId = garageZoneMarkers[source]
-    if entryHouseId then
-        -- Don't teleport if already in a garage
-        if getElementDimension(player) ~= 0 then return end
-
-        if not canAccessGarage(player, entryHouseId) then
-            outputChatBox("Garage: this garage is locked. You need a property key.", player, 255, 80, 80, true)
+    local entryPropertyId = garageZoneMarkers[source]
+    if entryPropertyId then
+        if getElementData(player, "garage:inside") then
             return
         end
 
-        movePlayerIntoGarage(player, entryHouseId)
+        if not canAccessGarage(player, entryPropertyId) then
+            outputChatBox("Garage: buy or unlock this garage before entering it.", player, 255, 80, 80, true)
+            return
+        end
+
+        movePlayerIntoGarage(player, entryPropertyId)
         return
     end
 
-    -- Exit marker (inside garage dimension)
-    local exitHouseId = garageExitMarkers[source]
-    if exitHouseId then
-        movePlayerOutOfGarage(player, exitHouseId)
-        return
+    local exitPropertyId = garageExitMarkers[source]
+    if exitPropertyId then
+        movePlayerOutOfGarage(player, exitPropertyId)
     end
 end)
 
--- ───────────────────────────────────────────────────────────────
--- CLEANUP ON QUIT/DISCONNECT
--- ───────────────────────────────────────────────────────────────
 addEventHandler("onPlayerQuit", root, function()
     local player = source
-    for houseId, occupants in pairs(garageOccupants) do
+    for propertyId, occupants in pairs(garageOccupants) do
         if occupants[player] then
             occupants[player] = nil
-            onGarageExited(houseId)
+            onGarageExited(propertyId)
         end
     end
 end)
 
--- ───────────────────────────────────────────────────────────────
--- RESOURCE EVENTS
--- ───────────────────────────────────────────────────────────────
 addEventHandler("onResourceStart", resourceRoot, function()
-    -- Wait briefly for housing to finish loading its houses
     setTimer(buildGarageElements, 1500, 1)
 end)
 
 addEventHandler("onResourceStop", resourceRoot, function()
     destroyGarageElements()
 
-    -- Remove all players from garages
-    for houseId, occupants in pairs(garageOccupants) do
+    for propertyId, occupants in pairs(garageOccupants) do
         for player in pairs(occupants) do
             if isElement(player) then
-                local house = getHouseData(houseId)
-                if house then
-                    local eint = house.exterior and house.exterior.interior or house.exterior_interior or 0
-                    local gx = house.garage and house.garage.x or house.garage_x
-                    local gy = house.garage and house.garage.y or house.garage_y
-                    local gz = house.garage and house.garage.z or house.garage_z
-                    
-                    setElementInterior(player, eint)
-                    setElementDimension(player, 0)
-                    if gx and gy and gz then
-                        setElementPosition(player, gx, gy, gz)
-                    end
+                local context = getGarageRuntimeContext(propertyId)
+                if context then
+                    setElementInterior(player, context.exterior.interior)
+                    setElementDimension(player, context.exterior.dimension)
+                    setElementPosition(player, context.exterior.x, context.exterior.y, context.exterior.z + GARAGE_EXIT_Z_OFFSET)
                 end
+                setElementData(player, "garage:inside", false)
             end
         end
     end
@@ -336,7 +396,6 @@ addEventHandler("onResourceStop", resourceRoot, function()
     garageOccupants = {}
 end)
 
--- Re-build if housing restarts
 addEventHandler("onResourceStart", root, function(startedResource)
     if getResourceName(startedResource) == "housing" then
         setTimer(buildGarageElements, 1500, 1)

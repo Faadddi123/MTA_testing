@@ -282,6 +282,7 @@ addEventHandler("onResourceStart", resourceRoot, function()
             name TEXT NOT NULL,
             price INTEGER NOT NULL DEFAULT 0,
             property_type TEXT NOT NULL DEFAULT 'house',
+            linked_property_id INTEGER,
             owner_key TEXT,
             owner_account TEXT,
             locked INTEGER NOT NULL DEFAULT 1,
@@ -322,6 +323,9 @@ addEventHandler("onResourceStart", resourceRoot, function()
     for _, col in ipairs(colCheck) do existingCols[col.name] = true end
     if not existingCols["property_type"] then
         dbExecute("ALTER TABLE houses ADD COLUMN property_type TEXT NOT NULL DEFAULT 'house'")
+    end
+    if not existingCols["linked_property_id"] then
+        dbExecute("ALTER TABLE houses ADD COLUMN linked_property_id INTEGER")
     end
     if not existingCols["garage_int_x"] then
         dbExecute("ALTER TABLE houses ADD COLUMN garage_int_x REAL NOT NULL DEFAULT 0")
