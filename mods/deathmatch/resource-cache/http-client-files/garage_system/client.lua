@@ -8,7 +8,11 @@ local nearGarageMarkerType = nil
 local MAX_DISTANCE = 8
 
 local function isInGarageDimension()
-    return tonumber(getElementData(localPlayer, "garage:inside")) ~= nil
+    local val = getElementData(localPlayer, "garage:inside")
+    if not val or val == false or val == "" then
+        return false
+    end
+    return true
 end
 
 local function canTrigger()

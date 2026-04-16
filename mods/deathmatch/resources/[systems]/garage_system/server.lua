@@ -5,7 +5,8 @@ local garageZoneMarkers = {}
 local garageExitMarkers = {}
 local garageOccupants = {}
 local garageBlips = {}
-local GARAGE_EXIT_Z_OFFSET = 1.00
+local recentEntrants = {}
+local GARAGE_EXIT_Z_OFFSET = 0.00
 
 local function debugGarage(player, message)
     if not isElement(player) or getElementType(player) ~= "player" then
@@ -180,10 +181,18 @@ local function onGarageExited(propertyId)
 end
 
 local function movePlayerIntoGarage(player, propertyId)
+    local now = getTickCount()
+    local lastEnterTick = recentEntrants[player]
+    if lastEnterTick and (now - lastEnterTick) < 2000 then
+        return
+    end
+
     local context = getGarageRuntimeContext(propertyId)
     if not context then
         return
     end
+
+    recentEntrants[player] = now
 
     garageOccupants[propertyId] = garageOccupants[propertyId] or {}
     garageOccupants[propertyId][player] = true
@@ -306,7 +315,7 @@ local function buildGarageElements()
             local entryMarker = createMarker(
                 context.exterior.x,
                 context.exterior.y,
-                context.exterior.z + 0.5,
+                context.exterior.z - 0.3,
                 "cylinder",
                 context.exterior.radius,
                 80,
@@ -324,7 +333,7 @@ local function buildGarageElements()
             local exitMarker = createMarker(
                 context.interior.exit_x,
                 context.interior.exit_y,
-                context.interior.exit_z + 0.5,
+                context.interior.exit_z - 0.3,
                 "arrow",
                 1.5,
                 255,

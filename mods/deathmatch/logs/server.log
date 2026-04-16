@@ -2311,3 +2311,36 @@
 [26-04-16 04:43:50] Starting housing
 [26-04-16 04:43:50] INFO: [Housing] Loaded 9 rows, 9 valid houses.
 [26-04-16 04:43:50] housing restarted successfully
+[26-04-16 05:01:34] restart: Requested by Console
+[26-04-16 05:01:34] restart: Resource 'house_manager' restarting...
+[26-04-16 05:01:34] Stopping house_manager
+[26-04-16 05:01:34] Resource 'house_manager' changed, reloading and starting
+[26-04-16 05:01:34] Starting house_manager
+[26-04-16 05:01:34] house_manager restarted successfully
+[26-04-16 05:01:38] restart: Requested by Console
+[26-04-16 05:01:38] restart: Resource 'garage_system' restarting...
+[26-04-16 05:01:38] Stopping garage_system
+[26-04-16 05:01:38] Resource 'garage_system' changed, reloading and starting
+[26-04-16 05:01:38] Starting garage_system
+[26-04-16 05:01:38] garage_system restarted successfully
+[26-04-16 05:01:41] restart: Requested by Console
+[26-04-16 05:01:41] restart: Resource 'housing' restarting...
+[26-04-16 05:01:41] Stopping housing
+[26-04-16 05:01:41] Starting housing
+[26-04-16 05:01:41] INFO: [Housing] Loaded 9 rows, 9 valid houses.
+[26-04-16 05:01:41] housing restarted successfully
+[26-04-16 05:01:46] restart: Requested by Console
+[26-04-16 05:01:46] restart: Resource 'inventory' restarting...
+[26-04-16 05:01:46] Stopping inventory
+[26-04-16 05:01:46] Starting inventory
+[26-04-16 05:01:46] inventory restarted successfully
+[26-04-16 05:02:24] Stopping housing
+[26-04-16 05:02:24] Starting housing
+[26-04-16 05:02:24] INFO: [Housing] Loaded 10 rows, 10 valid houses.
+[26-04-16 05:02:24] housing restarted successfully
+[26-04-16 05:02:56] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 05:03:17] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 05:03:22] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 05:03:28] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 05:03:29] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 05:04:09] CHAT: Haughtrick : clear
