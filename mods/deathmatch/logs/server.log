@@ -2281,3 +2281,10 @@
 [26-04-16 03:14:49] Starting garage_system
 [26-04-16 03:14:49] garage_system restarted successfully
 [26-04-16 03:15:32] QUIT: tipr left the game [Quit] 
+[26-04-16 04:01:31] Stopping housing
+[26-04-16 04:01:31] Starting housing
+[26-04-16 04:01:31] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-16 04:01:31] housing restarted successfully
+[26-04-16 04:01:39] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 04:02:52] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]
+[26-04-16 04:02:56] WARNING: [systems]/house_manager/server.lua:334: Bad usage @ 'setElementDimension' [Invalid dimension range specified!]

@@ -298,7 +298,7 @@ local function buildGarageElements()
             local entryMarker = createMarker(
                 context.exterior.x,
                 context.exterior.y,
-                context.exterior.z - 1,
+                context.exterior.z + 0.5,
                 "cylinder",
                 context.exterior.radius,
                 80,
@@ -316,7 +316,7 @@ local function buildGarageElements()
             local exitMarker = createMarker(
                 context.interior.exit_x,
                 context.interior.exit_y,
-                context.interior.exit_z - 1,
+                context.interior.exit_z + 0.5,
                 "arrow",
                 1.5,
                 255,
