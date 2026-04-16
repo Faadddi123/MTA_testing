@@ -2258,3 +2258,26 @@
 [26-04-16 02:57:29] Starting housing
 [26-04-16 02:57:29] INFO: [Housing] Loaded 7 rows, 7 valid houses.
 [26-04-16 02:57:29] housing restarted successfully
+[26-04-16 03:13:30] restart: Requested by Console
+[26-04-16 03:13:30] restart: Resource 'housing' restarting...
+[26-04-16 03:13:30] Stopping housing
+[26-04-16 03:13:30] Starting housing
+[26-04-16 03:13:30] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-16 03:13:30] housing restarted successfully
+[26-04-16 03:13:33] restart: Requested by Console
+[26-04-16 03:13:33] restart: Resource 'house_manager' restarting...
+[26-04-16 03:13:33] Stopping house_manager
+[26-04-16 03:13:33] Starting house_manager
+[26-04-16 03:13:33] house_manager restarted successfully
+[26-04-16 03:13:36] restart: Requested by Console
+[26-04-16 03:13:36] restart: Resource 'inventory' restarting...
+[26-04-16 03:13:36] Stopping inventory
+[26-04-16 03:13:36] Starting inventory
+[26-04-16 03:13:36] inventory restarted successfully
+[26-04-16 03:14:49] restart: Requested by Console
+[26-04-16 03:14:49] restart: Resource 'garage_system' restarting...
+[26-04-16 03:14:49] Stopping garage_system
+[26-04-16 03:14:49] Resource 'garage_system' changed, reloading and starting
+[26-04-16 03:14:49] Starting garage_system
+[26-04-16 03:14:49] garage_system restarted successfully
+[26-04-16 03:15:32] QUIT: tipr left the game [Quit] 

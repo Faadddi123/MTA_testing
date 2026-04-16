@@ -210,6 +210,30 @@ local function movePlayerOutOfGarage(player, propertyId)
     onGarageExited(propertyId)
 end
 
+local function getNearbyGarageEntryPropertyId(player)
+    for marker, propertyId in pairs(garageZoneMarkers) do
+        if isElement(marker) and isElementWithinMarker(player, marker)
+            and getElementDimension(player) == getElementDimension(marker)
+            and getElementInterior(player) == getElementInterior(marker) then
+            return propertyId
+        end
+    end
+
+    return nil
+end
+
+local function getNearbyGarageExitPropertyId(player)
+    for marker, propertyId in pairs(garageExitMarkers) do
+        if isElement(marker) and isElementWithinMarker(player, marker)
+            and getElementDimension(player) == getElementDimension(marker)
+            and getElementInterior(player) == getElementInterior(marker) then
+            return propertyId
+        end
+    end
+
+    return nil
+end
+
 local function getGaragePropertyByPlayer(player)
     local propertyId = tonumber(getElementData(player, "garage:inside"))
     if not propertyId then
@@ -285,6 +309,7 @@ local function buildGarageElements()
             setElementInterior(entryMarker, context.exterior.interior)
             setElementDimension(entryMarker, context.exterior.dimension)
             setElementData(entryMarker, "garage:houseId", propertyId, false)
+            setElementData(entryMarker, "garage:markerType", "entry", false)
             setElementParent(entryMarker, resourceRoot)
             garageZoneMarkers[entryMarker] = propertyId
 
@@ -302,6 +327,7 @@ local function buildGarageElements()
             setElementInterior(exitMarker, context.interior.interior)
             setElementDimension(exitMarker, context.interior.dimension)
             setElementData(exitMarker, "garage:houseId", propertyId, false)
+            setElementData(exitMarker, "garage:markerType", "exit", false)
             setElementParent(exitMarker, resourceRoot)
             garageExitMarkers[exitMarker] = propertyId
 
@@ -407,6 +433,53 @@ addEventHandler("onPlayerQuit", root, function()
             onGarageExited(propertyId)
         end
     end
+end)
+
+addEvent("garage:requestEnter", true)
+addEventHandler("garage:requestEnter", root, function(requestedPropertyId)
+    local player = client
+    if not isElement(player) or getElementType(player) ~= "player" or isPedInVehicle(player) then
+        return
+    end
+
+    if getElementData(player, "garage:inside") then
+        return
+    end
+
+    local propertyId = getNearbyGarageEntryPropertyId(player)
+    if not propertyId then
+        return
+    end
+
+    if requestedPropertyId and tonumber(requestedPropertyId) and tonumber(requestedPropertyId) ~= tonumber(propertyId) then
+        debugGarage(player, "requestEnter ignored mismatched client property id.")
+    end
+
+    if not canAccessGarage(player, propertyId) then
+        outputChatBox("Garage: buy or unlock this garage before entering it.", player, 255, 80, 80, true)
+        return
+    end
+
+    movePlayerIntoGarage(player, propertyId)
+end)
+
+addEvent("garage:requestExit", true)
+addEventHandler("garage:requestExit", root, function(requestedPropertyId)
+    local player = client
+    if not isElement(player) or getElementType(player) ~= "player" or isPedInVehicle(player) then
+        return
+    end
+
+    local propertyId = getNearbyGarageExitPropertyId(player)
+    if not propertyId then
+        return
+    end
+
+    if requestedPropertyId and tonumber(requestedPropertyId) and tonumber(requestedPropertyId) ~= tonumber(propertyId) then
+        debugGarage(player, "requestExit ignored mismatched client property id.")
+    end
+
+    movePlayerOutOfGarage(player, propertyId)
 end)
 
 addEventHandler("onResourceStart", resourceRoot, function()
