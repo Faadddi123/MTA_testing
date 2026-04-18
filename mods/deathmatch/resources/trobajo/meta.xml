@@ -1,0 +1,23 @@
+<meta>
+    <info author="Mcnciolas208" name="Trabajo Fabricante Drogas" version="4.0" type="script" />
+    <script src="Cliente/client.luac" type="client" />
+    <script src="Cliente/CargarDatos.luac" type="client" />
+    <script src="Cliente/TextosMark.luac" type="client" />
+    <script src="Paneles/MejorasPlantaciones.luac" type="client" />
+    <script src="Paneles/Plantaciones.luac" type="client" />
+    <script src="Paneles/MejorasFabrica.luac" type="client" />
+    <script src="Paneles/Ayuda.luac" type="client" />
+    <script src="Paneles/Drogas.luac" type="client" />
+    <script src="Paneles/Fabrica.luac" type="client" />
+    <script src="Paneles/VentaGasolina.luac" type="client" />
+    <script src="Paneles/VentaQuimicoA.luac" type="client" />
+    <script src="Paneles/VentaQuimicoB.luac" type="client" />
+    <script src="Paneles/VentaSemillas.luac" type="client" />
+    <script src="Server/server.luac" type="server" />
+    <script src="Server/seguridadDatos.luac" type="server" />
+    <map src="Mapas/Granja.map" dimension="-1"></map>
+    <map src="Mapas/Fabrica.map" dimension="-1"></map>
+    <config src="config.xml" type="client" />
+    <file src="Imagenes/Mapa.png" />
+    <include resource="trabajos" />
+</meta>

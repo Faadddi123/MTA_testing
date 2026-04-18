@@ -1,0 +1,6 @@
+<map edf:definitions="editor_main">
+    <object id="object (cw_combbarn) (1)" breakable="false" interior="0" alpha="255" dimension="-1" model="17324" scale="1" doublesided="false" collisions="true" posX="-75.7" posY="88.3" posZ="-65.8" rotX="0" rotY="0" rotZ="90"></object>
+    <object id="object (vegasNbball1) (1)" breakable="false" interior="0" alpha="255" dimension="-1" model="6959" scale="1" doublesided="false" collisions="true" posX="-74.5" posY="89.9" posZ="-65.8" rotX="0" rotY="0" rotZ="0"></object>
+    <object id="object (vegasNbball1) (2)" breakable="false" interior="0" alpha="255" dimension="-1" model="6959" scale="1" doublesided="false" collisions="true" posX="-63.9" posY="89.3" posZ="-65.8" rotX="90" rotY="20.705" rotZ="69.295"></object>
+    <object id="object (DYN_GARAGE_DOOR) (1)" breakable="false" interior="0" alpha="255" dimension="-1" model="1508" scale="1" doublesided="false" collisions="true" posX="-63.9" posY="88.7" posZ="-64.1" rotX="0" rotY="0" rotZ="0"></object>
+</map>

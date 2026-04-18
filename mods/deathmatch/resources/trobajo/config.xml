@@ -1,0 +1,16 @@
+<root>
+	<PrecioGasolina>5000</PrecioGasolina>	
+	<PrecioSemillas>8000</PrecioSemillas>
+	<PrecioQuimicoA>6000</PrecioQuimicoA>
+	<PrecioQuimicoB>7000</PrecioQuimicoB>
+	<PrecioMejoraPlantacionDragon>40000</PrecioMejoraPlantacionDragon>
+	<PrecioMejoraPlantacionVelGer>100000</PrecioMejoraPlantacionVelGer>
+	<PrecioMejoraPlantacionPlanta>130000</PrecioMejoraPlantacionPlanta>
+	<PrecioMejoraPlantacionProduc>250000</PrecioMejoraPlantacionProduc>
+	<PrecioMejoraFabricaVelProducSala1>100000</PrecioMejoraFabricaVelProducSala1>
+	<PrecioMejoraFabricaProducSala1>350000</PrecioMejoraFabricaProducSala1>
+	<PrecioMejoraFabrica2Sala>500000</PrecioMejoraFabrica2Sala>
+	<PrecioMejoraFabrica2Maqui>400000</PrecioMejoraFabrica2Maqui>
+	<BindPanelDroga>F3</BindPanelDroga>
+	<BindPanelAyuda>F7</BindPanelAyuda>
+</root>
