@@ -2629,3 +2629,679 @@
 [26-04-16 16:53:50] INFO: [Housing] Loaded 11 rows, 11 valid houses.
 [26-04-16 16:53:50] LOGIN: (Admin) Haughtrick successfully logged in as 'Haughtrick' (IP: 41.249.114.117  Serial: CC88B5C12B6DECB097FC15B7809584E4)
 [26-04-16 17:20:51] CHAT: Haughtrick : z
+[26-04-16 19:09:29] restart: Requested by Console
+[26-04-16 19:09:29] restart: Resource 'interiors' restarting...
+[26-04-16 19:09:29] Stopping interiors
+[26-04-16 19:09:29] Starting interiors
+[26-04-16 19:09:29] interiors restarted successfully
+[26-04-16 19:10:01] start: Requested by Haughtrick
+[26-04-16 19:39:18] QUIT: Haughtrick left the game [Timed out] 
+[26-04-16 19:39:21] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 19:39:21] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 20:20:28] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-16 20:20:28] Resources: 214 loaded, 0 failed
+[26-04-16 20:20:28] Starting resources...
+[26-04-16 20:20:28] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-16 20:20:28] startResource: Resource 'ip2c' started
+[26-04-16 20:20:29] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-16 20:20:29] Some files in 'interiors' use deprecated functions.
+[26-04-16 20:20:29] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-16 20:20:29] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-16 20:20:29] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-16 20:20:29] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-16 20:20:29] WARNING: <owner_email_address> not set
+[26-04-16 20:20:29] Server started and is ready to accept connections!
+[26-04-16 20:20:29] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-16 20:20:29] Type 'help' for a list of commands.
+[26-04-16 20:20:29] Starting play
+[26-04-16 20:20:29] Starting internetradio
+[26-04-16 20:20:30] Starting superman
+[26-04-16 20:20:30] Starting hedit
+[26-04-16 20:20:30] Starting mapfixes
+[26-04-16 20:20:30] Starting chatmanager
+[26-04-16 20:20:30] startResource: Resource 'play' started
+[26-04-16 20:20:30] INFO: ip2c bootstrap: started 'play'
+[26-04-16 20:20:32] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 20:20:32] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 20:53:48] Server stopped!
+[26-04-16 20:53:48] Stopping resources.....................
+[26-04-16 20:53:49] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 32
+= HTTP port        : 22006
+= Voice Chat       : Disabled
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 20:53:52] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-16 20:53:52] Resources: 214 loaded, 0 failed
+[26-04-16 20:53:52] Starting resources...
+[26-04-16 20:53:52] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-16 20:53:52] startResource: Resource 'ip2c' started
+[26-04-16 20:53:52] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState before Tuesday.
+[26-04-16 20:53:52] Some files in 'interiors' use deprecated functions.
+[26-04-16 20:53:52] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-16 20:53:53] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-16 20:53:53] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-16 20:53:53] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-16 20:53:53] WARNING: <owner_email_address> not set
+[26-04-16 20:53:53] Server started and is ready to accept connections!
+[26-04-16 20:53:53] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-16 20:53:53] Type 'help' for a list of commands.
+[26-04-16 20:53:53] Starting play
+[26-04-16 20:53:53] Starting internetradio
+[26-04-16 20:53:53] Starting superman
+[26-04-16 20:53:53] Starting hedit
+[26-04-16 20:53:53] Starting mapfixes
+[26-04-16 20:53:53] Starting chatmanager
+[26-04-16 20:53:53] startResource: Resource 'play' started
+[26-04-16 20:53:53] INFO: ip2c bootstrap: started 'play'
+[26-04-16 20:53:56] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 20:53:57] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 21:18:51] restart: Requested by Console
+[26-04-16 21:18:51] restart: Resource 'interiors' restarting...
+[26-04-16 21:18:51] Stopping interiors
+[26-04-16 21:18:51] Starting interiors
+[26-04-16 21:18:51] interiors restarted successfully
+[26-04-16 22:33:58] start: Requested by Haughtrick(guest)
+[26-04-16 22:33:58] Starting editor
+[26-04-16 22:33:58] Starting mapmanager
+[26-04-16 22:33:58] mapmanager: Running gamemode "play" found
+[26-04-16 22:33:58] mapmanager: Stopping running map "open_interiors"
+[26-04-16 22:33:58] mapmanager: Running gamemode has no compatible maps
+[26-04-16 22:33:58] Starting edf
+[26-04-16 22:33:58] Starting editor_main
+[26-04-16 22:33:58] Starting freecam
+[26-04-16 22:33:58] Starting move_freecam
+[26-04-16 22:33:58] Starting move_cursor
+[26-04-16 22:33:58] Starting move_keyboard
+[26-04-16 22:33:58] 'FREEROAM' resource is currently running.  The resource has been shut off as a precaution!
+[26-04-16 22:33:58] WARNING: [editor]/edf/edf.lua:219: Access denied @ 'xmlLoadFile' [ModifyOtherObjects in ACL denied resource edf to access editor_main]
+[26-04-16 22:33:58] ERROR: [editor]/edf/edf.lua:221: editor_main: couldn't load edf file
+[26-04-16 22:33:58] Starting editor_gui
+[26-04-16 22:33:58] Starting dialogs
+[26-04-16 22:33:58] Starting tooltip
+[26-04-16 22:33:58] Stopping open_interiors
+[26-04-16 22:33:58] Stopping play
+[26-04-16 22:33:58] Stopping internetradio
+[26-04-16 22:33:58] Stopping superman
+[26-04-16 22:33:58] Stopping hedit
+[26-04-16 22:33:58] Stopping mapfixes
+[26-04-16 22:33:58] Stopping chatmanager
+[26-04-16 22:33:58] Stopping freeroam
+[26-04-16 22:33:58] Stopping playerblips
+[26-04-16 22:33:59] WARNING: [editor]/editor_main/server/resourcehooks.lua:94: Access denied @ 'xmlLoadFile' [ModifyOtherObjects in ACL denied resource editor_main to access editor_dump]
+[26-04-16 22:33:59] ERROR: [editor]/editor_main/server/util.lua:123: [editor]/editor_main/server/resourcehooks.lua:4: bad argument #1 to 'ipairs' (table expected, got boolean) [string "?"]
+[26-04-16 22:33:59] ERROR: [editor]/editor_main/server/util.lua:125: [editor]/editor_main/server/resourcehooks.lua:4: bad argument #1 to 'ipairs' (table expected, got boolean)
+[26-04-16 22:35:41] start: Requested by Haughtrick(guest)
+[26-04-16 22:55:45] Server stopped!
+[26-04-16 22:55:45] Stopping resources............
+[26-04-16 22:55:45] WARNING: [systems]/interiors/interiorexp.lua:24: Bad argument @ 'destroyElement' [Expected element at argument 1]
+[26-04-16 22:55:45] WARNING: [systems]/interiors/interiorexp.lua:25: Bad argument @ 'destroyElement' [Expected element at argument 1]
+[26-04-16 22:55:46] WARNING: [systems]/interiors/interiorexp.lua:24: Bad argument @ 'destroyElement' [Expected element at argument 1]  [DUP x218]
+[26-04-16 22:55:46] WARNING: [systems]/interiors/interiorexp.lua:25: Bad argument @ 'destroyElement' [Expected element at argument 1]  [DUP x218]
+[26-04-16 22:55:46] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-16 22:55:48] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-16 22:55:48] Resources: 215 loaded, 0 failed
+[26-04-16 22:55:48] Starting resources...
+[26-04-16 22:55:49] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-16 22:55:49] startResource: Resource 'ip2c' started
+[26-04-16 22:55:49] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-16 22:55:49] Some files in 'interiors' use deprecated functions.
+[26-04-16 22:55:49] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-16 22:55:49] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-16 22:55:49] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-16 22:55:49] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-16 22:55:49] WARNING: <owner_email_address> not set
+[26-04-16 22:55:49] Server started and is ready to accept connections!
+[26-04-16 22:55:49] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-16 22:55:49] Type 'help' for a list of commands.
+[26-04-16 22:55:50] Starting play
+[26-04-16 22:55:50] Starting internetradio
+[26-04-16 22:55:50] Starting superman
+[26-04-16 22:55:50] Starting hedit
+[26-04-16 22:55:50] Starting mapfixes
+[26-04-16 22:55:50] Starting chatmanager
+[26-04-16 22:55:50] startResource: Resource 'play' started
+[26-04-16 22:55:50] INFO: ip2c bootstrap: started 'play'
+[26-04-16 22:55:57] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 22:55:58] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 23:21:45] CONNECT: tipr connected (IP: 102.97.175.56  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 23:21:46] JOIN: tipr joined the game (IP: 102.97.175.56)
+[26-04-16 23:26:30] QUIT: Haughtrick left the game [Quit] 
+[26-04-16 23:26:30] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 23:26:31] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 23:37:33] ACCOUNTS: Haughtrick registered account 'tipr' (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4)
+[26-04-16 23:38:11] start: Requested by tipr(guest)
+[26-04-16 23:38:11] Starting editor
+[26-04-16 23:38:11] Starting mapmanager
+[26-04-16 23:38:11] mapmanager: Running gamemode "play" found
+[26-04-16 23:38:11] mapmanager: Stopping running map "open_interiors"
+[26-04-16 23:38:11] mapmanager: Running gamemode has no compatible maps
+[26-04-16 23:38:11] Starting edf
+[26-04-16 23:38:11] Starting editor_main
+[26-04-16 23:38:11] Starting freecam
+[26-04-16 23:38:11] Starting move_freecam
+[26-04-16 23:38:11] Starting move_cursor
+[26-04-16 23:38:11] Starting move_keyboard
+[26-04-16 23:38:11] 'FREEROAM' resource is currently running.  The resource has been shut off as a precaution!
+[26-04-16 23:38:11] WARNING: [editor]/edf/edf.lua:219: Access denied @ 'xmlLoadFile' [ModifyOtherObjects in ACL denied resource edf to access editor_main]
+[26-04-16 23:38:11] ERROR: [editor]/edf/edf.lua:221: editor_main: couldn't load edf file
+[26-04-16 23:38:11] Starting editor_gui
+[26-04-16 23:38:11] Starting dialogs
+[26-04-16 23:38:11] Starting tooltip
+[26-04-16 23:38:11] Stopping open_interiors
+[26-04-16 23:38:11] WARNING: [systems]/interiors/interiorexp.lua:24: Bad argument @ 'destroyElement' [Expected element at argument 1]
+[26-04-16 23:38:11] WARNING: [systems]/interiors/interiorexp.lua:25: Bad argument @ 'destroyElement' [Expected element at argument 1]
+[26-04-16 23:38:11] Stopping play
+[26-04-16 23:38:11] Stopping internetradio
+[26-04-16 23:38:11] Stopping superman
+[26-04-16 23:38:11] Stopping hedit
+[26-04-16 23:38:11] Stopping mapfixes
+[26-04-16 23:38:11] Stopping chatmanager
+[26-04-16 23:38:11] Stopping freeroam
+[26-04-16 23:38:11] Stopping playerblips
+[26-04-16 23:38:12] WARNING: [systems]/interiors/interiorexp.lua:24: Bad argument @ 'destroyElement' [Expected element at argument 1]  [DUP x2]
+[26-04-16 23:38:12] WARNING: [systems]/interiors/interiorexp.lua:25: Bad argument @ 'destroyElement' [Expected element at argument 1]  [DUP x2]
+[26-04-16 23:38:12] WARNING: [editor]/editor_main/server/resourcehooks.lua:94: Access denied @ 'xmlLoadFile' [ModifyOtherObjects in ACL denied resource editor_main to access editor_dump]
+[26-04-16 23:39:18] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:18] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:18] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:19] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:19] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:19] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:19] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:20] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:20] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:20] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:20] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:25] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:25] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:25] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:25] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:26] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:26] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:26] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:26] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:32] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:37] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:37] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:37] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:43] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:53] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:53] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:39:53] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:39:59] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:03] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:03] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:03] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:04] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:04] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:04] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:04] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:07] QUIT: tipr left the game [Timed out] 
+[26-04-16 23:40:11] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:12] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:16] CONNECT: tipr connected (IP: 102.97.175.56  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 23:40:16] JOIN: tipr joined the game (IP: 102.97.175.56)
+[26-04-16 23:40:18] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:23] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:23] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:23] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:29] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:33] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:33] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:33] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:34] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:34] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:34] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:34] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:37] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:37] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:37] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:37] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:40:43] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:40:55] QUIT: tipr left the game [Timed out] 
+[26-04-16 23:41:00] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:00] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:00] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:05] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:05] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:11] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:23] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:23] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:23] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:29] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:34] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:34] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:41:34] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:41:35] CONNECT: tipr connected (IP: 102.97.175.56  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 23:41:35] JOIN: tipr joined the game (IP: 102.97.175.56)
+[26-04-16 23:41:40] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:02] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:02] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:02] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:06] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:06] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:06] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:06] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:12] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:36] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:36] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:36] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:38] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:38] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:38] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:38] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:40] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:40] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:40] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:40] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:45] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:45] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:45] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:45] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:46] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:46] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:46] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:46] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:51] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:51] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:51] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:51] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:57] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:58] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:58] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:58] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:59] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:59] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:42:59] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:42:59] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:00] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:00] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:00] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:00] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:06] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:13] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:13] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:13] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:15] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:15] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:15] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:15] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:19] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:19] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:19] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:19] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:25] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:36] QUIT: Haughtrick left the game [Quit] 
+[26-04-16 23:43:37] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 23:43:37] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 23:43:47] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:47] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:43:47] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:43:53] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:44:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:44:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:44:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:45:02] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:45:07] Starting race
+[26-04-16 23:45:07] WARNING: [editor]/edf/edf.lua:219: Access denied @ 'xmlLoadFile' [ModifyOtherObjects in ACL denied resource edf to access race]
+[26-04-16 23:45:07] ERROR: [editor]/edf/edf.lua:221: race: couldn't load edf file
+[26-04-16 23:45:07] startResource: Resource 'race' started
+[26-04-16 23:45:16] WARNING: [editor]/editor_main/server/resourcehooks.lua:94: Access denied @ 'xmlLoadFile' [ModifyOtherObjects in ACL denied resource editor_main to access editor_test]
+[26-04-16 23:45:16] ERROR: [editor]/editor_main/server/util.lua:123: [editor]/editor_main/server/resourcehooks.lua:4: bad argument #1 to 'ipairs' (table expected, got boolean) [string "?"]
+[26-04-16 23:45:16] ERROR: [editor]/editor_main/server/util.lua:125: [editor]/editor_main/server/resourcehooks.lua:4: bad argument #1 to 'ipairs' (table expected, got boolean)
+[26-04-16 23:45:16] WARNING: [editor]/editor_main/server/saveloadtest_server.lua:867: Bad argument @ 'addEventHandler' [Expected element at argument 2, got boolean]
+[26-04-16 23:45:19] WARNING: [editor]/editor_main/server/saveloadtest_server.lua:867: Bad argument @ 'addEventHandler' [Expected element at argument 2, got boolean]
+[26-04-16 23:45:19] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:45:19] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:45:19] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:45:25] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:45:36] start: Requested by tipr(guest)
+[26-04-16 23:45:41] start: Requested by Haughtrick(guest)
+[26-04-16 23:45:47] QUIT: Haughtrick left the game [Quit] 
+[26-04-16 23:45:48] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 23:45:48] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 23:45:49] QUIT: tipr left the game [Quit] 
+[26-04-16 23:45:51] CONNECT: tipr connected (IP: 102.97.175.56  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 23:45:52] JOIN: tipr joined the game (IP: 102.97.175.56)
+[26-04-16 23:45:59] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:45:59] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:45:59] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:46:05] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:46:29] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:46:29] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:46:29] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:46:30] start: Requested by tipr(guest)
+[26-04-16 23:46:32] start: Requested by tipr(guest)
+[26-04-16 23:46:35] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:46:36] QUIT: Haughtrick left the game [Quit] 
+[26-04-16 23:46:37] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 23:46:37] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-16 23:46:39] QUIT: tipr left the game [Quit] 
+[26-04-16 23:46:41] CONNECT: tipr connected (IP: 102.97.175.56  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 23:46:42] JOIN: tipr joined the game (IP: 102.97.175.56)
+[26-04-16 23:46:44] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:46:44] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:46:44] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:46:50] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:29] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:29] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:29] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:35] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:38] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:38] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:38] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:44] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:48] QUIT: tipr left the game [Quit] 
+[26-04-16 23:48:53] CONNECT: tipr connected (IP: 102.97.175.56  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-16 23:48:53] JOIN: tipr joined the game (IP: 102.97.175.56)
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:54] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:55] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:55] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:55] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:55] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:467: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:48:56] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]
+[26-04-16 23:49:00] QUIT: Haughtrick left the game [Quit] 
+[26-04-16 23:49:01] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-16 23:49:02] WARNING: [systems]/housing/server.lua:472: Bad argument @ 'isElementWithinMarker' [Expected marker at argument 2]  [DUP x4]
+[26-04-16 23:49:02] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 00:06:54] QUIT: tipr left the game [Quit] 
+[26-04-17 00:59:00] QUIT: Haughtrick left the game [Quit] 
+[26-04-17 00:59:01] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 00:59:02] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 00:59:33] stop: Requested by Haughtrick(guest)
+[26-04-17 00:59:33] Stopping editor
+[26-04-17 00:59:33] Stopping mapmanager
+[26-04-17 00:59:33] Stopping edf
+[26-04-17 00:59:33] Stopping race
+[26-04-17 00:59:33] Stopping editor_main
+[26-04-17 00:59:33] Stopping freecam
+[26-04-17 00:59:33] Stopping move_freecam
+[26-04-17 00:59:33] Stopping move_cursor
+[26-04-17 00:59:33] Stopping move_keyboard
+[26-04-17 00:59:33] Stopping editor_gui
+[26-04-17 00:59:33] Stopping dialogs
+[26-04-17 00:59:33] Stopping tooltip
+[26-04-17 00:59:45] QUIT: Haughtrick left the game [Quit] 
+[26-04-17 00:59:46] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 00:59:47] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 01:00:00] QUIT: Haughtrick left the game [Quit] 
+[26-04-17 01:00:22] Server stopped!
+[26-04-17 01:00:22] Stopping resources.........
+[26-04-17 01:00:22] WARNING: [systems]/interiors/interiorexp.lua:24: Bad argument @ 'destroyElement' [Expected element at argument 1]
+[26-04-17 01:00:22] WARNING: [systems]/interiors/interiorexp.lua:25: Bad argument @ 'destroyElement' [Expected element at argument 1]
+[26-04-17 01:00:22] WARNING: [systems]/interiors/interiorexp.lua:24: Bad argument @ 'destroyElement' [Expected element at argument 1]  [DUP x218]
+[26-04-17 01:00:22] WARNING: [systems]/interiors/interiorexp.lua:25: Bad argument @ 'destroyElement' [Expected element at argument 1]  [DUP x218]
+[26-04-17 01:00:22] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-17 01:00:25] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-17 01:00:25] Resources: 216 loaded, 0 failed
+[26-04-17 01:00:25] Starting resources...
+[26-04-17 01:00:25] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-17 01:00:25] startResource: Resource 'ip2c' started
+[26-04-17 01:00:25] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-17 01:00:25] Some files in 'interiors' use deprecated functions.
+[26-04-17 01:00:25] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-17 01:00:25] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-17 01:00:25] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-17 01:00:25] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-17 01:00:25] WARNING: <owner_email_address> not set
+[26-04-17 01:00:25] Server started and is ready to accept connections!
+[26-04-17 01:00:25] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-17 01:00:25] Type 'help' for a list of commands.
+[26-04-17 01:00:26] Starting play
+[26-04-17 01:00:26] Starting internetradio
+[26-04-17 01:00:26] Starting superman
+[26-04-17 01:00:26] Starting hedit
+[26-04-17 01:00:26] Starting mapfixes
+[26-04-17 01:00:26] Starting chatmanager
+[26-04-17 01:00:26] startResource: Resource 'play' started
+[26-04-17 01:00:26] INFO: ip2c bootstrap: started 'play'
+[26-04-17 01:00:27] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 01:00:29] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 01:00:49] QUIT: Haughtrick left the game [Timed out] 
+[26-04-17 01:01:02] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 01:01:03] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 01:07:32] New resource 'DST_station' loaded
+[26-04-17 01:07:32] Resources: 217 loaded, 0 failed
+[26-04-17 01:10:58] start: Requested by Console
+[26-04-17 01:10:58] start: Resource 'custom_building' could not be found
+[26-04-17 01:11:20] start: Requested by Console
+[26-04-17 01:11:20] Starting DST_station
+[26-04-17 01:11:20] start: Resource 'DST_station' started
+[26-04-17 01:18:13] start: Requested by Console
+[26-04-17 01:18:13] start: Resource 'DST_station' is already running
+[26-04-17 01:18:18] Server stopped!
+[26-04-17 01:18:18] Stopping resources......................
+[26-04-17 01:18:19] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-17 01:18:22] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-17 01:18:22] Resources: 217 loaded, 0 failed
+[26-04-17 01:18:22] Starting resources...
+[26-04-17 01:18:22] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-17 01:18:22] startResource: Resource 'ip2c' started
+[26-04-17 01:18:22] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState before Tuesday.
+[26-04-17 01:18:22] Some files in 'interiors' use deprecated functions.
+[26-04-17 01:18:22] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-17 01:18:22] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-17 01:18:22] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-17 01:18:22] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-17 01:18:22] WARNING: <owner_email_address> not set
+[26-04-17 01:18:22] Server started and is ready to accept connections!
+[26-04-17 01:18:22] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-17 01:18:22] Type 'help' for a list of commands.
+[26-04-17 01:18:23] Starting play
+[26-04-17 01:18:23] Starting internetradio
+[26-04-17 01:18:23] Starting superman
+[26-04-17 01:18:23] Starting hedit
+[26-04-17 01:18:23] Starting mapfixes
+[26-04-17 01:18:23] Starting chatmanager
+[26-04-17 01:18:23] startResource: Resource 'play' started
+[26-04-17 01:18:23] INFO: ip2c bootstrap: started 'play'
+[26-04-17 01:18:29] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 01:18:30] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 01:18:52] start: Requested by Console
+[26-04-17 01:18:52] Starting DST_station
+[26-04-17 01:18:52] start: Resource 'DST_station' started
+[26-04-17 01:29:00] Stopping housing
+[26-04-17 01:29:00] Starting housing
+[26-04-17 01:29:00] INFO: [Housing] Loaded 12 rows, 12 valid houses.
+[26-04-17 01:29:00] housing restarted successfully
+[26-04-17 01:53:29] QUIT: Haughtrick left the game [Quit] 
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-17 17:35:56] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-17 17:35:56] Resources: 217 loaded, 0 failed
+[26-04-17 17:35:56] Starting resources...
+[26-04-17 17:35:57] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-17 17:35:57] startResource: Resource 'ip2c' started
+[26-04-17 17:35:57] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-17 17:35:57] Some files in 'interiors' use deprecated functions.
+[26-04-17 17:35:57] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-17 17:35:57] INFO: [Housing] Loaded 12 rows, 12 valid houses.
+[26-04-17 17:35:57] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-17 17:35:57] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-17 17:35:57] WARNING: <owner_email_address> not set
+[26-04-17 17:35:57] Server started and is ready to accept connections!
+[26-04-17 17:35:57] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-17 17:35:57] Type 'help' for a list of commands.
+[26-04-17 17:35:58] WARNING: [admin]/ip2c/server.lua:300: Access denied @ 'fetchRemote'
+[26-04-17 17:35:58] Starting play
+[26-04-17 17:35:58] Starting internetradio
+[26-04-17 17:35:58] Starting superman
+[26-04-17 17:35:58] Starting hedit
+[26-04-17 17:35:58] Starting mapfixes
+[26-04-17 17:35:58] Starting chatmanager
+[26-04-17 17:35:58] startResource: Resource 'play' started
+[26-04-17 17:35:58] INFO: ip2c bootstrap: started 'play'
+[26-04-17 17:48:27] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 17:48:29] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 17:48:53] QUIT: Haughtrick left the game [Timed out] 
+[26-04-17 17:49:14] CONNECT: Haughtrick connected (IP: 105.157.100.197  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 17:49:16] JOIN: Haughtrick joined the game (IP: 105.157.100.197)
+[26-04-17 17:50:28] start: Requested by Haughtrick(guest)
+[26-04-17 17:50:28] Starting DST_station
+[26-04-17 19:39:21] QUIT: Haughtrick left the game [Timed out] 
+[26-04-17 19:54:31] Server stopped!
+[26-04-17 19:54:31] Stopping resources......................
+[26-04-17 19:54:31] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-17 19:54:33] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-17 19:54:33] ERROR: Not processing resource 'voice_local' as it has duplicates on different paths:
+                  Path #1: "resources/voice_local"
+                  Path #2: "resources/[gameplay]/voice_local"
+[26-04-17 19:54:33] Resources: 216 loaded, 0 failed
+[26-04-17 19:54:33] Starting resources...
+[26-04-17 19:54:34] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-17 19:54:34] startResource: Resource 'ip2c' started
+[26-04-17 19:54:34] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-17 19:54:34] Some files in 'interiors' use deprecated functions.
+[26-04-17 19:54:34] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-17 19:54:34] INFO: [Housing] Loaded 12 rows, 12 valid houses.
+[26-04-17 19:54:34] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-17 19:54:34] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-17 19:54:34] WARNING: <owner_email_address> not set
+[26-04-17 19:54:34] Server started and is ready to accept connections!
+[26-04-17 19:54:34] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-17 19:54:34] Type 'help' for a list of commands.
+[26-04-17 19:54:35] Starting play
+[26-04-17 19:54:35] Starting internetradio
+[26-04-17 19:54:35] Starting superman
+[26-04-17 19:54:35] Starting hedit
+[26-04-17 19:54:35] Starting mapfixes
+[26-04-17 19:54:35] Starting chatmanager
+[26-04-17 19:54:35] startResource: Resource 'play' started
+[26-04-17 19:54:35] INFO: ip2c bootstrap: started 'play'
+[26-04-17 19:54:53] ERROR: Not processing resource 'voice_local' as it has duplicates on different paths:
+                  Path #1: "resources/voice_local"
+                  Path #2: "resources/[gameplay]/voice_local"
+[26-04-17 19:54:58] start: Requested by Console
+[26-04-17 19:54:58] start: Resource 'voice_local' could not be found
+[26-04-17 19:55:20] CONNECT: Haughtrick connected (IP: 41.249.33.36  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-17 19:55:21] JOIN: Haughtrick joined the game (IP: 41.249.33.36)
+[26-04-17 19:56:31] New resource 'voice_local' loaded
+[26-04-17 19:56:31] Resources: 217 loaded, 0 failed
+[26-04-17 19:56:34] start: Requested by Console
+[26-04-17 19:56:34] Starting voice_local
+[26-04-17 19:56:34] start: Resource 'voice_local' started
+[26-04-17 20:20:22] start: Requested by Haughtrick(guest)
+[26-04-17 20:20:22] Starting DST_station
+[26-04-17 20:22:58] QUIT: Haughtrick left the game [Quit] 

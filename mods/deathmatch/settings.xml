@@ -1,3 +1,7 @@
 <settings>
-    <setting name="ip2c.ip2cUpdateTime" value="[1776316571]"></setting>
+    <setting name="ip2c.ip2cUpdateTime" value="[1776447358]"></setting>
+    <setting name="*editor_main.mapResourceOrganizationalDirectory" value='[&quot;none&quot;]'></setting>
+    <setting name="*freeroam.spawnmaponstart" value="[0]"></setting>
+    <setting name="*freeroam.spawnmapondeath" value="[0]"></setting>
+    <setting name="*freeroam.welcometextonstart" value="[0]"></setting>
 </settings>

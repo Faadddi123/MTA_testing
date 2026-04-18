@@ -6,7 +6,6 @@
     <group name="Admin">
         <acl name="Admin"></acl>
         <acl name="RPC"></acl>
-	<object name="serial.CC88B5C12B6DECB097FC15B7809584E4" />
         <object name="user.*"></object>
         <object name="resource.*"></object>
     </group>
