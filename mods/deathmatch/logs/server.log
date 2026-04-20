@@ -3305,3 +3305,276 @@
 [26-04-17 20:20:22] start: Requested by Haughtrick(guest)
 [26-04-17 20:20:22] Starting DST_station
 [26-04-17 20:22:58] QUIT: Haughtrick left the game [Quit] 
+[26-04-18 03:38:57] CONNECT: Haughtrick connected (IP: 41.249.33.36  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-18 03:38:57] JOIN: Haughtrick joined the game (IP: 41.249.33.36)
+[26-04-18 04:01:14] CONNECT: Kurumi connected (IP: 105.159.17.187  Serial: 30BA84F356FE025F1711105EF145A033  Version: 1.6.0-9.24060.0)
+[26-04-18 04:01:17] JOIN: Kurumi joined the game (IP: 105.159.17.187)
+[26-04-18 04:01:51] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Kurumi"
+[26-04-18 04:02:35] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 04:02:38] Stopping housing
+[26-04-18 04:02:38] Starting housing
+[26-04-18 04:02:38] INFO: [Housing] Loaded 11 rows, 11 valid houses.
+[26-04-18 04:02:38] housing restarted successfully
+[26-04-18 04:02:40] Stopping housing
+[26-04-18 04:02:40] Starting housing
+[26-04-18 04:02:40] INFO: [Housing] Loaded 10 rows, 10 valid houses.
+[26-04-18 04:02:40] housing restarted successfully
+[26-04-18 04:02:41] Stopping housing
+[26-04-18 04:02:41] Starting housing
+[26-04-18 04:02:41] INFO: [Housing] Loaded 9 rows, 9 valid houses.
+[26-04-18 04:02:41] housing restarted successfully
+[26-04-18 04:02:43] Stopping housing
+[26-04-18 04:02:43] Starting housing
+[26-04-18 04:02:43] INFO: [Housing] Loaded 8 rows, 8 valid houses.
+[26-04-18 04:02:43] housing restarted successfully
+[26-04-18 04:02:46] Stopping housing
+[26-04-18 04:02:46] Starting housing
+[26-04-18 04:02:46] INFO: [Housing] Loaded 7 rows, 7 valid houses.
+[26-04-18 04:02:46] housing restarted successfully
+[26-04-18 04:02:48] Stopping housing
+[26-04-18 04:02:48] Starting housing
+[26-04-18 04:02:48] INFO: [Housing] Loaded 6 rows, 6 valid houses.
+[26-04-18 04:02:48] housing restarted successfully
+[26-04-18 04:02:50] Stopping housing
+[26-04-18 04:02:50] Starting housing
+[26-04-18 04:02:50] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-18 04:02:50] housing restarted successfully
+[26-04-18 04:12:27] New resource '[phone]' loaded
+[26-04-18 04:12:27] Resources: 218 loaded, 0 failed
+[26-04-18 04:12:34] start: Requested by Console
+[26-04-18 04:12:34] WARNING: [phone] <min_mta_version> section in the meta.xml is incorrect or missing (expected at least client 1.5.6-9.18728 because of 'Scripts/Phone-System_C.luac')
+[26-04-18 04:12:34] WARNING: [phone] requires upgrade as <min_mta_version> section in the meta.xml is incorrect or missing (expected at least client 1.5.6-9.18728 because of 'Scripts/Phone-System_C.luac')
+[26-04-18 04:12:34] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-18 04:12:34] Starting [phone]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:1: exports: Call to non-running server resource ([Atis]Accounts) [string "?"]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:2: exports: Call to non-running server resource ([Atis]Misc) [string "?"]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:3: exports: Call to non-running server resource ([Atis]Gold-System) [string "?"]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:4: exports: Call to non-running server resource ([Atis]Bank) [string "?"]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:5: exports: Call to non-running server resource ([Atis]Inventory) [string "?"]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:6: exports: Call to non-running server resource ([Atis]Global) [string "?"]
+[26-04-18 04:12:34] ERROR: [phone]/Scripts/Phone-System_S.luac:1023: exports: Call to non-running server resource ([Atis]House-System) [string "?"]
+[26-04-18 04:12:34] start: Resource '[phone]' started
+[26-04-18 04:25:15] QUIT: Kurumi left the game [Timed out] 
+[26-04-18 04:31:19] ERROR: Resource '[phone]' has been removed while running! Stopping resource.
+[26-04-18 04:31:19] Stopping [phone]
+[26-04-18 04:31:19] Resources: 217 loaded, 0 failed
+[26-04-18 04:31:39] start: Requested by Console
+[26-04-18 04:31:39] start: Resource 'trobajo' could not be found
+[26-04-18 04:35:41] New resource 'first_tobajo' loaded
+[26-04-18 04:35:41] New resource 'trobajo' loaded
+[26-04-18 04:35:41] ERROR: Problem with resource: trobajo; Failed to link to trabajos
+[26-04-18 04:35:41] Resources: 218 loaded, 1 failed
+[26-04-18 04:41:56] Resource 'first_tobajo' has been removed, unloading
+[26-04-18 04:41:56] New resource 'trabajos' loaded
+[26-04-18 04:41:56] Resources: 219 loaded, 0 failed
+[26-04-18 04:42:06] start: Requested by Console
+[26-04-18 04:42:06] Starting trabajos
+[26-04-18 04:42:06] start: Resource 'trabajos' started
+[26-04-18 04:42:11] start: Requested by Console
+[26-04-18 04:42:11] WARNING: trobajo <min_mta_version> section in the meta.xml is incorrect or missing (expected at least client 1.5.6-9.18728 because of 'Cliente/client.luac')
+[26-04-18 04:42:11] WARNING: trobajo requires upgrade as <min_mta_version> section in the meta.xml is incorrect or missing (expected at least client 1.5.6-9.18728 because of 'Cliente/client.luac')
+[26-04-18 04:42:11] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-18 04:42:11] Starting trobajo
+[26-04-18 04:42:11] start: Resource 'trobajo' started
+[26-04-18 04:45:52] QUIT: Haughtrick left the game [Quit] 
+[26-04-18 04:46:04] Server stopped!
+[26-04-18 04:46:04] Stopping resources.........................
+[26-04-18 04:46:04] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-18 20:12:16] Compacting accounts database 'internal.db' ...
+[26-04-18 20:12:16] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-18 20:12:16] Resources: 219 loaded, 0 failed
+[26-04-18 20:12:16] Compacting database 'registry.db' ...
+[26-04-18 20:12:16] Starting resources...
+[26-04-18 20:12:16] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-18 20:12:16] startResource: Resource 'ip2c' started
+[26-04-18 20:12:16] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-18 20:12:16] Some files in 'interiors' use deprecated functions.
+[26-04-18 20:12:16] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-18 20:12:17] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-18 20:12:17] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-18 20:12:17] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-18 20:12:17] WARNING: <owner_email_address> not set
+[26-04-18 20:12:17] Server started and is ready to accept connections!
+[26-04-18 20:12:17] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-18 20:12:17] Type 'help' for a list of commands.
+[26-04-18 20:12:17] WARNING: [admin]/ip2c/server.lua:300: Access denied @ 'fetchRemote'
+[26-04-18 20:12:17] Starting play
+[26-04-18 20:12:17] Starting internetradio
+[26-04-18 20:12:17] Starting superman
+[26-04-18 20:12:17] Starting hedit
+[26-04-18 20:12:18] Starting mapfixes
+[26-04-18 20:12:18] Starting chatmanager
+[26-04-18 20:12:18] startResource: Resource 'play' started
+[26-04-18 20:12:18] INFO: ip2c bootstrap: started 'play'
+[26-04-18 20:12:27] CONNECT: Haughtrick connected (IP: 41.140.231.225  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-18 20:12:29] JOIN: Haughtrick joined the game (IP: 41.140.231.225)
+[26-04-18 20:13:43] start: Requested by Console
+[26-04-18 20:13:43] start: Resource 'voicechat' could not be found
+[26-04-18 20:14:41] start: Requested by Console
+[26-04-18 20:14:41] Starting voice_local
+[26-04-18 20:14:41] start: Resource 'voice_local' started
+[26-04-18 20:15:29] start: Requested by Console
+[26-04-18 20:15:29] Starting DST_station
+[26-04-18 20:15:29] start: Resource 'DST_station' started
+[26-04-18 20:16:44] start: Requested by Console
+[26-04-18 20:16:44] Starting trabajos
+[26-04-18 20:16:44] start: Resource 'trabajos' started
+[26-04-18 20:16:46] start: Requested by Console
+[26-04-18 20:16:46] start: Resource 'trabajo' could not be found
+[26-04-18 20:16:57] start: Requested by Console
+[26-04-18 20:16:57] WARNING: trobajo <min_mta_version> section in the meta.xml is incorrect or missing (expected at least client 1.5.6-9.18728 because of 'Cliente/client.luac')
+[26-04-18 20:16:57] WARNING: trobajo requires upgrade as <min_mta_version> section in the meta.xml is incorrect or missing (expected at least client 1.5.6-9.18728 because of 'Cliente/client.luac')
+[26-04-18 20:16:57] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-18 20:16:57] Starting trobajo
+[26-04-18 20:16:57] start: Resource 'trobajo' started
+[26-04-18 20:22:18] CONNECT: tipr connected (IP: 102.97.173.53  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-18 20:22:21] JOIN: tipr joined the game (IP: 102.97.173.53)
+[26-04-18 20:22:24] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:22:49] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:25:08] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:25:08] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:25:40] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:25:40] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:26:35] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:26:41] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:26:48] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:27:42] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:35:30] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:39:08] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:39:08] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:39:14] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:40:19] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:40:44] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:44:48] QUIT: tipr left the game [Quit] 
+[26-04-18 20:44:51] CONNECT: tipr connected (IP: 102.97.173.53  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-18 20:44:51] JOIN: tipr joined the game (IP: 102.97.173.53)
+[26-04-18 20:44:51] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:46:35] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 20:47:32] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:54:03] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 20:57:27] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 21:02:45] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 21:02:45] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 21:03:22] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "tipr"
+[26-04-18 21:03:22] INFO: "voice_local:addToPlayerBroadcast"    "ignoring"    "Haughtrick"
+[26-04-18 21:05:41] QUIT: tipr left the game [Quit] 
+[26-04-18 22:07:22] New resource 'deliverydriver' loaded
+[26-04-18 22:07:22] Resources: 220 loaded, 0 failed
+[26-04-18 22:22:07] start: Requested by Console
+[26-04-18 22:22:07] Starting deliverydriver
+[26-04-18 22:22:07] start: Resource 'deliverydriver' started
+[26-04-18 22:39:18] CONNECT: tipr connected (IP: 102.97.173.53  Serial: 5D7C05A2742492F4D532FC3E2A3B70A2  Version: 1.6.0-9.24060.0)
+[26-04-18 22:39:21] JOIN: tipr joined the game (IP: 102.97.173.53)
+[26-04-19 00:06:17] QUIT: tipr left the game [Timed out] 
+[26-04-19 01:25:49] QUIT: Haughtrick left the game [Quit] 
+[26-04-19 05:08:12] Server stopped!
+[26-04-19 05:08:12] Stopping resources..........................
+[26-04-19 05:08:12] Closing SQLite3 database
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-19 18:59:27] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-19 18:59:27] Resources: 220 loaded, 0 failed
+[26-04-19 18:59:27] Starting resources...
+[26-04-19 18:59:28] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-19 18:59:28] startResource: Resource 'ip2c' started
+[26-04-19 18:59:28] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-19 18:59:28] Some files in 'interiors' use deprecated functions.
+[26-04-19 18:59:28] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-19 18:59:28] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-19 18:59:28] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-19 18:59:28] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-19 18:59:28] WARNING: <owner_email_address> not set
+[26-04-19 18:59:28] Server started and is ready to accept connections!
+[26-04-19 18:59:28] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-19 18:59:28] Type 'help' for a list of commands.
+[26-04-19 18:59:29] Starting play
+[26-04-19 18:59:29] Starting internetradio
+[26-04-19 18:59:29] Starting superman
+[26-04-19 18:59:29] Starting hedit
+[26-04-19 18:59:29] Starting mapfixes
+[26-04-19 18:59:29] Starting chatmanager
+[26-04-19 18:59:29] startResource: Resource 'play' started
+[26-04-19 18:59:29] INFO: ip2c bootstrap: started 'play'
+[26-04-19 19:00:08] start: Requested by Console
+[26-04-19 19:00:08] Starting deliverydriver
+[26-04-19 19:00:08] start: Resource 'deliverydriver' started
+[26-04-19 19:00:13] CONNECT: Haughtrick connected (IP: 41.140.231.225  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-19 19:00:15] JOIN: Haughtrick joined the game (IP: 41.140.231.225)
+[26-04-19 19:39:27] QUIT: Haughtrick left the game [Timed out] 
+[26-04-19 19:39:54] CONNECT: Haughtrick connected (IP: 41.143.219.12  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-19 19:39:55] JOIN: Haughtrick joined the game (IP: 41.143.219.12)
+==================================================================
+= Multi Theft Auto: San Andreas v1.6 [64 bit]
+==================================================================
+= Server name      : My MTA Server
+= Server IP address: auto
+= Server port      : 22003
+= 
+= Log file         : ..o_linux_x64/mods/deathmatch/logs/server.log
+= Maximum players  : 256
+= HTTP port        : 22006
+= Voice Chat       : Quality [4];  Sample Rate: [16000Hz]
+= Bandwidth saving : Medium
+==================================================================
+[26-04-19 20:00:29] Resource 'ip2c' requests some acl rights. Use the command 'aclrequest list ip2c'
+[26-04-19 20:00:30] Resources: 220 loaded, 0 failed
+[26-04-19 20:00:30] Starting resources...
+[26-04-19 20:00:30] Server minclientversion is now 1.6.0-9.24043.0
+[26-04-19 20:00:30] startResource: Resource 'ip2c' started
+[26-04-19 20:00:30] WARNING: interiors/interiors_client.lua(Line 164) [Client] getControlState is deprecated and may not work in future versions. Please replace with getPedControlState.
+[26-04-19 20:00:30] Some files in 'interiors' use deprecated functions.
+[26-04-19 20:00:30] Use the 'upgrade' command to perform a basic upgrade of resources.
+[26-04-19 20:00:30] INFO: [Housing] Loaded 5 rows, 5 valid houses.
+[26-04-19 20:00:30] Querying MTA master server... success! (Auto detected IP:84.8.223.7)
+[26-04-19 20:00:30] Authorized serial account protection is enabled for the ACL group(s): `Admin`  See http://multitheftauto.com/authserial
+[26-04-19 20:00:30] WARNING: <owner_email_address> not set
+[26-04-19 20:00:30] Server started and is ready to accept connections!
+[26-04-19 20:00:30] To stop the server, type 'shutdown' or press Ctrl-C
+[26-04-19 20:00:30] Type 'help' for a list of commands.
+[26-04-19 20:00:31] Starting play
+[26-04-19 20:00:31] Starting internetradio
+[26-04-19 20:00:31] Starting superman
+[26-04-19 20:00:31] Starting hedit
+[26-04-19 20:00:31] Starting mapfixes
+[26-04-19 20:00:31] Starting chatmanager
+[26-04-19 20:00:31] startResource: Resource 'play' started
+[26-04-19 20:00:31] INFO: ip2c bootstrap: started 'play'
+[26-04-19 20:00:35] restart: Requested by Console
+[26-04-19 20:00:35] restart: Resource 'deliverydriver' is not running
+[26-04-19 20:00:47] start: Requested by Console
+[26-04-19 20:00:47] Starting deliverydriver
+[26-04-19 20:00:47] start: Resource 'deliverydriver' started
+[26-04-19 20:00:53] restart: Requested by Console
+[26-04-19 20:00:53] restart: Resource 'deliverydriver' restarting...
+[26-04-19 20:00:53] Stopping deliverydriver
+[26-04-19 20:00:53] Starting deliverydriver
+[26-04-19 20:00:53] deliverydriver restarted successfully
+[26-04-19 20:01:11] CONNECT: Haughtrick connected (IP: 41.143.219.12  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-19 20:01:11] JOIN: Haughtrick joined the game (IP: 41.143.219.12)
+[26-04-20 00:00:20] QUIT: Haughtrick left the game [Quit] 
+[26-04-20 02:18:59] CONNECT: Haughtrick connected (IP: 41.143.219.12  Serial: CC88B5C12B6DECB097FC15B7809584E4  Version: 1.6.0-9.24060.0)
+[26-04-20 02:19:00] JOIN: Haughtrick joined the game (IP: 41.143.219.12)

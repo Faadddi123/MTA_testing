@@ -27,8 +27,10 @@ end
 
 -- Check that player is delivery driver
 function isPlayerDeliveryDriver(player)
-  if getElementData(player, "subclass") == "Delivery Driver" then return true end
-  return false
+  -- TEMPORARILY DISABLED: Re-enable subclass check when job system is ready
+  -- if getElementData(player, "subclass") == "Delivery Driver" then return true end
+  -- return false
+  return true
 end
 
 addEvent("onPlayerDeliveryDropoff", true)
