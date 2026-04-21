@@ -567,14 +567,29 @@ function getHouseData(houseId)
     return houses[tonumber(houseId)] or false
 end
 
-function enterCustomInterior(houseId)
-    local h = houses[tonumber(houseId)]
-    if h then onPlayerEnterCustomInterior(h) end
+function enterCustomInterior(houseId, mapName, interiorId, dimension)
+    if houseId then
+        local h = houses[tonumber(houseId)]
+        if h and h.custom_map then onPlayerEnterCustomInterior(h) end
+    elseif mapName and dimension then
+        -- Direct mode for preview: spawn objects by map name and dimension
+        spawnCustomMapObjects(mapName, dimension, interiorId or 1)
+        dimensionRefCount[dimension] = (dimensionRefCount[dimension] or 0) + 1
+    end
 end
 
-function leaveCustomInterior(houseId)
-    local h = houses[tonumber(houseId)]
-    if h then onPlayerLeaveCustomInterior(h) end
+function leaveCustomInterior(houseId, mapName, dimension)
+    if houseId then
+        local h = houses[tonumber(houseId)]
+        if h and h.custom_map then onPlayerLeaveCustomInterior(h) end
+    elseif dimension then
+        -- Direct mode for preview cleanup
+        dimensionRefCount[dimension] = (dimensionRefCount[dimension] or 0) - 1
+        if dimensionRefCount[dimension] <= 0 then
+            dimensionRefCount[dimension] = nil
+            destroyCustomMapObjects(dimension)
+        end
+    end
 end
 
 function getOwnedGarageHouseIdForPosition(ownerKey, x, y, z)

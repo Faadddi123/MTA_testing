@@ -341,65 +341,30 @@ local GARAGE_CATEGORY_KEYS = {
 
 local previewReturn = {}
 local previewObjects = {}  -- player → { element, element, ... }
-
-local function spawnPreviewMapObjects(player, mapName, interiorId, dimension)
-    destroyPreviewMapObjects(player)
-
-    -- Read map file from the housing resource's bundled custom_maps/
-    local filePath = ":housing/custom_maps/" .. mapName .. ".map"
-    local fHandle = fileOpen(filePath, true)
-    if not fHandle then
-        outputDebugString("[HouseManager] Could not open map file: " .. filePath, 2)
-        return
-    end
-
-    local fileSize = fileGetSize(fHandle)
-    local xmlContent = fileRead(fHandle, fileSize)
-    fileClose(fHandle)
-
-    if not xmlContent or xmlContent == "" then return end
-
-    local mapNode = xmlLoadString(xmlContent)
-    if not mapNode then return end
-
-    local objects = {}
-    for _, child in ipairs(xmlNodeGetChildren(mapNode)) do
-        if xmlNodeGetName(child) == "object" then
-            local model = tonumber(xmlNodeGetAttribute(child, "model"))
-            local px = tonumber(xmlNodeGetAttribute(child, "posX"))
-            local py = tonumber(xmlNodeGetAttribute(child, "posY"))
-            local pz = tonumber(xmlNodeGetAttribute(child, "posZ"))
-            if model and px and py and pz then
-                local obj = createObject(model, px, py, pz,
-                    tonumber(xmlNodeGetAttribute(child, "rotX")) or 0,
-                    tonumber(xmlNodeGetAttribute(child, "rotY")) or 0,
-                    tonumber(xmlNodeGetAttribute(child, "rotZ")) or 0)
-                if obj then
-                    setElementInterior(obj, interiorId)
-                    setElementDimension(obj, dimension)
-                    if xmlNodeGetAttribute(child, "doublesided") == "true" then
-                        setElementDoubleSided(obj, true)
-                    end
-                    local alpha = tonumber(xmlNodeGetAttribute(child, "alpha")) or 255
-                    if alpha < 255 then setElementAlpha(obj, alpha) end
-                    objects[#objects + 1] = obj
-                end
-            end
-        end
-    end
-    xmlUnloadFile(mapNode)
-
-    previewObjects[player] = objects
-    outputDebugString("[HouseManager] Spawned " .. #objects .. " preview objects for " .. mapName, 3)
-end
+local PREVIEW_DIMENSION = 65000
 
 function destroyPreviewMapObjects(player)
     local objs = previewObjects[player]
-    if not objs then return end
-    for _, obj in ipairs(objs) do
-        if isElement(obj) then destroyElement(obj) end
+    if objs then
+        for _, obj in ipairs(objs) do
+            if isElement(obj) then destroyElement(obj) end
+        end
+        previewObjects[player] = nil
     end
-    previewObjects[player] = nil
+    -- Also clean up any custom map objects at the preview dimension
+    local housingRes = getResourceFromName("housing")
+    if housingRes and getResourceState(housingRes) == "running" then
+        exports.housing:leaveCustomInterior(nil, nil, PREVIEW_DIMENSION)
+    end
+end
+
+local function spawnPreviewMapObjects(player, mapName, interiorId, dimension)
+    destroyPreviewMapObjects(player)
+    -- Use housing resource's exports to spawn the objects
+    local housingRes = getResourceFromName("housing")
+    if housingRes and getResourceState(housingRes) == "running" then
+        exports.housing:enterCustomInterior(nil, mapName, interiorId, dimension)
+    end
 end
 
 local function getNextPropertyId()
@@ -624,12 +589,12 @@ addEventHandler("hm:requestPreview", root, function(categoryKey)
     }
 
     setElementInterior(player, preset.interior)
-    setElementDimension(player, 99998)
+    setElementDimension(player, PREVIEW_DIMENSION)
     setElementPosition(player, preset.x, preset.y, preset.z)
 
     -- Spawn custom map objects in the preview dimension if applicable
     if preset.custom_map then
-        spawnPreviewMapObjects(player, preset.custom_map, preset.interior, 99998)
+        spawnPreviewMapObjects(player, preset.custom_map, preset.interior, PREVIEW_DIMENSION)
     end
 
     outputChatBox("[Preview] You are inside: " .. preset.label, player, 100, 230, 255, true)
