@@ -345,21 +345,21 @@ local previewObjects = {}  -- player → { element, element, ... }
 local function spawnPreviewMapObjects(player, mapName, interiorId, dimension)
     destroyPreviewMapObjects(player)
 
-    local metaPath = ":" .. mapName .. "/meta.xml"
-    local metaNode = xmlLoadFile(metaPath)
-    if not metaNode then return end
-
-    local mapFileName = nil
-    for _, child in ipairs(xmlNodeGetChildren(metaNode)) do
-        if xmlNodeGetName(child) == "map" then
-            mapFileName = xmlNodeGetAttribute(child, "src")
-            break
-        end
+    -- Read map file from the housing resource's bundled custom_maps/
+    local filePath = ":housing/custom_maps/" .. mapName .. ".map"
+    local fHandle = fileOpen(filePath, true)
+    if not fHandle then
+        outputDebugString("[HouseManager] Could not open map file: " .. filePath, 2)
+        return
     end
-    xmlUnloadFile(metaNode)
-    if not mapFileName then return end
 
-    local mapNode = xmlLoadFile(":" .. mapName .. "/" .. mapFileName)
+    local fileSize = fileGetSize(fHandle)
+    local xmlContent = fileRead(fHandle, fileSize)
+    fileClose(fHandle)
+
+    if not xmlContent or xmlContent == "" then return end
+
+    local mapNode = xmlLoadString(xmlContent)
     if not mapNode then return end
 
     local objects = {}

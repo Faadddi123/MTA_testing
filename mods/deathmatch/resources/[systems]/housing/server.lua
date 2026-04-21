@@ -26,35 +26,60 @@ local customMapDefs      = {}  -- mapName → { { model, x, y, z, rx, ry, rz, in
 local dimensionObjects   = {}  -- dimension → { element, element, ... }
 local dimensionRefCount  = {}  -- dimension → number of players inside
 
+-- Lookup: resource folder name → .map filename inside it
+-- (avoids needing to parse meta.xml from another resource)
+local CUSTOM_MAP_FILES = {
+    ["int_AutoGarage"]          = "Garage_int.map",
+    ["int_ParkingGarage"]       = "ParkFinal.map",
+    ["int_ModernSmallHouse"]    = "ModernHouse.map",
+    ["Int_ModernCondo"]         = "Int_ModernCondo.map",
+    ["Int_ModernMansion"]       = "Int_ModernMansion.map",
+    ["Int_ModernMansion2"]      = "Int_ModernMansion2.map",
+    ["int_ItalianBistro"]       = "Italian_Bistro.map",
+    ["int_AsianResteraunt"]     = "AsianR.map",
+    ["int_Butcher"]             = "Butcher.map",
+    ["int_ArtGalleryEntry"]     = "ArtGalleryEntry.map",
+    ["int_ChinaCinemaEntry"]    = "chinacinema2.map",
+    ["int_CastleCasino"]        = "CastleCasino.map",
+    ["int_SkyScraperAtrium"]    = "Kings.map",
+    ["int_SkyScraperOffices"]   = "Kings2.map",
+    ["int_CityHall"]            = "GOVHQ.map",
+    ["int_Courthouse"]          = "Court.map",
+    ["int_DMV"]                 = "DMV.map",
+    ["int_FireDepartment"]      = "FireDepartment.map",
+    ["int_Government Entryway"] = "GovinteriorEntry1.map",
+    ["int_GovernmentOffices"]   = "GovInterior_Offices.map",
+    ["int_TaxiDepot"]           = "GreenTaxiINT.map",
+    ["int_TowingCompany"]       = "HexFINAL.map",
+    ["int_Carther"]             = "Carther.map",
+}
 
 local function parseMapFile(mapName)
-    -- Each custom interior folder (e.g. int_AutoGarage) is its own MTA resource
-    local metaPath = ":" .. mapName .. "/meta.xml"
-    local metaNode = xmlLoadFile(metaPath)
-    if not metaNode then
-        outputDebugString("[Housing] Could not load meta.xml for custom map: " .. mapName .. " (path: " .. metaPath .. ")", 2)
+    if not CUSTOM_MAP_FILES[mapName] then
+        outputDebugString("[Housing] Unknown custom map name: " .. tostring(mapName) .. " (not in CUSTOM_MAP_FILES)", 1)
         return nil
     end
 
-    local mapFileName = nil
-    local children = xmlNodeGetChildren(metaNode)
-    for _, child in ipairs(children) do
-        if xmlNodeGetName(child) == "map" then
-            mapFileName = xmlNodeGetAttribute(child, "src")
-            break
-        end
-    end
-    xmlUnloadFile(metaNode)
-
-    if not mapFileName then
-        outputDebugString("[Housing] No <map> entry found in meta.xml for: " .. mapName, 2)
+    -- Load from local custom_maps/ directory (files bundled inside housing resource)
+    local filePath = "custom_maps/" .. mapName .. ".map"
+    local fHandle = fileOpen(filePath, true) -- true = read-only
+    if not fHandle then
+        outputDebugString("[Housing] Could not open map file: " .. filePath, 1)
         return nil
     end
 
-    local mapPath = ":" .. mapName .. "/" .. mapFileName
-    local mapNode = xmlLoadFile(mapPath)
+    local fileSize = fileGetSize(fHandle)
+    local xmlContent = fileRead(fHandle, fileSize)
+    fileClose(fHandle)
+
+    if not xmlContent or xmlContent == "" then
+        outputDebugString("[Housing] Empty map file: " .. filePath, 1)
+        return nil
+    end
+
+    local mapNode = xmlLoadString(xmlContent)
     if not mapNode then
-        outputDebugString("[Housing] Could not load map file: " .. mapPath, 2)
+        outputDebugString("[Housing] Could not parse XML from: " .. filePath, 1)
         return nil
     end
 

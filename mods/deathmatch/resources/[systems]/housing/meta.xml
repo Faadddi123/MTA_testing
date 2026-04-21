@@ -1,12 +1,39 @@
 <meta>
-    <info author="Antigravity" name="housing" type="script" version="3.0.0" description="Complete RP Housing System" />
+    <info author="Antigravity" name="housing" type="script" version="3.1.0" description="Complete RP Housing System with Custom Interiors" />
     
     <script src="server.lua" type="server" />
     <script src="client.lua" type="client" />
 
-    <!-- Exports requested by user for hot-reloading and integration -->
+    <!-- Exports for integration with garage_system, vehicles, house_manager -->
     <export function="reloadHouses" type="server" />
     <export function="getOwnedGarageHouseIdForPosition" type="server" />
     <export function="getHouseData" type="server" />
     <export function="checkHouseAccess" type="server" />
+    <export function="enterCustomInterior" type="server" />
+    <export function="leaveCustomInterior" type="server" />
+
+    <!-- Custom interior map files (from multitheftauto-custominteriors) -->
+    <file src="custom_maps/int_AutoGarage.map" />
+    <file src="custom_maps/int_ParkingGarage.map" />
+    <file src="custom_maps/int_ModernSmallHouse.map" />
+    <file src="custom_maps/Int_ModernCondo.map" />
+    <file src="custom_maps/Int_ModernMansion.map" />
+    <file src="custom_maps/Int_ModernMansion2.map" />
+    <file src="custom_maps/int_ItalianBistro.map" />
+    <file src="custom_maps/int_AsianResteraunt.map" />
+    <file src="custom_maps/int_Butcher.map" />
+    <file src="custom_maps/int_ArtGalleryEntry.map" />
+    <file src="custom_maps/int_ChinaCinemaEntry.map" />
+    <file src="custom_maps/int_CastleCasino.map" />
+    <file src="custom_maps/int_SkyScraperAtrium.map" />
+    <file src="custom_maps/int_SkyScraperOffices.map" />
+    <file src="custom_maps/int_CityHall.map" />
+    <file src="custom_maps/int_Courthouse.map" />
+    <file src="custom_maps/int_DMV.map" />
+    <file src="custom_maps/int_FireDepartment.map" />
+    <file src="custom_maps/int_Government Entryway.map" />
+    <file src="custom_maps/int_GovernmentOffices.map" />
+    <file src="custom_maps/int_TaxiDepot.map" />
+    <file src="custom_maps/int_TowingCompany.map" />
+    <file src="custom_maps/int_Carther.map" />
 </meta>
