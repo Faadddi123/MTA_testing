@@ -18,6 +18,153 @@ local EXIT_MARKER_Z_OFFSET  = 1.00
 local EXTERIOR_RETURN_Z_OFFSET = 1.00
 
 -- ─────────────────────────────────────────────────────────────
+-- CUSTOM MAP OBJECT MANAGER
+-- Handles loading map files from multitheftauto-custominteriors
+-- and spawning objects in the correct per-property dimension.
+-- ─────────────────────────────────────────────────────────────
+local customMapDefs      = {}  -- mapName → { { model, x, y, z, rx, ry, rz, interior, doublesided, alpha }, ... }
+local dimensionObjects   = {}  -- dimension → { element, element, ... }
+local dimensionRefCount  = {}  -- dimension → number of players inside
+
+
+local function parseMapFile(mapName)
+    -- Each custom interior folder (e.g. int_AutoGarage) is its own MTA resource
+    local metaPath = ":" .. mapName .. "/meta.xml"
+    local metaNode = xmlLoadFile(metaPath)
+    if not metaNode then
+        outputDebugString("[Housing] Could not load meta.xml for custom map: " .. mapName .. " (path: " .. metaPath .. ")", 2)
+        return nil
+    end
+
+    local mapFileName = nil
+    local children = xmlNodeGetChildren(metaNode)
+    for _, child in ipairs(children) do
+        if xmlNodeGetName(child) == "map" then
+            mapFileName = xmlNodeGetAttribute(child, "src")
+            break
+        end
+    end
+    xmlUnloadFile(metaNode)
+
+    if not mapFileName then
+        outputDebugString("[Housing] No <map> entry found in meta.xml for: " .. mapName, 2)
+        return nil
+    end
+
+    local mapPath = ":" .. mapName .. "/" .. mapFileName
+    local mapNode = xmlLoadFile(mapPath)
+    if not mapNode then
+        outputDebugString("[Housing] Could not load map file: " .. mapPath, 2)
+        return nil
+    end
+
+    local objects = {}
+    local mapChildren = xmlNodeGetChildren(mapNode)
+    for _, child in ipairs(mapChildren) do
+        if xmlNodeGetName(child) == "object" then
+            local model = tonumber(xmlNodeGetAttribute(child, "model"))
+            local posX  = tonumber(xmlNodeGetAttribute(child, "posX"))
+            local posY  = tonumber(xmlNodeGetAttribute(child, "posY"))
+            local posZ  = tonumber(xmlNodeGetAttribute(child, "posZ"))
+            local rotX  = tonumber(xmlNodeGetAttribute(child, "rotX")) or 0
+            local rotY  = tonumber(xmlNodeGetAttribute(child, "rotY")) or 0
+            local rotZ  = tonumber(xmlNodeGetAttribute(child, "rotZ")) or 0
+            local int   = tonumber(xmlNodeGetAttribute(child, "interior")) or 0
+            local ds    = xmlNodeGetAttribute(child, "doublesided") == "true"
+            local alpha = tonumber(xmlNodeGetAttribute(child, "alpha")) or 255
+
+            if model and posX and posY and posZ then
+                objects[#objects + 1] = {
+                    model = model,
+                    x = posX, y = posY, z = posZ,
+                    rx = rotX, ry = rotY, rz = rotZ,
+                    interior = int,
+                    doublesided = ds,
+                    alpha = alpha,
+                }
+            end
+        end
+    end
+    xmlUnloadFile(mapNode)
+
+    outputDebugString("[Housing] Parsed custom map '" .. mapName .. "': " .. #objects .. " objects.", 3)
+    return objects
+end
+
+local function ensureCustomMapLoaded(mapName)
+    if customMapDefs[mapName] then
+        return customMapDefs[mapName]
+    end
+    local defs = parseMapFile(mapName)
+    if defs then
+        customMapDefs[mapName] = defs
+    end
+    return defs
+end
+
+local function spawnCustomMapObjects(mapName, dimension, interiorId)
+    if dimensionObjects[dimension] then
+        return  -- Already spawned for this dimension
+    end
+
+    local defs = ensureCustomMapLoaded(mapName)
+    if not defs or #defs == 0 then
+        outputDebugString("[Housing] No object defs for custom map: " .. tostring(mapName), 2)
+        return
+    end
+
+    local created = {}
+    for _, def in ipairs(defs) do
+        local obj = createObject(def.model, def.x, def.y, def.z, def.rx, def.ry, def.rz)
+        if obj then
+            setElementInterior(obj, interiorId or def.interior)
+            setElementDimension(obj, dimension)
+            if def.doublesided then
+                setElementDoubleSided(obj, true)
+            end
+            if def.alpha < 255 then
+                setElementAlpha(obj, def.alpha)
+            end
+            setElementCollisionsEnabled(obj, true)
+            created[#created + 1] = obj
+        end
+    end
+
+    dimensionObjects[dimension] = created
+    outputDebugString("[Housing] Spawned " .. #created .. " custom objects for dim " .. dimension .. " (map: " .. mapName .. ")", 3)
+end
+
+local function destroyCustomMapObjects(dimension)
+    local objects = dimensionObjects[dimension]
+    if not objects then return end
+
+    for _, obj in ipairs(objects) do
+        if isElement(obj) then
+            destroyElement(obj)
+        end
+    end
+    dimensionObjects[dimension] = nil
+    outputDebugString("[Housing] Destroyed custom objects for dim " .. dimension, 3)
+end
+
+local function onPlayerEnterCustomInterior(house)
+    if not house or not house.custom_map then return end
+    local dim = house.dimension
+    dimensionRefCount[dim] = (dimensionRefCount[dim] or 0) + 1
+    spawnCustomMapObjects(house.custom_map, dim, house.interior_interior)
+end
+
+local function onPlayerLeaveCustomInterior(house)
+    if not house or not house.custom_map then return end
+    local dim = house.dimension
+    dimensionRefCount[dim] = (dimensionRefCount[dim] or 0) - 1
+    if dimensionRefCount[dim] <= 0 then
+        dimensionRefCount[dim] = nil
+        destroyCustomMapObjects(dim)
+    end
+end
+
+-- ─────────────────────────────────────────────────────────────
 -- FREE APARTMENT COORDINATES
 -- ─────────────────────────────────────────────────────────────
 local FREE_APT_EXTERIOR_X   = 2271.74
@@ -226,6 +373,12 @@ local function destroyHouseElements()
     entryMarkers = {}
     exitMarkers  = {}
     houseBlips   = {}
+
+    -- Clean up all custom map objects across all dimensions
+    for dim in pairs(dimensionObjects) do
+        destroyCustomMapObjects(dim)
+    end
+    dimensionRefCount = {}
 end
 
 function reloadHouses()
@@ -278,6 +431,8 @@ function reloadHouses()
                     z        = tonumber(row.garage_int_z) or 0,
                     rotation = tonumber(row.garage_int_rot) or 0,
                 },
+
+                custom_map = row.custom_map or nil,
             }
 
             houses[h.id] = h
@@ -385,6 +540,16 @@ end
 
 function getHouseData(houseId)
     return houses[tonumber(houseId)] or false
+end
+
+function enterCustomInterior(houseId)
+    local h = houses[tonumber(houseId)]
+    if h then onPlayerEnterCustomInterior(h) end
+end
+
+function leaveCustomInterior(houseId)
+    local h = houses[tonumber(houseId)]
+    if h then onPlayerLeaveCustomInterior(h) end
 end
 
 function getOwnedGarageHouseIdForPosition(ownerKey, x, y, z)
@@ -603,6 +768,17 @@ end)
 -- ─────────────────────────────────────────────────────────────
 addEventHandler("onPlayerQuit", root, function()
     cleanUpPreview(source, false)
+
+    -- Clean up custom map objects if player was inside a custom interior
+    local dim = getElementDimension(source)
+    if dim > 0 then
+        for _, h in pairs(houses) do
+            if h.dimension == dim and h.custom_map then
+                onPlayerLeaveCustomInterior(h)
+                break
+            end
+        end
+    end
 end)
 
 -- ─────────────────────────────────────────────────────────────
@@ -691,6 +867,7 @@ addEventHandler("housing:requestEnter", root, function()
         setElementDimension(client, house.dimension)
         setElementPosition(client, house.interior_x, house.interior_y, house.interior_z)
         setPedRotation(client, house.interior_rot)
+        onPlayerEnterCustomInterior(house)
     elseif mType == "interior" then
         debugHousing(client, string.format(
             "requestEnter teleporting OUTSIDE to (%.2f, %.2f, %.2f) int=%d dim=0",
@@ -700,6 +877,7 @@ addEventHandler("housing:requestEnter", root, function()
             tonumber(house.exterior_interior) or 0
         ))
         triggerClientEvent(client, "rp_ui:hideHousePopup", root)
+        onPlayerLeaveCustomInterior(house)
         setElementInterior(client, house.exterior_interior)
         setElementDimension(client, 0)
         setElementPosition(client, house.exterior_x, house.exterior_y, getExteriorReturnZ(house))

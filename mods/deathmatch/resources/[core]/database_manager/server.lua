@@ -304,7 +304,8 @@ addEventHandler("onResourceStart", resourceRoot, function()
             garage_int_x REAL NOT NULL DEFAULT 0,
             garage_int_y REAL NOT NULL DEFAULT 0,
             garage_int_z REAL NOT NULL DEFAULT 0,
-            garage_int_rot REAL NOT NULL DEFAULT 0
+            garage_int_rot REAL NOT NULL DEFAULT 0,
+            custom_map TEXT
         )
     ]])
     dbExecute([[
@@ -332,6 +333,9 @@ addEventHandler("onResourceStart", resourceRoot, function()
         dbExecute("ALTER TABLE houses ADD COLUMN garage_int_y REAL NOT NULL DEFAULT 0")
         dbExecute("ALTER TABLE houses ADD COLUMN garage_int_z REAL NOT NULL DEFAULT 0")
         dbExecute("ALTER TABLE houses ADD COLUMN garage_int_rot REAL NOT NULL DEFAULT 0")
+    end
+    if not existingCols["custom_map"] then
+        dbExecute("ALTER TABLE houses ADD COLUMN custom_map TEXT")
     end
     dbExecute([[
         CREATE TABLE IF NOT EXISTS vehicles (

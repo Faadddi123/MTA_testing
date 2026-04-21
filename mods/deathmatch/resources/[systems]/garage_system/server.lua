@@ -205,6 +205,11 @@ local function movePlayerIntoGarage(player, propertyId)
 
     outputChatBox("Garage: entered " .. context.house.name .. ". Use /exitgarage to leave.", player, 120, 200, 255, true)
     onGarageEntered(propertyId)
+
+    -- Spawn custom map objects if this is a custom interior garage
+    if context.house.custom_map then
+        exports.housing:enterCustomInterior(propertyId)
+    end
 end
 
 local function movePlayerOutOfGarage(player, propertyId)
@@ -225,6 +230,11 @@ local function movePlayerOutOfGarage(player, propertyId)
 
     outputChatBox("Garage: exited " .. context.house.name .. ".", player, 120, 200, 255, true)
     onGarageExited(propertyId)
+
+    -- Cleanup custom map objects if this is a custom interior garage
+    if context.house.custom_map then
+        exports.housing:leaveCustomInterior(propertyId)
+    end
 end
 
 local function getNearbyGarageEntryPropertyId(player)

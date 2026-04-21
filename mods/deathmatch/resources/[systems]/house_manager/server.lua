@@ -16,6 +16,7 @@ end
 local HOUSE_EXTERIOR_CREATE_Z_OFFSET = -0.50
 
 local INTERIOR_CATALOG = {
+    -- ─── Native GTA:SA Interiors ─────────────────────────────────
     studio = {
         label = "Studio Flat", size = "small",
         x = 2233.64, y = -1115.26, z = 1050.88,
@@ -76,9 +77,182 @@ local INTERIOR_CATALOG = {
         exit_x = 145.00, exit_y = 1366.07, exit_z = 1083.65,
         interior = 5,
     },
+
+    -- ─── Custom Interiors (multitheftauto-custominteriors) ────────
+    -- Residential
+    custom_modern_small_house = {
+        label = "Modern Small House (Custom)", size = "medium",
+        x = 1530.06, y = 1588.46, z = 10.02,
+        exit_x = 1534.53, exit_y = 1588.46, exit_z = 10.02,
+        interior = 1,
+        custom_map = "int_ModernSmallHouse",
+    },
+    custom_modern_condo = {
+        label = "Modern Condo (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "Int_ModernCondo",
+    },
+    custom_modern_mansion = {
+        label = "Modern Mansion (Custom)", size = "large",
+        x = 1486.55, y = 1650.00, z = 9.84,
+        exit_x = 1490.00, exit_y = 1650.00, exit_z = 9.84,
+        interior = 1,
+        custom_map = "Int_ModernMansion",
+    },
+    custom_modern_mansion2 = {
+        label = "Modern Mansion 2 (Custom)", size = "large",
+        x = 1393.78, y = 1390.00, z = 9.90,
+        exit_x = 1398.00, exit_y = 1390.00, exit_z = 9.90,
+        interior = 1,
+        custom_map = "Int_ModernMansion2",
+    },
+
+    -- Commercial / Public
+    custom_italian_bistro = {
+        label = "Italian Bistro (Custom)", size = "medium",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_ItalianBistro",
+    },
+    custom_asian_restaurant = {
+        label = "Asian Restaurant (Custom)", size = "medium",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_AsianResteraunt",
+    },
+    custom_butcher = {
+        label = "Butcher Shop (Custom)", size = "small",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_Butcher",
+    },
+    custom_art_gallery = {
+        label = "Art Gallery (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_ArtGalleryEntry",
+    },
+    custom_china_cinema = {
+        label = "China Cinema (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_ChinaCinemaEntry",
+    },
+    custom_castle_casino = {
+        label = "Castle Casino (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_CastleCasino",
+    },
+    custom_skyscraper_atrium = {
+        label = "Skyscraper Atrium (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_SkyScraperAtrium",
+    },
+    custom_skyscraper_offices = {
+        label = "Skyscraper Offices (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_SkyScraperOffices",
+    },
+
+    -- Government / Public Services
+    custom_city_hall = {
+        label = "City Hall (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_CityHall",
+    },
+    custom_courthouse = {
+        label = "Courthouse (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_Courthouse",
+    },
+    custom_dmv = {
+        label = "DMV (Custom)", size = "medium",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_DMV",
+    },
+    custom_fire_department = {
+        label = "Fire Department (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_FireDepartment",
+    },
+    custom_gov_entryway = {
+        label = "Government Entryway (Custom)", size = "medium",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_Government Entryway",
+    },
+    custom_gov_offices = {
+        label = "Government Offices (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_GovernmentOffices",
+    },
+
+    -- Vehicle / Service
+    custom_taxi_depot = {
+        label = "Taxi Depot (Custom)", size = "medium",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_TaxiDepot",
+    },
+    custom_towing_company = {
+        label = "Towing Company (Custom)", size = "medium",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_TowingCompany",
+    },
+    custom_carther = {
+        label = "Carther Warehouse (Custom)", size = "large",
+        x = 1399.40, y = 1350.76, z = 9.90,
+        exit_x = 1404.00, exit_y = 1350.76, exit_z = 9.90,
+        interior = 1,
+        custom_map = "int_Carther",
+    },
+
+    -- ─── Custom Garages ──────────────────────────────────────────
+    custom_auto_garage = {
+        label = "Auto Garage (Custom)", size = "medium",
+        x = 1514.88, y = 1623.57, z = 11.00,
+        exit_x = 1518.00, exit_y = 1623.57, exit_z = 11.00,
+        interior = 1,
+        custom_map = "int_AutoGarage",
+    },
+    custom_parking_garage = {
+        label = "Parking Garage (Custom)", size = "large",
+        x = 2260.00, y = 1650.00, z = 1113.45,
+        exit_x = 2264.00, exit_y = 1650.00, exit_z = 1113.45,
+        interior = 1,
+        custom_map = "int_ParkingGarage",
+    },
 }
 
 local CATEGORY_TO_TYPE = {
+    -- Native
     studio = "apartment",
     apartment_small = "apartment",
     apartment_medium = "apartment",
@@ -89,9 +263,38 @@ local CATEGORY_TO_TYPE = {
     warehouse = "house",
     garage_small = "garage",
     garage_large = "garage",
+    -- Custom residential
+    custom_modern_small_house = "house",
+    custom_modern_condo = "house",
+    custom_modern_mansion = "house",
+    custom_modern_mansion2 = "house",
+    -- Custom commercial/public
+    custom_italian_bistro = "house",
+    custom_asian_restaurant = "house",
+    custom_butcher = "house",
+    custom_art_gallery = "house",
+    custom_china_cinema = "house",
+    custom_castle_casino = "house",
+    custom_skyscraper_atrium = "house",
+    custom_skyscraper_offices = "house",
+    -- Custom government/public
+    custom_city_hall = "house",
+    custom_courthouse = "house",
+    custom_dmv = "house",
+    custom_fire_department = "house",
+    custom_gov_entryway = "house",
+    custom_gov_offices = "house",
+    -- Custom vehicle/service
+    custom_taxi_depot = "house",
+    custom_towing_company = "house",
+    custom_carther = "house",
+    -- Custom garages
+    custom_auto_garage = "garage",
+    custom_parking_garage = "garage",
 }
 
 local HOUSE_CATEGORY_KEYS = {
+    -- Native
     "studio",
     "apartment_small",
     "apartment_medium",
@@ -100,14 +303,104 @@ local HOUSE_CATEGORY_KEYS = {
     "villa",
     "mansion",
     "warehouse",
+    -- Custom Residential
+    "custom_modern_small_house",
+    "custom_modern_condo",
+    "custom_modern_mansion",
+    "custom_modern_mansion2",
+    -- Custom Commercial / Public
+    "custom_italian_bistro",
+    "custom_asian_restaurant",
+    "custom_butcher",
+    "custom_art_gallery",
+    "custom_china_cinema",
+    "custom_castle_casino",
+    "custom_skyscraper_atrium",
+    "custom_skyscraper_offices",
+    -- Custom Government / Public Services
+    "custom_city_hall",
+    "custom_courthouse",
+    "custom_dmv",
+    "custom_fire_department",
+    "custom_gov_entryway",
+    "custom_gov_offices",
+    -- Custom Vehicle / Service
+    "custom_taxi_depot",
+    "custom_towing_company",
+    "custom_carther",
 }
 
 local GARAGE_CATEGORY_KEYS = {
+    -- Native
     "garage_small",
     "garage_large",
+    -- Custom Garages
+    "custom_auto_garage",
+    "custom_parking_garage",
 }
 
 local previewReturn = {}
+local previewObjects = {}  -- player → { element, element, ... }
+
+local function spawnPreviewMapObjects(player, mapName, interiorId, dimension)
+    destroyPreviewMapObjects(player)
+
+    local metaPath = ":" .. mapName .. "/meta.xml"
+    local metaNode = xmlLoadFile(metaPath)
+    if not metaNode then return end
+
+    local mapFileName = nil
+    for _, child in ipairs(xmlNodeGetChildren(metaNode)) do
+        if xmlNodeGetName(child) == "map" then
+            mapFileName = xmlNodeGetAttribute(child, "src")
+            break
+        end
+    end
+    xmlUnloadFile(metaNode)
+    if not mapFileName then return end
+
+    local mapNode = xmlLoadFile(":" .. mapName .. "/" .. mapFileName)
+    if not mapNode then return end
+
+    local objects = {}
+    for _, child in ipairs(xmlNodeGetChildren(mapNode)) do
+        if xmlNodeGetName(child) == "object" then
+            local model = tonumber(xmlNodeGetAttribute(child, "model"))
+            local px = tonumber(xmlNodeGetAttribute(child, "posX"))
+            local py = tonumber(xmlNodeGetAttribute(child, "posY"))
+            local pz = tonumber(xmlNodeGetAttribute(child, "posZ"))
+            if model and px and py and pz then
+                local obj = createObject(model, px, py, pz,
+                    tonumber(xmlNodeGetAttribute(child, "rotX")) or 0,
+                    tonumber(xmlNodeGetAttribute(child, "rotY")) or 0,
+                    tonumber(xmlNodeGetAttribute(child, "rotZ")) or 0)
+                if obj then
+                    setElementInterior(obj, interiorId)
+                    setElementDimension(obj, dimension)
+                    if xmlNodeGetAttribute(child, "doublesided") == "true" then
+                        setElementDoubleSided(obj, true)
+                    end
+                    local alpha = tonumber(xmlNodeGetAttribute(child, "alpha")) or 255
+                    if alpha < 255 then setElementAlpha(obj, alpha) end
+                    objects[#objects + 1] = obj
+                end
+            end
+        end
+    end
+    xmlUnloadFile(mapNode)
+
+    previewObjects[player] = objects
+    outputDebugString("[HouseManager] Spawned " .. #objects .. " preview objects for " .. mapName, 3)
+end
+
+function destroyPreviewMapObjects(player)
+    local objs = previewObjects[player]
+    if not objs then return end
+    for _, obj in ipairs(objs) do
+        if isElement(obj) then destroyElement(obj) end
+    end
+    previewObjects[player] = nil
+end
 
 local function getNextPropertyId()
     local row = centralQuery("SELECT MAX(id) AS maxid FROM houses")[1]
@@ -334,6 +627,11 @@ addEventHandler("hm:requestPreview", root, function(categoryKey)
     setElementDimension(player, 99998)
     setElementPosition(player, preset.x, preset.y, preset.z)
 
+    -- Spawn custom map objects in the preview dimension if applicable
+    if preset.custom_map then
+        spawnPreviewMapObjects(player, preset.custom_map, preset.interior, 99998)
+    end
+
     outputChatBox("[Preview] You are inside: " .. preset.label, player, 100, 230, 255, true)
     outputChatBox("[Preview] Type /exitpreview or click the button to return.", player, 200, 200, 200, true)
 end)
@@ -346,6 +644,7 @@ addEventHandler("hm:exitPreview", root, function()
         return
     end
 
+    destroyPreviewMapObjects(player)
     setElementInterior(player, ret.interior)
     setElementDimension(player, ret.dimension)
     setElementPosition(player, ret.x, ret.y, ret.z)
@@ -361,6 +660,7 @@ addCommandHandler("exitpreview", function(player)
         return
     end
 
+    destroyPreviewMapObjects(player)
     setElementInterior(player, ret.interior)
     setElementDimension(player, ret.dimension)
     setElementPosition(player, ret.x, ret.y, ret.z)
@@ -370,6 +670,7 @@ addCommandHandler("exitpreview", function(player)
 end)
 
 addEventHandler("onPlayerQuit", root, function()
+    destroyPreviewMapObjects(source)
     previewReturn[source] = nil
 end)
 
@@ -411,8 +712,9 @@ addEventHandler("hm:requestCreate", root, function(data)
             exterior_x, exterior_y, exterior_z, exterior_rot, exterior_interior,
             interior_x, interior_y, interior_z, interior_rot, interior_id, dimension,
             garage_x, garage_y, garage_z, garage_radius,
-            garage_int_x, garage_int_y, garage_int_z, garage_int_rot
-        ) VALUES (?, ?, ?, ?, NULL, NULL, NULL, 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, 0, 0, 0, 8, 0, 0, 0, 0)
+            garage_int_x, garage_int_y, garage_int_z, garage_int_rot,
+            custom_map
+        ) VALUES (?, ?, ?, ?, NULL, NULL, NULL, 1, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, 0, 0, 0, 8, 0, 0, 0, 0, ?)
     ]],
         newId,
         name,
@@ -427,7 +729,8 @@ addEventHandler("hm:requestCreate", root, function(data)
         preset.y,
         preset.z,
         preset.interior,
-        propertyDimension
+        propertyDimension,
+        preset.custom_map or nil
     )
 
     if linkTo then
