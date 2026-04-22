@@ -907,6 +907,15 @@ addEventHandler("housing:requestEnter", root, function()
         setElementDimension(client, house.dimension)
         setElementPosition(client, house.interior_x, house.interior_y, house.interior_z)
         setPedRotation(client, house.interior_rot)
+        outputChatBox(string.format(
+            "[DEBUG] Teleported to (%.2f, %.2f, %.2f) int=%d dim=%d map=%s",
+            tonumber(house.interior_x) or 0,
+            tonumber(house.interior_y) or 0,
+            tonumber(house.interior_z) or 0,
+            tonumber(house.interior_interior) or 0,
+            tonumber(house.dimension) or 0,
+            tostring(house.custom_map or "none")
+        ), client, 255, 200, 100, true)
         onPlayerEnterCustomInterior(house)
     elseif mType == "interior" then
         debugHousing(client, string.format(

@@ -681,7 +681,7 @@ addEventHandler("hm:requestCreate", root, function(data)
     end
 
     centralExecute([[
-        INSERT OR IGNORE INTO houses (
+        INSERT OR REPLACE INTO houses (
             id, name, price, property_type, linked_property_id, owner_key, owner_account, locked,
             exterior_x, exterior_y, exterior_z, exterior_rot, exterior_interior,
             interior_x, interior_y, interior_z, interior_rot, interior_id, dimension,
@@ -721,6 +721,13 @@ addEventHandler("hm:requestCreate", root, function(data)
         propertyType,
         price
     ), player, 120, 255, 120, true)
+    outputChatBox(string.format(
+        "[HouseAdmin] Interior coords: (%.2f, %.2f, %.2f) int=%d dim=%d map=%s",
+        preset.x, preset.y, preset.z,
+        preset.interior,
+        propertyDimension,
+        tostring(preset.custom_map or "none")
+    ), player, 200, 200, 255, true)
 
     reloadHousing()
     sendPropertiesList(player)
