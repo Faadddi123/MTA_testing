@@ -699,9 +699,9 @@ addEventHandler("hm:requestCreate", root, function(data)
         exteriorZ,
         exteriorRot,
         exteriorInterior,
-        preset.x,
-        preset.y,
-        preset.z,
+        preset.exit_x or preset.x,
+        preset.exit_y or preset.y,
+        preset.exit_z or preset.z,
         preset.interior,
         propertyDimension,
         preset.custom_map or nil
