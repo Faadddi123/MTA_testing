@@ -5,7 +5,7 @@ local screenWidth, screenHeight = guiGetScreenSize()
 local nearGarageHint = false
 local nearGarageHouseId = nil
 local nearGarageMarkerType = nil
-local MAX_DISTANCE = 8
+local MAX_DISTANCE = 4
 
 local function isInGarageDimension()
     local val = getElementData(localPlayer, "garage:inside")
@@ -68,26 +68,23 @@ local function refreshGarageHint()
             local owner = getElementData(marker, "garage:owner") or ""
             local price = tonumber(getElementData(marker, "garage:price")) or 0
 
-            outputChatBox("===================================", 200, 200, 200)
-            outputChatBox("Garage: " .. tostring(name), 100, 200, 255)
-            
             if owner == "" then
-                outputChatBox("Status: For Sale! Price: $" .. tostring(price), 100, 255, 100)
-                outputChatBox("Type /buy_garage to purchase this property.", 255, 255, 100)
+                -- Unowned garage: show full buy info
+                outputChatBox("Garage: " .. tostring(name) .. " - For Sale ($" .. tostring(price) .. ")", 100, 255, 100)
+                outputChatBox("Type /buy_garage to purchase. Press [F] to enter.", 255, 255, 100)
             else
-                outputChatBox("Status: Owned.", 255, 100, 100)
+                -- Owned garage: just show press F
+                outputChatBox("Garage: " .. tostring(name) .. " - Press [F] to enter.", 100, 200, 255)
             end
-            outputChatBox("Press [F] to enter.", 200, 200, 200)
-            outputChatBox("===================================", 200, 200, 200)
         else
-            outputChatBox("Press [F] near the marker to exit the garage.", 80, 180, 255)
+            outputChatBox("Press [F] to exit the garage.", 80, 180, 255)
         end
     end
     wasNearGarage = nearGarageHint
 end
 
 local function requestGarageInteract()
-    if not canTrigger() or isPedInVehicle(localPlayer) then
+    if not canTrigger() then
         return
     end
 

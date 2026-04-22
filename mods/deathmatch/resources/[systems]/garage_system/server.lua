@@ -197,6 +197,14 @@ local function movePlayerIntoGarage(player, propertyId)
     garageOccupants[propertyId] = garageOccupants[propertyId] or {}
     garageOccupants[propertyId][player] = true
 
+    -- If player is in a vehicle, teleport vehicle too
+    local vehicle = isPedInVehicle(player) and getPedOccupiedVehicle(player) or nil
+    if vehicle and getPedOccupiedVehicleSeat(player) == 0 then
+        setElementInterior(vehicle, context.interior.interior)
+        setElementDimension(vehicle, context.interior.dimension)
+        setElementPosition(vehicle, context.interior.x, context.interior.y, context.interior.z)
+    end
+
     setElementInterior(player, context.interior.interior)
     setElementDimension(player, context.interior.dimension)
     setElementPosition(player, context.interior.x, context.interior.y, context.interior.z)
@@ -220,6 +228,14 @@ local function movePlayerOutOfGarage(player, propertyId)
 
     if garageOccupants[propertyId] then
         garageOccupants[propertyId][player] = nil
+    end
+
+    -- If player is in a vehicle, teleport vehicle too
+    local vehicle = isPedInVehicle(player) and getPedOccupiedVehicle(player) or nil
+    if vehicle and getPedOccupiedVehicleSeat(player) == 0 then
+        setElementInterior(vehicle, context.exterior.interior)
+        setElementDimension(vehicle, context.exterior.dimension)
+        setElementPosition(vehicle, context.exterior.x, context.exterior.y, context.exterior.z + GARAGE_EXIT_Z_OFFSET)
     end
 
     setElementInterior(player, context.exterior.interior)
@@ -487,7 +503,7 @@ end)
 addEvent("garage:requestEnter", true)
 addEventHandler("garage:requestEnter", root, function(requestedPropertyId)
     local player = client
-    if not isElement(player) or getElementType(player) ~= "player" or isPedInVehicle(player) then
+    if not isElement(player) or getElementType(player) ~= "player" then
         return
     end
 
@@ -515,7 +531,7 @@ end)
 addEvent("garage:requestExit", true)
 addEventHandler("garage:requestExit", root, function(requestedPropertyId)
     local player = client
-    if not isElement(player) or getElementType(player) ~= "player" or isPedInVehicle(player) then
+    if not isElement(player) or getElementType(player) ~= "player" then
         return
     end
 
