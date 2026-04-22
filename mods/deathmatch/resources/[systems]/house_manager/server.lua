@@ -668,6 +668,11 @@ addEventHandler("hm:requestCreate", root, function(data)
     local price = math.max(1000, math.min(10000000, math.floor(tonumber(data and data.price or 50000) or 50000)))
     local linkTo = tonumber(data and data.link_to)
 
+    -- Use custom spawn override if the admin set one via noclip + "Set Spawn Here"
+    local interiorX = tonumber(data and data.custom_x) or preset.x
+    local interiorY = tonumber(data and data.custom_y) or preset.y
+    local interiorZ = tonumber(data and data.custom_z) or preset.z
+
     local ex, ey, ez = getElementPosition(player)
     local exteriorRot = getPedRotation(player)
     local exteriorInterior = getElementInterior(player)
@@ -699,9 +704,9 @@ addEventHandler("hm:requestCreate", root, function(data)
         exteriorZ,
         exteriorRot,
         exteriorInterior,
-        preset.x,
-        preset.y,
-        preset.z,
+        interiorX,
+        interiorY,
+        interiorZ,
         preset.interior,
         propertyDimension,
         preset.custom_map or nil
@@ -723,7 +728,7 @@ addEventHandler("hm:requestCreate", root, function(data)
     ), player, 120, 255, 120, true)
     outputChatBox(string.format(
         "[HouseAdmin] Interior coords: (%.2f, %.2f, %.2f) int=%d dim=%d map=%s",
-        preset.x, preset.y, preset.z,
+        interiorX, interiorY, interiorZ,
         preset.interior,
         propertyDimension,
         tostring(preset.custom_map or "none")

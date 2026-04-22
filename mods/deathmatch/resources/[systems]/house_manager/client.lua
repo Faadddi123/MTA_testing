@@ -4,6 +4,9 @@
 local panel = nil
 local isOpen = false
 local isPreviewing = false
+local isNoclipping = false
+local noclipTimer = nil
+local customSpawnOverride = nil
 local selectedPropertyId = nil
 
 local propertyRows = {}
@@ -54,9 +57,23 @@ local function setAddStatus(kind, message, r, g, b)
     end
 end
 
+local function stopNoclip()
+    if noclipTimer and isTimer(noclipTimer) then
+        killTimer(noclipTimer)
+        noclipTimer = nil
+    end
+    if isNoclipping then
+        isNoclipping = false
+        local x, y, z = getElementPosition(localPlayer)
+        setElementVelocity(localPlayer, 0, 0, 0)
+        setElementPosition(localPlayer, x, y, z)
+    end
+end
+
 local function closePanel()
     isOpen = false
     showCursor(false)
+    stopNoclip()
     if panel and isElement(panel) then
         guiSetVisible(panel, false)
     end
@@ -283,12 +300,70 @@ local function buildPanel()
     guiCreateLabel(12, H - 32, 60, 22, "Amount:", false, panel)
     local editMoney = guiCreateEdit(68, H - 34, 80, 24, "50000", false, panel)
     local btnGiveMoney = guiCreateButton(156, H - 34, 100, 24, "Give Money", false, panel)
+    local btnNoclip = guiCreateButton(266, H - 34, 100, 24, "Noclip", false, panel)
+    local btnSetSpawn = guiCreateButton(376, H - 34, 130, 24, "Set Spawn Here", false, panel)
+    guiSetEnabled(btnSetSpawn, false)
 
     addEventHandler("onClientGUIClick", btnGiveMoney, function()
         local amt = tonumber(guiGetText(editMoney))
         if amt and amt > 0 then
             triggerServerEvent("hm:giveMoney", localPlayer, amt)
         end
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnNoclip, function()
+        if not isPreviewing then
+            outputChatBox("[HouseAdmin] Enter preview mode first.", 255, 160, 60)
+            return
+        end
+        isNoclipping = not isNoclipping
+        if isNoclipping then
+            guiSetText(btnNoclip, "Stop Noclip")
+            guiSetEnabled(btnSetSpawn, true)
+            outputChatBox("[HouseAdmin] Noclip ON. Use WASD + Space/Shift to fly. Click 'Set Spawn Here' when ready.", 100, 255, 100)
+            local speed = 0.5
+            noclipTimer = setTimer(function()
+                if not isNoclipping then return end
+                local camX, camY, camZ, lookX, lookY, lookZ = getCameraMatrix()
+                local dirX = lookX - camX
+                local dirY = lookY - camY
+                local dirZ = lookZ - camZ
+                local len = math.sqrt(dirX*dirX + dirY*dirY + dirZ*dirZ)
+                if len > 0 then dirX, dirY, dirZ = dirX/len, dirY/len, dirZ/len end
+
+                local rightX = dirY
+                local rightY = -dirX
+
+                local moveX, moveY, moveZ = 0, 0, 0
+                if getKeyState("w") then moveX = moveX + dirX * speed; moveY = moveY + dirY * speed; moveZ = moveZ + dirZ * speed end
+                if getKeyState("s") then moveX = moveX - dirX * speed; moveY = moveY - dirY * speed; moveZ = moveZ - dirZ * speed end
+                if getKeyState("a") then moveX = moveX - rightX * speed; moveY = moveY - rightY * speed end
+                if getKeyState("d") then moveX = moveX + rightX * speed; moveY = moveY + rightY * speed end
+                if getKeyState("space") then moveZ = moveZ + speed end
+                if getKeyState("lshift") then moveZ = moveZ - speed end
+
+                local px, py, pz = getElementPosition(localPlayer)
+                setElementPosition(localPlayer, px + moveX, py + moveY, pz + moveZ)
+                setElementVelocity(localPlayer, 0, 0, 0)
+            end, 50, 0)
+        else
+            guiSetText(btnNoclip, "Noclip")
+            stopNoclip()
+            outputChatBox("[HouseAdmin] Noclip OFF.", 255, 180, 80)
+        end
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnSetSpawn, function()
+        if not isPreviewing then
+            outputChatBox("[HouseAdmin] You must be in preview mode.", 255, 80, 80)
+            return
+        end
+        local px, py, pz = getElementPosition(localPlayer)
+        customSpawnOverride = { x = px, y = py, z = pz }
+        outputChatBox(string.format(
+            "[HouseAdmin] Spawn point set to (%.2f, %.2f, %.2f). Create the property to use this position.",
+            px, py, pz
+        ), 100, 255, 100)
     end, false)
 
     local tabList = guiCreateTab("Properties", tabs)
@@ -544,6 +619,9 @@ local function buildPanel()
 
         addEventHandler("onClientGUIClick", tabUi.exitPreviewButton, function()
             isPreviewing = false
+            stopNoclip()
+            guiSetText(btnNoclip, "Noclip")
+            guiSetEnabled(btnSetSpawn, false)
             guiSetVisible(ui.add.house.exitPreviewButton, false)
             guiSetVisible(ui.add.garage.exitPreviewButton, false)
             triggerServerEvent("hm:exitPreview", localPlayer)
@@ -565,12 +643,19 @@ local function buildPanel()
                 return
             end
 
-            triggerServerEvent("hm:requestCreate", localPlayer, {
+            local createData = {
                 name = name,
                 price = price,
                 category = category,
                 link_to = linkTo or false,
-            })
+            }
+            if customSpawnOverride then
+                createData.custom_x = customSpawnOverride.x
+                createData.custom_y = customSpawnOverride.y
+                createData.custom_z = customSpawnOverride.z
+                customSpawnOverride = nil
+            end
+            triggerServerEvent("hm:requestCreate", localPlayer, createData)
             setAddStatus(kind, "Creating property and reloading housing...", 100, 255, 100)
         end, false)
     end
