@@ -5,7 +5,6 @@ local panel = nil
 local isOpen = false
 local isPreviewing = false
 local isNoclipping = false
-local noclipTimer = nil
 local customSpawnOverride = nil
 local selectedPropertyId = nil
 
@@ -57,17 +56,53 @@ local function setAddStatus(kind, message, r, g, b)
     end
 end
 
+local NOCLIP_SPEED = 0.8
+
+local function noclipRenderHandler()
+    if not isNoclipping then return end
+
+    local camX, camY, camZ, lookX, lookY, lookZ = getCameraMatrix()
+    local dirX = lookX - camX
+    local dirY = lookY - camY
+    local dirZ = lookZ - camZ
+    local len = math.sqrt(dirX*dirX + dirY*dirY + dirZ*dirZ)
+    if len > 0 then dirX, dirY, dirZ = dirX/len, dirY/len, dirZ/len end
+
+    local rightX = dirY
+    local rightY = -dirX
+
+    local moveX, moveY, moveZ = 0, 0, 0
+    if getKeyState("arrow_u") or getKeyState("w") then moveX = moveX + dirX * NOCLIP_SPEED; moveY = moveY + dirY * NOCLIP_SPEED; moveZ = moveZ + dirZ * NOCLIP_SPEED end
+    if getKeyState("arrow_d") or getKeyState("s") then moveX = moveX - dirX * NOCLIP_SPEED; moveY = moveY - dirY * NOCLIP_SPEED; moveZ = moveZ - dirZ * NOCLIP_SPEED end
+    if getKeyState("arrow_l") or getKeyState("a") then moveX = moveX - rightX * NOCLIP_SPEED; moveY = moveY - rightY * NOCLIP_SPEED end
+    if getKeyState("arrow_r") or getKeyState("d") then moveX = moveX + rightX * NOCLIP_SPEED; moveY = moveY + rightY * NOCLIP_SPEED end
+    if getKeyState("space") then moveZ = moveZ + NOCLIP_SPEED end
+    if getKeyState("lshift") then moveZ = moveZ - NOCLIP_SPEED end
+
+    local px, py, pz = getElementPosition(localPlayer)
+    setElementPosition(localPlayer, px + moveX, py + moveY, pz + moveZ)
+    setElementVelocity(localPlayer, 0, 0, 0)
+end
+
 local function stopNoclip()
-    if noclipTimer and isTimer(noclipTimer) then
-        killTimer(noclipTimer)
-        noclipTimer = nil
-    end
+    removeEventHandler("onClientPreRender", root, noclipRenderHandler)
     if isNoclipping then
         isNoclipping = false
+        setPedGravity(localPlayer, 1)
+        setElementCollisionsEnabled(localPlayer, true)
         local x, y, z = getElementPosition(localPlayer)
         setElementVelocity(localPlayer, 0, 0, 0)
         setElementPosition(localPlayer, x, y, z)
     end
+end
+
+local function startNoclip()
+    isNoclipping = true
+    setPedGravity(localPlayer, 0)
+    setElementVelocity(localPlayer, 0, 0, 0)
+    setElementCollisionsEnabled(localPlayer, false)
+    showCursor(false)
+    addEventHandler("onClientPreRender", root, noclipRenderHandler)
 end
 
 local function closePanel()
@@ -316,42 +351,30 @@ local function buildPanel()
             outputChatBox("[HouseAdmin] Enter preview mode first.", 255, 160, 60)
             return
         end
-        isNoclipping = not isNoclipping
-        if isNoclipping then
+        if not isNoclipping then
             guiSetText(btnNoclip, "Stop Noclip")
             guiSetEnabled(btnSetSpawn, true)
-            outputChatBox("[HouseAdmin] Noclip ON. Use WASD + Space/Shift to fly. Click 'Set Spawn Here' when ready.", 100, 255, 100)
-            local speed = 0.5
-            noclipTimer = setTimer(function()
-                if not isNoclipping then return end
-                local camX, camY, camZ, lookX, lookY, lookZ = getCameraMatrix()
-                local dirX = lookX - camX
-                local dirY = lookY - camY
-                local dirZ = lookZ - camZ
-                local len = math.sqrt(dirX*dirX + dirY*dirY + dirZ*dirZ)
-                if len > 0 then dirX, dirY, dirZ = dirX/len, dirY/len, dirZ/len end
-
-                local rightX = dirY
-                local rightY = -dirX
-
-                local moveX, moveY, moveZ = 0, 0, 0
-                if getKeyState("w") then moveX = moveX + dirX * speed; moveY = moveY + dirY * speed; moveZ = moveZ + dirZ * speed end
-                if getKeyState("s") then moveX = moveX - dirX * speed; moveY = moveY - dirY * speed; moveZ = moveZ - dirZ * speed end
-                if getKeyState("a") then moveX = moveX - rightX * speed; moveY = moveY - rightY * speed end
-                if getKeyState("d") then moveX = moveX + rightX * speed; moveY = moveY + rightY * speed end
-                if getKeyState("space") then moveZ = moveZ + speed end
-                if getKeyState("lshift") then moveZ = moveZ - speed end
-
-                local px, py, pz = getElementPosition(localPlayer)
-                setElementPosition(localPlayer, px + moveX, py + moveY, pz + moveZ)
-                setElementVelocity(localPlayer, 0, 0, 0)
-            end, 50, 0)
+            startNoclip()
+            outputChatBox("[HouseAdmin] Noclip ON. Fly with WASD/Arrow keys + Space/Shift.", 100, 255, 100)
+            outputChatBox("[HouseAdmin] Press F2 to show cursor, click 'Set Spawn Here', then F2 again to fly.", 255, 255, 100)
         else
             guiSetText(btnNoclip, "Noclip")
             stopNoclip()
+            showCursor(true)
             outputChatBox("[HouseAdmin] Noclip OFF.", 255, 180, 80)
         end
     end, false)
+
+    bindKey("F2", "down", function()
+        if not isNoclipping then return end
+        if isCursorShowing() then
+            showCursor(false)
+            outputChatBox("[HouseAdmin] Cursor hidden. Flying mode.", 200, 200, 200)
+        else
+            showCursor(true)
+            outputChatBox("[HouseAdmin] Cursor shown. Click buttons, then F2 to fly again.", 200, 200, 200)
+        end
+    end)
 
     addEventHandler("onClientGUIClick", btnSetSpawn, function()
         if not isPreviewing then
@@ -361,7 +384,7 @@ local function buildPanel()
         local px, py, pz = getElementPosition(localPlayer)
         customSpawnOverride = { x = px, y = py, z = pz }
         outputChatBox(string.format(
-            "[HouseAdmin] Spawn point set to (%.2f, %.2f, %.2f). Create the property to use this position.",
+            "[HouseAdmin] Spawn set to (%.2f, %.2f, %.2f). Now create the property.",
             px, py, pz
         ), 100, 255, 100)
     end, false)
