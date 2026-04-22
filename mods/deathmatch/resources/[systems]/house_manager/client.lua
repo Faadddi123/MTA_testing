@@ -280,6 +280,17 @@ local function buildPanel()
     local tabs = guiCreateTabPanel(8, 24, W - 16, H - 68, false, panel)
     local btnClose = guiCreateButton(W - 100, H - 34, 84, 24, "Close", false, panel)
 
+    guiCreateLabel(12, H - 32, 60, 22, "Amount:", false, panel)
+    local editMoney = guiCreateEdit(68, H - 34, 80, 24, "50000", false, panel)
+    local btnGiveMoney = guiCreateButton(156, H - 34, 100, 24, "Give Money", false, panel)
+
+    addEventHandler("onClientGUIClick", btnGiveMoney, function()
+        local amt = tonumber(guiGetText(editMoney))
+        if amt and amt > 0 then
+            triggerServerEvent("hm:giveMoney", localPlayer, amt)
+        end
+    end, false)
+
     local tabList = guiCreateTab("Properties", tabs)
     ui.propertyList = guiCreateGridList(8, 8, W - 40, 320, false, tabList)
     guiGridListSetSelectionMode(ui.propertyList, 0)

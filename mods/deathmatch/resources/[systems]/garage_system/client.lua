@@ -54,11 +54,22 @@ local function getNearestGarageMarker()
     return tonumber(getElementData(bestMarker, "garage:houseId")), getElementData(bestMarker, "garage:markerType")
 end
 
+local wasNearGarage = false
+
 local function refreshGarageHint()
     local houseId, markerType = getNearestGarageMarker()
     nearGarageHouseId = houseId
     nearGarageMarkerType = markerType
     nearGarageHint = houseId ~= nil and markerType ~= nil
+
+    if nearGarageHint and not wasNearGarage then
+        if not isInGarageDimension() then
+            outputChatBox("Press [F] near the marker to enter the garage.", 80, 180, 255)
+        else
+            outputChatBox("Press [F] near the marker to exit the garage.", 80, 180, 255)
+        end
+    end
+    wasNearGarage = nearGarageHint
 end
 
 local function requestGarageInteract()
@@ -74,32 +85,6 @@ local function requestGarageInteract()
         triggerServerEvent("garage:requestExit", localPlayer, nearGarageHouseId)
     end
 end
-
--- Draw hint text near top center of screen
-local function drawGarageHint()
-    if nearGarageHint and not isInGarageDimension() then
-        local text = "Press [F] near the blue marker to enter garage"
-        dxDrawText(text, screenWidth * 0.5 - 220, screenHeight * 0.85, screenWidth * 0.5 + 220, screenHeight * 0.9,
-            tocolor(80, 180, 255, 220), 1.0, "default-bold", "center", "center", false, false, true)
-    end
-
-    if isInGarageDimension() then
-        local lines = {
-            "[F]         - leave garage",
-            "/exitgarage - leave garage",
-            "/parkgarage - save vehicle here",
-            "/park       - save vehicle (general)",
-        }
-        local y = screenHeight * 0.08
-        for _, line in ipairs(lines) do
-            dxDrawText(line, screenWidth * 0.5 - 200, y, screenWidth * 0.5 + 200, y + 18,
-                tocolor(100, 200, 255, 200), 0.85, "default-bold", "center", "center", false, false, true)
-            y = y + 20
-        end
-    end
-end
-
-addEventHandler("onClientRender", root, drawGarageHint)
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
     bindKey("f", "down", requestGarageInteract)

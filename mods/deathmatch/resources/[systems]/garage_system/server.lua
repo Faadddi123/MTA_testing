@@ -203,7 +203,7 @@ local function movePlayerIntoGarage(player, propertyId)
     setPedRotation(player, context.interior.rotation)
     setElementData(player, "garage:inside", propertyId)
 
-    outputChatBox("Garage: entered " .. context.house.name .. ". Use /exitgarage to leave.", player, 120, 200, 255, true)
+    outputChatBox("Garage: entered " .. context.house.name .. ". Press /exitgarage to leave or F in circle.", player, 120, 200, 255, true)
     onGarageEntered(propertyId)
 
     -- Spawn custom map objects if this is a custom interior garage
@@ -419,17 +419,7 @@ addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimens
                 tonumber(context.interior.z) or 0
             ))
         end
-
-        if getElementData(player, "garage:inside") then
-            return
-        end
-
-        if not canAccessGarage(player, entryPropertyId) then
-            outputChatBox("Garage: buy or unlock this garage before entering it.", player, 255, 80, 80, true)
-            return
-        end
-
-        movePlayerIntoGarage(player, entryPropertyId)
+        -- Automatic teleport removed. Player must press F.
         return
     end
 
@@ -448,7 +438,7 @@ addEventHandler("onMarkerHit", resourceRoot, function(hitElement, matchingDimens
                 tonumber(context.exterior.z) or 0
             ))
         end
-        movePlayerOutOfGarage(player, exitPropertyId)
+        -- Automatic teleport removed. Player must press F.
     end
 end)
 
@@ -480,6 +470,11 @@ addEventHandler("garage:requestEnter", root, function(requestedPropertyId)
 
     if requestedPropertyId and tonumber(requestedPropertyId) and tonumber(requestedPropertyId) ~= tonumber(propertyId) then
         debugGarage(player, "requestEnter ignored mismatched client property id.")
+    end
+
+    if not canAccessGarage(player, propertyId) then
+        outputChatBox("Garage: buy or unlock this garage before entering it.", player, 255, 80, 80, true)
+        return
     end
 
     movePlayerIntoGarage(player, propertyId)

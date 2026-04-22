@@ -863,6 +863,30 @@ end
 addCommandHandler("houseadmin", openPanel)
 addCommandHandler("ha", openPanel)
 
+addEvent("hm:giveMoney", true)
+addEventHandler("hm:giveMoney", root, function(amount)
+    local player = client
+    if not isAdmin(player) then return end
+    amount = tonumber(amount) or 0
+    if amount > 0 then
+        givePlayerMoney(player, amount)
+        outputChatBox("[HouseAdmin] You gave yourself $" .. tostring(amount) .. ".", player, 100, 255, 100, true)
+    end
+end)
+
+addCommandHandler("givemoney", function(player, cmd, amount)
+    if isAdmin(player) then
+        local cash = tonumber(amount)
+        if cash and cash > 0 then
+            givePlayerMoney(player, cash)
+            outputChatBox("You gave yourself " .. cash .. " dollars", player, 0, 255, 0)
+        end
+    else
+        outputChatBox("You're not an admin!", player, 255, 0, 0)
+    end
+end)
+
+
 -- ─────────────────────────────────────────────────────────────
 -- INTERIOR MANAGER: Server events
 -- ─────────────────────────────────────────────────────────────
