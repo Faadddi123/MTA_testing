@@ -335,8 +335,11 @@ local function buildGarageElements()
             )
             setElementInterior(entryMarker, context.exterior.interior)
             setElementDimension(entryMarker, context.exterior.dimension)
-            setElementData(entryMarker, "garage:houseId", propertyId, false)
-            setElementData(entryMarker, "garage:markerType", "entry", false)
+            setElementData(entryMarker, "garage:houseId", propertyId, true)
+            setElementData(entryMarker, "garage:markerType", "entry", true)
+            setElementData(entryMarker, "garage:price", context.house.price or 0, true)
+            setElementData(entryMarker, "garage:owner", context.house.owner_key or "", true)
+            setElementData(entryMarker, "garage:name", context.house.name or "Garage", true)
             setElementParent(entryMarker, resourceRoot)
             garageZoneMarkers[entryMarker] = propertyId
 
@@ -353,8 +356,8 @@ local function buildGarageElements()
             )
             setElementInterior(exitMarker, context.interior.interior)
             setElementDimension(exitMarker, context.interior.dimension)
-            setElementData(exitMarker, "garage:houseId", propertyId, false)
-            setElementData(exitMarker, "garage:markerType", "exit", false)
+            setElementData(exitMarker, "garage:houseId", propertyId, true)
+            setElementData(exitMarker, "garage:markerType", "exit", true)
             setElementParent(exitMarker, resourceRoot)
             garageExitMarkers[exitMarker] = propertyId
 
@@ -366,6 +369,35 @@ local function buildGarageElements()
         end
     end
 end
+
+addCommandHandler("buy_garage", function(player)
+    local px, py, pz = getElementPosition(player)
+    local pDim = getElementDimension(player)
+    local pInt = getElementInterior(player)
+    
+    local bestMarker = nil
+    local bestDistance = 5.0
+    local propertyId = nil
+
+    for marker, pId in pairs(garageZoneMarkers) do
+        if getElementDimension(marker) == pDim and getElementInterior(marker) == pInt then
+            local mx, my, mz = getElementPosition(marker)
+            local dist = getDistanceBetweenPoints3D(px, py, pz, mx, my, mz)
+            if dist < bestDistance then
+                bestMarker = marker
+                bestDistance = dist
+                propertyId = pId
+            end
+        end
+    end
+
+    if not propertyId then
+        outputChatBox("Garage: You are not near any garage entrance.", player, 255, 80, 80)
+        return
+    end
+
+    triggerEvent("housing:requestBuyGarage", player, propertyId)
+end)
 
 addCommandHandler("parkgarage", function(player)
     local propertyId = getGaragePropertyByPlayer(player)

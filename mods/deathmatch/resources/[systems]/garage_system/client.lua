@@ -44,27 +44,41 @@ local function getNearestGarageMarker()
     end
 
     if not bestMarker then
-        return nil, nil
+        return nil, nil, nil
     end
 
     if bestDistance > MAX_DISTANCE then
-        return nil, nil
+        return nil, nil, nil
     end
 
-    return tonumber(getElementData(bestMarker, "garage:houseId")), getElementData(bestMarker, "garage:markerType")
+    return tonumber(getElementData(bestMarker, "garage:houseId")), getElementData(bestMarker, "garage:markerType"), bestMarker
 end
 
 local wasNearGarage = false
 
 local function refreshGarageHint()
-    local houseId, markerType = getNearestGarageMarker()
+    local houseId, markerType, marker = getNearestGarageMarker()
     nearGarageHouseId = houseId
     nearGarageMarkerType = markerType
     nearGarageHint = houseId ~= nil and markerType ~= nil
 
     if nearGarageHint and not wasNearGarage then
-        if not isInGarageDimension() then
-            outputChatBox("Press [F] near the marker to enter the garage.", 80, 180, 255)
+        if nearGarageMarkerType == "entry" then
+            local name = getElementData(marker, "garage:name") or "Garage"
+            local owner = getElementData(marker, "garage:owner") or ""
+            local price = tonumber(getElementData(marker, "garage:price")) or 0
+
+            outputChatBox("===================================", 200, 200, 200)
+            outputChatBox("Garage: " .. tostring(name), 100, 200, 255)
+            
+            if owner == "" then
+                outputChatBox("Status: For Sale! Price: $" .. tostring(price), 100, 255, 100)
+                outputChatBox("Type /buy_garage to purchase this property.", 255, 255, 100)
+            else
+                outputChatBox("Status: Owned.", 255, 100, 100)
+            end
+            outputChatBox("Press [F] to enter.", 200, 200, 200)
+            outputChatBox("===================================", 200, 200, 200)
         else
             outputChatBox("Press [F] near the marker to exit the garage.", 80, 180, 255)
         end

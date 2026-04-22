@@ -967,6 +967,41 @@ addEventHandler("housing:requestBuy", root, function()
     showHousePopup(client, house, mType)
 end)
 
+addEvent("housing:requestBuyGarage", true)
+addEventHandler("housing:requestBuyGarage", root, function(propertyId)
+    local player = client or source
+    local house = getHouseData(propertyId)
+    if not house then return end
+
+    if house.owner_key ~= "" then
+        outputChatBox("Garage: This garage is already owned.", player, 255, 80, 80)
+        return
+    end
+
+    local buyerKey = getAccountOwnerKey(player)
+    local buyerAccount = getAccountNameForKeys(player)
+    local linkedConflict = getLinkedBuyConflict(house, buyerKey)
+    if linkedConflict then
+        outputChatBox("Garage: This garage is linked to " .. linkedConflict.name .. ", which belongs to someone else.", player, 255, 80, 80)
+        return
+    end
+
+    local money = getPlayerMoney(player)
+    if money < house.price then
+        outputChatBox("Garage: You don't have enough money ($" .. tostring(house.price) .. ").", player, 255, 80, 80)
+        return
+    end
+
+    takePlayerMoney(player, house.price)
+    applyLinkedOwnership(house, buyerKey, buyerAccount, true)
+    outputChatBox("Garage: You successfully bought " .. house.name .. " for $" .. tostring(house.price) .. "!", player, 100, 255, 100)
+
+    local linked = getLinkedHouse(house)
+    if linked and linked.owner_key == buyerKey then
+        outputChatBox("Garage: Linked property access was also assigned for " .. linked.name .. ".", player, 120, 220, 255)
+    end
+end)
+
 addEvent("housing:requestToggleLock", true)
 addEventHandler("housing:requestToggleLock", root, function()
     if isInPreview(client) then return end
