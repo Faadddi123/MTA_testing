@@ -313,6 +313,78 @@ local function buildPanel()
     buildAddTab(tabs, "house", "Add House", "Create House at My Position", "Link To Garage")
     buildAddTab(tabs, "garage", "Add Garage", "Create Garage at My Position", "Link To House")
 
+    -- ─── Interiors Manager Tab ───────────────────────────────────
+    local tabInteriors = guiCreateTab("Interiors", tabs)
+
+    guiCreateLabel(8, 8, W - 40, 20,
+        "Manage custom interiors. Disable unused ones or stop conflicting original resources.",
+        false, tabInteriors)
+
+    ui.interiorGrid = guiCreateGridList(8, 32, W - 40, 360, false, tabInteriors)
+    guiGridListSetSelectionMode(ui.interiorGrid, 0)
+    guiGridListAddColumn(ui.interiorGrid, "Name", 0.30)
+    guiGridListAddColumn(ui.interiorGrid, "Type", 0.08)
+    guiGridListAddColumn(ui.interiorGrid, "Size", 0.07)
+    guiGridListAddColumn(ui.interiorGrid, "Source", 0.10)
+    guiGridListAddColumn(ui.interiorGrid, "Status", 0.10)
+    guiGridListAddColumn(ui.interiorGrid, "Orig. Res.", 0.15)
+    guiGridListAddColumn(ui.interiorGrid, "Conflict", 0.10)
+
+    local btnToggle = guiCreateButton(8, 400, 160, 30, "Toggle Enable/Disable", false, tabInteriors)
+    local btnStopOrig = guiCreateButton(180, 400, 180, 30, "Stop Original Resource", false, tabInteriors)
+    local btnStopAll = guiCreateButton(372, 400, 200, 30, "Stop ALL Original Resources", false, tabInteriors)
+    local btnRefreshInt = guiCreateButton(584, 400, 100, 30, "Refresh", false, tabInteriors)
+    ui.interiorStatus = guiCreateLabel(8, 440, W - 40, 20, "", false, tabInteriors)
+    guiLabelSetColor(ui.interiorStatus, 180, 180, 180)
+
+    guiCreateLabel(8, 465, W - 40, 40,
+        "TIP: If an interior looks corrupted, its original resource in [maps] may be running and creating duplicate objects.\n" ..
+        "Use 'Stop Original Resource' to fix it, or 'Stop ALL' to clear all conflicts at once.",
+        false, tabInteriors)
+
+    addEventHandler("onClientGUIClick", btnToggle, function()
+        local row = guiGridListGetSelectedItem(ui.interiorGrid)
+        if row < 0 then
+            guiSetText(ui.interiorStatus, "Select an interior first.")
+            guiLabelSetColor(ui.interiorStatus, 255, 160, 60)
+            return
+        end
+        local key = guiGridListGetItemData(ui.interiorGrid, row, 1)
+        if key then
+            triggerServerEvent("hm:toggleInterior", localPlayer, key)
+        end
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnStopOrig, function()
+        local row = guiGridListGetSelectedItem(ui.interiorGrid)
+        if row < 0 then
+            guiSetText(ui.interiorStatus, "Select a custom interior first.")
+            guiLabelSetColor(ui.interiorStatus, 255, 160, 60)
+            return
+        end
+        local resName = guiGridListGetItemText(ui.interiorGrid, row, 6)
+        if resName and resName ~= "" and resName ~= "--" then
+            triggerServerEvent("hm:stopOriginalResource", localPlayer, resName)
+            guiSetText(ui.interiorStatus, "Stopping " .. resName .. "...")
+            guiLabelSetColor(ui.interiorStatus, 255, 200, 50)
+        else
+            guiSetText(ui.interiorStatus, "Selected interior is native (no original resource to stop).")
+            guiLabelSetColor(ui.interiorStatus, 200, 200, 200)
+        end
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnStopAll, function()
+        triggerServerEvent("hm:stopAllOriginals", localPlayer)
+        guiSetText(ui.interiorStatus, "Stopping all original resources...")
+        guiLabelSetColor(ui.interiorStatus, 255, 200, 50)
+    end, false)
+
+    addEventHandler("onClientGUIClick", btnRefreshInt, function()
+        triggerServerEvent("hm:requestInteriorList", localPlayer)
+        guiSetText(ui.interiorStatus, "Refreshing...")
+        guiLabelSetColor(ui.interiorStatus, 200, 200, 100)
+    end, false)
+
     local tabHelp = guiCreateTab("Help", tabs)
     guiCreateLabel(12, 12, W - 60, 520,
         "WORKFLOW\n" ..
@@ -568,10 +640,52 @@ addEventHandler("hm:openPanel", root, function()
     isOpen = true
     triggerServerEvent("hm:requestCatalog", localPlayer)
     triggerServerEvent("hm:requestList", localPlayer)
+    triggerServerEvent("hm:requestInteriorList", localPlayer)
 end)
 
 addEventHandler("onClientKey", root, function(key, press)
     if press and key == "escape" and isOpen then
         closePanel()
+    end
+end)
+
+-- ─────────────────────────────────────────────────────────────
+-- INTERIOR MANAGER: Client events
+-- ─────────────────────────────────────────────────────────────
+addEvent("hm:receiveInteriorList", true)
+addEventHandler("hm:receiveInteriorList", root, function(list)
+    if not ui.interiorGrid or not isElement(ui.interiorGrid) then return end
+
+    guiGridListClear(ui.interiorGrid)
+
+    for _, entry in ipairs(list or {}) do
+        local row = guiGridListAddRow(ui.interiorGrid)
+        guiGridListSetItemText(ui.interiorGrid, row, 1, entry.label, false, false)
+        guiGridListSetItemData(ui.interiorGrid, row, 1, entry.key)
+        guiGridListSetItemText(ui.interiorGrid, row, 2, entry.ptype, false, false)
+        guiGridListSetItemText(ui.interiorGrid, row, 3, entry.size, false, false)
+        guiGridListSetItemText(ui.interiorGrid, row, 4, entry.is_custom and "Custom" or "Native", false, false)
+        guiGridListSetItemText(ui.interiorGrid, row, 5, entry.enabled and "Enabled" or "DISABLED", false, false)
+        guiGridListSetItemText(ui.interiorGrid, row, 6, entry.custom_map ~= "" and entry.custom_map or "--", false, false)
+        guiGridListSetItemText(ui.interiorGrid, row, 7, entry.orig_running and "RUNNING!" or "OK", false, false)
+
+        -- Color the status column
+        if entry.enabled then
+            guiGridListSetItemColor(ui.interiorGrid, row, 5, 100, 255, 100)
+        else
+            guiGridListSetItemColor(ui.interiorGrid, row, 5, 255, 100, 100)
+        end
+
+        -- Color the conflict column
+        if entry.orig_running then
+            guiGridListSetItemColor(ui.interiorGrid, row, 7, 255, 80, 80)
+        else
+            guiGridListSetItemColor(ui.interiorGrid, row, 7, 100, 255, 100)
+        end
+    end
+
+    if ui.interiorStatus and isElement(ui.interiorStatus) then
+        guiSetText(ui.interiorStatus, "Loaded " .. #(list or {}) .. " interiors.")
+        guiLabelSetColor(ui.interiorStatus, 120, 255, 120)
     end
 end)

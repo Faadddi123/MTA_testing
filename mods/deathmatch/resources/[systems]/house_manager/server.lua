@@ -384,12 +384,21 @@ local function isGarageType(propertyRow)
     return propertyRow and propertyRow.property_type == "garage"
 end
 
+-- ─────────────────────────────────────────────────────────────
+-- INTERIOR MANAGER: Track disabled custom interiors
+-- ─────────────────────────────────────────────────────────────
+local disabledInteriors = {}  -- key → true if disabled
+
+local function isInteriorEnabled(key)
+    return not disabledInteriors[key]
+end
+
 local function buildCatalogPayload()
     local function collect(keys)
         local result = {}
         for _, key in ipairs(keys) do
             local preset = INTERIOR_CATALOG[key]
-            if preset then
+            if preset and isInteriorEnabled(key) then
                 result[#result + 1] = {
                     key = key,
                     label = preset.label,
@@ -853,3 +862,113 @@ end
 
 addCommandHandler("houseadmin", openPanel)
 addCommandHandler("ha", openPanel)
+
+-- ─────────────────────────────────────────────────────────────
+-- INTERIOR MANAGER: Server events
+-- ─────────────────────────────────────────────────────────────
+
+-- Build the interior list for the manager tab
+local function buildInteriorManagerList()
+    local list = {}
+    local allKeys = {}
+    for _, key in ipairs(HOUSE_CATEGORY_KEYS) do allKeys[#allKeys + 1] = key end
+    for _, key in ipairs(GARAGE_CATEGORY_KEYS) do allKeys[#allKeys + 1] = key end
+
+    for _, key in ipairs(allKeys) do
+        local preset = INTERIOR_CATALOG[key]
+        if preset then
+            local isCustom = preset.custom_map ~= nil
+            local mapRes = isCustom and preset.custom_map or nil
+            local origRunning = false
+            if mapRes then
+                local res = getResourceFromName(mapRes)
+                origRunning = res and (getResourceState(res) == "running") or false
+            end
+
+            list[#list + 1] = {
+                key = key,
+                label = preset.label,
+                size = preset.size or "?",
+                ptype = CATEGORY_TO_TYPE[key] or "house",
+                is_custom = isCustom,
+                custom_map = mapRes or "",
+                enabled = isInteriorEnabled(key),
+                orig_running = origRunning,
+            }
+        end
+    end
+    return list
+end
+
+addEvent("hm:requestInteriorList", true)
+addEventHandler("hm:requestInteriorList", root, function()
+    local player = client
+    if not isAdmin(player) then return end
+    triggerClientEvent(player, "hm:receiveInteriorList", player, buildInteriorManagerList())
+end)
+
+addEvent("hm:toggleInterior", true)
+addEventHandler("hm:toggleInterior", root, function(key)
+    local player = client
+    if not isAdmin(player) then return end
+    if not INTERIOR_CATALOG[key] then return end
+
+    if disabledInteriors[key] then
+        disabledInteriors[key] = nil
+        outputChatBox("[InteriorMgr] Enabled: " .. (INTERIOR_CATALOG[key].label or key), player, 100, 255, 100, true)
+    else
+        disabledInteriors[key] = true
+        outputChatBox("[InteriorMgr] Disabled: " .. (INTERIOR_CATALOG[key].label or key), player, 255, 160, 60, true)
+    end
+
+    -- Refresh lists for the player
+    triggerClientEvent(player, "hm:receiveInteriorList", player, buildInteriorManagerList())
+    sendCatalog(player)
+end)
+
+addEvent("hm:stopOriginalResource", true)
+addEventHandler("hm:stopOriginalResource", root, function(resName)
+    local player = client
+    if not isAdmin(player) then return end
+    if not resName or resName == "" then return end
+
+    local res = getResourceFromName(resName)
+    if res and getResourceState(res) == "running" then
+        stopResource(res)
+        outputChatBox("[InteriorMgr] Stopped original resource: " .. resName, player, 255, 200, 50, true)
+    else
+        outputChatBox("[InteriorMgr] Resource '" .. resName .. "' is not running.", player, 200, 200, 200, true)
+    end
+
+    -- Refresh after stopping
+    setTimer(function()
+        triggerClientEvent(player, "hm:receiveInteriorList", player, buildInteriorManagerList())
+    end, 500, 1)
+end)
+
+addEvent("hm:stopAllOriginals", true)
+addEventHandler("hm:stopAllOriginals", root, function()
+    local player = client
+    if not isAdmin(player) then return end
+    local stopped = 0
+
+    local allKeys = {}
+    for _, key in ipairs(HOUSE_CATEGORY_KEYS) do allKeys[#allKeys + 1] = key end
+    for _, key in ipairs(GARAGE_CATEGORY_KEYS) do allKeys[#allKeys + 1] = key end
+
+    for _, key in ipairs(allKeys) do
+        local preset = INTERIOR_CATALOG[key]
+        if preset and preset.custom_map then
+            local res = getResourceFromName(preset.custom_map)
+            if res and getResourceState(res) == "running" then
+                stopResource(res)
+                stopped = stopped + 1
+            end
+        end
+    end
+
+    outputChatBox("[InteriorMgr] Stopped " .. stopped .. " original resource(s).", player, 255, 200, 50, true)
+    setTimer(function()
+        triggerClientEvent(player, "hm:receiveInteriorList", player, buildInteriorManagerList())
+    end, 500, 1)
+end)
